@@ -64,7 +64,7 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Introduction of Spatial Analysis" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html" />
+    <link rel="next" title="9. Introduction of Spatial Analysis" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html" />
     <link rel="prev" title="1. Matrix Interpretation" href="Chapter1-Interpretaion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,15 +177,20 @@
 <li class="toctree-l1"><a class="reference internal" href="Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Matrix Mutiplication</a></li>
 
+
+
+
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistic Learning (Luc Anselin)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">4. Introduction of Spatial Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">5. Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">6. Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">7. Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">8. Moran’s I and Geary’s C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">9. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">9. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">10. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">11. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">12. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">13. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">14. Visualizing Spatial Autocorrelation</a></li>
 </ul>
 
     </div>
@@ -453,34 +458,25 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-mutiplication-rule">2.3. Another mutiplication rule</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix">3. E.g.
-$$
-\begin{bmatrix}
-2 &amp; 3 \
-3 &amp; 18 \
-4 &amp; 24
-\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laws-for-matrix-operations">3.1. The Laws for Matrix Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-addition">3.1.1. About addition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-multiplication">3.1.2. About multiplication</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-powers">3.1.3. About Powers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laws-for-matrix-operations">3. The Laws for Matrix Operations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-addition">3.1. About addition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-multiplication">3.2. About multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-powers">3.3. About Powers</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-multiplication">3.2. Block multiplication</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">3.3. Inverse</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.3.1. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property">3.3.2. property</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#block-multiplication">4. Block multiplication</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">5. Inverse</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">5.1. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property">5.2. property</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-to-solve-the-inverse">3.4. Two ways to solve the inverse</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-them-by-the-meaning">3.4.1. Solve them by the meaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordan-augmented-matrix">3.4.2. Gauss -Jordan (Augmented matrix)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-to-solve-the-inverse">6. Two ways to solve the inverse</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-them-by-the-meaning">6.1. Solve them by the meaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordan-augmented-matrix">6.2. Gauss -Jordan (Augmented matrix)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-matrix-do-not-have-inverse">3.5. Singular matrix (do not have inverse)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-example">3.6. Important Example</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-matrix-do-not-have-inverse">7. Singular matrix (do not have inverse)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#important-example">8. Important Example</a></li>
 </ul>
 
             </nav>
@@ -579,82 +575,86 @@ A_{m \times n} \ast B_{n \times p} = C_{m \times p}
 0 &amp; 1 
 \end{bmatrix}
 \end{split}\]</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix">
-<h1><span class="section-number">3. </span>E.g.
-$$
-\begin{bmatrix}
-2 &amp; 3 \
-3 &amp; 18 \
-4 &amp; 24
-\end{bmatrix}<a class="headerlink" href="#e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix" title="Link to this heading">#</a></h1>
-<p>\begin{bmatrix}
-2 &amp; 12 \
-3 &amp; 18 \
-4 &amp; 24
-\end{bmatrix},
-$$</p>
+<ul>
+<li><p>E.g.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{bmatrix} 
+    2 &amp; 3 \\ 
+    3 &amp; 18 \\ 
+    4 &amp; 24 
+    \end{bmatrix} 
+    = 
+    \begin{bmatrix} 
+    2 &amp; 12 \\ 
+    3 &amp; 18 \\ 
+    4 &amp; 24 
+    \end{bmatrix},
+    \end{split}\]</div>
 <p>it fits our rule: the columns of <span class="math notranslate nohighlight">\(C\)</span> are combinations of columns of <span class="math notranslate nohighlight">\(A\)</span>, and rows of <span class="math notranslate nohighlight">\(C\)</span> are combinations of rows of <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <p>Since
 $<span class="math notranslate nohighlight">\(
-\begin{bmatrix} 
-2 &amp; 12 \\ 
-3 &amp; 18 \\ 
-4 &amp; 24 
-\end{bmatrix} 
-\)</span>$</p>
+  \begin{bmatrix} 
+  2 &amp; 12 \\ 
+  3 &amp; 18 \\ 
+  4 &amp; 24 
+  \end{bmatrix} 
+  \)</span>$</p>
 <p>can be decomposed as two <span class="math notranslate nohighlight">\(3 \times 1\)</span> and <span class="math notranslate nohighlight">\(1 \times 2\)</span> matrices, we can see that no matter the column space or row space,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{bmatrix} 
-2 &amp; 12 \\ 
-3 &amp; 18 \\ 
-4 &amp; 24 
-\end{bmatrix} 
-\end{split}\]</div>
+    \begin{bmatrix} 
+    2 &amp; 12 \\ 
+    3 &amp; 18 \\ 
+    4 &amp; 24 
+    \end{bmatrix} 
+    \end{split}\]</div>
 <p>is a line.</p>
 <p>Therefore, <span class="math notranslate nohighlight">\(AB = \text{sum of (columns of } A \times \text{ rows of } B)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{bmatrix} 
-2 &amp; 7 \\ 
-3 &amp; 8 \\ 
-4 &amp; 9 
-\end{bmatrix} 
-\begin{bmatrix} 
-1 &amp; 6 \\ 
-0 &amp; 1 
-\end{bmatrix} 
-= 
-\begin{bmatrix} 
-2 &amp; 3 \\ 
-3 &amp; 4 \\ 
-4 &amp; 9 
-\end{bmatrix} 
-\begin{bmatrix} 
-1 &amp; 6 
-\end{bmatrix} 
-+ 
-\begin{bmatrix} 
-7 \\ 
-8 \\ 
-9 
-\end{bmatrix} 
-\begin{bmatrix} 
-0 &amp; 1 
-\end{bmatrix} 
-= 
-\begin{bmatrix} 
-2 \times 6 + 7 \\ 
-3 \times 6 + 8 \\ 
-4 \times 6 + 9 
-\end{bmatrix}
-\end{split}\]</div>
+    \begin{bmatrix} 
+    2 &amp; 7 \\ 
+    3 &amp; 8 \\ 
+    4 &amp; 9 
+    \end{bmatrix} 
+    \begin{bmatrix} 
+    1 &amp; 6 \\ 
+    0 &amp; 1 
+    \end{bmatrix} 
+    = 
+    \begin{bmatrix} 
+    2 &amp; 3 \\ 
+    3 &amp; 4 \\ 
+    4 &amp; 9 
+    \end{bmatrix} 
+    \begin{bmatrix} 
+    1 &amp; 6 
+    \end{bmatrix} 
+    + 
+    \begin{bmatrix} 
+    7 \\ 
+    8 \\ 
+    9 
+    \end{bmatrix} 
+    \begin{bmatrix} 
+    0 &amp; 1 
+    \end{bmatrix} 
+    = 
+    \begin{bmatrix} 
+    2 \times 6 + 7 \\ 
+    3 \times 6 + 8 \\ 
+    4 \times 6 + 9 
+    \end{bmatrix}
+    \end{split}\]</div>
+</li>
+</ul>
+</section>
+</section>
 <section id="the-laws-for-matrix-operations">
-<h2><span class="section-number">3.1. </span>The Laws for Matrix Operations<a class="headerlink" href="#the-laws-for-matrix-operations" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">3. </span>The Laws for Matrix Operations<a class="headerlink" href="#the-laws-for-matrix-operations" title="Link to this heading">#</a></h1>
 <section id="about-addition">
-<h3><span class="section-number">3.1.1. </span>About addition<a class="headerlink" href="#about-addition" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">3.1. </span>About addition<a class="headerlink" href="#about-addition" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 A + B = B + A \quad \text{(commutative law)}
@@ -669,7 +669,7 @@ A + (B + C) = (A + B) + C \quad \text{(associative law)}
 \]</div>
 </section>
 <section id="about-multiplication">
-<h3><span class="section-number">3.1.2. </span>About multiplication<a class="headerlink" href="#about-multiplication" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">3.2. </span>About multiplication<a class="headerlink" href="#about-multiplication" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 AB \neq BA \quad \text{(the commutative &quot;law&quot; is usually broken)}
@@ -688,7 +688,7 @@ A(BC) = (AB)C \quad \text{(associative law for } ABC \text{) (parentheses not ne
 \]</div>
 </section>
 <section id="about-powers">
-<h3><span class="section-number">3.1.3. </span>About Powers<a class="headerlink" href="#about-powers" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">3.3. </span>About Powers<a class="headerlink" href="#about-powers" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 A^p = AAA \cdots A \quad (p \text{ factors})
@@ -704,7 +704,7 @@ A^p = AAA \cdots A \quad (p \text{ factors})
 </section>
 </section>
 <section id="block-multiplication">
-<h2><span class="section-number">3.2. </span>Block multiplication<a class="headerlink" href="#block-multiplication" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">4. </span>Block multiplication<a class="headerlink" href="#block-multiplication" title="Link to this heading">#</a></h1>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> can be divided into 4 blocks of matrices, <span class="math notranslate nohighlight">\(A_1, A_2, A_3, A_4\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> as <span class="math notranslate nohighlight">\(B_1, B_2, B_3, B_4\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -725,14 +725,14 @@ A_1B_1 + A_2B_3 &amp; \cdots \\
 <p>Just like regular matrix multiplication.</p>
 </section>
 <section id="inverse">
-<h2><span class="section-number">3.3. </span>Inverse<a class="headerlink" href="#inverse" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">5. </span>Inverse<a class="headerlink" href="#inverse" title="Link to this heading">#</a></h1>
 <p>For rectangular matrices, the left inverse is not equal to the right inverse, but for a square matrix,</p>
 <div class="math notranslate nohighlight">
 \[
 A^{-1}A = I = AA^{-1}
 \]</div>
 <section id="example">
-<h3><span class="section-number">3.3.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">5.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix} 
@@ -761,14 +761,14 @@ b &amp; d
 \end{split}\]</div>
 </section>
 <section id="property">
-<h3><span class="section-number">3.3.2. </span>property<a class="headerlink" href="#property" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">5.2. </span>property<a class="headerlink" href="#property" title="Link to this heading">#</a></h2>
 <p><img alt="image.png" src="../../_images/07.png" /></p>
 </section>
 </section>
 <section id="two-ways-to-solve-the-inverse">
-<h2><span class="section-number">3.4. </span>Two ways to solve the inverse<a class="headerlink" href="#two-ways-to-solve-the-inverse" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">6. </span>Two ways to solve the inverse<a class="headerlink" href="#two-ways-to-solve-the-inverse" title="Link to this heading">#</a></h1>
 <section id="solve-them-by-the-meaning">
-<h3><span class="section-number">3.4.1. </span>Solve them by the meaning<a class="headerlink" href="#solve-them-by-the-meaning" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">6.1. </span>Solve them by the meaning<a class="headerlink" href="#solve-them-by-the-meaning" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix} 
@@ -835,7 +835,7 @@ d
 \end{split}\]</div>
 </section>
 <section id="gauss-jordan-augmented-matrix">
-<h3><span class="section-number">3.4.2. </span>Gauss -Jordan (Augmented matrix)<a class="headerlink" href="#gauss-jordan-augmented-matrix" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">6.2. </span>Gauss -Jordan (Augmented matrix)<a class="headerlink" href="#gauss-jordan-augmented-matrix" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix} 
@@ -860,7 +860,7 @@ E \begin{bmatrix} A \mid I \end{bmatrix} = \begin{bmatrix} I \mid A^{-1} \end{bm
 </section>
 </section>
 <section id="singular-matrix-do-not-have-inverse">
-<h2><span class="section-number">3.5. </span>Singular matrix (do not have inverse)<a class="headerlink" href="#singular-matrix-do-not-have-inverse" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">7. </span>Singular matrix (do not have inverse)<a class="headerlink" href="#singular-matrix-do-not-have-inverse" title="Link to this heading">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix} 
@@ -887,7 +887,7 @@ E \begin{bmatrix} A \mid I \end{bmatrix} = \begin{bmatrix} I \mid A^{-1} \end{bm
 \end{split}\]</div>
 </section>
 <section id="important-example">
-<h2><span class="section-number">3.6. </span>Important Example<a class="headerlink" href="#important-example" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">8. </span>Important Example<a class="headerlink" href="#important-example" title="Link to this heading">#</a></h1>
 <p><img alt="image.png" src="../../_images/08.png" /></p>
 <p>The matrix <span class="math notranslate nohighlight">\(S^2\)</span> has a useful interpretation. <span class="math notranslate nohighlight">\((S^2)_{ij}\)</span> counts the walks of length 2 between node <span class="math notranslate nohighlight">\(i\)</span> and node <span class="math notranslate nohighlight">\(j\)</span>. Between nodes 2 and 3, the graph has two walks: go via 1 or go via 4. From node 1 to node 1, there are also two walks: 1→2→1 and 1→3→1.</p>
 <div class="math notranslate nohighlight">
@@ -913,7 +913,6 @@ S^3 =
 <div class="math notranslate nohighlight">
 \[(S^2)_{ij} = \text{(row } i \text{ of } S) \cdot \text{(column } j \text{ of } S) = s_{i1}s_{1j} + s_{i2}s_{2j} + s_{i3}s_{3j} + s_{i4}s_{4j}. \quad (7)\]</div>
 <p>If there is a 2-step path <span class="math notranslate nohighlight">\(i \to 1 \to j\)</span>, the first multiplication gives <span class="math notranslate nohighlight">\(s_{i1}s_{1j} = (1)(1) = 1\)</span>. If <span class="math notranslate nohighlight">\(i \to 1 \to j\)</span> is not a path, then either <span class="math notranslate nohighlight">\(i \to 1\)</span> is missing or <span class="math notranslate nohighlight">\(1 \to j\)</span> is missing. So the multiplication gives <span class="math notranslate nohighlight">\(s_{i1}s_{1j} = 0\)</span> in that case.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -960,7 +959,7 @@ S^3 =
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Introduction of Spatial Analysis</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Introduction of Spatial Analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -986,34 +985,25 @@ S^3 =
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-mutiplication-rule">2.3. Another mutiplication rule</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix">3. E.g.
-$$
-\begin{bmatrix}
-2 &amp; 3 \
-3 &amp; 18 \
-4 &amp; 24
-\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laws-for-matrix-operations">3.1. The Laws for Matrix Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-addition">3.1.1. About addition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-multiplication">3.1.2. About multiplication</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-powers">3.1.3. About Powers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laws-for-matrix-operations">3. The Laws for Matrix Operations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-addition">3.1. About addition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-multiplication">3.2. About multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-powers">3.3. About Powers</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-multiplication">3.2. Block multiplication</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">3.3. Inverse</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.3.1. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property">3.3.2. property</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#block-multiplication">4. Block multiplication</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">5. Inverse</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">5.1. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property">5.2. property</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-to-solve-the-inverse">3.4. Two ways to solve the inverse</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-them-by-the-meaning">3.4.1. Solve them by the meaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordan-augmented-matrix">3.4.2. Gauss -Jordan (Augmented matrix)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-to-solve-the-inverse">6. Two ways to solve the inverse</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-them-by-the-meaning">6.1. Solve them by the meaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordan-augmented-matrix">6.2. Gauss -Jordan (Augmented matrix)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-matrix-do-not-have-inverse">3.5. Singular matrix (do not have inverse)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-example">3.6. Important Example</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-matrix-do-not-have-inverse">7. Singular matrix (do not have inverse)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#important-example">8. Important Example</a></li>
 </ul>
 
   </nav></div>
