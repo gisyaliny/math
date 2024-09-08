@@ -15,10 +15,7 @@ parts:
     maxdepth: 2
     chapters:
       - file: docs/linearAlgebra/Chapter1-Interpretaion
-      - file: docs/foundation/MLE
-      - file: docs/foundation/Sample-Size-Determine
-      - file: docs/foundation/Kriging
-      - file: docs/foundation/SAR-CAR
+      - file: docs/linearAlgebra/Chapter2-Matrix-Operation
   - caption: Statistic Learning (Luc Anselin)
     numbered: true
     maxdepth: 2
