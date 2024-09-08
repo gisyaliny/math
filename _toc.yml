@@ -16,16 +16,11 @@ parts:
     chapters:
       - file: docs/linearAlgebra/Chapter1-Interpretaion
       - file: docs/linearAlgebra/Chapter2-Matrix-Operation
-  - caption: Statistic Learning (Luc Anselin)
+  - caption: Advance Math
     numbered: true
     maxdepth: 2
     chapters:
-      - file: docs/st_learning_anselin/L1-Spatial-Analysis-Intro
-      - file: docs/st_learning_anselin/L2-Maps
-      - file: docs/st_learning_anselin/L3-Exploratory-Data-Analysis
-      - file: docs/st_learning_anselin/L4-Spatial-Autocorrelation
-      - file: docs/st_learning_anselin/L5-Global-Spatial-Autocorrelation
-      - file: docs/st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation
+      - file: docs/AdvanceMath/Chapter1-Limit-Continuous
   # - caption: Appendix
   #   chapters:
   #     - file: book/gee/bibliography
