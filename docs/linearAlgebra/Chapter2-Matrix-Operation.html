@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Matrix Mutiplication &#8212; Yalin&#39;s Mathematic Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/linearAlgebra/Chapter2-Matrix-Operation';</script>
+    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/linearAlgebra/Chapter2-Matrix-Operation.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Introduction of Spatial Analysis" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html" />
+    <link rel="prev" title="1. Matrix Interpretation" href="Chapter1-Interpretaion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Yalin's Mathematic Handbook - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Yalin's Mathematic Handbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Matrix Mutiplication</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistic Learning (Luc Anselin)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">4. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">5. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">6. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">7. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">8. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">9. Visualizing Spatial Autocorrelation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/linearAlgebra/Chapter2-Matrix-Operation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/linearAlgebra/Chapter2-Matrix-Operation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/linearAlgebra/Chapter2-Matrix-Operation.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/linearAlgebra/Chapter2-Matrix-Operation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/linearAlgebra/Chapter2-Matrix-Operation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Matrix Mutiplication</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Matrix Mutiplication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-by-column">2.1. Interpret by column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-by-row">2.2. Interpret by row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-mutiplication-rule">2.3. Another mutiplication rule</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix">3. E.g.
+$$
+\begin{bmatrix}
+2 &amp; 3 \
+3 &amp; 18 \
+4 &amp; 24
+\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laws-for-matrix-operations">3.1. The Laws for Matrix Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-addition">3.1.1. About addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-multiplication">3.1.2. About multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-powers">3.1.3. About Powers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-multiplication">3.2. Block multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">3.3. Inverse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.3.1. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property">3.3.2. property</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-to-solve-the-inverse">3.4. Two ways to solve the inverse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-them-by-the-meaning">3.4.1. Solve them by the meaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordan-augmented-matrix">3.4.2. Gauss -Jordan (Augmented matrix)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-matrix-do-not-have-inverse">3.5. Singular matrix (do not have inverse)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-example">3.6. Important Example</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="matrix-mutiplication">
+<h1><span class="section-number">2. </span>Matrix Mutiplication<a class="headerlink" href="#matrix-mutiplication" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+A_{m \times n} \ast B_{n \times p} = C_{m \times p}
+\]</div>
+<section id="interpret-by-column">
+<h2><span class="section-number">2.1. </span>Interpret by column<a class="headerlink" href="#interpret-by-column" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We could consider it as A * a set of column vectors, since each column of C only depends on A * each column of B</p></li>
+<li><p>For example</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 7 \\ 
+3 &amp; 8 \\ 
+4 &amp; 9 
+\end{bmatrix}
+\begin{bmatrix} 
+1 &amp; 6 \\ 
+0 &amp; 1 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+\begin{bmatrix} 2 &amp; 7 \\ 3 &amp; 8 \\ 4 &amp; 9 \end{bmatrix} 
+\begin{bmatrix} 1 \\ 0 \end{bmatrix},
+\begin{bmatrix} 2 &amp; 7 \\ 3 &amp; 8 \\ 4 &amp; 9 \end{bmatrix} 
+\begin{bmatrix} 6 \\ 1 \end{bmatrix} 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+1 \ast \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} + 0 \ast \begin{bmatrix} 7 \\ 8 \\ 9 \end{bmatrix}, 
+6 \ast \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} + 1 \ast \begin{bmatrix} 7 \\ 8 \\ 9 \end{bmatrix} 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="interpret-by-row">
+<h2><span class="section-number">2.2. </span>Interpret by row<a class="headerlink" href="#interpret-by-row" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Rows of C are combination of rows of B</p></li>
+<li><p>For example</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 7 \\ 
+3 &amp; 8 \\ 
+4 &amp; 9 
+\end{bmatrix}
+\begin{bmatrix} 
+1 &amp; 6 \\ 
+0 &amp; 1 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+\begin{bmatrix} 2 &amp; 7 \end{bmatrix} \begin{bmatrix} 1 &amp; 6 \\ 0 &amp; 1 \end{bmatrix} \\ 
+\begin{bmatrix} 3 &amp; 8 \end{bmatrix} \begin{bmatrix} 1 &amp; 6 \\ 0 &amp; 1 \end{bmatrix} \\ 
+\begin{bmatrix} 4 &amp; 9 \end{bmatrix} \begin{bmatrix} 1 &amp; 6 \\ 0 &amp; 1 \end{bmatrix} 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+2 \ast \begin{bmatrix} 1 &amp; 6 \end{bmatrix} + 7 \ast \begin{bmatrix} 0 &amp; 1 \end{bmatrix} \\ 
+3 \ast \begin{bmatrix} 1 &amp; 6 \end{bmatrix} + 8 \ast \begin{bmatrix} 0 &amp; 1 \end{bmatrix} \\ 
+4 \ast \begin{bmatrix} 1 &amp; 6 \end{bmatrix} + 9 \ast \begin{bmatrix} 0 &amp; 1 \end{bmatrix} 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="another-mutiplication-rule">
+<h2><span class="section-number">2.3. </span>Another mutiplication rule<a class="headerlink" href="#another-mutiplication-rule" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z\)</span> = Column of <span class="math notranslate nohighlight">\(A\)</span> * Row of <span class="math notranslate nohighlight">\(B\)</span></p></li>
+<li><p>Example</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 7 \\ 
+3 &amp; 8 \\ 
+4 &amp; 9 
+\end{bmatrix}
+\begin{bmatrix} 
+1 &amp; 6 \\ 
+0 &amp; 1 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix">
+<h1><span class="section-number">3. </span>E.g.
+$$
+\begin{bmatrix}
+2 &amp; 3 \
+3 &amp; 18 \
+4 &amp; 24
+\end{bmatrix}<a class="headerlink" href="#e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+2 &amp; 12 \
+3 &amp; 18 \
+4 &amp; 24
+\end{bmatrix},
+$$</p>
+<p>it fits our rule: the columns of <span class="math notranslate nohighlight">\(C\)</span> are combinations of columns of <span class="math notranslate nohighlight">\(A\)</span>, and rows of <span class="math notranslate nohighlight">\(C\)</span> are combinations of rows of <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>Since
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix} 
+2 &amp; 12 \\ 
+3 &amp; 18 \\ 
+4 &amp; 24 
+\end{bmatrix} 
+\)</span>$</p>
+<p>can be decomposed as two <span class="math notranslate nohighlight">\(3 \times 1\)</span> and <span class="math notranslate nohighlight">\(1 \times 2\)</span> matrices, we can see that no matter the column space or row space,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 12 \\ 
+3 &amp; 18 \\ 
+4 &amp; 24 
+\end{bmatrix} 
+\end{split}\]</div>
+<p>is a line.</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(AB = \text{sum of (columns of } A \times \text{ rows of } B)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 7 \\ 
+3 &amp; 8 \\ 
+4 &amp; 9 
+\end{bmatrix} 
+\begin{bmatrix} 
+1 &amp; 6 \\ 
+0 &amp; 1 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+2 &amp; 3 \\ 
+3 &amp; 4 \\ 
+4 &amp; 9 
+\end{bmatrix} 
+\begin{bmatrix} 
+1 &amp; 6 
+\end{bmatrix} 
++ 
+\begin{bmatrix} 
+7 \\ 
+8 \\ 
+9 
+\end{bmatrix} 
+\begin{bmatrix} 
+0 &amp; 1 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+2 \times 6 + 7 \\ 
+3 \times 6 + 8 \\ 
+4 \times 6 + 9 
+\end{bmatrix}
+\end{split}\]</div>
+<section id="the-laws-for-matrix-operations">
+<h2><span class="section-number">3.1. </span>The Laws for Matrix Operations<a class="headerlink" href="#the-laws-for-matrix-operations" title="Link to this heading">#</a></h2>
+<section id="about-addition">
+<h3><span class="section-number">3.1.1. </span>About addition<a class="headerlink" href="#about-addition" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+A + B = B + A \quad \text{(commutative law)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+c(A + B) = cA + cB \quad \text{(distributive law)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A + (B + C) = (A + B) + C \quad \text{(associative law)}
+\]</div>
+</section>
+<section id="about-multiplication">
+<h3><span class="section-number">3.1.2. </span>About multiplication<a class="headerlink" href="#about-multiplication" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+AB \neq BA \quad \text{(the commutative &quot;law&quot; is usually broken)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A(B + C) = AB + AC \quad \text{(distributive law from the left)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(A + B)C = AC + BC \quad \text{(distributive law from the right)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A(BC) = (AB)C \quad \text{(associative law for } ABC \text{) (parentheses not needed)}
+\]</div>
+</section>
+<section id="about-powers">
+<h3><span class="section-number">3.1.3. </span>About Powers<a class="headerlink" href="#about-powers" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+A^p = AAA \cdots A \quad (p \text{ factors})
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(A^p)(A^q) = A^{p+q}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(A^p)^q = A^{pq}.
+\]</div>
+</section>
+</section>
+<section id="block-multiplication">
+<h2><span class="section-number">3.2. </span>Block multiplication<a class="headerlink" href="#block-multiplication" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> can be divided into 4 blocks of matrices, <span class="math notranslate nohighlight">\(A_1, A_2, A_3, A_4\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> as <span class="math notranslate nohighlight">\(B_1, B_2, B_3, B_4\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+A_1 &amp; A_2 \\ 
+A_3 &amp; A_4 
+\end{bmatrix}
+\begin{bmatrix} 
+B_1 &amp; B_2 \\ 
+B_3 &amp; B_4 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+A_1B_1 + A_2B_3 &amp; \cdots \\ 
+\cdots &amp; \cdots 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Just like regular matrix multiplication.</p>
+</section>
+<section id="inverse">
+<h2><span class="section-number">3.3. </span>Inverse<a class="headerlink" href="#inverse" title="Link to this heading">#</a></h2>
+<p>For rectangular matrices, the left inverse is not equal to the right inverse, but for a square matrix,</p>
+<div class="math notranslate nohighlight">
+\[
+A^{-1}A = I = AA^{-1}
+\]</div>
+<section id="example">
+<h3><span class="section-number">3.3.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 3 \\ 
+2 &amp; 7 
+\end{bmatrix}
+\begin{bmatrix} 
+a &amp; c \\ 
+b &amp; d 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+1 &amp; 0 \\ 
+0 &amp; 1 
+\end{bmatrix}
+\to 
+\begin{bmatrix} 
+a &amp; c \\ 
+b &amp; d 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+7 &amp; -3 \\ 
+-2 &amp; 1 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="property">
+<h3><span class="section-number">3.3.2. </span>property<a class="headerlink" href="#property" title="Link to this heading">#</a></h3>
+<p><img alt="image.png" src="../../_images/07.png" /></p>
+</section>
+</section>
+<section id="two-ways-to-solve-the-inverse">
+<h2><span class="section-number">3.4. </span>Two ways to solve the inverse<a class="headerlink" href="#two-ways-to-solve-the-inverse" title="Link to this heading">#</a></h2>
+<section id="solve-them-by-the-meaning">
+<h3><span class="section-number">3.4.1. </span>Solve them by the meaning<a class="headerlink" href="#solve-them-by-the-meaning" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 3 
+\end{bmatrix}
+\begin{bmatrix} 
+a \\ 
+b 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+1 \\ 
+0 
+\end{bmatrix}
+\rightarrow a + 3b = 1 \rightarrow a = 7, b = -2
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 7 
+\end{bmatrix}
+\begin{bmatrix} 
+a \\ 
+b 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+1 \\ 
+0 
+\end{bmatrix}
+\rightarrow 2a + 7b = 0
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 3 
+\end{bmatrix}
+\begin{bmatrix} 
+c \\ 
+d 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+0 \\ 
+1 
+\end{bmatrix}
+\rightarrow c + 3d = 0 \rightarrow c = -3, d = 1
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 7 
+\end{bmatrix}
+\begin{bmatrix} 
+c \\ 
+d 
+\end{bmatrix}
+= 
+\begin{bmatrix} 
+0 \\ 
+1 
+\end{bmatrix}
+\rightarrow 2c + 7d = 1
+\end{split}\]</div>
+</section>
+<section id="gauss-jordan-augmented-matrix">
+<h3><span class="section-number">3.4.2. </span>Gauss -Jordan (Augmented matrix)<a class="headerlink" href="#gauss-jordan-augmented-matrix" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 3 &amp; 1 &amp; 0 \\ 
+2 &amp; 7 &amp; 0 &amp; 1 
+\end{bmatrix} 
+\to 
+\begin{bmatrix} 
+1 &amp; 3 &amp; 1 &amp; 0 \\ 
+0 &amp; 1 &amp; -2 &amp; 1 
+\end{bmatrix} 
+\to 
+\begin{bmatrix} 
+1 &amp; 0 &amp; 7 &amp; -3 \\ 
+0 &amp; 1 &amp; -2 &amp; 1 
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+E \begin{bmatrix} A \mid I \end{bmatrix} = \begin{bmatrix} I \mid A^{-1} \end{bmatrix}, \quad E \text{ is the elimination matrix}
+\]</div>
+</section>
+</section>
+<section id="singular-matrix-do-not-have-inverse">
+<h2><span class="section-number">3.5. </span>Singular matrix (do not have inverse)<a class="headerlink" href="#singular-matrix-do-not-have-inverse" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 3 \\ 
+2 &amp; 6 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Square matrices do not have an inverse if I can find a vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> with <span class="math notranslate nohighlight">\(A\mathbf{x} = 0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 3 \\ 
+2 &amp; 6 
+\end{bmatrix}
+\begin{bmatrix} 
+3 \\ 
+-1 
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+0 \\ 
+0 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="important-example">
+<h2><span class="section-number">3.6. </span>Important Example<a class="headerlink" href="#important-example" title="Link to this heading">#</a></h2>
+<p><img alt="image.png" src="../../_images/08.png" /></p>
+<p>The matrix <span class="math notranslate nohighlight">\(S^2\)</span> has a useful interpretation. <span class="math notranslate nohighlight">\((S^2)_{ij}\)</span> counts the walks of length 2 between node <span class="math notranslate nohighlight">\(i\)</span> and node <span class="math notranslate nohighlight">\(j\)</span>. Between nodes 2 and 3, the graph has two walks: go via 1 or go via 4. From node 1 to node 1, there are also two walks: 1→2→1 and 1→3→1.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+S^2 = 
+\begin{bmatrix}
+2 &amp; 1 &amp; 1 &amp; 2 \\
+1 &amp; 3 &amp; 2 &amp; 1 \\
+1 &amp; 2 &amp; 1 &amp; 2 \\
+2 &amp; 1 &amp; 1 &amp; 2 
+\end{bmatrix}
+\quad 
+S^3 = 
+\begin{bmatrix}
+2 &amp; 5 &amp; 5 &amp; 2 \\
+5 &amp; 4 &amp; 5 &amp; 5 \\
+5 &amp; 5 &amp; 4 &amp; 5 \\
+2 &amp; 5 &amp; 5 &amp; 2 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Can you find 5 walks of length 3 between nodes 1 and 2?</p>
+<p>The real question is why <span class="math notranslate nohighlight">\(S^N\)</span> counts all the <span class="math notranslate nohighlight">\(N\)</span>-step paths between pairs of nodes. Start with <span class="math notranslate nohighlight">\(S^2\)</span> and look at matrix multiplication by dot products:</p>
+<div class="math notranslate nohighlight">
+\[(S^2)_{ij} = \text{(row } i \text{ of } S) \cdot \text{(column } j \text{ of } S) = s_{i1}s_{1j} + s_{i2}s_{2j} + s_{i3}s_{3j} + s_{i4}s_{4j}. \quad (7)\]</div>
+<p>If there is a 2-step path <span class="math notranslate nohighlight">\(i \to 1 \to j\)</span>, the first multiplication gives <span class="math notranslate nohighlight">\(s_{i1}s_{1j} = (1)(1) = 1\)</span>. If <span class="math notranslate nohighlight">\(i \to 1 \to j\)</span> is not a path, then either <span class="math notranslate nohighlight">\(i \to 1\)</span> is missing or <span class="math notranslate nohighlight">\(1 \to j\)</span> is missing. So the multiplication gives <span class="math notranslate nohighlight">\(s_{i1}s_{1j} = 0\)</span> in that case.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\linearAlgebra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter1-Interpretaion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Matrix Interpretation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Introduction of Spatial Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Matrix Mutiplication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-by-column">2.1. Interpret by column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-by-row">2.2. Interpret by row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-mutiplication-rule">2.3. Another mutiplication rule</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-g-begin-bmatrix-2-3-3-18-4-24-end-bmatrix">3. E.g.
+$$
+\begin{bmatrix}
+2 &amp; 3 \
+3 &amp; 18 \
+4 &amp; 24
+\end{bmatrix}</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laws-for-matrix-operations">3.1. The Laws for Matrix Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-addition">3.1.1. About addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-multiplication">3.1.2. About multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-powers">3.1.3. About Powers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-multiplication">3.2. Block multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">3.3. Inverse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.3.1. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property">3.3.2. property</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-to-solve-the-inverse">3.4. Two ways to solve the inverse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-them-by-the-meaning">3.4.1. Solve them by the meaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordan-augmented-matrix">3.4.2. Gauss -Jordan (Augmented matrix)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-matrix-do-not-have-inverse">3.5. Singular matrix (do not have inverse)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-example">3.6. Important Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yalin Yang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

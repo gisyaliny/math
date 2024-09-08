@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Visualizing Spatial Autocorrelation &#8212; Yalin&#39;s Mathematic Handbook</title>
+    <title>9. Visualizing Spatial Autocorrelation &#8212; Yalin&#39;s Mathematic Handbook</title>
   
   
   
@@ -64,7 +64,7 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="6. Moran’s I and Geary’s C" href="L5-Global-Spatial-Autocorrelation.html" />
+    <link rel="prev" title="8. Moran’s I and Geary’s C" href="L5-Global-Spatial-Autocorrelation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,15 +174,17 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../linearAlgebra/Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linearAlgebra/Chapter2-Matrix-Operation.html">2. Matrix Mutiplication</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistic Learning (Luc Anselin)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="L1-Spatial-Analysis-Intro.html">2. Introduction of Spatial Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L2-Maps.html">3. Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L3-Exploratory-Data-Analysis.html">4. Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L4-Spatial-Autocorrelation.html">5. Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L5-Global-Spatial-Autocorrelation.html">6. Moran’s I and Geary’s C</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L1-Spatial-Analysis-Intro.html">4. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L2-Maps.html">5. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L3-Exploratory-Data-Analysis.html">6. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L4-Spatial-Autocorrelation.html">7. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L5-Global-Spatial-Autocorrelation.html">8. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Visualizing Spatial Autocorrelation</a></li>
 </ul>
 
     </div>
@@ -444,23 +446,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-scatter-plot-anselin-1996">7.1. Moran Scatter Plot (Anselin 1996)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">7.1.1. Interpretation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-of-local-spatial-autocorrelation">7.1.2. Categories of Local Spatial Autocorrelation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-the-moran-scatter-plot">7.1.3. Smoothing the Moran Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-scatter-plot-anselin-1996">9.1. Moran Scatter Plot (Anselin 1996)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">9.1.1. Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-of-local-spatial-autocorrelation">9.1.2. Categories of Local Spatial Autocorrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-the-moran-scatter-plot">9.1.3. Smoothing the Moran Scatter Plot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlogram">7.2. Correlogram</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.2.1. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlogram">9.2. Correlogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.2.1. Interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothed-distance-scatter-plot-anselin-and-li-2020">7.3. Smoothed Distance Scatter Plot (Anselin and Li, 2020)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concern">7.3.1. Concern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothed-distance-scatter-plot-anselin-and-li-2020">9.3. Smoothed Distance Scatter Plot (Anselin and Li, 2020)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concern">9.3.1. Concern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-variogram-matheron-1963">7.4. Semi-variogram (Matheron, 1963)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">7.4.1. Definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.4.2. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-variogram-matheron-1963">9.4. Semi-variogram (Matheron, 1963)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">9.4.1. Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.4.2. Interpretation</a></li>
 </ul>
 </li>
 </ul>
@@ -475,12 +477,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualizing-spatial-autocorrelation">
-<h1><span class="section-number">7. </span>Visualizing Spatial Autocorrelation<a class="headerlink" href="#visualizing-spatial-autocorrelation" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Visualizing Spatial Autocorrelation<a class="headerlink" href="#visualizing-spatial-autocorrelation" title="Link to this heading">#</a></h1>
 <section id="moran-scatter-plot-anselin-1996">
-<h2><span class="section-number">7.1. </span>Moran Scatter Plot (Anselin 1996)<a class="headerlink" href="#moran-scatter-plot-anselin-1996" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Moran Scatter Plot (Anselin 1996)<a class="headerlink" href="#moran-scatter-plot-anselin-1996" title="Link to this heading">#</a></h2>
 <p><img alt="image.png" src="../../_images/26.png" /></p>
 <section id="interpretation">
-<h3><span class="section-number">7.1.1. </span>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Moran's</span> <span class="pre">I</span></code> is <code class="docutils literal notranslate"><span class="pre">slope</span></code> in a regression of <span class="math notranslate nohighlight">\(\sum_jw_{ij} z_j\)</span> on <span class="math notranslate nohighlight">\(z_i\)</span></p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\sum_jw_{ij}z_j\)</span> is the independent variable in this regression, called <code class="docutils literal notranslate"><span class="pre">spatial</span> <span class="pre">lag</span></code></p></li>
@@ -488,7 +490,7 @@ document.write(`
 </ol>
 </section>
 <section id="categories-of-local-spatial-autocorrelation">
-<h3><span class="section-number">7.1.2. </span>Categories of Local Spatial Autocorrelation<a class="headerlink" href="#categories-of-local-spatial-autocorrelation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Categories of Local Spatial Autocorrelation<a class="headerlink" href="#categories-of-local-spatial-autocorrelation" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Based on 4 quadrants / Relative to mean</p></li>
 <li><p>Upper right and lower left are <code class="docutils literal notranslate"><span class="pre">positive</span> <span class="pre">spatial</span> <span class="pre">autocorrelation</span></code></p>
@@ -507,7 +509,7 @@ document.write(`
 </ul>
 </section>
 <section id="smoothing-the-moran-scatter-plot">
-<h3><span class="section-number">7.1.3. </span>Smoothing the Moran Scatter Plot<a class="headerlink" href="#smoothing-the-moran-scatter-plot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.3. </span>Smoothing the Moran Scatter Plot<a class="headerlink" href="#smoothing-the-moran-scatter-plot" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Use local regression (<code class="docutils literal notranslate"><span class="pre">LOWESS</span></code>) as a nonlinear smoother</p></li>
 <li><p>Discover structural breaks in <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">spatial</span> <span class="pre">autocorrelation</span></code></p>
@@ -521,9 +523,9 @@ document.write(`
 </section>
 </section>
 <section id="correlogram">
-<h2><span class="section-number">7.2. </span>Correlogram<a class="headerlink" href="#correlogram" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Correlogram<a class="headerlink" href="#correlogram" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h3><span class="section-number">7.2.1. </span>Interpretation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>Interpretation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Range of <code class="docutils literal notranslate"><span class="pre">spatial</span> <span class="pre">autocorrelation</span></code> (first hit the 0)</p></li>
 <li><p>Alternative to specifying <code class="docutils literal notranslate"><span class="pre">spatial</span> <span class="pre">weights</span></code> (data-driven)</p></li>
@@ -567,7 +569,7 @@ document.write(`
 </section>
 </section>
 <section id="smoothed-distance-scatter-plot-anselin-and-li-2020">
-<h2><span class="section-number">7.3. </span>Smoothed Distance Scatter Plot (Anselin and Li, 2020)<a class="headerlink" href="#smoothed-distance-scatter-plot-anselin-and-li-2020" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Smoothed Distance Scatter Plot (Anselin and Li, 2020)<a class="headerlink" href="#smoothed-distance-scatter-plot-anselin-and-li-2020" title="Link to this heading">#</a></h2>
 <p>Plot geographical distance on the x-axis, and attribute distance on the y-axis</p>
 <ul class="simple">
 <li><p><strong>Euclidean geographical distance</strong></p></li>
@@ -584,7 +586,7 @@ d_{ij} = \left[ (x_i - x_j)^2 + (y_i - y_j)^2 \right]^{1/2}
 v_{ij} = \left[ \sum_k (z_{ki} - z_{kj})^2 \right]^{1/2}
 \]</div>
 <section id="concern">
-<h3><span class="section-number">7.3.1. </span>Concern<a class="headerlink" href="#concern" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.1. </span>Concern<a class="headerlink" href="#concern" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Too many points <span class="math notranslate nohighlight">\(\left( \frac{n(n-1)}{2} \right)\)</span></p>
 <ul class="simple">
@@ -600,9 +602,9 @@ i. <code class="docutils literal notranslate"><span class="pre">Attribute</span>
 </section>
 </section>
 <section id="semi-variogram-matheron-1963">
-<h2><span class="section-number">7.4. </span>Semi-variogram (Matheron, 1963)<a class="headerlink" href="#semi-variogram-matheron-1963" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>Semi-variogram (Matheron, 1963)<a class="headerlink" href="#semi-variogram-matheron-1963" title="Link to this heading">#</a></h2>
 <section id="definition">
-<h3><span class="section-number">7.4.1. </span>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.4.1. </span>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Semi-variance</span></code> <span class="math notranslate nohighlight">\(\gamma(s_1, s_2)\)</span> is half the average squared difference between the value at points <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span>, it’s defined as</p></li>
 </ol>
@@ -638,7 +640,7 @@ i. <code class="docutils literal notranslate"><span class="pre">Attribute</span>
 \]</div>
 </section>
 <section id="id2">
-<h3><span class="section-number">7.4.2. </span>Interpretation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.4.2. </span>Interpretation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Nugget <span class="math notranslate nohighlight">\(n\)</span></strong>: Due to the <code class="docutils literal notranslate"><span class="pre">measurement</span> <span class="pre">error</span></code> or spatial source variation of smaller distance than sample unit, the value at the same location might have a different value as well.</p></li>
 <li><p><strong>Sill <span class="math notranslate nohighlight">\(s\)</span></strong>: Limit of the variogram tending to infinity lag distances.</p></li>
@@ -686,7 +688,7 @@ i. <code class="docutils literal notranslate"><span class="pre">Attribute</span>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Moran’s I and Geary’s C</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Moran’s I and Geary’s C</p>
       </div>
     </a>
 </div>
@@ -705,23 +707,23 @@ i. <code class="docutils literal notranslate"><span class="pre">Attribute</span>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-scatter-plot-anselin-1996">7.1. Moran Scatter Plot (Anselin 1996)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">7.1.1. Interpretation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-of-local-spatial-autocorrelation">7.1.2. Categories of Local Spatial Autocorrelation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-the-moran-scatter-plot">7.1.3. Smoothing the Moran Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-scatter-plot-anselin-1996">9.1. Moran Scatter Plot (Anselin 1996)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">9.1.1. Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-of-local-spatial-autocorrelation">9.1.2. Categories of Local Spatial Autocorrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-the-moran-scatter-plot">9.1.3. Smoothing the Moran Scatter Plot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlogram">7.2. Correlogram</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.2.1. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlogram">9.2. Correlogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.2.1. Interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothed-distance-scatter-plot-anselin-and-li-2020">7.3. Smoothed Distance Scatter Plot (Anselin and Li, 2020)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concern">7.3.1. Concern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothed-distance-scatter-plot-anselin-and-li-2020">9.3. Smoothed Distance Scatter Plot (Anselin and Li, 2020)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concern">9.3.1. Concern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-variogram-matheron-1963">7.4. Semi-variogram (Matheron, 1963)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">7.4.1. Definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.4.2. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-variogram-matheron-1963">9.4. Semi-variogram (Matheron, 1963)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">9.4.1. Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.4.2. Interpretation</a></li>
 </ul>
 </li>
 </ul>

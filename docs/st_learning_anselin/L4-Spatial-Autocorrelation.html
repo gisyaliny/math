@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Spatial Autocorrelation &#8212; Yalin&#39;s Mathematic Handbook</title>
+    <title>7. Spatial Autocorrelation &#8212; Yalin&#39;s Mathematic Handbook</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6. Moran’s I and Geary’s C" href="L5-Global-Spatial-Autocorrelation.html" />
-    <link rel="prev" title="4. Exploratory Data Analysis" href="L3-Exploratory-Data-Analysis.html" />
+    <link rel="next" title="8. Moran’s I and Geary’s C" href="L5-Global-Spatial-Autocorrelation.html" />
+    <link rel="prev" title="6. Exploratory Data Analysis" href="L3-Exploratory-Data-Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,15 +175,17 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../linearAlgebra/Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linearAlgebra/Chapter2-Matrix-Operation.html">2. Matrix Mutiplication</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistic Learning (Luc Anselin)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="L1-Spatial-Analysis-Intro.html">2. Introduction of Spatial Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L2-Maps.html">3. Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L3-Exploratory-Data-Analysis.html">4. Exploratory Data Analysis</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L5-Global-Spatial-Autocorrelation.html">6. Moran’s I and Geary’s C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L6-Visualizing-Spatial-Autocorrelation.html">7. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L1-Spatial-Analysis-Intro.html">4. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L2-Maps.html">5. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L3-Exploratory-Data-Analysis.html">6. Exploratory Data Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L5-Global-Spatial-Autocorrelation.html">8. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L6-Visualizing-Spatial-Autocorrelation.html">9. Visualizing Spatial Autocorrelation</a></li>
 </ul>
 
     </div>
@@ -445,28 +447,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-randomness">5.1. Spatial Randomness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis">5.1.1. The Null Hypothesis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-spatial-randomness">5.1.2. Interpreting Spatial Randomness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalizing-spatial-randomness">5.1.3. Operationalizing Spatial Randomness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-randomness">7.1. Spatial Randomness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis">7.1.1. The Null Hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-spatial-randomness">7.1.2. Interpreting Spatial Randomness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalizing-spatial-randomness">7.1.3. Operationalizing Spatial Randomness</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-and-negative-spatial-autocorrelation">5.2. Positive and Negative spatial autocorrelation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-spatial-autocorrelation">5.2.1. Positive Spatial Autocorrelation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-spatial-autocorrelation">5.2.2. Negative Spatial Autocorrelation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-and-negative-spatial-autocorrelation">7.2. Positive and Negative spatial autocorrelation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-spatial-autocorrelation">7.2.1. Positive Spatial Autocorrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-spatial-autocorrelation">7.2.2. Negative Spatial Autocorrelation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistics">5.3. Spatial Autocorrelation Statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistics">5.3.1. Test Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistics">7.3. Spatial Autocorrelation Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistics">7.3.1. Test Statistics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistic">5.4. Spatial Autocorrelation Statistic</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-measure">5.4.1. Similarity Measure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-measure">5.4.2. Dissimilarity Measure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locational-similarity">5.4.3. Locational Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistic">7.4. Spatial Autocorrelation Statistic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-measure">7.4.1. Similarity Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-measure">7.4.2. Dissimilarity Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locational-similarity">7.4.3. Locational Similarity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form-of-spatial-autocorrelation-statistic">5.5. General Form of Spatial Autocorrelation Statistic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form-of-spatial-autocorrelation-statistic">7.5. General Form of Spatial Autocorrelation Statistic</a></li>
 </ul>
             </nav>
         </div>
@@ -479,18 +481,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="spatial-autocorrelation">
-<h1><span class="section-number">5. </span>Spatial Autocorrelation<a class="headerlink" href="#spatial-autocorrelation" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Spatial Autocorrelation<a class="headerlink" href="#spatial-autocorrelation" title="Link to this heading">#</a></h1>
 <section id="spatial-randomness">
-<h2><span class="section-number">5.1. </span>Spatial Randomness<a class="headerlink" href="#spatial-randomness" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>Spatial Randomness<a class="headerlink" href="#spatial-randomness" title="Link to this heading">#</a></h2>
 <section id="the-null-hypothesis">
-<h3><span class="section-number">5.1.1. </span>The Null Hypothesis<a class="headerlink" href="#the-null-hypothesis" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.1.1. </span>The Null Hypothesis<a class="headerlink" href="#the-null-hypothesis" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Spatial randomness is absence of any pattern</p></li>
 <li><p>If rejected, then there is evidence of spatial structure</p></li>
 </ol>
 </section>
 <section id="interpreting-spatial-randomness">
-<h3><span class="section-number">5.1.2. </span>Interpreting Spatial Randomness<a class="headerlink" href="#interpreting-spatial-randomness" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.1.2. </span>Interpreting Spatial Randomness<a class="headerlink" href="#interpreting-spatial-randomness" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>The observed spatial pattern of clues is equally likely as any other spatial pattern</p>
 <ul class="simple">
@@ -505,7 +507,7 @@ document.write(`
 </ol>
 </section>
 <section id="operationalizing-spatial-randomness">
-<h3><span class="section-number">5.1.3. </span>Operationalizing Spatial Randomness<a class="headerlink" href="#operationalizing-spatial-randomness" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.1.3. </span>Operationalizing Spatial Randomness<a class="headerlink" href="#operationalizing-spatial-randomness" title="Link to this heading">#</a></h3>
 <p>Random permutation or reshuffling of values
 <code class="docutils literal notranslate"><span class="pre">Tobler's</span> <span class="pre">First</span> <span class="pre">Law</span></code> of Geography</p>
 <ol class="arabic">
@@ -527,9 +529,9 @@ document.write(`
 </section>
 </section>
 <section id="positive-and-negative-spatial-autocorrelation">
-<h2><span class="section-number">5.2. </span>Positive and Negative spatial autocorrelation<a class="headerlink" href="#positive-and-negative-spatial-autocorrelation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.2. </span>Positive and Negative spatial autocorrelation<a class="headerlink" href="#positive-and-negative-spatial-autocorrelation" title="Link to this heading">#</a></h2>
 <section id="positive-spatial-autocorrelation">
-<h3><span class="section-number">5.2.1. </span>Positive Spatial Autocorrelation<a class="headerlink" href="#positive-spatial-autocorrelation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.2.1. </span>Positive Spatial Autocorrelation<a class="headerlink" href="#positive-spatial-autocorrelation" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Impression of clustering</p></li>
 <li><p>Clumps of like values</p>
@@ -541,7 +543,7 @@ document.write(`
 </ol>
 </section>
 <section id="negative-spatial-autocorrelation">
-<h3><span class="section-number">5.2.2. </span>Negative Spatial Autocorrelation<a class="headerlink" href="#negative-spatial-autocorrelation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.2.2. </span>Negative Spatial Autocorrelation<a class="headerlink" href="#negative-spatial-autocorrelation" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Checkerboard pattern</p></li>
 <li><p>Hard to distinguish from spatial randomness</p>
@@ -551,9 +553,9 @@ document.write(`
 </section>
 </section>
 <section id="spatial-autocorrelation-statistics">
-<h2><span class="section-number">5.3. </span>Spatial Autocorrelation Statistics<a class="headerlink" href="#spatial-autocorrelation-statistics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3. </span>Spatial Autocorrelation Statistics<a class="headerlink" href="#spatial-autocorrelation-statistics" title="Link to this heading">#</a></h2>
 <section id="test-statistics">
-<h3><span class="section-number">5.3.1. </span>Test Statistics<a class="headerlink" href="#test-statistics" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.1. </span>Test Statistics<a class="headerlink" href="#test-statistics" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Calculated from the data and compared to a reference distribution</p></li>
 <li><p><strong>How likely</strong> is the value if it had occurred under <code class="docutils literal notranslate"><span class="pre">null</span> <span class="pre">hypothesis</span></code> (<code class="docutils literal notranslate"><span class="pre">spatial</span> <span class="pre">randomness</span></code>)</p>
@@ -567,7 +569,7 @@ document.write(`
 </section>
 </section>
 <section id="spatial-autocorrelation-statistic">
-<h2><span class="section-number">5.4. </span>Spatial Autocorrelation Statistic<a class="headerlink" href="#spatial-autocorrelation-statistic" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.4. </span>Spatial Autocorrelation Statistic<a class="headerlink" href="#spatial-autocorrelation-statistic" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Captures both <code class="docutils literal notranslate"><span class="pre">attribute</span> <span class="pre">similarity</span></code> and <code class="docutils literal notranslate"><span class="pre">locational</span> <span class="pre">similarity</span></code></p></li>
 <li><p>Attribute Similarity</p>
@@ -578,21 +580,21 @@ document.write(`
 </li>
 </ul>
 <section id="similarity-measure">
-<h3><span class="section-number">5.4.1. </span>Similarity Measure<a class="headerlink" href="#similarity-measure" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.4.1. </span>Similarity Measure<a class="headerlink" href="#similarity-measure" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Cross</span> <span class="pre">product</span></code>: <span class="math notranslate nohighlight">\(y_i,y_j\)</span></p></li>
 <li><p>Under randomness (<code class="docutils literal notranslate"><span class="pre">null</span> <span class="pre">hypothesis</span></code>), cross product is not systematically large or small, otherwise, suggests spatial patterns</p></li>
 </ul>
 </section>
 <section id="dissimilarity-measure">
-<h3><span class="section-number">5.4.2. </span>Dissimilarity Measure<a class="headerlink" href="#dissimilarity-measure" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.4.2. </span>Dissimilarity Measure<a class="headerlink" href="#dissimilarity-measure" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Squared</span> <span class="pre">difference</span></code> : <span class="math notranslate nohighlight">\((y_i−y_j )^2\)</span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Absolute</span> <span class="pre">difference</span></code> : <span class="math notranslate nohighlight">\(|y_i−y_j |\)</span></p></li>
 </ul>
 </section>
 <section id="locational-similarity">
-<h3><span class="section-number">5.4.3. </span>Locational Similarity<a class="headerlink" href="#locational-similarity" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.4.3. </span>Locational Similarity<a class="headerlink" href="#locational-similarity" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Formalizing the notion of neighbors <span class="math notranslate nohighlight">\(=(W_ij)\)</span>, <code class="docutils literal notranslate"><span class="pre">spatial</span> <span class="pre">weights</span></code></p></li>
 <li><p>When are two Spatial units <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> a priori likely to interact</p></li>
@@ -601,7 +603,7 @@ document.write(`
 </section>
 </section>
 <section id="general-form-of-spatial-autocorrelation-statistic">
-<h2><span class="section-number">5.5. </span>General Form of Spatial Autocorrelation Statistic<a class="headerlink" href="#general-form-of-spatial-autocorrelation-statistic" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.5. </span>General Form of Spatial Autocorrelation Statistic<a class="headerlink" href="#general-form-of-spatial-autocorrelation-statistic" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Sum over all pairs of observations of the product of attribute similarity measure with a neighbor indicator (spatial weight)</p>
 <ul class="simple">
@@ -649,7 +651,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Exploratory Data Analysis</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Exploratory Data Analysis</p>
       </div>
     </a>
     <a class="right-next"
@@ -657,7 +659,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Moran’s I and Geary’s C</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Moran’s I and Geary’s C</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -677,28 +679,28 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-randomness">5.1. Spatial Randomness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis">5.1.1. The Null Hypothesis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-spatial-randomness">5.1.2. Interpreting Spatial Randomness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalizing-spatial-randomness">5.1.3. Operationalizing Spatial Randomness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-randomness">7.1. Spatial Randomness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis">7.1.1. The Null Hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-spatial-randomness">7.1.2. Interpreting Spatial Randomness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalizing-spatial-randomness">7.1.3. Operationalizing Spatial Randomness</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-and-negative-spatial-autocorrelation">5.2. Positive and Negative spatial autocorrelation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-spatial-autocorrelation">5.2.1. Positive Spatial Autocorrelation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-spatial-autocorrelation">5.2.2. Negative Spatial Autocorrelation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-and-negative-spatial-autocorrelation">7.2. Positive and Negative spatial autocorrelation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-spatial-autocorrelation">7.2.1. Positive Spatial Autocorrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-spatial-autocorrelation">7.2.2. Negative Spatial Autocorrelation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistics">5.3. Spatial Autocorrelation Statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistics">5.3.1. Test Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistics">7.3. Spatial Autocorrelation Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistics">7.3.1. Test Statistics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistic">5.4. Spatial Autocorrelation Statistic</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-measure">5.4.1. Similarity Measure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-measure">5.4.2. Dissimilarity Measure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locational-similarity">5.4.3. Locational Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-statistic">7.4. Spatial Autocorrelation Statistic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-measure">7.4.1. Similarity Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-measure">7.4.2. Dissimilarity Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locational-similarity">7.4.3. Locational Similarity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form-of-spatial-autocorrelation-statistic">5.5. General Form of Spatial Autocorrelation Statistic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form-of-spatial-autocorrelation-statistic">7.5. General Form of Spatial Autocorrelation Statistic</a></li>
 </ul>
   </nav></div>
 
