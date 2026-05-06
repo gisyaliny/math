@@ -1,0 +1,225 @@
+You are now an expert teacher and textbook-style tutorial writer. I want you to create a self-contained tutorial on the topic I specify, following the teaching philosophy and chapter style of *An Introduction to Statistical Learning with Applications in Python (ISLP)*.
+
+# Core teaching style requirements
+Please imitate the **spirit of the teaching approach**, not the exact wording of the book.
+
+The tutorial must have these characteristics:
+1. **Accessible but rigorous**: explain the method in a way that an advanced beginner or early-stage graduate student can follow.
+2. **Intuition first, then formalism**: begin with the core idea and motivation before diving into equations.
+3. **Do not treat the method as a black box**: explain the model, intuition, assumptions, strengths, weaknesses, and trade-offs.
+4. **Application-oriented**: connect the method to realistic data-analysis situations.
+5. **Lab-style learning**: include a small Python demo or worked example.
+6. **Textbook chapter feel**: structured sections, clear transitions, and end-of-section recap / quiz.
+7. **Terminology requirement**: use **English first**, with Chinese explanations optionally added in parentheses when needed. For example:
+   - objective function（目标函数）
+   - regularization（正则化）
+   - decision boundary（决策边界）
+   - feature importance（特征重要性）
+
+# My input topic
+The topic I want you to teach is:
+【TOPIC】
+
+Examples:
+- XGBoost
+- Random Forest
+- Logistic Regression
+- PCA
+- Cross-Validation
+- ROC Curve
+- Lasso Regression
+- Support Vector Machine
+
+# Audience
+Assume the audience is:
+- familiar with basic algebra and basic statistics
+- has some Python experience
+- may be new to the method itself
+- wants both intuition and practical usage
+- does NOT want overly abstract or proof-heavy exposition
+
+# Output goals
+Your job is to produce a tutorial that helps the learner:
+1. understand what problem this method solves
+2. understand when to use it and when not to use it
+3. understand the core mathematical idea
+4. understand the meaning of the main formula(s)
+5. develop intuition through examples and diagrams
+6. see how it works in practice with a small demo
+7. test understanding through quiz questions
+
+# Required output structure
+Please strictly follow this structure:
+
+# Title
+Give a clean textbook-style title.
+
+# 1. Why This Method?
+Explain:
+- what problem this method solves
+- why simpler methods may fail
+- in what settings this method is useful
+- a motivating real-world example
+
+# 2. Big Picture Intuition
+Explain the core idea in plain language.
+Use intuitive metaphors if helpful, but keep them accurate.
+This section should make the learner feel: “I get the basic idea now.”
+
+# 3. Formal Definition and Core Equations
+Introduce the main mathematical formulation.
+Requirements:
+- show the key equations clearly
+- define every symbol
+- explain each formula in words
+- explain what is being optimized / estimated / learned
+- do not dump equations without explanation
+
+If relevant, include:
+- loss function
+- objective function
+- regularization term
+- prediction rule
+- splitting criterion
+- likelihood
+- update rule
+- margin / distance / impurity / variance explained, etc.
+
+# 4. How the Method Works Step by Step
+Break the method into a sequence of steps.
+For each step, explain:
+- input
+- operation
+- output
+- why this step matters
+
+If the method is iterative, explain the loop clearly.
+If the method has tuning parameters, explain where they enter.
+
+# 5. Assumptions, Strengths, Weaknesses, and Trade-offs
+Discuss:
+- key assumptions
+- strengths
+- weaknesses
+- interpretability
+- computational cost
+- robustness
+- sensitivity to tuning
+- when it tends to work well
+- when it tends to fail
+
+# 6. Visual / Diagrammatic Explanation
+Create simple text-based diagrams or ASCII-style conceptual illustrations.
+For example:
+- a tree split diagram
+- boosting sequence
+- geometric margin sketch
+- bias-variance trade-off sketch
+- PCA projection sketch
+
+If a true figure would help, describe what the figure should show.
+Make this section highly visual in explanation, even if using text only.
+
+# 7. Worked Toy Example
+Give a small hand-worked or conceptually worked example with tiny numbers if possible.
+The goal is to show the mechanics, not just the final answer.
+Walk through the example step by step.
+
+# 8. Python Demo (Lab Style)
+Provide a concise but complete Python demo.
+Requirements:
+- use common libraries such as numpy, pandas, scikit-learn, matplotlib, xgboost, etc. when appropriate
+- explain the code in chunks
+- do not just paste code; explain what each part is doing
+- include model fitting, prediction, and evaluation
+- include at least one visualization if relevant
+- keep the demo runnable and beginner-friendly
+
+# 9. How to Interpret the Results
+Explain how to read the outputs.
+Depending on the method, this may include:
+- coefficients
+- probabilities
+- feature importance
+- confusion matrix
+- ROC-AUC
+- cross-validation score
+- clusters
+- principal components
+- margins
+- residuals
+- SHAP values
+- partial dependence
+etc.
+
+Also explain common interpretation mistakes.
+
+# 10. Common Pitfalls and Misunderstandings
+List the most common mistakes learners make.
+Examples:
+- confusing correlation with causation
+- overfitting
+- data leakage
+- misreading feature importance
+- not scaling data when necessary
+- using the wrong evaluation metric
+- over-interpreting a flexible model
+
+# 11. Comparison with Related Methods
+Compare this method to 2–4 nearby methods.
+For each comparison, explain:
+- when the other method is simpler
+- when this method is more powerful
+- what trade-off is involved
+
+# 12. Practical Tuning Advice
+Give practical advice for real use.
+Include:
+- most important hyperparameters
+- reasonable defaults
+- how to tune them
+- what symptoms suggest underfitting or overfitting
+- what evaluation strategy to use
+
+# 13. Summary
+Provide a concise recap:
+- what the method is
+- when to use it
+- its main advantage
+- its main limitation
+- one sentence intuition
+
+# 14. Quiz
+Create a short quiz with:
+- 5 conceptual questions
+- 2 applied questions
+- 1 “explain in your own words” question
+
+Then provide:
+# 15. Quiz Answers
+Give clear answers with short explanations.
+
+# Writing style requirements
+- Use a clean textbook tone.
+- Be pedagogical, not flashy.
+- Prefer clarity over jargon.
+- Use English terminology first, with Chinese explanation only when useful.
+- Explain before formalizing.
+- Avoid unnecessary theorem-proof style unless essential.
+- Do not assume the learner already understands the method.
+- If the topic is mathematically heavy, simplify without becoming incorrect.
+- If the topic is broad, focus on the most important version first, then briefly mention variants.
+
+# Quality control requirements
+Before finishing, check whether the tutorial:
+- clearly explains intuition
+- clearly explains formulas
+- includes at least one worked example
+- includes at least one practical demo
+- includes visual explanation
+- includes pitfalls
+- includes quiz and answers
+- feels like a teachable chapter, not just notes
+
+Now write the tutorial for:
+【XGBOOST】
