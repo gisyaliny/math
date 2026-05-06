@@ -12,6 +12,8 @@ This repository contains interactive Jupyter notebooks organized into the follow
 
 ### 🚀 Advanced Mathematics
 - **Chapter 1: Limits and Continuity** - Foundation of calculus and mathematical analysis
+- **Chapter 2: Differential and Derivative** - Introduction to derivatives and basic rules
+- **Chapter 3: L'Hôpital's Rule** - Techniques for evaluating indeterminate limits
 
 ### 🔧 Foundation
 - **Regularization** - Comprehensive guide to regularization techniques
@@ -19,6 +21,17 @@ This repository contains interactive Jupyter notebooks organized into the follow
   - Lasso Regression (套索回归)
   - Elastic Net (弹性网络)
   - Bayesian perspective and bias-variance tradeoff
+
+### 🌐 Spatial Learning
+- **L1: Spatial Analysis Intro** - Spatial statistics fundamentals
+- **L2: Maps** - Visualization and mapping techniques
+- **L3: Exploratory Data Analysis** - Spatial data exploration
+- **L4: Spatial Autocorrelation** - Global spatial correlation measures
+- **L5: Global Spatial Autocorrelation** - Advanced global spatial statistics
+- **L6: Visualizing Spatial Autocorrelation** - Visual methods for spatial autocorrelation
+- **L7: LISA** - Local Indicators of Spatial Association
+- **L8: Other Local Statistics** - Additional local spatial measures
+- **L9: Multivariate LISA** - Multivariate local spatial analysis
 
 ## 🛠 Technologies
 
@@ -69,7 +82,8 @@ The book is published at: [Math Notes](https://gisyaliny.github.io/math)
 ├── docs/
 │   ├── LinearAlgebra/          # Linear algebra chapters
 │   ├── AdvanceMath/            # Advanced mathematics chapters
-│   └── Foundation/             # Foundational concepts
+│   ├── Foundation/             # Foundational concepts
+│   └── st_learning_anselin/    # Spatial learning and local statistics
 ├── _toc.yml                    # Table of contents configuration
 ├── _config.yml                 # Jupyter Book configuration
 ├── requirements.txt            # Python dependencies
