@@ -1,0 +1,1558 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Limits and Continuity — Understanding Function Behavior Near a Point &#8212; Yalin&#39;s Mathematic Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Calculus/Chapter1-Limit-Continuous';</script>
+    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/Calculus/Chapter1-Limit-Continuous.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation" href="Chapter2-Differential-and-Derivative.html" />
+    <link rel="prev" title="2. Matrix Mutiplication" href="../LinearAlgebra/Chapter2-Matrix-Operation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Yalin's Mathematic Handbook - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Yalin's Mathematic Handbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../LinearAlgebra/Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinearAlgebra/Chapter2-Matrix-Operation.html">2. Matrix Mutiplication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Chapter2-Differential-and-Derivative.html">13. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3-Lhopital-rule.html">14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">16. Regularization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">17. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">18. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">19. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">20. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">21. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">22. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">23. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">24. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">25. Multivariate LISA</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/Calculus/Chapter1-Limit-Continuous.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/Calculus/Chapter1-Limit-Continuous.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/Calculus/Chapter1-Limit-Continuous.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/Calculus/Chapter1-Limit-Continuous.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Calculus/Chapter1-Limit-Continuous.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Limits and Continuity — Understanding Function Behavior Near a Point</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-and-continuity">4. Limit（极限） and Continuity（连续性）</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">4.1. Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">5. 1. Why This Topic Matters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">6. 2. Big Picture Intuition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-and-function-equivalence">7. 3. Domain and Function Equivalence</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain">7.1. 3.1 Domain（定义域）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-equivalence">7.2. 3.2 Function Equivalence（函数相等）</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-of-a-limit">8. 4. Formal Definition of a Limit</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symbols-mean">8.1. What the symbols mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-visualizing-the-epsilon-delta-idea">8.2. Figure Demo 1: Visualizing the <span class="math notranslate nohighlight">\(\epsilon\)</span>-<span class="math notranslate nohighlight">\(\delta\)</span> Idea</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-solve-limit-problems-step-by-step">9. 5. How to Solve Limit Problems Step by Step</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#core-techniques-for-solving-limits">10. 6. Core Techniques for Solving Limits</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-substitution">10.1. 6.1 Direct Substitution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorization">10.2. 6.2 Factorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationalization">10.3. 6.3 Rationalization（有理化）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highest-order-terms-for-x-to-infty">10.4. 6.4 Highest-Order Terms for <span class="math notranslate nohighlight">\(x\to\infty\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-highest-order-terms-dominate">10.5. Figure Demo 2: Highest-Order Terms Dominate</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#important-limit-results">11. 7. Important Limit Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sine-limit">11.1. 7.1 The Sine Limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-3-why-sin-x-sim-x-near-zero">11.2. Figure Demo 3: Why <span class="math notranslate nohighlight">\(\sin x\sim x\)</span> Near Zero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-exponential-limit">11.3. 7.2 The Exponential Limit</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-infinitesimals">12. 8. Equivalent Infinitesimals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example-equivalent-infinitesimals">12.1. Worked Example: Equivalent Infinitesimals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equivalent-of-functions">12.1.1. The equivalent of functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-definition-of-limit">12.1.2. The definition of limit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-limit-problem">12.2. Solve the limit Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#substitute-directly">12.2.1. Substitute Directly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-hopital-s-law">12.2.2. L’Hopital’s Law</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-property-of-infinity-and-infinity-small-0">12.2.3. The Property of infinity (∞) and infinity small (0)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#three-special-cases">12.2.4. Three special cases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-important-limit">12.3. Two important limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-of-infinity-small">12.4. Equivalence of infinity small</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous">12.5. Continuous</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-in-functions">12.5.1. Continuous in functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">12.5.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-break-points-of-functions">12.6. The break points of functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intermediate-value-theorem">12.7. The Intermediate Value Theorem</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="limits-and-continuity-understanding-function-behavior-near-a-point">
+<h1><span class="section-number">3. </span>Limits and Continuity — Understanding Function Behavior Near a Point<a class="headerlink" href="#limits-and-continuity-understanding-function-behavior-near-a-point" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="limit-and-continuity">
+<h1><span class="section-number">4. </span>Limit（极限） and Continuity（连续性）<a class="headerlink" href="#limit-and-continuity" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">4.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After reading this chapter, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain what a <code class="docutils literal notranslate"><span class="pre">limit</span></code> means intuitively and formally.</p></li>
+<li><p>Distinguish the value of a function from the limit of a function.</p></li>
+<li><p>Determine the <code class="docutils literal notranslate"><span class="pre">domain（定义域）</span></code> of common functions.</p></li>
+<li><p>Evaluate limits using direct substitution, factorization, rationalization, highest-order terms, and standard limits.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">equivalent</span> <span class="pre">infinitesimals（等价无穷小）</span></code> to simplify limit problems.</p></li>
+<li><p>Determine whether a function is <code class="docutils literal notranslate"><span class="pre">continuous（连续）</span></code> at a point.</p></li>
+<li><p>Identify different types of <code class="docutils literal notranslate"><span class="pre">discontinuities（间断点）</span></code>.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">Intermediate</span> <span class="pre">Value</span> <span class="pre">Theorem（介值定理）</span></code> to prove that an equation has a solution.</p></li>
+<li><p>Use Python to visualize limits, continuity, and discontinuity.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="why-this-topic-matters">
+<h1><span class="section-number">5. </span>1. Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h1>
+<p>Calculus begins with one central question:</p>
+<blockquote>
+<div><p>What happens to a function as the input gets closer and closer to a certain value?</p>
+</div></blockquote>
+<p>This question is not always the same as asking what the function value is at that point.</p>
+<p>For example, consider:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x)=\frac{x^2-1}{x-1}
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(x=1\)</span>, the function is not defined because the denominator becomes zero. But if we simplify:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x^2-1}{x-1}
+=
+\frac{(x-1)(x+1)}{x-1}
+=
+x+1
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(x \ne 1\)</span>. As <span class="math notranslate nohighlight">\(x\)</span> approaches <span class="math notranslate nohighlight">\(1\)</span>, the function approaches:</p>
+<div class="math notranslate nohighlight">
+\[
+2
+\]</div>
+<p>So the function has no value at <span class="math notranslate nohighlight">\(x=1\)</span>, but it still has a limit there.</p>
+<p>This distinction is fundamental. Without limits, we cannot properly define derivative（导数）, differential（微分）, Taylor Expansion（泰勒展开）, or continuity（连续性）. In fact, the derivative definition in your later differential chapter is built directly from a limit of difference quotients.</p>
+<p>Limits help us answer questions such as:</p>
+<ul class="simple">
+<li><p>What happens near a point where a formula breaks?</p></li>
+<li><p>Does a function approach a stable value?</p></li>
+<li><p>Does a graph have a jump, a hole, or a vertical asymptote?</p></li>
+<li><p>Can we approximate one function by another near a point?</p></li>
+<li><p>Is a piecewise function continuous?</p></li>
+<li><p>Does an equation have at least one solution in an interval?</p></li>
+</ul>
+<p>The main idea is simple but powerful:</p>
+<blockquote>
+<div><p>A limit describes where a function is going, not necessarily where it is.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="big-picture-intuition">
+<h1><span class="section-number">6. </span>2. Big Picture Intuition<a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h1>
+<p>Imagine walking toward a house.</p>
+<p>You may never actually enter the house, but you can still say where you are approaching. A limit works the same way.</p>
+<p>When we write:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to a} f(x)=L
+\]</div>
+<p>we mean:</p>
+<blockquote>
+<div><p>As <span class="math notranslate nohighlight">\(x\)</span> gets closer and closer to <span class="math notranslate nohighlight">\(a\)</span>, the function value <span class="math notranslate nohighlight">\(f(x)\)</span> gets closer and closer to <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</div></blockquote>
+<p>The important point is that <span class="math notranslate nohighlight">\(x\)</span> approaches <span class="math notranslate nohighlight">\(a\)</span>, but does not have to equal <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<p>So the limit cares about nearby behavior, not only the value exactly at the point.</p>
+<p>x approaches a from the left      x approaches a from the right</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    → → → a ← ← ←
+</pre></div>
+</div>
+<p>If f(x) approaches the same value L from both sides,
+then the two-sided limit exists.</p>
+<p>A function may have:</p>
+<ol class="arabic simple">
+<li><p>a function value but no limit,</p></li>
+<li><p>a limit but no function value,</p></li>
+<li><p>both a function value and a limit, but they are not equal,</p></li>
+<li><p>both a function value and a limit that are equal.</p></li>
+</ol>
+<p>Only the fourth case gives continuity.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="domain-and-function-equivalence">
+<h1><span class="section-number">7. </span>3. Domain and Function Equivalence<a class="headerlink" href="#domain-and-function-equivalence" title="Link to this heading">#</a></h1>
+<p>Before solving limits, we must understand where a function is defined.</p>
+<section id="domain">
+<h2><span class="section-number">7.1. </span>3.1 Domain（定义域）<a class="headerlink" href="#domain" title="Link to this heading">#</a></h2>
+<p>The domain of a function is the set of input values for which the function is valid.</p>
+<p>Common rules:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression type</p></th>
+<th class="head"><p>Domain restriction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{1}{g(x)}\)</span></p></td>
+<td><p>denominator cannot be <span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sqrt{g(x)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(g(x)\geq0\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{g(x)}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(g(x)&gt;0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\ln(g(x))\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(g(x)&gt;0\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\arcsin x,\arccos x\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\leq x\leq1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x)=\frac{1}{\sqrt{x^2-9}}
+\]</div>
+<p>The denominator cannot be zero, and the square root must be real and positive:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2-9&gt;0
+\]</div>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+x&lt;-3
+\quad \text{or} \quad
+x&gt;3
+\]</div>
+<p>Therefore, the domain is:</p>
+<div class="math notranslate nohighlight">
+\[
+(-\infty,-3)\cup(3,\infty)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="function-equivalence">
+<h2><span class="section-number">7.2. </span>3.2 Function Equivalence（函数相等）<a class="headerlink" href="#function-equivalence" title="Link to this heading">#</a></h2>
+<p>Two functions are equal only if they have:</p>
+<ol class="arabic simple">
+<li><p>the same domain,</p></li>
+<li><p>the same output for every input in that domain.</p></li>
+</ol>
+<p>For example:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x)=\frac{x}{x}
+\]</div>
+<p>is not exactly the same function as:</p>
+<div class="math notranslate nohighlight">
+\[
+g(x)=1
+\]</div>
+<p>because <span class="math notranslate nohighlight">\(f(x)\)</span> is undefined at <span class="math notranslate nohighlight">\(x=0\)</span>, while <span class="math notranslate nohighlight">\(g(x)\)</span> is defined at <span class="math notranslate nohighlight">\(x=0\)</span>.</p>
+<p>However, for limit purposes near <span class="math notranslate nohighlight">\(x=0\)</span>, we may sometimes simplify expressions after remembering that the original function may have a missing point.</p>
+<p>This is why domain matters.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="formal-definition-of-a-limit">
+<h1><span class="section-number">8. </span>4. Formal Definition of a Limit<a class="headerlink" href="#formal-definition-of-a-limit" title="Link to this heading">#</a></h1>
+<p>The formal definition is the <span class="math notranslate nohighlight">\(\epsilon\)</span>-<span class="math notranslate nohighlight">\(\delta\)</span> definition（<span class="math notranslate nohighlight">\(\epsilon\)</span>-<span class="math notranslate nohighlight">\(\delta\)</span>定义）.</p>
+<p>We say:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to a}f(x)=L
+\]</div>
+<p>if for every:</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon&gt;0
+\]</div>
+<p>there exists:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta&gt;0
+\]</div>
+<p>such that:</p>
+<div class="math notranslate nohighlight">
+\[
+|f(x)-L|&lt;\epsilon
+\]</div>
+<p>whenever:</p>
+<div class="math notranslate nohighlight">
+\[
+0&lt;|x-a|&lt;\delta
+\]</div>
+<section id="what-the-symbols-mean">
+<h2><span class="section-number">8.1. </span>What the symbols mean<a class="headerlink" href="#what-the-symbols-mean" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span>: the input value that <span class="math notranslate nohighlight">\(x\)</span> approaches</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span>: the value that <span class="math notranslate nohighlight">\(f(x)\)</span> approaches</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span>: how close we want <span class="math notranslate nohighlight">\(f(x)\)</span> to be to <span class="math notranslate nohighlight">\(L\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span>: how close <span class="math notranslate nohighlight">\(x\)</span> must be to <span class="math notranslate nohighlight">\(a\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0&lt;|x-a|\)</span>: <span class="math notranslate nohighlight">\(x\)</span> is near <span class="math notranslate nohighlight">\(a\)</span>, but not equal to <span class="math notranslate nohighlight">\(a\)</span></p></li>
+</ul>
+<p>In words:</p>
+<blockquote>
+<div><p>No matter how small a target distance <span class="math notranslate nohighlight">\(\epsilon\)</span> we choose around <span class="math notranslate nohighlight">\(L\)</span>, we can find a small enough input distance <span class="math notranslate nohighlight">\(\delta\)</span> around <span class="math notranslate nohighlight">\(a\)</span>, so that all nearby <span class="math notranslate nohighlight">\(x\)</span>-values make <span class="math notranslate nohighlight">\(f(x)\)</span> fall inside the target distance.</p>
+</div></blockquote>
+<p>This is a precise way to express “getting close.”</p>
+</section>
+<hr class="docutils" />
+<section id="figure-demo-1-visualizing-the-epsilon-delta-idea">
+<h2><span class="section-number">8.2. </span>Figure Demo 1: Visualizing the <span class="math notranslate nohighlight">\(\epsilon\)</span>-<span class="math notranslate nohighlight">\(\delta\)</span> Idea<a class="headerlink" href="#figure-demo-1-visualizing-the-epsilon-delta-idea" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;axes.titlesize&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s2">&quot;axes.labelsize&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;legend.fontsize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;figure.dpi&quot;</span><span class="p">:</span> <span class="mi">120</span>
+<span class="p">})</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">epsilon</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$f(x)=2x+1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x=a$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$L=f(a)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhspan</span><span class="p">(</span><span class="n">L</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">L</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$L\pm\epsilon$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">delta</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$a\pm\delta$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Visualizing the $\epsilon$-$\delta$ Definition&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/85dd585795bc2cd09de0bd83d1c85b3169ffceb44ee02c119a3251e04f702f6a.png" src="../../_images/85dd585795bc2cd09de0bd83d1c85b3169ffceb44ee02c119a3251e04f702f6a.png" />
+</div>
+</div>
+<p>What this figure teaches:</p>
+<p>If <span class="math notranslate nohighlight">\(x\)</span> is kept within the <span class="math notranslate nohighlight">\(\delta\)</span>-window around <span class="math notranslate nohighlight">\(a\)</span>, then <span class="math notranslate nohighlight">\(f(x)\)</span> stays within the <span class="math notranslate nohighlight">\(\epsilon\)</span>-window around <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="how-to-solve-limit-problems-step-by-step">
+<h1><span class="section-number">9. </span>5. How to Solve Limit Problems Step by Step<a class="headerlink" href="#how-to-solve-limit-problems-step-by-step" title="Link to this heading">#</a></h1>
+<p>A useful workflow is:</p>
+<ul class="simple">
+<li><p>Step 1: Check the domain.</p></li>
+<li><p>Step 2: Try direct substitution.</p></li>
+<li><p>Step 3: If direct substitution works, stop.</p></li>
+<li><p>Step 4: If it gives 0/0 or another indeterminate form, simplify.</p></li>
+<li><p>Step 5: Use factorization, rationalization, standard limits, equivalent infinitesimals, or L’Hôpital’s Rule.</p></li>
+<li><p>Step 6: Interpret the result.</p></li>
+</ul>
+<blockquote>
+<div><p>Try the simplest valid method first.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="core-techniques-for-solving-limits">
+<h1><span class="section-number">10. </span>6. Core Techniques for Solving Limits<a class="headerlink" href="#core-techniques-for-solving-limits" title="Link to this heading">#</a></h1>
+<section id="direct-substitution">
+<h2><span class="section-number">10.1. </span>6.1 Direct Substitution<a class="headerlink" href="#direct-substitution" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(f(x)\)</span> is continuous at <span class="math notranslate nohighlight">\(x=a\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to a}f(x)=f(a)
+\]</div>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to2}(x^2+3x)=4+6=10
+\]</div>
+<p>Direct substitution is the first method you should try.</p>
+</section>
+<hr class="docutils" />
+<section id="factorization">
+<h2><span class="section-number">10.2. </span>6.2 Factorization<a class="headerlink" href="#factorization" title="Link to this heading">#</a></h2>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to1}\frac{x-1}{x^2-1}
+\]</div>
+<p>Direct substitution gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{0}{0}
+\]</div>
+<p>Factor the denominator:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2-1=(x-1)(x+1)
+\]</div>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x-1}{x^2-1}
+=
+\frac{x-1}{(x-1)(x+1)}
+=
+\frac{1}{x+1}
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(x\neq1\)</span>.</p>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to1}\frac{x-1}{x^2-1}
+=
+\lim_{x\to1}\frac{1}{x+1}
+=
+\frac{1}{2}
+\]</div>
+<p>This is not saying the original expression is defined at <span class="math notranslate nohighlight">\(x=1\)</span>. It says the nearby behavior is equivalent for the purpose of the limit.</p>
+</section>
+<hr class="docutils" />
+<section id="rationalization">
+<h2><span class="section-number">10.3. </span>6.3 Rationalization（有理化）<a class="headerlink" href="#rationalization" title="Link to this heading">#</a></h2>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to4}\frac{x-4}{\sqrt{x+5}-3}
+\]</div>
+<p>Direct substitution gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{0}{0}
+\]</div>
+<p>Multiply numerator and denominator by the conjugate:</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{x+5}+3
+\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x-4}{\sqrt{x+5}-3}
+\cdot
+\frac{\sqrt{x+5}+3}{\sqrt{x+5}+3}
+\]</div>
+<p>The denominator becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+(\sqrt{x+5})^2-3^2
+=
+x+5-9
+=
+x-4
+\]</div>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x-4}{\sqrt{x+5}-3}
+=
+\sqrt{x+5}+3
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(x\neq4\)</span>.</p>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to4}\frac{x-4}{\sqrt{x+5}-3}
+=
+\sqrt{9}+3
+=
+6
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="highest-order-terms-for-x-to-infty">
+<h2><span class="section-number">10.4. </span>6.4 Highest-Order Terms for <span class="math notranslate nohighlight">\(x\to\infty\)</span><a class="headerlink" href="#highest-order-terms-for-x-to-infty" title="Link to this heading">#</a></h2>
+<p>For rational functions, the highest power of <span class="math notranslate nohighlight">\(x\)</span> usually controls the limit.</p>
+<p>Example 1:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to\infty}\frac{2x^3+3x^2+5}{7x^3+4x^2-1}
+=
+\frac{2}{7}
+\]</div>
+<p>The numerator and denominator have the same highest degree, so the limit is the ratio of leading coefficients.</p>
+<p>Example 2:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to\infty}\frac{3x^2+5}{7x^3+4x^2-1}
+=
+0
+\]</div>
+<p>The denominator grows faster.</p>
+<p>Example 3:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to\infty}\frac{2x^3+3x^2+5}{4x^2-1}
+=
+\infty
+\]</div>
+<p>The numerator grows faster.</p>
+</section>
+<hr class="docutils" />
+<section id="figure-demo-2-highest-order-terms-dominate">
+<h2><span class="section-number">10.5. </span>Figure Demo 2: Highest-Order Terms Dominate<a class="headerlink" href="#figure-demo-2-highest-order-terms-dominate" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac{2x^3+3x^2+5}{7x^3+4x^2-1}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac{3x^2+5}{7x^3+4x^2-1}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$2/7$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;function value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Highest-Order Terms Control Limits at Infinity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/93e75dbe9071ad6dd8fe98ff2900946625da6a937dbcdedea2181e7e05e8c9d2.png" src="../../_images/93e75dbe9071ad6dd8fe98ff2900946625da6a937dbcdedea2181e7e05e8c9d2.png" />
+</div>
+</div>
+<p>What this figure teaches:</p>
+<p>As <span class="math notranslate nohighlight">\(x\)</span> becomes large, lower-order terms become relatively less important. The leading terms determine the long-run behavior.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="important-limit-results">
+<h1><span class="section-number">11. </span>7. Important Limit Results<a class="headerlink" href="#important-limit-results" title="Link to this heading">#</a></h1>
+<section id="the-sine-limit">
+<h2><span class="section-number">11.1. </span>7.1 The Sine Limit<a class="headerlink" href="#the-sine-limit" title="Link to this heading">#</a></h2>
+<p>One of the most important limits is:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to0}\frac{\sin x}{x}=1
+\]</div>
+<p>This means:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin x \sim x
+\]</div>
+<p>as <span class="math notranslate nohighlight">\(x\to0\)</span>.</p>
+<p>In words:</p>
+<blockquote>
+<div><p>Near zero, <span class="math notranslate nohighlight">\(\sin x\)</span> behaves like <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</div></blockquote>
+<p>This result is foundational for later derivative and Taylor Expansion chapters. In the differential chapter, the local approximation idea <span class="math notranslate nohighlight">\(dy=f'(x)dx\)</span> is used to approximate small changes. In the Taylor chapter, the expansion</p>
+<div class="math notranslate nohighlight">
+\[
+\sin x=x-\frac{x^3}{3!}+\cdots
+\]</div>
+<p>explains why <span class="math notranslate nohighlight">\(\sin x\sim x\)</span> near zero.</p>
+</section>
+<hr class="docutils" />
+<section id="figure-demo-3-why-sin-x-sim-x-near-zero">
+<h2><span class="section-number">11.2. </span>Figure Demo 3: Why <span class="math notranslate nohighlight">\(\sin x\sim x\)</span> Near Zero<a class="headerlink" href="#figure-demo-3-why-sin-x-sim-x-near-zero" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sin x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Near Zero, $\sin x$ Behaves Like $x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/409d1a5693774a3f348258fcb0b79be250a27712de6517d11566bf575ab52c59.png" src="../../_images/409d1a5693774a3f348258fcb0b79be250a27712de6517d11566bf575ab52c59.png" />
+</div>
+</div>
+<p>What this figure teaches:</p>
+<p>Near <span class="math notranslate nohighlight">\(x=0\)</span>, the curves <span class="math notranslate nohighlight">\(y=\sin x\)</span> and <span class="math notranslate nohighlight">\(y=x\)</span> almost overlap. That is the visual meaning of <span class="math notranslate nohighlight">\(\sin x\sim x\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="the-exponential-limit">
+<h2><span class="section-number">11.3. </span>7.2 The Exponential Limit<a class="headerlink" href="#the-exponential-limit" title="Link to this heading">#</a></h2>
+<p>Another fundamental limit is:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n=e
+\]</div>
+<p>More generally:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to\infty}\left(1+\frac{a}{x}\right)^x=e^a
+\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to0}(1+ax)^{1/x}=e^a
+\]</div>
+<p>Examples:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to\infty}\left(1-\frac{2}{x}\right)^x=e^{-2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to0}(1-2x)^{1/x}=e^{-2}
+\]</div>
+<p>This limit is important because it connects repeated small multiplicative changes to exponential growth.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="equivalent-infinitesimals">
+<h1><span class="section-number">12. </span>8. Equivalent Infinitesimals<a class="headerlink" href="#equivalent-infinitesimals" title="Link to this heading">#</a></h1>
+<p>An infinitesimal（无穷小）is a quantity that approaches <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>Two infinitesimals <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> are equivalent if:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to a}\frac{f(x)}{g(x)}=1
+\]</div>
+<p>We write:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x)\sim g(x)
+\]</div>
+<p>as <span class="math notranslate nohighlight">\(x\to a\)</span>.</p>
+<p>This means:</p>
+<blockquote>
+<div><p>Near the limit point, <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> have the same leading-order behavior.</p>
+</div></blockquote>
+<p>Common equivalent infinitesimals as <span class="math notranslate nohighlight">\(x\to0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin x\sim x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\tan x\sim x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+1-\cos x\sim\frac{x^2}{2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\ln(1+x)\sim x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+e^x-1\sim x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(1+x)^\alpha-1\sim\alpha x
+\]</div>
+<p>Important correction:</p>
+<div class="math notranslate nohighlight">
+\[
+(1+x)^\alpha\sim1+\alpha x
+\]</div>
+<p>is a first-order approximation, but as an infinitesimal equivalence, the more useful form is:</p>
+<div class="math notranslate nohighlight">
+\[
+(1+x)^\alpha-1\sim\alpha x
+\]</div>
+<p>because both sides approach <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<hr class="docutils" />
+<section id="worked-example-equivalent-infinitesimals">
+<h2><span class="section-number">12.1. </span>Worked Example: Equivalent Infinitesimals<a class="headerlink" href="#worked-example-equivalent-infinitesimals" title="Link to this heading">#</a></h2>
+<p>Evaluate:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to0}\frac{\ln(1+x)}{\sin3x}
+\]</div>
+<p>Use:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(1+x)\sim x
+\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin3x\sim3x
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to0}\frac{\ln(1+x)}{\sin3x}
+=
+\lim_{x\to0}\frac{x}{3x}
+=
+\frac{1}{3}
+\]</div>
+<p>If the numerator were <span class="math notranslate nohighlight">\(\ln(1+2x)\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(1+2x)\sim2x
+\]</div>
+<p>and the result would be:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{2}{3}
+\]</div>
+<p>This distinction is important: the coefficient inside the small quantity matters.</p>
+<section id="the-equivalent-of-functions">
+<h3><span class="section-number">12.1.1. </span>The equivalent of functions<a class="headerlink" href="#the-equivalent-of-functions" title="Link to this heading">#</a></h3>
+<p><strong>The same domain and the same mapping</strong></p>
+<p>i. <span class="math notranslate nohighlight">\(f(x) = \ln(x - 1) \neq g(x) = \ln\sqrt{(x - 1)^2}\)</span></p>
+<p>ii. <span class="math notranslate nohighlight">\(f(x) = \frac{x}{x} \neq g(x) = 1\)</span></p>
+<p>iii. <span class="math notranslate nohighlight">\(f(x) = \sqrt{x^2} = g(x) = |x|\)</span></p>
+<p>iv. <span class="math notranslate nohighlight">\(f(x) = 
+\begin{cases} 
+-x, &amp; x \geq 1 \\ 
+1, &amp; x &lt; 1 
+\end{cases} 
+\neq 
+g(x) = 
+\begin{cases} 
+0, &amp; x = 1 \\ 
+1, &amp; x &lt; 1 
+\end{cases}\)</span></p>
+</section>
+<section id="the-definition-of-limit">
+<h3><span class="section-number">12.1.2. </span>The definition of limit<a class="headerlink" href="#the-definition-of-limit" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(f(x)\)</span> be a function defined on an interval that contains <span class="math notranslate nohighlight">\(x = a\)</span>, except possibly at <span class="math notranslate nohighlight">\(x = a\)</span>. Then we say that,</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to a} f(x) = L
+\]</div>
+<p>if for every number <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> there is some number <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+|f(x) - L| &lt; \epsilon \quad \text{whenever} \quad 0 &lt; |x - a| &lt; \delta
+\]</div>
+</section>
+</section>
+<section id="solve-the-limit-problem">
+<h2><span class="section-number">12.2. </span>Solve the limit Problem<a class="headerlink" href="#solve-the-limit-problem" title="Link to this heading">#</a></h2>
+<section id="substitute-directly">
+<h3><span class="section-number">12.2.1. </span>Substitute Directly<a class="headerlink" href="#substitute-directly" title="Link to this heading">#</a></h3>
+</section>
+<section id="l-hopital-s-law">
+<h3><span class="section-number">12.2.2. </span>L’Hopital’s Law<a class="headerlink" href="#l-hopital-s-law" title="Link to this heading">#</a></h3>
+<p>i. Infinity to infinity</p>
+<p>ii. Infinity small to infinity small</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 1} \frac{x - 1}{x^2 - 1} = \lim_{x \to 1} \frac{1}{2x} = \frac{1}{2}
+\]</div>
+</section>
+<section id="the-property-of-infinity-and-infinity-small-0">
+<h3><span class="section-number">12.2.3. </span>The Property of infinity (∞) and infinity small (0)<a class="headerlink" href="#the-property-of-infinity-and-infinity-small-0" title="Link to this heading">#</a></h3>
+<p>The product of infinity small with <strong>bounded function</strong> (e.g., <span class="math notranslate nohighlight">\(\sin x \)</span>, <span class="math notranslate nohighlight">\(\cos x \)</span>, <span class="math notranslate nohighlight">\(\arctan x \)</span>, <span class="math notranslate nohighlight">\(arccot x \)</span>) is infinity small.</p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to \infty} \frac{\sin x}{x} = \lim_{x \to \infty} \sin x \ast \frac{1}{x} = 0
+\]</div>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 2} (x - 2) \sin \frac{1}{x - 2} = \lim_{u \to \infty} \frac{\sin u}{u} = 0
+\]</div>
+</section>
+<section id="three-special-cases">
+<h3><span class="section-number">12.2.4. </span>Three special cases<a class="headerlink" href="#three-special-cases" title="Link to this heading">#</a></h3>
+<p><strong>Factorization</strong></p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 1} \frac{x - 1}{x^2 - 1} = \lim_{x \to 1} \frac{1}{x + 1} = \frac{1}{2}
+\]</div>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 4} \frac{x - 4}{\sqrt{x + 5} - 3} = \lim_{x \to 4} \frac{\sqrt{x + 5} + 3}{x + 5 - 9} = \lim_{x \to 4} \sqrt{x + 5} + 3 = 6
+\]</div>
+<p><strong>Rationalization of numerator and denominator</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 4} \frac{x - 4}{\sqrt{x + 5} - 3} = \lim_{x \to 4} \frac{(x - 4)(\sqrt{x + 5} + 3)}{(\sqrt{x + 5} - 3)(\sqrt{x + 5} + 3)}
+\]</div>
+<p><strong>Get the highest order <span class="math notranslate nohighlight">\(x\to \infty\)</span></strong></p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to \infty} \frac{2x^3 + 3x^2 + 5}{7x^3 + 4x^2 - 1} = \frac{2}{7}
+\]</div>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to \infty} \frac{3x^2 + 5}{7x^3 + 4x^2 - 1} = 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to \infty} \frac{2x^3 + 3x^2 + 5}{4x^2 - 1} = \infty
+\]</div>
+</section>
+</section>
+<section id="two-important-limit">
+<h2><span class="section-number">12.3. </span>Two important limit<a class="headerlink" href="#two-important-limit" title="Link to this heading">#</a></h2>
+<p>i. <span class="math notranslate nohighlight">\(\lim_{u(x) \to 0} \frac{\sin u(x)}{u(x)} = 1\)</span></p>
+<ol class="arabic">
+<li><p>Prove using the definition of differential</p>
+<p>a) <span class="math notranslate nohighlight">\(\lim_{x \to 0} \sin x = x\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+   f'(x) = \frac{f(x + \delta) - f(x)}{\delta} \to f(x + \delta) = f(x) + f'(x) \ast \delta, \text{ when } \delta \to 0
+   \]</div>
+<p><span class="math notranslate nohighlight">\(\sin (x + \delta) \approx \sin x + \cos x \ast \delta\)</span> when <span class="math notranslate nohighlight">\(\delta \to 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sin \delta \approx 0 + \delta\)</span>, when <span class="math notranslate nohighlight">\(\delta \to 0\)</span></p>
+<p>Replace <span class="math notranslate nohighlight">\(\delta\)</span> with <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(\lim_{x \to 0} \sin x = x\)</span></p>
+</li>
+</ol>
+<p>ii. <span class="math notranslate nohighlight">\(\lim_{A \to \infty} \left(1 + \frac{1}{A}\right)^A = e\)</span></p>
+<ol class="arabic">
+<li><p>Prove using Taylor’s Formula</p>
+<div class="math notranslate nohighlight">
+\[
+   e &lt; \left(1 + \frac{1}{k}\right)^k = 1 + \frac{k}{1} \left(\frac{1}{k}\right)^1 + \frac{k(k - 1)}{1 \cdot 2} \left(\frac{1}{k}\right)^2 + \frac{k(k - 1)(k - 2)}{1 \cdot 2 \cdot 3} \left(\frac{1}{k}\right)^3 + \cdots
+   \]</div>
+<p>a)</p>
+<div class="math notranslate nohighlight">
+\[
+   e = 1 + \frac{1}{2!} + \frac{1}{3!} + \cdots = e
+   \]</div>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to \infty} \left(1 - \frac{2}{x}\right)^x = e^{-2} = \frac{1}{e^2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to 0} (1 - 2x)^{\frac{1}{x}} = e^{-2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to \infty} \left(1 + \frac{1}{n}\right)^{n+3} = e\)</span></p></li>
+</ol>
+</section>
+<section id="equivalence-of-infinity-small">
+<h2><span class="section-number">12.4. </span>Equivalence of infinity small<a class="headerlink" href="#equivalence-of-infinity-small" title="Link to this heading">#</a></h2>
+<p>i. <span class="math notranslate nohighlight">\(\lim_{x \to 0} \frac{\sin x}{x} = 1 \to \sin x \sim x \ (\text{when } x \to 0)\)</span></p>
+<p>ii. <span class="math notranslate nohighlight">\(1 - \cos x \sim \frac{1}{2} x^2\)</span></p>
+<ol class="arabic simple">
+<li><p>Prove: <span class="math notranslate nohighlight">\(\lim_{x \to 0} \frac{1 - \cos x}{\frac{1}{2}x^2} = \frac{\sin x}{x} = 1\)</span></p></li>
+</ol>
+<p>iii. <span class="math notranslate nohighlight">\(\ln(1 + x) \sim x\)</span></p>
+<ol class="arabic simple">
+<li><p>Prove: <span class="math notranslate nohighlight">\(\ln(1 + x + \delta) = \ln(1 + x) + \frac{\delta}{1 + x} = \ln 1 + \delta \to \ln(1 + \delta) \approx \delta \text{ when } \delta \to 0 \text{ and } x = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to 0} \frac{\ln(1 + x)}{\sin 3x} = \frac{2x}{3x} = \frac{2}{3}\)</span></p></li>
+</ol>
+<p>iv. <span class="math notranslate nohighlight">\(e^x - 1 \sim x\)</span></p>
+<p>v. <span class="math notranslate nohighlight">\((1 + x)^\alpha = 1 + \alpha x\)</span></p>
+<ol class="arabic simple">
+<li><p>Prove: <span class="math notranslate nohighlight">\((1 + x + \delta)^\alpha = (1 + x)^\alpha + (\alpha \delta)(1 + x)^{\alpha - 1} \to (1 + \delta)^\alpha = 1 + \alpha \delta \text{ when } \delta \to 0 \text{ and } x = 0\)</span></p></li>
+</ol>
+</section>
+<section id="continuous">
+<h2><span class="section-number">12.5. </span>Continuous<a class="headerlink" href="#continuous" title="Link to this heading">#</a></h2>
+<section id="continuous-in-functions">
+<h3><span class="section-number">12.5.1. </span>Continuous in functions<a class="headerlink" href="#continuous-in-functions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f(x)\)</span> has a definition at <span class="math notranslate nohighlight">\(x_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to x_0} f(x) = f(x_0)\)</span></p></li>
+</ol>
+</section>
+<section id="example">
+<h3><span class="section-number">12.5.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(f(x) = 
+\begin{cases} 
+x^2 + 2a, &amp; x \leq 0, \\ 
+\frac{\sin x}{2x}, &amp; x &gt; 0 
+\end{cases}\)</span></p>
+<p>is continuous at <span class="math notranslate nohighlight">\(x = 0\)</span>, what’s the value of <span class="math notranslate nohighlight">\(a\)</span>?</p>
+<p><strong>Answer</strong></p>
+<p><span class="math notranslate nohighlight">\(\lim_{x \to 0} (x^2 + 2a) = 2a\)</span>, <span class="math notranslate nohighlight">\(\lim_{x \to 0} \frac{\sin x}{2x} = \frac{1}{2} = 2a \to a = \frac{1}{4}\)</span></p>
+</section>
+</section>
+<section id="the-break-points-of-functions">
+<h2><span class="section-number">12.6. </span>The break points of functions<a class="headerlink" href="#the-break-points-of-functions" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>The point with invalid definition</p></li>
+<li><p><strong>The point with no limits</strong></p>
+<p>a. <span class="math notranslate nohighlight">\(x = 3\)</span> for <span class="math notranslate nohighlight">\(f(x) = \frac{x^2 + 1}{x - 3}\)</span>, with limit <span class="math notranslate nohighlight">\(= \infty\)</span></p>
+</li>
+<li><p>The point with limit that does not equal to its function value</p></li>
+</ol>
+</section>
+<section id="the-intermediate-value-theorem">
+<h2><span class="section-number">12.7. </span>The Intermediate Value Theorem<a class="headerlink" href="#the-intermediate-value-theorem" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(f(x)\)</span> is <strong>continuous on the closed interval</strong> <span class="math notranslate nohighlight">\([a, b]\)</span> and <span class="math notranslate nohighlight">\(k\)</span> is any number between <span class="math notranslate nohighlight">\(f(a)\)</span> and <span class="math notranslate nohighlight">\(f(b)\)</span>, then there exists at least one value <span class="math notranslate nohighlight">\(c\)</span> in the interval <span class="math notranslate nohighlight">\((a, b)\)</span> such that <span class="math notranslate nohighlight">\(f(c) = k\)</span>.</p>
+<p>a. Prove there is a solution of <span class="math notranslate nohighlight">\(x^3 - 4x^2 + 1 = 0\)</span> on the interval <span class="math notranslate nohighlight">\((0,1)\)</span>.</p>
+<p><img alt="image.png" src="../../_images/01.png" /></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\Calculus"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../LinearAlgebra/Chapter2-Matrix-Operation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Matrix Mutiplication</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter2-Differential-and-Derivative.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-and-continuity">4. Limit（极限） and Continuity（连续性）</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">4.1. Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">5. 1. Why This Topic Matters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">6. 2. Big Picture Intuition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-and-function-equivalence">7. 3. Domain and Function Equivalence</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain">7.1. 3.1 Domain（定义域）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-equivalence">7.2. 3.2 Function Equivalence（函数相等）</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-of-a-limit">8. 4. Formal Definition of a Limit</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symbols-mean">8.1. What the symbols mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-visualizing-the-epsilon-delta-idea">8.2. Figure Demo 1: Visualizing the <span class="math notranslate nohighlight">\(\epsilon\)</span>-<span class="math notranslate nohighlight">\(\delta\)</span> Idea</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-solve-limit-problems-step-by-step">9. 5. How to Solve Limit Problems Step by Step</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#core-techniques-for-solving-limits">10. 6. Core Techniques for Solving Limits</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-substitution">10.1. 6.1 Direct Substitution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorization">10.2. 6.2 Factorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationalization">10.3. 6.3 Rationalization（有理化）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highest-order-terms-for-x-to-infty">10.4. 6.4 Highest-Order Terms for <span class="math notranslate nohighlight">\(x\to\infty\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-highest-order-terms-dominate">10.5. Figure Demo 2: Highest-Order Terms Dominate</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#important-limit-results">11. 7. Important Limit Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sine-limit">11.1. 7.1 The Sine Limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-3-why-sin-x-sim-x-near-zero">11.2. Figure Demo 3: Why <span class="math notranslate nohighlight">\(\sin x\sim x\)</span> Near Zero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-exponential-limit">11.3. 7.2 The Exponential Limit</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-infinitesimals">12. 8. Equivalent Infinitesimals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example-equivalent-infinitesimals">12.1. Worked Example: Equivalent Infinitesimals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equivalent-of-functions">12.1.1. The equivalent of functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-definition-of-limit">12.1.2. The definition of limit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-limit-problem">12.2. Solve the limit Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#substitute-directly">12.2.1. Substitute Directly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-hopital-s-law">12.2.2. L’Hopital’s Law</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-property-of-infinity-and-infinity-small-0">12.2.3. The Property of infinity (∞) and infinity small (0)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#three-special-cases">12.2.4. Three special cases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-important-limit">12.3. Two important limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-of-infinity-small">12.4. Equivalence of infinity small</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous">12.5. Continuous</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-in-functions">12.5.1. Continuous in functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">12.5.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-break-points-of-functions">12.6. The break points of functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intermediate-value-theorem">12.7. The Intermediate Value Theorem</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yalin Yang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
