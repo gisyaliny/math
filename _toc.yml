@@ -14,20 +14,20 @@ parts:
     numbered: true
     maxdepth: 2
     chapters:
-      - file: docs/linearAlgebra/Chapter1-Interpretaion
-      - file: docs/linearAlgebra/Chapter2-Matrix-Operation
-  - caption: Advance Math
+      - file: docs/LinearAlgebra/Chapter1-Interpretaion
+      - file: docs/LinearAlgebra/Chapter2-Matrix-Operation
+  - caption: Calculus
     numbered: true
     maxdepth: 2
     chapters:
-      - file: docs/AdvanceMath/Chapter1-Limit-Continuous
-      - file: docs/AdvanceMath/Chapter2-Differential-and-Derivative
-      - file: docs/AdvanceMath/Chapter3-Lhopital-rule
-  - caption: Foundation
+      - file: docs/Calculus/Chapter1-Limit-Continuous
+      - file: docs/Calculus/Chapter2-Differential-and-Derivative
+      - file: docs/Calculus/Chapter3-Lhopital-rule
+  - caption: Optimization
     numbered: true
     maxdepth: 2
     chapters:
-      - file: docs/Foundation/Regularization
+      - file: docs/Optimization/Regularization
   - caption: Spatial Learning
     numbered: true
     maxdepth: 2

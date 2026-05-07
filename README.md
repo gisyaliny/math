@@ -2,6 +2,18 @@
 
 A comprehensive Jupyter Book covering mathematical concepts from linear algebra to advanced mathematics, with a focus on statistical learning and regularization techniques.
 
+## 👤 Author
+
+**Yalin Yang (杨亚霖)**  
+Research Associate & GIS Programmer  
+West Virginia GIS Technical Center, West Virginia University  
+
+Ph.D. in Geospatial Information Sciences, University of Texas at Dallas  
+
+Research interests: Geographic Information Science (GIS), Urban Environment, Human Networks Modeling, Big Geospatial Data Analytics, Machine Learning, Cloud Computing (AWS)
+
+This mathematical foundations repository supports my research in applying advanced mathematical concepts to geospatial data science, spatial analysis, and machine learning applications.
+
 ## 📚 Contents
 
 This repository contains interactive Jupyter notebooks organized into the following main sections:
@@ -10,12 +22,12 @@ This repository contains interactive Jupyter notebooks organized into the follow
 - **Chapter 1: Interpretation** - Fundamental concepts and geometric interpretations
 - **Chapter 2: Matrix Operations** - Essential matrix computations and properties
 
-### 🚀 Advanced Mathematics
+### 🚀 Calculus
 - **Chapter 1: Limits and Continuity** - Foundation of calculus and mathematical analysis
 - **Chapter 2: Differential and Derivative** - Introduction to derivatives and basic rules
 - **Chapter 3: L'Hôpital's Rule** - Techniques for evaluating indeterminate limits
 
-### 🔧 Foundation
+### 🔧 Optimization
 - **Regularization** - Comprehensive guide to regularization techniques
   - Ridge Regression (岭回归)
   - Lasso Regression (套索回归)
@@ -81,15 +93,15 @@ The book is published at: [Math Notes](https://gisyaliny.github.io/math)
 .
 ├── docs/
 │   ├── LinearAlgebra/          # Linear algebra chapters
-│   ├── AdvanceMath/            # Advanced mathematics chapters
-│   ├── Foundation/             # Foundational concepts
-│   └── st_learning_anselin/    # Spatial learning and local statistics
-├── _toc.yml                    # Table of contents configuration
-├── _config.yml                 # Jupyter Book configuration
-├── requirements.txt            # Python dependencies
-├── index.md                    # Book homepage
-├── build_and_deploy.bat        # Windows build script
-└── publish.py                  # Publishing script
+│   ├── Calculus/                # Calculus chapters
+│   ├── Optimization/            # Optimization techniques
+│   └── st_learning_anselin/     # Spatial learning and local statistics
+├── _toc.yml                     # Table of contents configuration
+├── _config.yml                  # Jupyter Book configuration
+├── requirements.txt             # Python dependencies
+├── index.md                     # Book homepage
+├── build_and_deploy.bat         # Windows build script
+└── publish.py                   # Publishing script
 ```
 
 ## 🤝 Contributing
@@ -106,12 +118,27 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-- **Author**: gisyaliny
+**Yalin Yang (杨亚霖)**  
+Research Associate & GIS Programmer  
+West Virginia GIS Technical Center, West Virginia University  
+
+Ph.D. in Geospatial Information Sciences, University of Texas at Dallas  
+
+Research interests: Geographic Information Science (GIS), Urban Environment, Human Networks Modeling, Big Geospatial Data Analytics, Machine Learning, Cloud Computing (AWS)
+
+This mathematical foundations repository supports my research in applying advanced mathematical concepts to geospatial data science, spatial analysis, and machine learning applications.
+
+- **Email**: yy00021@mail.wvu.edu
+- **Website**: [https://gisyaliny.github.io/](https://gisyaliny.github.io/)
+- **GitHub**: [gisyaliny](https://github.com/gisyaliny)
+- **LinkedIn**: [Yalin Yang](https://www.linkedin.com/in/yalin-yang-65959014a/)
+- **Google Scholar**: [Yalin Yang](https://scholar.google.com/citations?user=wdkZhlwAAAAJ&hl=en)
 
 ## 🔗 Links
 
 - **GitHub Repository**: https://github.com/gisyaliny/math
 - **Published Book**: https://gisyaliny.github.io/math
+- **Personal Website**: https://gisyaliny.github.io/
 - **Issues & Discussions**: https://github.com/gisyaliny/math/issues
 
 ## 📌 Notes
