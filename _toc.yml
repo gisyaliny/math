@@ -28,7 +28,7 @@ parts:
     maxdepth: 2
     chapters:
       - file: docs/Optimization/Regularization
-  - caption: Spatial Learning
+  - caption: Spatial Statistics
     numbered: true
     maxdepth: 2
     chapters:
@@ -41,6 +41,12 @@ parts:
       - file: docs/st_learning_anselin/L7-LISA
       - file: docs/st_learning_anselin/L8-Other-Local-Statistics
       - file: docs/st_learning_anselin/L9-Multivariate-LISA
+  - caption: Spatial Optimization
+    numbered: true
+    maxdepth: 2
+    chapters:
+      - file: docs/Spatial-Optimization/pMedian
+      - file: docs/Spatial-Optimization/mclp
   # - caption: Appendix
   #   chapters:
   #     - file: book/gee/bibliography
