@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>13. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation &#8212; Yalin&#39;s Mathematic Handbook</title>
+    <title>3. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation &#8212; Yalin&#39;s Mathematic Handbook</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -64,8 +64,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits" href="Chapter3-Lhopital-rule.html" />
-    <link rel="prev" title="3. Limits and Continuity — Understanding Function Behavior Near a Point" href="Chapter1-Limit-Continuous.html" />
+    <link rel="next" title="4. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits" href="Chapter3-Lhopital-rule.html" />
+    <link rel="prev" title="1. Limits and Continuity — Understanding Function Behavior Near a Point" href="Chapter1-Limit-Continuous.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,42 +175,34 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../LinearAlgebra/Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../LinearAlgebra/Chapter2-Matrix-Operation.html">2. Matrix Mutiplication</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Chapter1-Limit-Continuous.html">3. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter1-Limit-Continuous.html">1. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
 
-
-
-
-
-
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter3-Lhopital-rule.html">14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3-Lhopital-rule.html">4. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">16. Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">6. Regularization</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Learning</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">17. Introduction of Spatial Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">18. Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">19. Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">20. Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">21. Moran’s I and Geary’s C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">22. Visualizing Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">23. Local indicator of Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">24. Other Local Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">25. Multivariate LISA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">7. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">8. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">9. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">10. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">11. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">12. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">13. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">14. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">15. Multivariate LISA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/pMedian.html">16. The p-Median Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/mclp.html">17. The Maximal Covering Location Problem</a></li>
 </ul>
 
     </div>
@@ -472,107 +464,107 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">13.1. 微分与导数：理解局部变化、切线斜率与近似计算</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">13.2. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">13.3. Why This Topic Matters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-average-change-vs-instantaneous-change">13.4. Figure Demo 1: Average Change vs Instantaneous Change</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">13.4.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.1. 微分与导数：理解局部变化、切线斜率与近似计算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">3.3. Why This Topic Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-average-change-vs-instantaneous-change">3.4. Figure Demo 1: Average Change vs Instantaneous Change</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">3.4.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">13.5. Big Picture Intuition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-memory">13.5.1. A useful memory:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">3.5. Big Picture Intuition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-memory">3.5.1. A useful memory:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">13.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-quotient">13.6.1. Difference Quotient</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative">13.6.2. Derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">13.6.3. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">3.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-quotient">3.6.1. Difference Quotient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative">3.6.2. Derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">3.6.3. Differential</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">13.7. How It Works Step by Step</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-compute-the-function-value">13.7.1. Step 1: Compute the function value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-the-derivative">13.7.2. Step 2: Compute the derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-use-the-differential">13.7.3. Step 3: Use the differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">3.7. How It Works Step by Step</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-compute-the-function-value">3.7.1. Step 1: Compute the function value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-the-derivative">3.7.2. Step 2: Compute the derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-use-the-differential">3.7.3. Step 3: Use the differential</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-local-linear-approximation">13.8. Figure Demo 2: Local Linear Approximation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.8.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-local-linear-approximation">3.8. Figure Demo 2: Local Linear Approximation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.8.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-do-these-derivative-rules-come-from">13.9. Where Do These Derivative Rules Come From?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-power-rule-from-a-simple-example">13.10. Deriving the Power Rule from a Simple Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivative-rules">13.11. Common Derivative Rules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-differentiation">13.12. Implicit Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">13.12.1. Example 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-rule">13.12.2. Key Rule</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">13.12.3. Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-do-these-derivative-rules-come-from">3.9. Where Do These Derivative Rules Come From?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-power-rule-from-a-simple-example">3.10. Deriving the Power Rule from a Simple Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivative-rules">3.11. Common Derivative Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-differentiation">3.12. Implicit Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">3.12.1. Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-rule">3.12.2. Key Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">3.12.3. Example 2</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-differentiation">13.13. Parametric Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">13.13.1. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-differentiation">3.13. Parametric Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.13.1. Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">13.14. Higher-Order Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.14.1. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">13.14.2. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">3.14. Higher-Order Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.14.1. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">3.14.2. Interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-4-function-first-derivative-and-second-derivative">13.15. Figure Demo 4: Function, First Derivative, and Second Derivative</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">13.15.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-4-function-first-derivative-and-second-derivative">3.15. Figure Demo 4: Function, First Derivative, and Second Derivative</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.15.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-weaknesses-and-trade-offs">13.16. Assumptions, Strengths, Weaknesses, and Trade-offs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">13.16.1. Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">13.16.2. Strengths</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weaknesses">13.16.3. Weaknesses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off">13.16.4. Trade-off</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-weaknesses-and-trade-offs">3.16. Assumptions, Strengths, Weaknesses, and Trade-offs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">3.16.1. Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">3.16.2. Strengths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weaknesses">3.16.3. Weaknesses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off">3.16.4. Trade-off</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-5-local-approximation-works-nearby-but-fails-far-away">13.17. Figure Demo 5: Local Approximation Works Nearby but Fails Far Away</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">13.17.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-5-local-approximation-works-nearby-but-fails-far-away">3.17. Figure Demo 5: Local Approximation Works Nearby but Fails Far Away</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.17.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">13.18. Worked Toy Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-choose-the-function">13.18.1. Step 1: Choose the function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-choose-a-nearby-easy-point">13.18.2. Step 2: Choose a nearby easy point</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-compute-the-derivative">13.18.3. Step 3: Compute the derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-compute-the-small-change">13.18.4. Step 4: Compute the small change</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-apply-differential-approximation">13.18.5. Step 5: Apply differential approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">3.18. Worked Toy Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-choose-the-function">3.18.1. Step 1: Choose the function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-choose-a-nearby-easy-point">3.18.2. Step 2: Choose a nearby easy point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-compute-the-derivative">3.18.3. Step 3: Compute the derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-compute-the-small-change">3.18.4. Step 4: Compute the small change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-apply-differential-approximation">3.18.5. Step 5: Apply differential approximation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-6-worked-example-visualization">13.19. Figure Demo 6: Worked Example Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-derivatives-tangent-lines-and-approximation-error">13.20. Python Lab: Derivatives, Tangent Lines, and Approximation Error</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-code">13.20.1. Lab Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-error">13.20.2. Plot the Error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">13.20.3. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-6-worked-example-visualization">3.19. Figure Demo 6: Worked Example Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-derivatives-tangent-lines-and-approximation-error">3.20. Python Lab: Derivatives, Tangent Lines, and Approximation Error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-code">3.20.1. Lab Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-error">3.20.2. Plot the Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.20.3. Interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">13.21. How to Interpret the Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-f-x">13.21.1. Interpreting <span class="math notranslate nohighlight">\(f'(x)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.21.2. Interpreting <span class="math notranslate nohighlight">\(f''(x)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-differential-approximation">13.21.3. Interpreting Differential Approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">3.21. How to Interpret the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-f-x">3.21.1. Interpreting <span class="math notranslate nohighlight">\(f'(x)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.21.2. Interpreting <span class="math notranslate nohighlight">\(f''(x)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-differential-approximation">3.21.3. Interpreting Differential Approximation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">13.22. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-confusing-delta-y-and-dy">13.22.1. Pitfall 1: Confusing <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(dy\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-the-chain-rule">13.22.2. Pitfall 2: Forgetting the chain rule</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-y-in-implicit-differentiation">13.22.3. Pitfall 3: Forgetting <span class="math notranslate nohighlight">\(y'\)</span> in implicit differentiation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-treating-local-slope-as-global-behavior">13.22.4. Pitfall 4: Treating local slope as global behavior</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-misreading-convex-and-concave">13.22.5. Pitfall 5: Misreading convex and concave</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">3.22. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-confusing-delta-y-and-dy">3.22.1. Pitfall 1: Confusing <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(dy\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-the-chain-rule">3.22.2. Pitfall 2: Forgetting the chain rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-y-in-implicit-differentiation">3.22.3. Pitfall 3: Forgetting <span class="math notranslate nohighlight">\(y'\)</span> in implicit differentiation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-treating-local-slope-as-global-behavior">3.22.4. Pitfall 4: Treating local slope as global behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-misreading-convex-and-concave">3.22.5. Pitfall 5: Misreading convex and concave</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">13.23. Comparison with Related Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">13.24. Practical Advice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">13.25. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">13.26. Quiz</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">13.26.1. Conceptual Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">13.26.2. Applied Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">13.26.3. Explain in Your Own Words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">3.23. Comparison with Related Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">3.24. Practical Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3.25. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">3.26. Quiz</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">3.26.1. Conceptual Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">3.26.2. Applied Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">3.26.3. Explain in Your Own Words</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivatives">13.27. Common Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric">13.27.1. Trigonometric</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-log">13.27.2. Exponential &amp; Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivatives">3.27. Common Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric">3.27.1. Trigonometric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-log">3.27.2. Exponential &amp; Log</a></li>
 </ul>
 </li>
 </ul>
@@ -587,13 +579,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="differential-and-derivative-understanding-local-change-tangent-lines-and-approximation">
-<h1><span class="section-number">13. </span>Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation<a class="headerlink" href="#differential-and-derivative-understanding-local-change-tangent-lines-and-approximation" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation<a class="headerlink" href="#differential-and-derivative-understanding-local-change-tangent-lines-and-approximation" title="Link to this heading">#</a></h1>
 <section id="id1">
-<h2><span class="section-number">13.1. </span>微分与导数：理解局部变化、切线斜率与近似计算<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>微分与导数：理解局部变化、切线斜率与近似计算<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 </section>
 <hr class="docutils" />
 <section id="learning-objectives">
-<h2><span class="section-number">13.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>After reading this chapter, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Explain the difference between <strong>average rate of change（平均变化率）</strong> and <strong>instantaneous rate of change（瞬时变化率）</strong>.</p></li>
@@ -607,7 +599,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-this-topic-matters">
-<h2><span class="section-number">13.3. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h2>
 <p>Many real problems are not only about values, but about <strong>how values change</strong>.</p>
 <p>For example:</p>
 <ul class="simple">
@@ -636,12 +628,12 @@ The differential uses that rate to estimate the <strong>small change in the outp
 </section>
 <hr class="docutils" />
 <section id="figure-demo-1-average-change-vs-instantaneous-change">
-<h2><span class="section-number">13.4. </span>Figure Demo 1: Average Change vs Instantaneous Change<a class="headerlink" href="#figure-demo-1-average-change-vs-instantaneous-change" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Figure Demo 1: Average Change vs Instantaneous Change<a class="headerlink" href="#figure-demo-1-average-change-vs-instantaneous-change" title="Link to this heading">#</a></h2>
 <p>This figure shows the core motivation: a <strong>secant line</strong> measures average change over an interval, while a <strong>tangent line</strong> measures local change at one point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
     <span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
@@ -651,10 +643,10 @@ The differential uses that rate to estimate the <strong>small change in the outp
     <span class="s2">&quot;figure.dpi&quot;</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">})</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">x</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
@@ -695,12 +687,12 @@ The differential uses that rate to estimate the <strong>small change in the outp
 </div>
 </div>
 <section id="what-this-figure-teaches">
-<h3><span class="section-number">13.4.1. </span>What this figure teaches:<a class="headerlink" href="#what-this-figure-teaches" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>What this figure teaches:<a class="headerlink" href="#what-this-figure-teaches" title="Link to this heading">#</a></h3>
 <p>The secant line uses two separated points and gives an average slope. The tangent line touches the curve locally and gives the derivative at a point.</p>
 </section>
 </section>
 <section id="big-picture-intuition">
-<h2><span class="section-number">13.5. </span>Big Picture Intuition<a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Big Picture Intuition<a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
 <p>Imagine you are zooming in on a smooth curve.</p>
 <p>From far away, the curve may look strongly curved.<br />
 But if you zoom in near one point, the curve begins to look almost straight.</p>
@@ -720,7 +712,7 @@ dy = f'(x)\,dx
 <div><p>If <span class="math notranslate nohighlight">\(x\)</span> changes by a tiny amount <span class="math notranslate nohighlight">\(dx\)</span>, then <span class="math notranslate nohighlight">\(y\)</span> changes by approximately <span class="math notranslate nohighlight">\(f'(x)\,dx\)</span>.</p>
 </div></blockquote>
 <section id="a-useful-memory">
-<h3><span class="section-number">13.5.1. </span>A useful memory:<a class="headerlink" href="#a-useful-memory" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.1. </span>A useful memory:<a class="headerlink" href="#a-useful-memory" title="Link to this heading">#</a></h3>
 <div class="highlight-quote notranslate"><div class="highlight"><pre><span></span>Derivative = local slope
 Differential = estimated small change
 Tangent line = local linear model
@@ -730,9 +722,9 @@ Tangent line = local linear model
 </section>
 <hr class="docutils" />
 <section id="formal-definition-and-core-equations">
-<h2><span class="section-number">13.6. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
 <section id="difference-quotient">
-<h3><span class="section-number">13.6.1. </span>Difference Quotient<a class="headerlink" href="#difference-quotient" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.6.1. </span>Difference Quotient<a class="headerlink" href="#difference-quotient" title="Link to this heading">#</a></h3>
 <p>Suppose:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -752,7 +744,7 @@ y = f(x)
 </section>
 <hr class="docutils" />
 <section id="derivative">
-<h3><span class="section-number">13.6.2. </span>Derivative<a class="headerlink" href="#derivative" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.6.2. </span>Derivative<a class="headerlink" href="#derivative" title="Link to this heading">#</a></h3>
 <p>The derivative is the limit of the average rate of change as <span class="math notranslate nohighlight">\(\Delta x\)</span> approaches 0:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -771,7 +763,7 @@ f'(x_0) = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
 </div></blockquote>
 </section>
 <section id="differential">
-<h3><span class="section-number">13.6.3. </span>Differential<a class="headerlink" href="#differential" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.6.3. </span>Differential<a class="headerlink" href="#differential" title="Link to this heading">#</a></h3>
 <p>Once we know the derivative, we define the differential:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -792,7 +784,7 @@ f(x_0 + \Delta x) \approx f(x_0) + f'(x_0)\,\Delta x
 </section>
 <hr class="docutils" />
 <section id="how-it-works-step-by-step">
-<h2><span class="section-number">13.7. </span>How It Works Step by Step<a class="headerlink" href="#how-it-works-step-by-step" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.7. </span>How It Works Step by Step<a class="headerlink" href="#how-it-works-step-by-step" title="Link to this heading">#</a></h2>
 <p>Suppose:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -804,14 +796,14 @@ f(x) = x^2
 x_0 = 3
 \]</div>
 <section id="step-1-compute-the-function-value">
-<h3><span class="section-number">13.7.1. </span>Step 1: Compute the function value<a class="headerlink" href="#step-1-compute-the-function-value" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.7.1. </span>Step 1: Compute the function value<a class="headerlink" href="#step-1-compute-the-function-value" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f(3) = 9
 \]</div>
 </section>
 <section id="step-2-compute-the-derivative">
-<h3><span class="section-number">13.7.2. </span>Step 2: Compute the derivative<a class="headerlink" href="#step-2-compute-the-derivative" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.7.2. </span>Step 2: Compute the derivative<a class="headerlink" href="#step-2-compute-the-derivative" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f'(x) = 2x
@@ -825,7 +817,7 @@ f'(3) = 6
 </section>
 <hr class="docutils" />
 <section id="step-3-use-the-differential">
-<h3><span class="section-number">13.7.3. </span>Step 3: Use the differential<a class="headerlink" href="#step-3-use-the-differential" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.7.3. </span>Step 3: Use the differential<a class="headerlink" href="#step-3-use-the-differential" title="Link to this heading">#</a></h3>
 <p>If:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -851,24 +843,24 @@ f(3.1) = 9.61
 </section>
 <hr class="docutils" />
 <section id="figure-demo-2-local-linear-approximation">
-<h2><span class="section-number">13.8. </span>Figure Demo 2: Local Linear Approximation<a class="headerlink" href="#figure-demo-2-local-linear-approximation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.8. </span>Figure Demo 2: Local Linear Approximation<a class="headerlink" href="#figure-demo-2-local-linear-approximation" title="Link to this heading">#</a></h2>
 <p>This demo compares the true function and its tangent-line approximation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
 
 <span class="n">x0</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
 <span class="n">slope</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">linear_approx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">linear_approx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
@@ -892,7 +884,7 @@ f(3.1) = 9.61
 </div>
 </div>
 <section id="id2">
-<h3><span class="section-number">13.8.1. </span>What this figure teaches:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.8.1. </span>What this figure teaches:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The tangent line is very accurate near <span class="math notranslate nohighlight">\(x_0=3\)</span>, but becomes less accurate as we move farther away.</p></li>
 <li><p>Differential approximation is local, not global.</p></li>
@@ -901,7 +893,7 @@ f(3.1) = 9.61
 </section>
 <hr class="docutils" />
 <section id="where-do-these-derivative-rules-come-from">
-<h2><span class="section-number">13.9. </span>Where Do These Derivative Rules Come From?<a class="headerlink" href="#where-do-these-derivative-rules-come-from" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.9. </span>Where Do These Derivative Rules Come From?<a class="headerlink" href="#where-do-these-derivative-rules-come-from" title="Link to this heading">#</a></h2>
 <p>Before memorizing derivative rules, it is useful to see that they are not magic formulas. Most basic derivative rules come from the formal definition of derivative:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -915,7 +907,7 @@ f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
 </section>
 <hr class="docutils" />
 <section id="deriving-the-power-rule-from-a-simple-example">
-<h2><span class="section-number">13.10. </span>Deriving the Power Rule from a Simple Example<a class="headerlink" href="#deriving-the-power-rule-from-a-simple-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.10. </span>Deriving the Power Rule from a Simple Example<a class="headerlink" href="#deriving-the-power-rule-from-a-simple-example" title="Link to this heading">#</a></h2>
 <p>Suppose:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -954,7 +946,7 @@ f'(x) = 2x
 </section>
 <hr class="docutils" />
 <section id="common-derivative-rules">
-<h2><span class="section-number">13.11. </span>Common Derivative Rules<a class="headerlink" href="#common-derivative-rules" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.11. </span>Common Derivative Rules<a class="headerlink" href="#common-derivative-rules" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Rule</p></th>
@@ -995,10 +987,10 @@ f'(x) = 2x
 </section>
 <hr class="docutils" />
 <section id="implicit-differentiation">
-<h2><span class="section-number">13.12. </span>Implicit Differentiation<a class="headerlink" href="#implicit-differentiation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.12. </span>Implicit Differentiation<a class="headerlink" href="#implicit-differentiation" title="Link to this heading">#</a></h2>
 <p>Sometimes <span class="math notranslate nohighlight">\(y\)</span> is not isolated as <span class="math notranslate nohighlight">\(y = f(x)\)</span>. Instead, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> appear together.</p>
 <section id="example-1">
-<h3><span class="section-number">13.12.1. </span>Example 1<a class="headerlink" href="#example-1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.12.1. </span>Example 1<a class="headerlink" href="#example-1" title="Link to this heading">#</a></h3>
 <p>Given:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1021,14 +1013,14 @@ y' = \frac{-2x - 1}{12y^3 + 2}
 \]</div>
 </section>
 <section id="key-rule">
-<h3><span class="section-number">13.12.2. </span>Key Rule<a class="headerlink" href="#key-rule" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.12.2. </span>Key Rule<a class="headerlink" href="#key-rule" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>Whenever you differentiate a term involving <span class="math notranslate nohighlight">\(y\)</span>, multiply by <span class="math notranslate nohighlight">\(y'\)</span>, because <span class="math notranslate nohighlight">\(y\)</span> is itself a function of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="example-2">
-<h3><span class="section-number">13.12.3. </span>Example 2<a class="headerlink" href="#example-2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.12.3. </span>Example 2<a class="headerlink" href="#example-2" title="Link to this heading">#</a></h3>
 <p>Given:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1048,7 +1040,7 @@ y' = \frac{-y^2}{xy + 1}
 </section>
 <hr class="docutils" />
 <section id="parametric-differentiation">
-<h2><span class="section-number">13.13. </span>Parametric Differentiation<a class="headerlink" href="#parametric-differentiation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.13. </span>Parametric Differentiation<a class="headerlink" href="#parametric-differentiation" title="Link to this heading">#</a></h2>
 <p>Sometimes <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> both depend on a third variable <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1061,7 +1053,7 @@ x = f(t), \quad y = g(t)
 \]</div>
 <hr class="docutils" />
 <section id="example">
-<h3><span class="section-number">13.13.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.13.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 x = t^2, \quad y = t^3
@@ -1085,7 +1077,7 @@ x = t^2, \quad y = t^3
 </section>
 <hr class="docutils" />
 <section id="higher-order-derivatives">
-<h2><span class="section-number">13.14. </span>Higher-Order Derivatives<a class="headerlink" href="#higher-order-derivatives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.14. </span>Higher-Order Derivatives<a class="headerlink" href="#higher-order-derivatives" title="Link to this heading">#</a></h2>
 <p>The first derivative tells us the slope:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1097,7 +1089,7 @@ f'(x)
 f''(x)
 \]</div>
 <section id="id3">
-<h3><span class="section-number">13.14.1. </span>Example<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.14.1. </span>Example<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 y = 2x^3 - 3x^2 + 5
@@ -1112,7 +1104,7 @@ y'' = 12x - 6
 \]</div>
 </section>
 <section id="interpretation">
-<h3><span class="section-number">13.14.2. </span>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.14.2. </span>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f'(x) &gt; 0\)</span>: function is increasing</p></li>
 <li><p><span class="math notranslate nohighlight">\(f'(x) &lt; 0\)</span>: function is decreasing</p></li>
@@ -1123,20 +1115,20 @@ y'' = 12x - 6
 </section>
 <hr class="docutils" />
 <section id="figure-demo-4-function-first-derivative-and-second-derivative">
-<h2><span class="section-number">13.15. </span>Figure Demo 4: Function, First Derivative, and Second Derivative<a class="headerlink" href="#figure-demo-4-function-first-derivative-and-second-derivative" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.15. </span>Figure Demo 4: Function, First Derivative, and Second Derivative<a class="headerlink" href="#figure-demo-4-function-first-derivative-and-second-derivative" title="Link to this heading">#</a></h2>
 <p>This figure shows how <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(f'(x)\)</span>, and <span class="math notranslate nohighlight">\(f''(x)\)</span> describe different aspects of the same function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">9</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">d2f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">d2f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">6</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
@@ -1172,7 +1164,7 @@ y'' = 12x - 6
 </div>
 </div>
 <section id="id4">
-<h3><span class="section-number">13.15.1. </span>What this figure teaches:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.15.1. </span>What this figure teaches:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The original function shows the curve.</p></li>
 <li><p>The first derivative shows where the function increases or decreases.</p></li>
@@ -1182,9 +1174,9 @@ y'' = 12x - 6
 </section>
 <hr class="docutils" />
 <section id="assumptions-strengths-weaknesses-and-trade-offs">
-<h2><span class="section-number">13.16. </span>Assumptions, Strengths, Weaknesses, and Trade-offs<a class="headerlink" href="#assumptions-strengths-weaknesses-and-trade-offs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.16. </span>Assumptions, Strengths, Weaknesses, and Trade-offs<a class="headerlink" href="#assumptions-strengths-weaknesses-and-trade-offs" title="Link to this heading">#</a></h2>
 <section id="assumptions">
-<h3><span class="section-number">13.16.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.16.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h3>
 <p>Derivative-based reasoning usually assumes that the function is:</p>
 <ol class="arabic simple">
 <li><p><strong>continuous（连续）</strong> near the point of interest</p></li>
@@ -1195,7 +1187,7 @@ y'' = 12x - 6
 </section>
 <hr class="docutils" />
 <section id="strengths">
-<h3><span class="section-number">13.16.2. </span>Strengths<a class="headerlink" href="#strengths" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.16.2. </span>Strengths<a class="headerlink" href="#strengths" title="Link to this heading">#</a></h3>
 <p>Derivatives are powerful because they allow us to:</p>
 <ul class="simple">
 <li><p>measure local change</p></li>
@@ -1208,7 +1200,7 @@ y'' = 12x - 6
 </section>
 <hr class="docutils" />
 <section id="weaknesses">
-<h3><span class="section-number">13.16.3. </span>Weaknesses<a class="headerlink" href="#weaknesses" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.16.3. </span>Weaknesses<a class="headerlink" href="#weaknesses" title="Link to this heading">#</a></h3>
 <p>Derivatives can be misleading when:</p>
 <ul class="simple">
 <li><p>the function is not smooth</p></li>
@@ -1220,7 +1212,7 @@ y'' = 12x - 6
 </section>
 <hr class="docutils" />
 <section id="trade-off">
-<h3><span class="section-number">13.16.4. </span>Trade-off<a class="headerlink" href="#trade-off" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.16.4. </span>Trade-off<a class="headerlink" href="#trade-off" title="Link to this heading">#</a></h3>
 <p>The main trade-off is:</p>
 <blockquote>
 <div><p><strong>Local accuracy vs global validity</strong></p>
@@ -1229,23 +1221,23 @@ y'' = 12x - 6
 </section>
 </section>
 <section id="figure-demo-5-local-approximation-works-nearby-but-fails-far-away">
-<h2><span class="section-number">13.17. </span>Figure Demo 5: Local Approximation Works Nearby but Fails Far Away<a class="headerlink" href="#figure-demo-5-local-approximation-works-nearby-but-fails-far-away" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.17. </span>Figure Demo 5: Local Approximation Works Nearby but Fails Far Away<a class="headerlink" href="#figure-demo-5-local-approximation-works-nearby-but-fails-far-away" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
 <span class="n">slope</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">tangent</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">tangent</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
@@ -1271,7 +1263,7 @@ y'' = 12x - 6
 </div>
 </div>
 <section id="id5">
-<h3><span class="section-number">13.17.1. </span>What this figure teaches:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.17.1. </span>What this figure teaches:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The tangent line approximates the curve well near the chosen point, but the error grows farther away.</p></li>
 </ul>
@@ -1279,7 +1271,7 @@ y'' = 12x - 6
 </section>
 <hr class="docutils" />
 <section id="worked-toy-example">
-<h2><span class="section-number">13.18. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.18. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
 <p>Estimate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1287,14 +1279,14 @@ y'' = 12x - 6
 \]</div>
 <p>using differential approximation.</p>
 <section id="step-1-choose-the-function">
-<h3><span class="section-number">13.18.1. </span>Step 1: Choose the function<a class="headerlink" href="#step-1-choose-the-function" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.18.1. </span>Step 1: Choose the function<a class="headerlink" href="#step-1-choose-the-function" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f(x) = \sqrt{x}
 \]</div>
 </section>
 <section id="step-2-choose-a-nearby-easy-point">
-<h3><span class="section-number">13.18.2. </span>Step 2: Choose a nearby easy point<a class="headerlink" href="#step-2-choose-a-nearby-easy-point" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.18.2. </span>Step 2: Choose a nearby easy point<a class="headerlink" href="#step-2-choose-a-nearby-easy-point" title="Link to this heading">#</a></h3>
 <p>Use:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1307,7 +1299,7 @@ x_0 = 4
 \]</div>
 </section>
 <section id="step-3-compute-the-derivative">
-<h3><span class="section-number">13.18.3. </span>Step 3: Compute the derivative<a class="headerlink" href="#step-3-compute-the-derivative" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.18.3. </span>Step 3: Compute the derivative<a class="headerlink" href="#step-3-compute-the-derivative" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f'(x) = \frac{1}{2\sqrt{x}}
@@ -1319,14 +1311,14 @@ f'(4) = \frac{1}{2 \cdot 2} = \frac{1}{4}
 \]</div>
 </section>
 <section id="step-4-compute-the-small-change">
-<h3><span class="section-number">13.18.4. </span>Step 4: Compute the small change<a class="headerlink" href="#step-4-compute-the-small-change" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.18.4. </span>Step 4: Compute the small change<a class="headerlink" href="#step-4-compute-the-small-change" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \Delta x = 4.1 - 4 = 0.1
 \]</div>
 </section>
 <section id="step-5-apply-differential-approximation">
-<h3><span class="section-number">13.18.5. </span>Step 5: Apply differential approximation<a class="headerlink" href="#step-5-apply-differential-approximation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.18.5. </span>Step 5: Apply differential approximation<a class="headerlink" href="#step-5-apply-differential-approximation" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f(4.1) \approx f(4) + f'(4)\Delta x
@@ -1345,16 +1337,16 @@ f(4.1) \approx f(4) + f'(4)\Delta x
 </section>
 <hr class="docutils" />
 <section id="figure-demo-6-worked-example-visualization">
-<h2><span class="section-number">13.19. </span>Figure Demo 6: Worked Example Visualization<a class="headerlink" href="#figure-demo-6-worked-example-visualization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.19. </span>Figure Demo 6: Worked Example Visualization<a class="headerlink" href="#figure-demo-6-worked-example-visualization" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">x0</span> <span class="o">=</span> <span class="mi">4</span>
@@ -1400,7 +1392,7 @@ Absolute error: 0.00015432686834149223
 </section>
 <hr class="docutils" />
 <section id="python-lab-derivatives-tangent-lines-and-approximation-error">
-<h2><span class="section-number">13.20. </span>Python Lab: Derivatives, Tangent Lines, and Approximation Error<a class="headerlink" href="#python-lab-derivatives-tangent-lines-and-approximation-error" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.20. </span>Python Lab: Derivatives, Tangent Lines, and Approximation Error<a class="headerlink" href="#python-lab-derivatives-tangent-lines-and-approximation-error" title="Link to this heading">#</a></h2>
 <p>In this lab, we will:</p>
 <ol class="arabic simple">
 <li><p>define a function</p></li>
@@ -1420,17 +1412,17 @@ f'(x) = \cos x
 \]</div>
 <hr class="docutils" />
 <section id="lab-code">
-<h3><span class="section-number">13.20.1. </span>Lab Code<a class="headerlink" href="#lab-code" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.20.1. </span>Lab Code<a class="headerlink" href="#lab-code" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span>
@@ -1473,7 +1465,7 @@ f'(x) = \cos x
 </div>
 </section>
 <section id="plot-the-error">
-<h3><span class="section-number">13.20.2. </span>Plot the Error<a class="headerlink" href="#plot-the-error" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.20.2. </span>Plot the Error<a class="headerlink" href="#plot-the-error" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -1493,7 +1485,7 @@ f'(x) = \cos x
 </div>
 </section>
 <section id="id6">
-<h3><span class="section-number">13.20.3. </span>Interpretation<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.20.3. </span>Interpretation<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>The error is small when <span class="math notranslate nohighlight">\(\Delta x\)</span> is small.</p>
 <p>As <span class="math notranslate nohighlight">\(\Delta x\)</span> increases, the tangent line becomes less reliable.</p>
 <p>This is the practical meaning of:</p>
@@ -1506,9 +1498,9 @@ f'(x) = \cos x
 </section>
 <hr class="docutils" />
 <section id="how-to-interpret-the-results">
-<h2><span class="section-number">13.21. </span>How to Interpret the Results<a class="headerlink" href="#how-to-interpret-the-results" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.21. </span>How to Interpret the Results<a class="headerlink" href="#how-to-interpret-the-results" title="Link to this heading">#</a></h2>
 <section id="interpreting-f-x">
-<h3><span class="section-number">13.21.1. </span>Interpreting <span class="math notranslate nohighlight">\(f'(x)\)</span><a class="headerlink" href="#interpreting-f-x" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.21.1. </span>Interpreting <span class="math notranslate nohighlight">\(f'(x)\)</span><a class="headerlink" href="#interpreting-f-x" title="Link to this heading">#</a></h3>
 <p>If:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1530,7 +1522,7 @@ f'(x) = 0
 </section>
 <hr class="docutils" />
 <section id="id7">
-<h3><span class="section-number">13.21.2. </span>Interpreting <span class="math notranslate nohighlight">\(f''(x)\)</span><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.21.2. </span>Interpreting <span class="math notranslate nohighlight">\(f''(x)\)</span><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>If:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1547,7 +1539,7 @@ f''(x) &lt; 0
 </section>
 <hr class="docutils" />
 <section id="interpreting-differential-approximation">
-<h3><span class="section-number">13.21.3. </span>Interpreting Differential Approximation<a class="headerlink" href="#interpreting-differential-approximation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.21.3. </span>Interpreting Differential Approximation<a class="headerlink" href="#interpreting-differential-approximation" title="Link to this heading">#</a></h3>
 <p>The formula:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1562,9 +1554,9 @@ f(x_0 + \Delta x) \approx f(x_0) + f'(x_0)\,\Delta x
 </section>
 <hr class="docutils" />
 <section id="common-pitfalls-and-misunderstandings">
-<h2><span class="section-number">13.22. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.22. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
 <section id="pitfall-1-confusing-delta-y-and-dy">
-<h3><span class="section-number">13.22.1. </span>Pitfall 1: Confusing <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(dy\)</span><a class="headerlink" href="#pitfall-1-confusing-delta-y-and-dy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.22.1. </span>Pitfall 1: Confusing <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(dy\)</span><a class="headerlink" href="#pitfall-1-confusing-delta-y-and-dy" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\Delta y\)</span> is the true change:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1579,7 +1571,7 @@ dy = f'(x_0)\,\Delta x
 </section>
 <hr class="docutils" />
 <section id="pitfall-2-forgetting-the-chain-rule">
-<h3><span class="section-number">13.22.2. </span>Pitfall 2: Forgetting the chain rule<a class="headerlink" href="#pitfall-2-forgetting-the-chain-rule" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.22.2. </span>Pitfall 2: Forgetting the chain rule<a class="headerlink" href="#pitfall-2-forgetting-the-chain-rule" title="Link to this heading">#</a></h3>
 <p>For:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1599,7 +1591,7 @@ y = \sin(x^2)
 </section>
 <hr class="docutils" />
 <section id="pitfall-3-forgetting-y-in-implicit-differentiation">
-<h3><span class="section-number">13.22.3. </span>Pitfall 3: Forgetting <span class="math notranslate nohighlight">\(y'\)</span> in implicit differentiation<a class="headerlink" href="#pitfall-3-forgetting-y-in-implicit-differentiation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.22.3. </span>Pitfall 3: Forgetting <span class="math notranslate nohighlight">\(y'\)</span> in implicit differentiation<a class="headerlink" href="#pitfall-3-forgetting-y-in-implicit-differentiation" title="Link to this heading">#</a></h3>
 <p>For:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1619,7 +1611,7 @@ y = \sin(x^2)
 </section>
 <hr class="docutils" />
 <section id="pitfall-4-treating-local-slope-as-global-behavior">
-<h3><span class="section-number">13.22.4. </span>Pitfall 4: Treating local slope as global behavior<a class="headerlink" href="#pitfall-4-treating-local-slope-as-global-behavior" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.22.4. </span>Pitfall 4: Treating local slope as global behavior<a class="headerlink" href="#pitfall-4-treating-local-slope-as-global-behavior" title="Link to this heading">#</a></h3>
 <p>If:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1630,7 +1622,7 @@ f'(2) = 5
 </section>
 <hr class="docutils" />
 <section id="pitfall-5-misreading-convex-and-concave">
-<h3><span class="section-number">13.22.5. </span>Pitfall 5: Misreading convex and concave<a class="headerlink" href="#pitfall-5-misreading-convex-and-concave" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.22.5. </span>Pitfall 5: Misreading convex and concave<a class="headerlink" href="#pitfall-5-misreading-convex-and-concave" title="Link to this heading">#</a></h3>
 <p>A useful memory:</p>
 <ul class="simple">
 <li><p>f’’(x) &gt; 0  → slope increasing  → curve bends upward</p></li>
@@ -1640,7 +1632,7 @@ f'(2) = 5
 </section>
 <hr class="docutils" />
 <section id="comparison-with-related-concepts">
-<h2><span class="section-number">13.23. </span>Comparison with Related Concepts<a class="headerlink" href="#comparison-with-related-concepts" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.23. </span>Comparison with Related Concepts<a class="headerlink" href="#comparison-with-related-concepts" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concept</p></th>
@@ -1681,7 +1673,7 @@ f'(2) = 5
 </section>
 <hr class="docutils" />
 <section id="practical-advice">
-<h2><span class="section-number">13.24. </span>Practical Advice<a class="headerlink" href="#practical-advice" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.24. </span>Practical Advice<a class="headerlink" href="#practical-advice" title="Link to this heading">#</a></h2>
 <p>Use derivatives when you want to:</p>
 <ul class="simple">
 <li><p>analyze local sensitivity</p></li>
@@ -1711,7 +1703,7 @@ f'(2) = 5
 </section>
 <hr class="docutils" />
 <section id="summary">
-<h2><span class="section-number">13.25. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.25. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>A derivative measures the instantaneous rate of change of a function.</p>
 <p>A differential estimates a small change in the output using:</p>
 <div class="math notranslate nohighlight">
@@ -1727,9 +1719,9 @@ dy = f'(x)\,dx
 </section>
 <hr class="docutils" />
 <section id="quiz">
-<h2><span class="section-number">13.26. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.26. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h2>
 <section id="conceptual-questions">
-<h3><span class="section-number">13.26.1. </span>Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.26.1. </span>Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Link to this heading">#</a></h3>
 <hr class="docutils" />
 <p><strong>Q1: What does the derivative <span class="math notranslate nohighlight">\(f'(x_0)\)</span> represent geometrically?</strong><br />
 A. The area under the curve<br />
@@ -1787,7 +1779,7 @@ D. The function is constant</p>
 </section>
 <hr class="docutils" />
 <section id="applied-questions">
-<h3><span class="section-number">13.26.2. </span>Applied Questions<a class="headerlink" href="#applied-questions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.26.2. </span>Applied Questions<a class="headerlink" href="#applied-questions" title="Link to this heading">#</a></h3>
 <p><strong>Q6: Use differential approximation to estimate <span class="math notranslate nohighlight">\(\sqrt{9.2}\)</span>.</strong><br />
 A. 3.0033<br />
 B. 3.0333<br />
@@ -1853,7 +1845,7 @@ y' = \frac{-y^2}{xy + 1}
 </section>
 <hr class="docutils" />
 <section id="explain-in-your-own-words">
-<h3><span class="section-number">13.26.3. </span>Explain in Your Own Words<a class="headerlink" href="#explain-in-your-own-words" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.26.3. </span>Explain in Your Own Words<a class="headerlink" href="#explain-in-your-own-words" title="Link to this heading">#</a></h3>
 <p><strong>Q8: Explain why differential approximation works well only near the chosen point <span class="math notranslate nohighlight">\(x_0\)</span>.</strong></p>
 <details>
 <summary>Answer</summary>
@@ -1861,9 +1853,9 @@ y' = \frac{-y^2}{xy + 1}
 </details></section>
 </section>
 <section id="common-derivatives">
-<h2><span class="section-number">13.27. </span>Common Derivatives<a class="headerlink" href="#common-derivatives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.27. </span>Common Derivatives<a class="headerlink" href="#common-derivatives" title="Link to this heading">#</a></h2>
 <section id="trigonometric">
-<h3><span class="section-number">13.27.1. </span>Trigonometric<a class="headerlink" href="#trigonometric" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.27.1. </span>Trigonometric<a class="headerlink" href="#trigonometric" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 (\sin x)' = \cos x
@@ -1878,7 +1870,7 @@ y' = \frac{-y^2}{xy + 1}
 \]</div>
 </section>
 <section id="exponential-log">
-<h3><span class="section-number">13.27.2. </span>Exponential &amp; Log<a class="headerlink" href="#exponential-log" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.27.2. </span>Exponential &amp; Log<a class="headerlink" href="#exponential-log" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 (e^x)' = e^x
@@ -1927,7 +1919,7 @@ y' = \frac{-y^2}{xy + 1}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Limits and Continuity — Understanding Function Behavior Near a Point</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Limits and Continuity — Understanding Function Behavior Near a Point</p>
       </div>
     </a>
     <a class="right-next"
@@ -1935,7 +1927,7 @@ y' = \frac{-y^2}{xy + 1}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1955,107 +1947,107 @@ y' = \frac{-y^2}{xy + 1}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">13.1. 微分与导数：理解局部变化、切线斜率与近似计算</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">13.2. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">13.3. Why This Topic Matters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-average-change-vs-instantaneous-change">13.4. Figure Demo 1: Average Change vs Instantaneous Change</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">13.4.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.1. 微分与导数：理解局部变化、切线斜率与近似计算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">3.3. Why This Topic Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-average-change-vs-instantaneous-change">3.4. Figure Demo 1: Average Change vs Instantaneous Change</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">3.4.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">13.5. Big Picture Intuition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-memory">13.5.1. A useful memory:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">3.5. Big Picture Intuition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-memory">3.5.1. A useful memory:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">13.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-quotient">13.6.1. Difference Quotient</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative">13.6.2. Derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">13.6.3. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">3.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-quotient">3.6.1. Difference Quotient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative">3.6.2. Derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">3.6.3. Differential</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">13.7. How It Works Step by Step</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-compute-the-function-value">13.7.1. Step 1: Compute the function value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-the-derivative">13.7.2. Step 2: Compute the derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-use-the-differential">13.7.3. Step 3: Use the differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">3.7. How It Works Step by Step</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-compute-the-function-value">3.7.1. Step 1: Compute the function value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-the-derivative">3.7.2. Step 2: Compute the derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-use-the-differential">3.7.3. Step 3: Use the differential</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-local-linear-approximation">13.8. Figure Demo 2: Local Linear Approximation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.8.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-local-linear-approximation">3.8. Figure Demo 2: Local Linear Approximation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.8.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-do-these-derivative-rules-come-from">13.9. Where Do These Derivative Rules Come From?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-power-rule-from-a-simple-example">13.10. Deriving the Power Rule from a Simple Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivative-rules">13.11. Common Derivative Rules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-differentiation">13.12. Implicit Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">13.12.1. Example 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-rule">13.12.2. Key Rule</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">13.12.3. Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-do-these-derivative-rules-come-from">3.9. Where Do These Derivative Rules Come From?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-power-rule-from-a-simple-example">3.10. Deriving the Power Rule from a Simple Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivative-rules">3.11. Common Derivative Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-differentiation">3.12. Implicit Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">3.12.1. Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-rule">3.12.2. Key Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">3.12.3. Example 2</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-differentiation">13.13. Parametric Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">13.13.1. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-differentiation">3.13. Parametric Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.13.1. Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">13.14. Higher-Order Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.14.1. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">13.14.2. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">3.14. Higher-Order Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.14.1. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">3.14.2. Interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-4-function-first-derivative-and-second-derivative">13.15. Figure Demo 4: Function, First Derivative, and Second Derivative</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">13.15.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-4-function-first-derivative-and-second-derivative">3.15. Figure Demo 4: Function, First Derivative, and Second Derivative</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.15.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-weaknesses-and-trade-offs">13.16. Assumptions, Strengths, Weaknesses, and Trade-offs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">13.16.1. Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">13.16.2. Strengths</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weaknesses">13.16.3. Weaknesses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off">13.16.4. Trade-off</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-weaknesses-and-trade-offs">3.16. Assumptions, Strengths, Weaknesses, and Trade-offs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">3.16.1. Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">3.16.2. Strengths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weaknesses">3.16.3. Weaknesses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off">3.16.4. Trade-off</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-5-local-approximation-works-nearby-but-fails-far-away">13.17. Figure Demo 5: Local Approximation Works Nearby but Fails Far Away</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">13.17.1. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-5-local-approximation-works-nearby-but-fails-far-away">3.17. Figure Demo 5: Local Approximation Works Nearby but Fails Far Away</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.17.1. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">13.18. Worked Toy Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-choose-the-function">13.18.1. Step 1: Choose the function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-choose-a-nearby-easy-point">13.18.2. Step 2: Choose a nearby easy point</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-compute-the-derivative">13.18.3. Step 3: Compute the derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-compute-the-small-change">13.18.4. Step 4: Compute the small change</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-apply-differential-approximation">13.18.5. Step 5: Apply differential approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">3.18. Worked Toy Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-choose-the-function">3.18.1. Step 1: Choose the function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-choose-a-nearby-easy-point">3.18.2. Step 2: Choose a nearby easy point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-compute-the-derivative">3.18.3. Step 3: Compute the derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-compute-the-small-change">3.18.4. Step 4: Compute the small change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-apply-differential-approximation">3.18.5. Step 5: Apply differential approximation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-6-worked-example-visualization">13.19. Figure Demo 6: Worked Example Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-derivatives-tangent-lines-and-approximation-error">13.20. Python Lab: Derivatives, Tangent Lines, and Approximation Error</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-code">13.20.1. Lab Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-error">13.20.2. Plot the Error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">13.20.3. Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-6-worked-example-visualization">3.19. Figure Demo 6: Worked Example Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-derivatives-tangent-lines-and-approximation-error">3.20. Python Lab: Derivatives, Tangent Lines, and Approximation Error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-code">3.20.1. Lab Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-error">3.20.2. Plot the Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.20.3. Interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">13.21. How to Interpret the Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-f-x">13.21.1. Interpreting <span class="math notranslate nohighlight">\(f'(x)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.21.2. Interpreting <span class="math notranslate nohighlight">\(f''(x)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-differential-approximation">13.21.3. Interpreting Differential Approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">3.21. How to Interpret the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-f-x">3.21.1. Interpreting <span class="math notranslate nohighlight">\(f'(x)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.21.2. Interpreting <span class="math notranslate nohighlight">\(f''(x)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-differential-approximation">3.21.3. Interpreting Differential Approximation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">13.22. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-confusing-delta-y-and-dy">13.22.1. Pitfall 1: Confusing <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(dy\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-the-chain-rule">13.22.2. Pitfall 2: Forgetting the chain rule</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-y-in-implicit-differentiation">13.22.3. Pitfall 3: Forgetting <span class="math notranslate nohighlight">\(y'\)</span> in implicit differentiation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-treating-local-slope-as-global-behavior">13.22.4. Pitfall 4: Treating local slope as global behavior</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-misreading-convex-and-concave">13.22.5. Pitfall 5: Misreading convex and concave</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">3.22. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-confusing-delta-y-and-dy">3.22.1. Pitfall 1: Confusing <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(dy\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-the-chain-rule">3.22.2. Pitfall 2: Forgetting the chain rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-y-in-implicit-differentiation">3.22.3. Pitfall 3: Forgetting <span class="math notranslate nohighlight">\(y'\)</span> in implicit differentiation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-treating-local-slope-as-global-behavior">3.22.4. Pitfall 4: Treating local slope as global behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-misreading-convex-and-concave">3.22.5. Pitfall 5: Misreading convex and concave</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">13.23. Comparison with Related Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">13.24. Practical Advice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">13.25. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">13.26. Quiz</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">13.26.1. Conceptual Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">13.26.2. Applied Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">13.26.3. Explain in Your Own Words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">3.23. Comparison with Related Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">3.24. Practical Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3.25. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">3.26. Quiz</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">3.26.1. Conceptual Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">3.26.2. Applied Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">3.26.3. Explain in Your Own Words</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivatives">13.27. Common Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric">13.27.1. Trigonometric</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-log">13.27.2. Exponential &amp; Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-derivatives">3.27. Common Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometric">3.27.1. Trigonometric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-log">3.27.2. Exponential &amp; Log</a></li>
 </ul>
 </li>
 </ul>

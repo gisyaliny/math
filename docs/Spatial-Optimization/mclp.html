@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>13. Local indicator of Spatial Autocorrelation &#8212; Yalin&#39;s Mathematic Handbook</title>
+    <title>17. The Maximal Covering Location Problem &#8212; Yalin&#39;s Mathematic Handbook</title>
   
   
   
@@ -57,13 +57,14 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/st_learning_anselin/L7-LISA';</script>
-    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/st_learning_anselin/L7-LISA.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Spatial-Optimization/mclp';</script>
+    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/Spatial-Optimization/mclp.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="14. Other Local Statistics" href="L8-Other-Local-Statistics.html" />
-    <link rel="prev" title="12. Visualizing Spatial Autocorrelation" href="L6-Visualizing-Spatial-Autocorrelation.html" />
+    <link rel="prev" title="16. The p-Median Problem" href="pMedian.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,21 +187,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">6. Regularization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Statistics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="L1-Spatial-Analysis-Intro.html">7. Introduction of Spatial Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L2-Maps.html">8. Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L3-Exploratory-Data-Analysis.html">9. Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L4-Spatial-Autocorrelation.html">10. Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L5-Global-Spatial-Autocorrelation.html">11. Moran’s I and Geary’s C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L6-Visualizing-Spatial-Autocorrelation.html">12. Visualizing Spatial Autocorrelation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Local indicator of Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L8-Other-Local-Statistics.html">14. Other Local Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L9-Multivariate-LISA.html">15. Multivariate LISA</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">7. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">8. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">9. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">10. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">11. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">12. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">13. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">14. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">15. Multivariate LISA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/pMedian.html">16. The p-Median Problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/mclp.html">17. The Maximal Covering Location Problem</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pMedian.html">16. The p-Median Problem</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. The Maximal Covering Location Problem</a></li>
 </ul>
 
     </div>
@@ -255,7 +256,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/st_learning_anselin/L7-LISA.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/Spatial-Optimization/mclp.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -273,7 +274,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/st_learning_anselin/L7-LISA.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/Spatial-Optimization/mclp.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +322,7 @@
       
       
       
-      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/st_learning_anselin/L7-LISA.ipynb" target="_blank"
+      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/Spatial-Optimization/mclp.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +339,7 @@
       
       
       
-      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/st_learning_anselin/L7-LISA.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/Spatial-Optimization/mclp.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +369,7 @@
       
       
       
-      <li><a href="../../_sources/docs/st_learning_anselin/L7-LISA.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/Spatial-Optimization/mclp.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -452,7 +453,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Local indicator of Spatial Autocorrelation</h1>
+    <h1>The Maximal Covering Location Problem</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -462,18 +463,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lisa-concept-anselin-1995">13.1. LISA Concept (Anselin 1995)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-form-of-moran-s-i-anselin-1995">13.2. Local Form of Moran’s I (Anselin, 1995)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">13.2.1. Definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference">13.2.2. Inference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">13.2.3. Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">17.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">17.2. Why This Topic Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">17.3. Big Picture Intuition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-p-median-to-mclp">17.3.1. From p-Median to MCLP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-workflow">17.3.2. A Simple Workflow</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lisa-inferential-issues">13.3. LISA Inferential Issues</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-multiple-comparison-problem">13.3.1. The Multiple Comparison Problem</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lisa-limitations">13.4. LISA Limitations</a></li>
 </ul>
             </nav>
         </div>
@@ -485,42 +481,109 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="local-indicator-of-spatial-autocorrelation">
-<h1><span class="section-number">13. </span>Local indicator of Spatial Autocorrelation<a class="headerlink" href="#local-indicator-of-spatial-autocorrelation" title="Link to this heading">#</a></h1>
-<section id="lisa-concept-anselin-1995">
-<h2><span class="section-number">13.1. </span>LISA Concept (Anselin 1995)<a class="headerlink" href="#lisa-concept-anselin-1995" title="Link to this heading">#</a></h2>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:5d1b46a8-2c11-4f63-ba07-78abe96cc52e.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-maximal-covering-location-problem">
+<h1><span class="section-number">17. </span>The Maximal Covering Location Problem<a class="headerlink" href="#the-maximal-covering-location-problem" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">17.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After reading this chapter, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain what the Maximal Covering Location Problem, MCLP（最大覆盖选址问题） is and why it is useful in spatial optimization（空间优化）.</p></li>
+<li><p>Distinguish MCLP from the p-Median Problem（p-中位数问题） introduced in Chapter 1.</p></li>
+<li><p>Define coverage threshold（覆盖阈值）, covered demand（被覆盖需求）, and uncovered demand（未覆盖需求）.</p></li>
+<li><p>Formulate MCLP using decision variables（决策变量）, an objective function（目标函数）, and constraints（约束条件）.</p></li>
+<li><p>Solve a small MCLP example manually using a coverage matrix（覆盖矩阵）.</p></li>
+<li><p>Implement MCLP in Python using brute-force search.</p></li>
+<li><p>Interpret selected facilities, covered population, uncovered demand, and sensitivity to service thresholds.</p></li>
+<li><p>Identify key limitations（局限性） of MCLP and explain how they motivate later extensions.</p></li>
+</ol>
 </section>
-<section id="local-form-of-moran-s-i-anselin-1995">
-<h2><span class="section-number">13.2. </span>Local Form of Moran’s I (Anselin, 1995)<a class="headerlink" href="#local-form-of-moran-s-i-anselin-1995" title="Link to this heading">#</a></h2>
-<section id="definition">
-<h3><span class="section-number">13.2.1. </span>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:195d0962-5a32-4b1d-9be2-ac61467a05b2.png" /></p>
+<hr class="docutils" />
+<section id="why-this-topic-matters">
+<h2><span class="section-number">17.2. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h2>
+<p>In Chapter 1, we studied the p-Median Problem. Its central goal was to minimize total weighted travel distance. That is useful when we care about overall efficiency.</p>
+<p>But many public service problems are not only about reducing average distance. Sometimes, planners care about whether people are served within a required standard.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>Can residents reach a clinic within 10 minutes?</p></li>
+<li><p>Can an ambulance reach most calls within 8 minutes?</p></li>
+<li><p>Can households access an emergency shelter within 5 miles?</p></li>
+<li><p>Can electric vehicle drivers find a charging station within 15 minutes?</p></li>
+<li><p>Can a city cover the maximum population with only a few public facilities?</p></li>
+</ul>
+<p>These questions are not directly asking for the lowest average distance. Instead, they ask:</p>
+<blockquote>
+<div><p>How much demand can be covered within an acceptable distance or travel-time threshold?</p>
+</div></blockquote>
+<p>This is the core idea of the Maximal Covering Location Problem, or MCLP.</p>
+<p>MCLP is especially useful when a planning agency has a service standard（服务标准）. For example, a health department might say:</p>
+<blockquote>
+<div><p>A neighborhood is considered served if it is within 10 minutes of a clinic.</p>
+</div></blockquote>
+<p>Under this view, a facility either covers a demand point or does not cover it. The goal is to choose <span class="math notranslate nohighlight">\(p\)</span> facilities that cover as much weighted demand as possible.</p>
 </section>
-<section id="inference">
-<h3><span class="section-number">13.2.2. </span>Inference<a class="headerlink" href="#inference" title="Link to this heading">#</a></h3>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:9d270192-1951-4d9e-b922-9a46e3473f4d.png" /></p>
+<hr class="docutils" />
+<section id="big-picture-intuition">
+<h2><span class="section-number">17.3. </span>Big Picture Intuition<a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
+<p>The p-Median Problem is about average efficiency.</p>
+<p>MCLP is about service coverage.</p>
+<p>The difference is subtle but important.</p>
+<p>In p-Median, every demand point contributes to the objective through its distance to the nearest selected facility. A point that is 2 miles away is better than a point that is 6 miles away.</p>
+<p>In MCLP, we first define a coverage threshold. For example:</p>
+<div class="math notranslate nohighlight">
+\[
+S = 5 \text{ miles}
+\]</div>
+<p>Then each demand point is classified as:</p>
+<ul class="simple">
+<li><p>covered, if it is within 5 miles of at least one selected facility;</p></li>
+<li><p>uncovered, if it is farther than 5 miles from every selected facility.</p></li>
+</ul>
+<p>MCLP does not care whether a covered point is 1 mile away or 4.9 miles away. Both are simply covered.</p>
+<p>This creates a different planning logic:</p>
+<blockquote>
+<div><p>MCLP chooses facilities to maximize the amount of demand that falls within the service standard.</p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="from-p-median-to-mclp">
+<h3><span class="section-number">17.3.1. </span>From p-Median to MCLP<a class="headerlink" href="#from-p-median-to-mclp" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Chapter</p></th>
+<th class="head"><p>Model</p></th>
+<th class="head"><p>Main Question</p></th>
+<th class="head"><p>Planning Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Chapter 1</p></td>
+<td><p>p-Median</p></td>
+<td><p>How do we minimize total weighted travel distance?</p></td>
+<td><p>Efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chapter 2</p></td>
+<td><p>MCLP</p></td>
+<td><p>How do we maximize demand covered within a threshold?</p></td>
+<td><p>Service coverage</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This chapter builds directly on Chapter 1. We still use demand points, candidate sites, weights, and distances.</p>
+<p>The major difference is that MCLP transforms distances into coverage relationships.</p>
 </section>
-<section id="visualization">
-<h3><span class="section-number">13.2.3. </span>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h3>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:d852b216-c6f4-4160-a239-74b0f6f924e1.png" />
-<img alt="image.png" src="docs/st_learning_anselin/attachment:5ac513d8-d48f-4b50-a249-976d36808637.png" />
-<img alt="image.png" src="docs/st_learning_anselin/attachment:1661e5ff-9b3f-4b1a-975f-b05d50bdf527.png" /></p>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:5535fae9-43e6-46a5-a6a4-74b04dab2402.png" /></p>
+<hr class="docutils" />
+<section id="a-simple-workflow">
+<h3><span class="section-number">17.3.2. </span>A Simple Workflow<a class="headerlink" href="#a-simple-workflow" title="Link to this heading">#</a></h3>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart LR
+    A[Demand points] --&gt; C[Distance matrix]
+    B[Candidate sites] --&gt; C
+    C --&gt; D[Apply threshold]
+    D --&gt; E[Coverage matrix]
+    E --&gt; F[MCLP model]
+    F --&gt; G[Max covered demand]
+</pre></div>
+</div>
 </section>
-</section>
-<section id="lisa-inferential-issues">
-<h2><span class="section-number">13.3. </span>LISA Inferential Issues<a class="headerlink" href="#lisa-inferential-issues" title="Link to this heading">#</a></h2>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:bdc24312-bdcc-4ddd-b258-31e326269d31.png" /></p>
-<section id="the-multiple-comparison-problem">
-<h3><span class="section-number">13.3.1. </span>The Multiple Comparison Problem<a class="headerlink" href="#the-multiple-comparison-problem" title="Link to this heading">#</a></h3>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:8e94a86f-1ea4-48dc-904b-fedae85ee2fe.png" /></p>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:80aff14e-cc9d-407f-9f56-2ea0a6d81d80.png" /></p>
-</section>
-</section>
-<section id="lisa-limitations">
-<h2><span class="section-number">13.4. </span>LISA Limitations<a class="headerlink" href="#lisa-limitations" title="Link to this heading">#</a></h2>
-<p><img alt="image.png" src="docs/st_learning_anselin/attachment:1e328a80-d115-4a8d-b0b3-fb27bcdb291f.png" /></p>
 </section>
 </section>
 
@@ -537,7 +600,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs\st_learning_anselin"
+            path: "./docs\Spatial-Optimization"
         },
         predefinedOutput: true
     }
@@ -555,22 +618,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="L6-Visualizing-Spatial-Autocorrelation.html"
+       href="pMedian.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Visualizing Spatial Autocorrelation</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>The p-Median Problem</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="L8-Other-Local-Statistics.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Other Local Statistics</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -588,18 +642,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lisa-concept-anselin-1995">13.1. LISA Concept (Anselin 1995)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-form-of-moran-s-i-anselin-1995">13.2. Local Form of Moran’s I (Anselin, 1995)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">13.2.1. Definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference">13.2.2. Inference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">13.2.3. Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">17.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">17.2. Why This Topic Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">17.3. Big Picture Intuition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-p-median-to-mclp">17.3.1. From p-Median to MCLP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-workflow">17.3.2. A Simple Workflow</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lisa-inferential-issues">13.3. LISA Inferential Issues</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-multiple-comparison-problem">13.3.1. The Multiple Comparison Problem</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lisa-limitations">13.4. LISA Limitations</a></li>
 </ul>
   </nav></div>
 

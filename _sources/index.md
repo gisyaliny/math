@@ -1,53 +1,37 @@
-# Welcome to Yalin's [Knowledge Base](https://gisyaliny.github.io/KnowledgeBase/)
+# Mathematics and Spatial Analysis Notes
 
-Hi there! Welcome to my GitHub repository where I share my study notes on math, computer science, statistics, and coursework from Coursera classes. I'm excited to have you here!
+This repository is a Jupyter Book collection of notes and interactive chapters covering mathematical foundations and spatial learning topics.
 
-## About Me
+## About This Book
 
-I am a Ph.D. Candidate in the [Department of Geospatial Information Sciences](https://epps.utdallas.edu/about/programs/geospatial-information-sciences/) at the [University of Texas at Dallas](https://www.utdallas.edu/) (德州大学达拉斯分校).
+The content is organized around the repository's current structure and TOC. It focuses on:
+
+- core Linear Algebra concepts used in spatial and machine learning applications
+- Calculus principles for limits, derivatives, and indeterminate forms
+- Optimization and regularization techniques for model fitting and generalization
+- Spatial learning and spatial autocorrelation methods for geographic data analysis
+
+## Author
+
+I am a Research Associate and GIS Programmer at the West Virginia GIS Technical Center, West Virginia University. These notes support my work in Geographic Information Science, urban environment modeling, and spatial data analytics.
 
 ## Education
 
-- 2019–now &emsp; Ph.D. Candidates in GIScience. [University of Texas at Dallas](https://epps.utdallas.edu/about/programs/geospatial-information-sciences/), Texas, USA
-- 2022–now &emsp; M.S. in Computer Science. [University of Texas at Dallas](https://www.binghamton.edu/geography/), Texas, USA
-- 2017–2019 &emsp; M.A. in Geography. [Binghamton University (SUNY)](https://www.binghamton.edu/geography/), New York, USA
-- 2013–2017 &emsp; B.S. in GIScience. [Yunnan University](http://www.srees.ynu.edu.cn/english.htm), Yunnan, China
+- 2019–2024   Ph.D. in Geospatial Information Sciences, University of Texas at Dallas, Texas, USA
+- 2017–2019   M.A. in Geography, Binghamton University (SUNY), New York, USA
+- 2013–2017   B.S. in Geographic Information Science, Yunnan University, Yunnan, China
 
-## Content
+## Current Sections
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://gisyaliny.github.io/KnowledgeBase/assets/statistics.jpg" alt="Statistics" width="200" height="200">
-      <br>
-      <em>Statistics</em>
-    </td>
-    <td align="center">
-      <img src="https://gisyaliny.github.io/KnowledgeBase/assets/math.png" alt="Math" width="200" height="200">
-      <br>
-      <em>Math</em>
-    </td>
-    <td align="center">
-      <img src="https://gisyaliny.github.io/KnowledgeBase/assets/gis.png" alt="GIS" width="200" height="200">
-      <br>
-      <em>GIS</em>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://gisyaliny.github.io/KnowledgeBase/assets/computer-science.png" alt="Computer Science" width="200" height="200">
-      <br>
-      <em>Computer Science</em>
-    </td>
-    <td align="center">
-      <img src="https://gisyaliny.github.io/KnowledgeBase/assets/Coursera.png" alt="Coursera" width="200" height="200">
-      <br>
-      <em>Coursera</em>
-    </td>
-    <td align="center">
-      <img src="https://gisyaliny.github.io/KnowledgeBase/assets/others.jpg" alt="Others" width="200" height="200">
-      <br>
-      <em>Others</em>
-    </td>
-  </tr>
-</table>
+The current book sections are:
+
+- Linear Algebra
+- Calculus
+- Optimization
+- Spatial Learning
+
+## Links
+
+- Personal website: https://gisyaliny.github.io/
+- GitHub: https://github.com/gisyaliny
+- Published book: https://gisyaliny.github.io/math/

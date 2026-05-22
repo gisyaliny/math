@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits &#8212; Yalin&#39;s Mathematic Handbook</title>
+    <title>4. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits &#8212; Yalin&#39;s Mathematic Handbook</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -64,8 +64,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="16. Regularization" href="../Optimization/Regularization.html" />
-    <link rel="prev" title="13. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation" href="Chapter2-Differential-and-Derivative.html" />
+    <link rel="next" title="6. Regularization" href="../Optimization/Regularization.html" />
+    <link rel="prev" title="3. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation" href="Chapter2-Differential-and-Derivative.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,42 +175,34 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../LinearAlgebra/Chapter1-Interpretaion.html">1. Matrix Interpretation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../LinearAlgebra/Chapter2-Matrix-Operation.html">2. Matrix Mutiplication</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Chapter1-Limit-Continuous.html">3. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter1-Limit-Continuous.html">1. Limits and Continuity — Understanding Function Behavior Near a Point</a></li>
 
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="Chapter2-Differential-and-Derivative.html">13. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2-Differential-and-Derivative.html">3. Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">16. Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">6. Regularization</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Learning</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">17. Introduction of Spatial Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">18. Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">19. Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">20. Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">21. Moran’s I and Geary’s C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">22. Visualizing Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">23. Local indicator of Spatial Autocorrelation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">24. Other Local Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">25. Multivariate LISA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">7. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">8. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">9. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">10. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">11. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">12. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">13. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">14. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">15. Multivariate LISA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/pMedian.html">16. The p-Median Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/mclp.html">17. The Maximal Covering Location Problem</a></li>
 </ul>
 
     </div>
@@ -472,79 +464,79 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">14.1. Learning Objectives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">4.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">15. Why This Topic Matters</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">15.1. <strong>2. Big Picture Intuition</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-the-main-intuition-is">15.1.1. <strong>So the main intuition is:</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">5. Why This Topic Matters</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">5.1. <strong>2. Big Picture Intuition</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-the-main-intuition-is">5.1.1. <strong>So the main intuition is:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equation">15.2. <strong>3. Formal Definition and Core Equation</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-form-of-lhopitals-rule">15.2.1. <strong>3.1 Basic Form of L’Hôpital’s Rule</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-words">15.2.2. <strong>In words:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important">15.2.3. <strong>Important:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equation">5.2. <strong>3. Formal Definition and Core Equation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-form-of-lhopitals-rule">5.2.1. <strong>3.1 Basic Form of L’Hôpital’s Rule</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-words">5.2.2. <strong>In words:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important">5.2.3. <strong>Important:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symbols-mean">15.3. <strong>3.2 What the Symbols Mean</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">15.4. <strong>4. How It Works Step by Step</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanism-why-the-rule-makes-sense">15.5. <strong>5. Core Mechanism: Why the Rule Makes Sense</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppose">15.5.1. <strong>Suppose:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therefore">15.5.2. <strong>Therefore:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-says">15.5.3. <strong>It says:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symbols-mean">5.3. <strong>3.2 What the Symbols Mean</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">5.4. <strong>4. How It Works Step by Step</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanism-why-the-rule-makes-sense">5.5. <strong>5. Core Mechanism: Why the Rule Makes Sense</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppose">5.5.1. <strong>Suppose:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therefore">5.5.2. <strong>Therefore:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-says">5.5.3. <strong>It says:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-explanation">15.6. <strong>6. Visual Explanation</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-figure-should-show">15.6.1. <strong>6.1 What the Figure Should Show</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">15.6.2. <strong>For example:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-x-to-0">15.6.3. <strong>As <span class="math notranslate nohighlight">\(x \to 0\)</span>:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-two-functions-approaching-zero-at-different-speeds">15.6.4. <strong>Figure Demo 1: Two Functions Approaching Zero at Different Speeds</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">15.6.5. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-explanation">5.6. <strong>6. Visual Explanation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-figure-should-show">5.6.1. <strong>6.1 What the Figure Should Show</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">5.6.2. <strong>For example:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-x-to-0">5.6.3. <strong>As <span class="math notranslate nohighlight">\(x \to 0\)</span>:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-two-functions-approaching-zero-at-different-speeds">5.6.4. <strong>Figure Demo 1: Two Functions Approaching Zero at Different Speeds</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">5.6.5. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">15.7. <strong>7. Worked Toy Example</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-direct-substitution">15.8. <strong>Step 1: Direct substitution</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-first-application">15.9. <strong>Step 2: First application</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-second-application">15.10. <strong>Step 3: Second application</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-third-application">15.11. <strong>Step 4: Third application</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab">15.12. <strong>8. Python Lab</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-numerical-convergence-toward-the-limit">15.12.1. <strong>Figure Demo 2: Numerical Convergence Toward the Limit</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.12.2. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">5.7. <strong>7. Worked Toy Example</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-direct-substitution">5.8. <strong>Step 1: Direct substitution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-first-application">5.9. <strong>Step 2: First application</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-second-application">5.10. <strong>Step 3: Second application</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-third-application">5.11. <strong>Step 4: Third application</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab">5.12. <strong>8. Python Lab</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-numerical-convergence-toward-the-limit">5.12.1. <strong>Figure Demo 2: Numerical Convergence Toward the Limit</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.12.2. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-important-example-logarithm-vs-polynomial">15.13. Another Important Example: Logarithm vs Polynomial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-3-logarithmic-growth-vs-polynomial-growth">15.13.1. <strong>Figure Demo 3: Logarithmic Growth vs Polynomial Growth</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">15.13.2. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-important-example-logarithm-vs-polynomial">5.13. Another Important Example: Logarithm vs Polynomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-3-logarithmic-growth-vs-polynomial-growth">5.13.1. <strong>Figure Demo 3: Logarithmic Growth vs Polynomial Growth</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.13.2. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-other-indeterminate-forms">15.14. Handling Other Indeterminate Forms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-evaluating-x-x-as-x-to-0">15.14.1. <strong>Example: Evaluating <span class="math notranslate nohighlight">\(x^x\)</span> as <span class="math notranslate nohighlight">\(x \to 0^+\)</span></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-other-indeterminate-forms">5.14. Handling Other Indeterminate Forms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-evaluating-x-x-as-x-to-0">5.14.1. <strong>Example: Evaluating <span class="math notranslate nohighlight">\(x^x\)</span> as <span class="math notranslate nohighlight">\(x \to 0^+\)</span></strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">15.15. How to Interpret the Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-limit-is-about-behavior-not-just-substitution">15.15.1. A Limit Is About Behavior, Not Just Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lhopitals-rule-compares-local-rates">15.15.2. L’Hôpital’s Rule Compares Local Rates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeated-application-means-higher-order-behavior-matters">15.15.3. Repeated Application Means Higher-Order Behavior Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">5.15. How to Interpret the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-limit-is-about-behavior-not-just-substitution">5.15.1. A Limit Is About Behavior, Not Just Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lhopitals-rule-compares-local-rates">5.15.2. L’Hôpital’s Rule Compares Local Rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeated-application-means-higher-order-behavior-matters">5.15.3. Repeated Application Means Higher-Order Behavior Matters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">15.16. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-applying-the-rule-before-checking-the-form">15.16.1. Pitfall 1: Applying the Rule Before Checking the Form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately">15.16.2. Pitfall 2: Differentiating the Quotient Instead of Numerator and Denominator Separately</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-that-the-new-limit-must-exist">15.16.3. Pitfall 3: Forgetting That the New Limit Must Exist</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation">15.16.4. Pitfall 4: Using the Rule on Non-Quotient Forms Without Transformation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-one-sided-domains">15.16.5. Pitfall 5: Ignoring One-Sided Domains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">5.16. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-applying-the-rule-before-checking-the-form">5.16.1. Pitfall 1: Applying the Rule Before Checking the Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately">5.16.2. Pitfall 2: Differentiating the Quotient Instead of Numerator and Denominator Separately</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-that-the-new-limit-must-exist">5.16.3. Pitfall 3: Forgetting That the New Limit Must Exist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation">5.16.4. Pitfall 4: Using the Rule on Non-Quotient Forms Without Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-one-sided-domains">5.16.5. Pitfall 5: Ignoring One-Sided Domains</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">15.17. Comparison with Related Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">15.18. Practical Advice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.19. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">15.20. Quiz</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">15.20.1. Conceptual Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">5.17. Comparison with Related Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">5.18. Practical Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">5.19. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">5.20. Quiz</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">5.20.1. Conceptual Questions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">15.21. Applied Questions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">15.22. Explain in Your Own Words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">5.21. Applied Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">5.22. Explain in Your Own Words</a></li>
 </ul>
 </li>
 </ul>
@@ -560,10 +552,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lhopitals-rule-a-practical-tool-for-indeterminate-limits">
-<h1><span class="section-number">14. </span>L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits<a class="headerlink" href="#lhopitals-rule-a-practical-tool-for-indeterminate-limits" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits<a class="headerlink" href="#lhopitals-rule-a-practical-tool-for-indeterminate-limits" title="Link to this heading">#</a></h1>
 <p><strong>L’Hôpital’s Rule（洛必达法则）</strong></p>
 <section id="learning-objectives">
-<h2><span class="section-number">14.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>After reading this chapter, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Recognize <strong>indeterminate forms（未定式）</strong> such as <strong>0/0</strong> and <strong>∞/∞</strong>.</p></li>
@@ -578,7 +570,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="why-this-topic-matters">
-<h1><span class="section-number">15. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h1>
 <p>In calculus, many problems ask us to understand what happens to a function as <span class="math notranslate nohighlight">\(x\)</span> approaches a certain value.</p>
 <p>For example:</p>
 <div class="math notranslate nohighlight">
@@ -622,7 +614,7 @@ document.write(`
 <p>L’Hôpital’s Rule gives us a systematic way to resolve many of these difficult limits.</p>
 <hr class="docutils" />
 <section id="big-picture-intuition">
-<h2><span class="section-number">15.1. </span><strong>2. Big Picture Intuition</strong><a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span><strong>2. Big Picture Intuition</strong><a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
 <p>Suppose we want to evaluate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -653,7 +645,7 @@ f'(x) \quad \text{and} \quad g'(x)
 \]</div>
 <hr class="docutils" />
 <section id="so-the-main-intuition-is">
-<h3><span class="section-number">15.1.1. </span><strong>So the main intuition is:</strong><a class="headerlink" href="#so-the-main-intuition-is" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1. </span><strong>So the main intuition is:</strong><a class="headerlink" href="#so-the-main-intuition-is" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>When both functions vanish or both grow without bound, their ratio is often governed by their relative rates of change.</p>
 </div></blockquote>
@@ -663,9 +655,9 @@ f'(x) \quad \text{and} \quad g'(x)
 </section>
 <hr class="docutils" />
 <section id="formal-definition-and-core-equation">
-<h2><span class="section-number">15.2. </span><strong>3. Formal Definition and Core Equation</strong><a class="headerlink" href="#formal-definition-and-core-equation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span><strong>3. Formal Definition and Core Equation</strong><a class="headerlink" href="#formal-definition-and-core-equation" title="Link to this heading">#</a></h2>
 <section id="basic-form-of-lhopitals-rule">
-<h3><span class="section-number">15.2.1. </span><strong>3.1 Basic Form of L’Hôpital’s Rule</strong><a class="headerlink" href="#basic-form-of-lhopitals-rule" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1. </span><strong>3.1 Basic Form of L’Hôpital’s Rule</strong><a class="headerlink" href="#basic-form-of-lhopitals-rule" title="Link to this heading">#</a></h3>
 <p>Suppose:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -696,14 +688,14 @@ f'(x) \quad \text{and} \quad g'(x)
 </section>
 <hr class="docutils" />
 <section id="in-words">
-<h3><span class="section-number">15.2.2. </span><strong>In words:</strong><a class="headerlink" href="#in-words" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.2. </span><strong>In words:</strong><a class="headerlink" href="#in-words" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>If a quotient has the form <strong>0/0</strong> or <strong>∞/∞</strong>, then under suitable conditions, we may differentiate the numerator and denominator separately and compute the new limit.</p>
 </div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="important">
-<h3><span class="section-number">15.2.3. </span><strong>Important:</strong><a class="headerlink" href="#important" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.3. </span><strong>Important:</strong><a class="headerlink" href="#important" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) \ne \frac{f'(x)}{g'(x)}
@@ -713,7 +705,7 @@ f'(x) \quad \text{and} \quad g'(x)
 </section>
 <hr class="docutils" />
 <section id="what-the-symbols-mean">
-<h2><span class="section-number">15.3. </span><strong>3.2 What the Symbols Mean</strong><a class="headerlink" href="#what-the-symbols-mean" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span><strong>3.2 What the Symbols Mean</strong><a class="headerlink" href="#what-the-symbols-mean" title="Link to this heading">#</a></h2>
 <p>In:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -730,7 +722,7 @@ f'(x) \quad \text{and} \quad g'(x)
 </section>
 <hr class="docutils" />
 <section id="how-it-works-step-by-step">
-<h2><span class="section-number">15.4. </span><strong>4. How It Works Step by Step</strong><a class="headerlink" href="#how-it-works-step-by-step" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span><strong>4. How It Works Step by Step</strong><a class="headerlink" href="#how-it-works-step-by-step" title="Link to this heading">#</a></h2>
 <p>A safe workflow is:</p>
 <ul class="simple">
 <li><p>Step 1: Try direct substitution.</p></li>
@@ -744,7 +736,7 @@ f'(x) \quad \text{and} \quad g'(x)
 </section>
 <hr class="docutils" />
 <section id="core-mechanism-why-the-rule-makes-sense">
-<h2><span class="section-number">15.5. </span><strong>5. Core Mechanism: Why the Rule Makes Sense</strong><a class="headerlink" href="#core-mechanism-why-the-rule-makes-sense" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span><strong>5. Core Mechanism: Why the Rule Makes Sense</strong><a class="headerlink" href="#core-mechanism-why-the-rule-makes-sense" title="Link to this heading">#</a></h2>
 <p>The rule may look surprising at first:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -754,7 +746,7 @@ f'(x) \quad \text{and} \quad g'(x)
 <p>Let us focus on the <strong>0/0 case</strong>.</p>
 <hr class="docutils" />
 <section id="suppose">
-<h3><span class="section-number">15.5.1. </span><strong>Suppose:</strong><a class="headerlink" href="#suppose" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.1. </span><strong>Suppose:</strong><a class="headerlink" href="#suppose" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f(c) = 0, \quad g(c) = 0
@@ -777,7 +769,7 @@ g(x) \approx g'(c)(x - c)
 </section>
 <hr class="docutils" />
 <section id="therefore">
-<h3><span class="section-number">15.5.2. </span><strong>Therefore:</strong><a class="headerlink" href="#therefore" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.2. </span><strong>Therefore:</strong><a class="headerlink" href="#therefore" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \frac{f(x)}{g(x)} \approx \frac{f'(c)(x - c)}{g'(c)(x - c)}
@@ -793,7 +785,7 @@ g(x) \approx g'(c)(x - c)
 </section>
 <hr class="docutils" />
 <section id="it-says">
-<h3><span class="section-number">15.5.3. </span><strong>It says:</strong><a class="headerlink" href="#it-says" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.3. </span><strong>It says:</strong><a class="headerlink" href="#it-says" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>When the original function values are both disappearing, compare how fast they are disappearing.</p>
 </div></blockquote>
@@ -801,14 +793,14 @@ g(x) \approx g'(c)(x - c)
 </section>
 <hr class="docutils" />
 <section id="visual-explanation">
-<h2><span class="section-number">15.6. </span><strong>6. Visual Explanation</strong><a class="headerlink" href="#visual-explanation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span><strong>6. Visual Explanation</strong><a class="headerlink" href="#visual-explanation" title="Link to this heading">#</a></h2>
 <section id="what-the-figure-should-show">
-<h3><span class="section-number">15.6.1. </span><strong>6.1 What the Figure Should Show</strong><a class="headerlink" href="#what-the-figure-should-show" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.1. </span><strong>6.1 What the Figure Should Show</strong><a class="headerlink" href="#what-the-figure-should-show" title="Link to this heading">#</a></h3>
 <p>A useful figure for this chapter should compare two functions <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> that both approach 0 at <span class="math notranslate nohighlight">\(x = 0\)</span>, but at different speeds.</p>
 </section>
 <hr class="docutils" />
 <section id="for-example">
-<h3><span class="section-number">15.6.2. </span><strong>For example:</strong><a class="headerlink" href="#for-example" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.2. </span><strong>For example:</strong><a class="headerlink" href="#for-example" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 f(x) = x^2
@@ -820,7 +812,7 @@ g(x) = x
 </section>
 <hr class="docutils" />
 <section id="as-x-to-0">
-<h3><span class="section-number">15.6.3. </span><strong>As <span class="math notranslate nohighlight">\(x \to 0\)</span>:</strong><a class="headerlink" href="#as-x-to-0" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.3. </span><strong>As <span class="math notranslate nohighlight">\(x \to 0\)</span>:</strong><a class="headerlink" href="#as-x-to-0" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \frac{x^2}{x} = x \to 0
@@ -830,11 +822,11 @@ g(x) = x
 </section>
 <hr class="docutils" />
 <section id="figure-demo-1-two-functions-approaching-zero-at-different-speeds">
-<h3><span class="section-number">15.6.4. </span><strong>Figure Demo 1: Two Functions Approaching Zero at Different Speeds</strong><a class="headerlink" href="#figure-demo-1-two-functions-approaching-zero-at-different-speeds" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.4. </span><strong>Figure Demo 1: Two Functions Approaching Zero at Different Speeds</strong><a class="headerlink" href="#figure-demo-1-two-functions-approaching-zero-at-different-speeds" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
     <span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
@@ -870,7 +862,7 @@ g(x) = x
 </div>
 </section>
 <section id="what-this-figure-teaches">
-<h3><span class="section-number">15.6.5. </span>What this figure teaches:<a class="headerlink" href="#what-this-figure-teaches" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.5. </span>What this figure teaches:<a class="headerlink" href="#what-this-figure-teaches" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Even if both functions approach zero, their ratio depends on how fast they approach zero.</p></li>
 </ul>
@@ -878,7 +870,7 @@ g(x) = x
 </section>
 <hr class="docutils" />
 <section id="worked-toy-example">
-<h2><span class="section-number">15.7. </span><strong>7. Worked Toy Example</strong><a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.7. </span><strong>7. Worked Toy Example</strong><a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
 <p>Evaluate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -888,7 +880,7 @@ g(x) = x
 </section>
 <hr class="docutils" />
 <section id="step-1-direct-substitution">
-<h2><span class="section-number">15.8. </span><strong>Step 1: Direct substitution</strong><a class="headerlink" href="#step-1-direct-substitution" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8. </span><strong>Step 1: Direct substitution</strong><a class="headerlink" href="#step-1-direct-substitution" title="Link to this heading">#</a></h2>
 <p>Numerator:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -908,7 +900,7 @@ e^0 - e^0 - 2(0) = 1 - 1 - 0 = 0
 </section>
 <hr class="docutils" />
 <section id="step-2-first-application">
-<h2><span class="section-number">15.9. </span><strong>Step 2: First application</strong><a class="headerlink" href="#step-2-first-application" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9. </span><strong>Step 2: First application</strong><a class="headerlink" href="#step-2-first-application" title="Link to this heading">#</a></h2>
 <p>Differentiate numerator:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -944,7 +936,7 @@ e^0 + e^0 - 2 = 1 + 1 - 2 = 0
 </section>
 <hr class="docutils" />
 <section id="step-3-second-application">
-<h2><span class="section-number">15.10. </span><strong>Step 3: Second application</strong><a class="headerlink" href="#step-3-second-application" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.10. </span><strong>Step 3: Second application</strong><a class="headerlink" href="#step-3-second-application" title="Link to this heading">#</a></h2>
 <p>Differentiate numerator:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -980,7 +972,7 @@ e^0 - e^0 = 0
 </section>
 <hr class="docutils" />
 <section id="step-4-third-application">
-<h2><span class="section-number">15.11. </span><strong>Step 4: Third application</strong><a class="headerlink" href="#step-4-third-application" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.11. </span><strong>Step 4: Third application</strong><a class="headerlink" href="#step-4-third-application" title="Link to this heading">#</a></h2>
 <p>Differentiate numerator:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1017,7 +1009,7 @@ e^0 - e^0 = 0
 </section>
 <hr class="docutils" />
 <section id="python-lab">
-<h2><span class="section-number">15.12. </span><strong>8. Python Lab</strong><a class="headerlink" href="#python-lab" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.12. </span><strong>8. Python Lab</strong><a class="headerlink" href="#python-lab" title="Link to this heading">#</a></h2>
 <p>In this lab, we numerically inspect the same limit:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1026,10 +1018,10 @@ e^0 - e^0 = 0
 <p>We will evaluate the expression for smaller and smaller values of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">original_expression</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">original_expression</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1e-1</span><span class="p">,</span> <span class="mf">5e-2</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">5e-3</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">5e-4</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">])</span>
@@ -1064,13 +1056,13 @@ e^0 - e^0 = 0
 \]</div>
 <hr class="docutils" />
 <section id="figure-demo-2-numerical-convergence-toward-the-limit">
-<h3><span class="section-number">15.12.1. </span><strong>Figure Demo 2: Numerical Convergence Toward the Limit</strong><a class="headerlink" href="#figure-demo-2-numerical-convergence-toward-the-limit" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.12.1. </span><strong>Figure Demo 2: Numerical Convergence Toward the Limit</strong><a class="headerlink" href="#figure-demo-2-numerical-convergence-toward-the-limit" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">original_expression</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">original_expression</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
@@ -1095,13 +1087,13 @@ e^0 - e^0 = 0
 </div>
 </section>
 <section id="id1">
-<h3><span class="section-number">15.12.2. </span>What this figure teaches:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.12.2. </span>What this figure teaches:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The graph gives numerical evidence that the expression approaches 2 as x→0. It does not replace the symbolic proof, but it supports our interpretation.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="another-important-example-logarithm-vs-polynomial">
-<h2><span class="section-number">15.13. </span>Another Important Example: Logarithm vs Polynomial<a class="headerlink" href="#another-important-example-logarithm-vs-polynomial" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.13. </span>Another Important Example: Logarithm vs Polynomial<a class="headerlink" href="#another-important-example-logarithm-vs-polynomial" title="Link to this heading">#</a></h2>
 <p>Evaluate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1171,11 +1163,11 @@ x^n \to \infty
 <p>This is a major growth-rate result.</p>
 <hr class="docutils" />
 <section id="figure-demo-3-logarithmic-growth-vs-polynomial-growth">
-<h3><span class="section-number">15.13.1. </span><strong>Figure Demo 3: Logarithmic Growth vs Polynomial Growth</strong><a class="headerlink" href="#figure-demo-3-logarithmic-growth-vs-polynomial-growth" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.13.1. </span><strong>Figure Demo 3: Logarithmic Growth vs Polynomial Growth</strong><a class="headerlink" href="#figure-demo-3-logarithmic-growth-vs-polynomial-growth" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 
@@ -1206,7 +1198,7 @@ x^n \to \infty
 </div>
 </section>
 <section id="id2">
-<h3><span class="section-number">15.13.2. </span>What this figure teaches:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.13.2. </span>What this figure teaches:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Logarithmic functions grow very slowly.</p></li>
 <li><p>Polynomial functions grow faster.</p></li>
@@ -1216,7 +1208,7 @@ x^n \to \infty
 </section>
 <hr class="docutils" />
 <section id="handling-other-indeterminate-forms">
-<h2><span class="section-number">15.14. </span>Handling Other Indeterminate Forms<a class="headerlink" href="#handling-other-indeterminate-forms" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.14. </span>Handling Other Indeterminate Forms<a class="headerlink" href="#handling-other-indeterminate-forms" title="Link to this heading">#</a></h2>
 <p>L’Hôpital’s Rule directly applies to:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1257,7 +1249,7 @@ x^n \to \infty
 </ul>
 <hr class="docutils" />
 <section id="example-evaluating-x-x-as-x-to-0">
-<h3><span class="section-number">15.14.1. </span><strong>Example: Evaluating <span class="math notranslate nohighlight">\(x^x\)</span> as <span class="math notranslate nohighlight">\(x \to 0^+\)</span></strong><a class="headerlink" href="#example-evaluating-x-x-as-x-to-0" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.14.1. </span><strong>Example: Evaluating <span class="math notranslate nohighlight">\(x^x\)</span> as <span class="math notranslate nohighlight">\(x \to 0^+\)</span></strong><a class="headerlink" href="#example-evaluating-x-x-as-x-to-0" title="Link to this heading">#</a></h3>
 <p>Evaluate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1344,9 +1336,9 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="how-to-interpret-the-results">
-<h2><span class="section-number">15.15. </span>How to Interpret the Results<a class="headerlink" href="#how-to-interpret-the-results" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.15. </span>How to Interpret the Results<a class="headerlink" href="#how-to-interpret-the-results" title="Link to this heading">#</a></h2>
 <section id="a-limit-is-about-behavior-not-just-substitution">
-<h3><span class="section-number">15.15.1. </span>A Limit Is About Behavior, Not Just Substitution<a class="headerlink" href="#a-limit-is-about-behavior-not-just-substitution" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.15.1. </span>A Limit Is About Behavior, Not Just Substitution<a class="headerlink" href="#a-limit-is-about-behavior-not-just-substitution" title="Link to this heading">#</a></h3>
 <p>When direct substitution gives:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1362,7 +1354,7 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="lhopitals-rule-compares-local-rates">
-<h3><span class="section-number">15.15.2. </span>L’Hôpital’s Rule Compares Local Rates<a class="headerlink" href="#lhopitals-rule-compares-local-rates" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.15.2. </span>L’Hôpital’s Rule Compares Local Rates<a class="headerlink" href="#lhopitals-rule-compares-local-rates" title="Link to this heading">#</a></h3>
 <p>For:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1380,7 +1372,7 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="repeated-application-means-higher-order-behavior-matters">
-<h3><span class="section-number">15.15.3. </span>Repeated Application Means Higher-Order Behavior Matters<a class="headerlink" href="#repeated-application-means-higher-order-behavior-matters" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.15.3. </span>Repeated Application Means Higher-Order Behavior Matters<a class="headerlink" href="#repeated-application-means-higher-order-behavior-matters" title="Link to this heading">#</a></h3>
 <p>Sometimes one application still produces:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1398,9 +1390,9 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="common-pitfalls-and-misunderstandings">
-<h2><span class="section-number">15.16. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.16. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
 <section id="pitfall-1-applying-the-rule-before-checking-the-form">
-<h3><span class="section-number">15.16.1. </span>Pitfall 1: Applying the Rule Before Checking the Form<a class="headerlink" href="#pitfall-1-applying-the-rule-before-checking-the-form" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.16.1. </span>Pitfall 1: Applying the Rule Before Checking the Form<a class="headerlink" href="#pitfall-1-applying-the-rule-before-checking-the-form" title="Link to this heading">#</a></h3>
 <p>You must first verify that the expression is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1425,7 +1417,7 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately">
-<h3><span class="section-number">15.16.2. </span>Pitfall 2: Differentiating the Quotient Instead of Numerator and Denominator Separately<a class="headerlink" href="#pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.16.2. </span>Pitfall 2: Differentiating the Quotient Instead of Numerator and Denominator Separately<a class="headerlink" href="#pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately" title="Link to this heading">#</a></h3>
 <p>L’Hôpital’s Rule says:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1444,7 +1436,7 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="pitfall-3-forgetting-that-the-new-limit-must-exist">
-<h3><span class="section-number">15.16.3. </span>Pitfall 3: Forgetting That the New Limit Must Exist<a class="headerlink" href="#pitfall-3-forgetting-that-the-new-limit-must-exist" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.16.3. </span>Pitfall 3: Forgetting That the New Limit Must Exist<a class="headerlink" href="#pitfall-3-forgetting-that-the-new-limit-must-exist" title="Link to this heading">#</a></h3>
 <p>If:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1455,7 +1447,7 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation">
-<h3><span class="section-number">15.16.4. </span>Pitfall 4: Using the Rule on Non-Quotient Forms Without Transformation<a class="headerlink" href="#pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.16.4. </span>Pitfall 4: Using the Rule on Non-Quotient Forms Without Transformation<a class="headerlink" href="#pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation" title="Link to this heading">#</a></h3>
 <p>For forms like:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1470,7 +1462,7 @@ y \to e^0 = 1
 </section>
 <hr class="docutils" />
 <section id="pitfall-5-ignoring-one-sided-domains">
-<h3><span class="section-number">15.16.5. </span>Pitfall 5: Ignoring One-Sided Domains<a class="headerlink" href="#pitfall-5-ignoring-one-sided-domains" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.16.5. </span>Pitfall 5: Ignoring One-Sided Domains<a class="headerlink" href="#pitfall-5-ignoring-one-sided-domains" title="Link to this heading">#</a></h3>
 <p>For expressions involving:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1500,7 +1492,7 @@ x \to 0
 </section>
 <hr class="docutils" />
 <section id="comparison-with-related-concepts">
-<h2><span class="section-number">15.17. </span>Comparison with Related Concepts<a class="headerlink" href="#comparison-with-related-concepts" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.17. </span>Comparison with Related Concepts<a class="headerlink" href="#comparison-with-related-concepts" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concept</p></th>
@@ -1541,7 +1533,7 @@ x \to 0
 </section>
 <hr class="docutils" />
 <section id="practical-advice">
-<h2><span class="section-number">15.18. </span>Practical Advice<a class="headerlink" href="#practical-advice" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.18. </span>Practical Advice<a class="headerlink" href="#practical-advice" title="Link to this heading">#</a></h2>
 <p>Use this checklist when solving a limit with L’Hôpital’s Rule:</p>
 <ol class="arabic simple">
 <li><p>Try direct substitution.</p></li>
@@ -1567,7 +1559,7 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
 </section>
 <hr class="docutils" />
 <section id="summary">
-<h2><span class="section-number">15.19. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.19. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>L’Hôpital’s Rule is a method for evaluating limits of indeterminate quotients.</p>
 <p>It applies mainly to:</p>
 <div class="math notranslate nohighlight">
@@ -1595,9 +1587,9 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
 </section>
 <hr class="docutils" />
 <section id="quiz">
-<h2><span class="section-number">15.20. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.20. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h2>
 <section id="conceptual-questions">
-<h3><span class="section-number">15.20.1. </span>Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.20.1. </span>Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Link to this heading">#</a></h3>
 <p><strong>Q1: Which forms directly allow the use of L’Hôpital’s Rule?</strong></p>
 <p>A. <span class="math notranslate nohighlight">\(0/1\)</span> and <span class="math notranslate nohighlight">\(1/0\)</span></p>
 <p>B. <span class="math notranslate nohighlight">\(0/0\)</span> and <span class="math notranslate nohighlight">\(\infty/\infty\)</span></p>
@@ -1656,7 +1648,7 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
 </section>
 <hr class="docutils" />
 <section id="applied-questions">
-<h2><span class="section-number">15.21. </span>Applied Questions<a class="headerlink" href="#applied-questions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.21. </span>Applied Questions<a class="headerlink" href="#applied-questions" title="Link to this heading">#</a></h2>
 <p><strong>Q6: Evaluate</strong></p>
 <div class="math notranslate nohighlight">
 \[
@@ -1705,7 +1697,7 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
 </section>
 <hr class="docutils" />
 <section id="explain-in-your-own-words">
-<h2><span class="section-number">15.22. </span>Explain in Your Own Words<a class="headerlink" href="#explain-in-your-own-words" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.22. </span>Explain in Your Own Words<a class="headerlink" href="#explain-in-your-own-words" title="Link to this heading">#</a></h2>
 <p><strong>Q8: Explain why L’Hôpital’s Rule is connected to the idea of local linear approximation.</strong></p>
 <details>
 <summary>Answer</summary>
@@ -1750,7 +1742,7 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Differential and Derivative: Understanding Local Change, Tangent Lines, and Approximation</p>
       </div>
     </a>
     <a class="right-next"
@@ -1758,7 +1750,7 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Regularization</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Regularization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1778,79 +1770,79 @@ e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">14. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">14.1. Learning Objectives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. L’Hôpital’s Rule — A Practical Tool for Indeterminate Limits</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">4.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">15. Why This Topic Matters</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">15.1. <strong>2. Big Picture Intuition</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-the-main-intuition-is">15.1.1. <strong>So the main intuition is:</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">5. Why This Topic Matters</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">5.1. <strong>2. Big Picture Intuition</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-the-main-intuition-is">5.1.1. <strong>So the main intuition is:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equation">15.2. <strong>3. Formal Definition and Core Equation</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-form-of-lhopitals-rule">15.2.1. <strong>3.1 Basic Form of L’Hôpital’s Rule</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-words">15.2.2. <strong>In words:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important">15.2.3. <strong>Important:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equation">5.2. <strong>3. Formal Definition and Core Equation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-form-of-lhopitals-rule">5.2.1. <strong>3.1 Basic Form of L’Hôpital’s Rule</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-words">5.2.2. <strong>In words:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important">5.2.3. <strong>Important:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symbols-mean">15.3. <strong>3.2 What the Symbols Mean</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">15.4. <strong>4. How It Works Step by Step</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanism-why-the-rule-makes-sense">15.5. <strong>5. Core Mechanism: Why the Rule Makes Sense</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppose">15.5.1. <strong>Suppose:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therefore">15.5.2. <strong>Therefore:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-says">15.5.3. <strong>It says:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symbols-mean">5.3. <strong>3.2 What the Symbols Mean</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-step-by-step">5.4. <strong>4. How It Works Step by Step</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanism-why-the-rule-makes-sense">5.5. <strong>5. Core Mechanism: Why the Rule Makes Sense</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppose">5.5.1. <strong>Suppose:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therefore">5.5.2. <strong>Therefore:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-says">5.5.3. <strong>It says:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-explanation">15.6. <strong>6. Visual Explanation</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-figure-should-show">15.6.1. <strong>6.1 What the Figure Should Show</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">15.6.2. <strong>For example:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-x-to-0">15.6.3. <strong>As <span class="math notranslate nohighlight">\(x \to 0\)</span>:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-two-functions-approaching-zero-at-different-speeds">15.6.4. <strong>Figure Demo 1: Two Functions Approaching Zero at Different Speeds</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">15.6.5. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-explanation">5.6. <strong>6. Visual Explanation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-figure-should-show">5.6.1. <strong>6.1 What the Figure Should Show</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">5.6.2. <strong>For example:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-x-to-0">5.6.3. <strong>As <span class="math notranslate nohighlight">\(x \to 0\)</span>:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-1-two-functions-approaching-zero-at-different-speeds">5.6.4. <strong>Figure Demo 1: Two Functions Approaching Zero at Different Speeds</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-figure-teaches">5.6.5. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">15.7. <strong>7. Worked Toy Example</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-direct-substitution">15.8. <strong>Step 1: Direct substitution</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-first-application">15.9. <strong>Step 2: First application</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-second-application">15.10. <strong>Step 3: Second application</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-third-application">15.11. <strong>Step 4: Third application</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab">15.12. <strong>8. Python Lab</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-numerical-convergence-toward-the-limit">15.12.1. <strong>Figure Demo 2: Numerical Convergence Toward the Limit</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.12.2. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">5.7. <strong>7. Worked Toy Example</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-direct-substitution">5.8. <strong>Step 1: Direct substitution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-first-application">5.9. <strong>Step 2: First application</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-second-application">5.10. <strong>Step 3: Second application</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-third-application">5.11. <strong>Step 4: Third application</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab">5.12. <strong>8. Python Lab</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-2-numerical-convergence-toward-the-limit">5.12.1. <strong>Figure Demo 2: Numerical Convergence Toward the Limit</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.12.2. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-important-example-logarithm-vs-polynomial">15.13. Another Important Example: Logarithm vs Polynomial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-3-logarithmic-growth-vs-polynomial-growth">15.13.1. <strong>Figure Demo 3: Logarithmic Growth vs Polynomial Growth</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">15.13.2. What this figure teaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-important-example-logarithm-vs-polynomial">5.13. Another Important Example: Logarithm vs Polynomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-demo-3-logarithmic-growth-vs-polynomial-growth">5.13.1. <strong>Figure Demo 3: Logarithmic Growth vs Polynomial Growth</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.13.2. What this figure teaches:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-other-indeterminate-forms">15.14. Handling Other Indeterminate Forms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-evaluating-x-x-as-x-to-0">15.14.1. <strong>Example: Evaluating <span class="math notranslate nohighlight">\(x^x\)</span> as <span class="math notranslate nohighlight">\(x \to 0^+\)</span></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-other-indeterminate-forms">5.14. Handling Other Indeterminate Forms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-evaluating-x-x-as-x-to-0">5.14.1. <strong>Example: Evaluating <span class="math notranslate nohighlight">\(x^x\)</span> as <span class="math notranslate nohighlight">\(x \to 0^+\)</span></strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">15.15. How to Interpret the Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-limit-is-about-behavior-not-just-substitution">15.15.1. A Limit Is About Behavior, Not Just Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lhopitals-rule-compares-local-rates">15.15.2. L’Hôpital’s Rule Compares Local Rates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeated-application-means-higher-order-behavior-matters">15.15.3. Repeated Application Means Higher-Order Behavior Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">5.15. How to Interpret the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-limit-is-about-behavior-not-just-substitution">5.15.1. A Limit Is About Behavior, Not Just Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lhopitals-rule-compares-local-rates">5.15.2. L’Hôpital’s Rule Compares Local Rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeated-application-means-higher-order-behavior-matters">5.15.3. Repeated Application Means Higher-Order Behavior Matters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">15.16. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-applying-the-rule-before-checking-the-form">15.16.1. Pitfall 1: Applying the Rule Before Checking the Form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately">15.16.2. Pitfall 2: Differentiating the Quotient Instead of Numerator and Denominator Separately</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-that-the-new-limit-must-exist">15.16.3. Pitfall 3: Forgetting That the New Limit Must Exist</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation">15.16.4. Pitfall 4: Using the Rule on Non-Quotient Forms Without Transformation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-one-sided-domains">15.16.5. Pitfall 5: Ignoring One-Sided Domains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">5.16. Common Pitfalls and Misunderstandings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-applying-the-rule-before-checking-the-form">5.16.1. Pitfall 1: Applying the Rule Before Checking the Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-differentiating-the-quotient-instead-of-numerator-and-denominator-separately">5.16.2. Pitfall 2: Differentiating the Quotient Instead of Numerator and Denominator Separately</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-forgetting-that-the-new-limit-must-exist">5.16.3. Pitfall 3: Forgetting That the New Limit Must Exist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-using-the-rule-on-non-quotient-forms-without-transformation">5.16.4. Pitfall 4: Using the Rule on Non-Quotient Forms Without Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-one-sided-domains">5.16.5. Pitfall 5: Ignoring One-Sided Domains</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">15.17. Comparison with Related Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">15.18. Practical Advice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.19. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">15.20. Quiz</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">15.20.1. Conceptual Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-concepts">5.17. Comparison with Related Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">5.18. Practical Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">5.19. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">5.20. Quiz</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">5.20.1. Conceptual Questions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">15.21. Applied Questions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">15.22. Explain in Your Own Words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">5.21. Applied Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">5.22. Explain in Your Own Words</a></li>
 </ul>
 </li>
 </ul>
