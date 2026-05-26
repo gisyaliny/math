@@ -81,15 +81,15 @@ The chapter should be deep enough to teach, but narrow enough to remain coherent
 
 Use this structure unless the user requests something different.
 
-# Title
+## Title
 
 Use a clean textbook-style title.
 
-# Learning Objectives
+## Learning Objectives
 
 State what the learner will be able to understand or do after the chapter. The objectives should include conceptual understanding, mathematical understanding, computational implementation, result interpretation, and awareness of limitations.
 
-# 1. Why This Topic Matters
+## Why This Topic Matters
 
 Start with a real problem. Explain why the topic exists, why simpler approaches may be insufficient, and where it appears in practice.
 
@@ -97,7 +97,7 @@ For applied topics, introduce a motivating example. For example, in spatial opti
 
 End this section with a smooth transition into the core idea.
 
-# 2. Big Picture Intuition
+## Big Picture Intuition
 
 Explain the core idea in plain language before introducing formulas.
 
@@ -105,7 +105,7 @@ Use a concrete analogy or small scenario. The learner should feel that the topic
 
 For spatial or computational topics, describe what the input is, what the algorithm tries to decide, and what output it produces.
 
-# 3. Formal Definition and Core Equations
+## Formal Definition and Core Equations
 
 Introduce the mathematical formulation carefully.
 
@@ -122,7 +122,7 @@ For optimization topics, clearly define:
 
 When appropriate, distinguish between minimization and maximization, continuous and binary variables, exact algorithms and heuristic algorithms.
 
-# 4. How the Algorithm Works Step by Step
+## How the Algorithm Works Step by Step
 
 Break the method into a sequence of operations.
 
@@ -132,7 +132,7 @@ For optimization algorithms, explain how the model is built, solved, and interpr
 
 Include a simple workflow（工作流程） diagram when it improves clarity. Mermaid flowcharts are encouraged for algorithmic or procedural topics, but they must remain simple and readable.
 
-# 5. Core Mechanisms and Concepts
+## Core Mechanisms and Concepts
 
 Explain the central ideas that make the method work.
 
@@ -142,7 +142,7 @@ For geospatial topics, this may include distance metrics, coordinate reference s
 
 For optimization topics, this may include trade-offs between efficiency, equity, coverage, constraints, and computational complexity.
 
-# 6. Assumptions, Strengths, Limitations, and Trade-offs
+## Assumptions, Strengths, Limitations, and Trade-offs
 
 Discuss what the method assumes, where it works well, where it fails, how interpretable it is, how computationally expensive it is, how sensitive it is to tuning, and what trade-offs the learner should remember.
 
@@ -160,7 +160,7 @@ For example, p-Median is efficient for reducing average travel cost, but it may 
 
 Include a trade-off figure or simple comparison table when useful.
 
-# 7. Worked Toy Example
+## Worked Toy Example
 
 Give a small hand-worked example with tiny numbers when possible.
 
@@ -170,7 +170,7 @@ For optimization topics, show a small decision table or distance matrix and expl
 
 The goal is not to solve a large real problem, but to reveal the mechanics of the method.
 
-# 8. Computational Lab
+## Computational Lab
 
 This is a required section for technical topics.
 
@@ -204,7 +204,7 @@ For spatial optimization topics, the lab should ideally allow students to solve 
 
 The lab should show how changing the objective function changes the selected facility locations.
 
-# 9. How to Interpret the Results
+## How to Interpret the Results
 
 Explain how to read the output.
 
@@ -214,7 +214,7 @@ For optimization, this should include selected locations, assigned demand points
 
 Also explain what not to conclude. For example, an optimal mathematical solution is not automatically a good policy decision if land ownership, cost, capacity, political boundaries, or community acceptance are ignored.
 
-# 10. Limitations and Pathways for Improvement
+## Limitations and Pathways for Improvement
 
 This section is required whenever the chapter introduces one or more models, algorithms, or formal methods.
 
@@ -236,7 +236,7 @@ For spatial optimization, examples include:
 - p-Center can be extended with demand weights, capacity constraints, or service reliability.
 - MCLP can be extended through gradual coverage functions, probabilistic demand, or variable service thresholds.
 
-# 11. Common Pitfalls and Misunderstandings
+## Common Pitfalls and Misunderstandings
 
 Explain the most common mistakes learners make.
 
@@ -244,7 +244,7 @@ For each pitfall, state what the mistake is, why it is wrong, and how to avoid i
 
 For spatial optimization, common pitfalls include using Euclidean distance when network travel time is needed, ignoring demand weights, treating all candidate sites as equally feasible, forgetting capacity constraints, over-trusting a single value of p, and interpreting model output without sensitivity analysis.
 
-# 12. Comparison with Related Methods
+## Comparison with Related Methods
 
 Compare the topic with two to four nearby ideas.
 
@@ -258,7 +258,7 @@ For example, in spatial optimization:
 | p-Center | Minimize maximum distance | How do we protect the worst-served area? | May ignore average efficiency | Equitable but may be less efficient |
 | MCLP | Maximize covered demand | How many people are served within a threshold? | Sensitive to threshold choice | Useful for service standards but threshold-dependent |
 
-# 13. Practical Advice
+## Practical Advice
 
 Give practical guidance for real use.
 
@@ -266,13 +266,13 @@ Explain when to use the method, when not to use it, which parameters matter, wha
 
 For applied research, explain how to describe data, assumptions, distance metrics, objective functions, constraints, solver choices, robustness checks, limitations, and possible improvements.
 
-# 14. Summary
+## Summary
 
 Provide a concise recap of the chapter.
 
 The summary should state what the topic is, what problem it solves, the core intuition, the main formula or mechanism, the main advantage, and the main limitation. End with one memorable sentence.
 
-# 15. Quiz
+## Quiz
 
 Create a short quiz aligned with the chapter.
 
