@@ -1,0 +1,1089 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>15. Chapter B. Statistical Hypothesis Testing &#8212; Yalin&#39;s Mathematic Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="16. Chapter C. Multiple Hypothesis Testing" href="Chapter_C_multiple_hypothesis_testing.html" />
+    <link rel="prev" title="14. Statistical Foundations B–F — Expanded Jupyter Tutorials" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Yalin's Mathematic Handbook - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Yalin's Mathematic Handbook - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter1-Limit-Continuous.html">1. Limits and Continuity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter2-Differential-and-Derivative.html">2. Differential and Derivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter3-Lhopital-rule.html">3. L’Hôpital’s Rule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">4. Regularization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Statistics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">5. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">6. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">7. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">8. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">9. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">10. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">11. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">12. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">13. Multivariate LISA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">14. Statistical Foundations B–F — Expanded Jupyter Tutorials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Chapter B. Statistical Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_C_multiple_hypothesis_testing.html">16. Chapter C. Multiple Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_D_spatial_statistics.html">17. Chapter D. Spatial Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_E_spatio-temporal_processes.html">18. Chapter E. Spatio-temporal Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_F_statistical_simulation_and_validation.html">19. Chapter F. Statistical Simulation and Validation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/pMedian.html">20. The p-Median Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/mclp.html">21. The Maximal Covering Location Problem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter B. Statistical Hypothesis Testing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">15.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-this-motivation-scope-and-real-world-problems">15.2. Why Study This? — Motivation, Scope, and Real-World Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-roadmap">15.3. Conceptual Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">15.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-scientific-question-to-a-test">15.4.1. From a scientific question to a test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fixed-margin-hypergeometric-derivation">15.4.2. The fixed-margin hypergeometric derivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-power-and-confidence-intervals">15.4.3. Error, power and confidence intervals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization-versus-parametric-inference">15.4.4. Randomization versus parametric inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">15.4.5. Critical thinking checkpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">15.5. Additional Derivation Visualization — General-Purpose Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">15.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">15.6.1. Notation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">15.7. Core Mechanisms and Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-valid-null">15.7.1. What is a valid null?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-margin-conditioning">15.7.2. Fixed-margin conditioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-exact-tests">15.7.3. Discrete exact tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screening">15.7.4. Screening</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">15.8. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">15.9. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-set-up-the-dataset">15.10. Python Lab: Set Up the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-22-table">15.11. Build the 2×2 table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-an-exact-tail">15.12. Evaluate an exact tail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-monte-carlo-test">15.13. Run the Monte Carlo test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-sensitivity-to-support">15.14. Explore the sensitivity to support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">15.15. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-self-assessment-answers-hidden">15.16. Quiz — Self-Assessment (Answers Hidden)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-why-is-learning-a-sampling-or-randomization-model-necessary-before-using-a-p-value">15.16.1. Q1: Why is learning a sampling or randomization model necessary before using a p-value?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-under-the-fixed-margin-model-what-is-held-constant">15.16.2. Q2: Under the fixed-margin model, what is held constant?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-does-a-p-value-of-0-03-mean-that-the-null-is-3-likely">15.16.3. Q3: Does a p-value of 0.03 mean that the null is 3% likely?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-why-might-a-conventional-row-bootstrap-fail-for-spatial-data">15.16.4. Q4: Why might a conventional row bootstrap fail for spatial data?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-question-no-prescribed-solution">15.16.5. Reflection Question (no prescribed solution)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-reading-and-starm-crosswalk">15.17. Suggested Reading and STARM Crosswalk</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-b-statistical-hypothesis-testing">
+<h1><span class="section-number">15. </span>Chapter B. Statistical Hypothesis Testing<a class="headerlink" href="#chapter-b-statistical-hypothesis-testing" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">15.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Define a null hypothesis（原假设）and one-sided alternative for lift.</p></li>
+<li><p>Derive the 2×2 table and fixed-margin hypergeometric distribution.</p></li>
+<li><p>Explain conditional exchangeability（条件可交换性）and distinguish independence from a valid permutation law.</p></li>
+<li><p>Compute exact and plus-one Monte Carlo p-values.</p></li>
+<li><p>Explain outcome-independent screening and its limits.</p></li>
+</ol>
+<p><strong>Connection to STARM:</strong> The examples mirror the binary outcome, fixed antecedent indicators, lagged transactions, and overlapping spatial supports in the STARM manuscript. They are teaching examples, not reproductions of manuscript results.</p>
+<blockquote>
+<div><p><strong>Teaching philosophy:</strong> start with the general statistical problem, build mathematical intuition, and use STARM as one illustrative case study. The new sections precede the original computational labs.</p>
+</div></blockquote>
+</section>
+<section id="why-study-this-motivation-scope-and-real-world-problems">
+<h2><span class="section-number">15.2. </span>Why Study This? — Motivation, Scope, and Real-World Problems<a class="headerlink" href="#why-study-this-motivation-scope-and-real-world-problems" title="Link to this heading">#</a></h2>
+<p>A statistically interesting pattern is not necessarily evidence against chance. Hypothesis testing provides a disciplined way to ask whether the data are surprising under a specific <strong>data-generating explanation</strong>, and makes the cost of false alarms explicit. It is used in randomized clinical trials, A/B testing, environmental monitoring, policy evaluations, and scientific discovery.</p>
+<p><strong>Questions it answers:</strong> What exactly is being tested? What distribution would we observe if the null model held? How surprising is the observed result? How much uncertainty remains?</p>
+<p><strong>What it cannot answer alone:</strong> Whether the null is true, whether the effect matters practically, or whether a statistically significant association is causal.</p>
+<p><strong>Example beyond STARM:</strong> A treatment/control trial compares the probability of improvement, and an online experiment compares conversion rates. In both, the validity of a p-value depends on the allocation or sampling model—not just the formula.</p>
+</section>
+<hr class="docutils" />
+<section id="conceptual-roadmap">
+<h2><span class="section-number">15.3. </span>Conceptual Roadmap<a class="headerlink" href="#conceptual-roadmap" title="Link to this heading">#</a></h2>
+<p><strong>Scientific problem → statistical representation → assumptions → mathematics → computational experiment → diagnostics → interpretation.</strong></p>
+<p>The chapters are standalone: STARM is a later application, not the reason these mathematical ideas exist.</p>
+</section>
+<section id="foundations-and-mathematical-derivations">
+<h2><span class="section-number">15.4. </span>Foundations and Mathematical Derivations<a class="headerlink" href="#foundations-and-mathematical-derivations" title="Link to this heading">#</a></h2>
+<section id="from-a-scientific-question-to-a-test">
+<h3><span class="section-number">15.4.1. </span>From a scientific question to a test<a class="headerlink" href="#from-a-scientific-question-to-a-test" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Form a <strong>statistical estimand (目标统计量)</strong>, e.g. a difference in event probabilities, <span class="math notranslate nohighlight">\(\Delta=P(Y=1\mid X=1)-P(Y=1\mid X=0)\)</span>.</p></li>
+<li><p>Specify <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> <em>before observing the test outcome</em>. For a positive association <span class="math notranslate nohighlight">\(H_0:\Delta=0\)</span> vs <span class="math notranslate nohighlight">\(H_1:\Delta&gt;0\)</span>.</p></li>
+<li><p>State a sampling/randomization model. A null hypothesis about a marginal probability is <strong>not</strong> automatically an exchangeability assumption.</p></li>
+<li><p>Choose a statistic <span class="math notranslate nohighlight">\(T(D)\)</span> and calculate its reference distribution under <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
+<li><p>Define <span class="math notranslate nohighlight">\(p=P_{H_0}(T(D^*)\ge T(D_{obs}))\)</span> for a one-sided test. A p-value is <strong>not</strong> <span class="math notranslate nohighlight">\(P(H_0\mid D)\)</span>.</p></li>
+</ol>
+</section>
+<section id="the-fixed-margin-hypergeometric-derivation">
+<h3><span class="section-number">15.4.2. </span>The fixed-margin hypergeometric derivation<a class="headerlink" href="#the-fixed-margin-hypergeometric-derivation" title="Link to this heading">#</a></h3>
+<p>Given <span class="math notranslate nohighlight">\(N\)</span> units, <span class="math notranslate nohighlight">\(n\)</span> antecedent-positive units, and <span class="math notranslate nohighlight">\(m\)</span> positive outcomes, let <span class="math notranslate nohighlight">\(K\)</span> count joint positives. Under a <strong>uniform fixed-margin allocation</strong> there are <span class="math notranslate nohighlight">\(\binom Nm\)</span> equally likely outcome allocations. For exactly <span class="math notranslate nohighlight">\(k\)</span> positive outcomes in the antecedent group, choose <span class="math notranslate nohighlight">\(k\)</span> from its <span class="math notranslate nohighlight">\(n\)</span> units and <span class="math notranslate nohighlight">\(m-k\)</span> from the remaining <span class="math notranslate nohighlight">\(N-n\)</span> units. Thus</p>
+<div class="math notranslate nohighlight">
+\[P(K=k\mid N,n,m,H_0)=\frac{\binom nk\binom{N-n}{m-k}}{\binom Nm},\quad \max(0,m-N+n)\le k\le\min(n,m).\]</div>
+<p>Then <span class="math notranslate nohighlight">\(E[K]=nm/N\)</span>, <span class="math notranslate nohighlight">\(\mathrm{Var}(K)=n(m/N)(1-m/N)(N-n)/(N-1)\)</span>, and <span class="math notranslate nohighlight">\(\mathrm{Lift}=KN/(nm)\)</span> for <span class="math notranslate nohighlight">\(nm&gt;0\)</span>. Hence <span class="math notranslate nohighlight">\(E[\mathrm{Lift}]=1\)</span>. This is an exact null result <strong>under the stated allocation model</strong>, not for every observational data set.</p>
+</section>
+<section id="error-power-and-confidence-intervals">
+<h3><span class="section-number">15.4.3. </span>Error, power and confidence intervals<a class="headerlink" href="#error-power-and-confidence-intervals" title="Link to this heading">#</a></h3>
+<p>Type I error (第一类错误) is rejecting a true null; Type II error (第二类错误) is missing an alternative. Power (检验功效) is <span class="math notranslate nohighlight">\(1-\beta\)</span>. A confidence interval is built from a coverage procedure; it is not a probability distribution over a fixed parameter. Small p-values can coexist with negligible effects in large samples.</p>
+</section>
+<section id="randomization-versus-parametric-inference">
+<h3><span class="section-number">15.4.4. </span>Randomization versus parametric inference<a class="headerlink" href="#randomization-versus-parametric-inference" title="Link to this heading">#</a></h3>
+<p>A z-test assumes a standardized statistic has an adequate reference distribution. A permutation test assumes specific allocations are exchangeable under <span class="math notranslate nohighlight">\(H_0\)</span>. A bootstrap resamples observations to approximate an estimator’s sampling distribution; ordinary row bootstrap also fails if spatial/temporal dependence is ignored.</p>
+</section>
+<section id="critical-thinking-checkpoint">
+<h3><span class="section-number">15.4.5. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
+<p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+</section>
+</section>
+<section id="additional-derivation-visualization-general-purpose-example">
+<h2><span class="section-number">15.5. </span>Additional Derivation Visualization — General-Purpose Example<a class="headerlink" href="#additional-derivation-visualization-general-purpose-example" title="Link to this heading">#</a></h2>
+<p>The following self-contained experiment illustrates a general statistical principle, not STARM-specific results. Check how the plot corresponds to the formulas above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span><span class="p">,</span> <span class="n">norm</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">16</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n</span><span class="p">)),</span> <span class="nb">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">observed_k</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">pvalue</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">observed_k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">pmf</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.7</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Fixed-margin null'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="n">k</span><span class="o">&gt;=</span><span class="n">observed_k</span><span class="p">],</span><span class="n">pmf</span><span class="p">[</span><span class="n">k</span><span class="o">&gt;=</span><span class="n">observed_k</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">'Upper tail'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">observed_k</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Observed overlap'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'K: joint positives'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Probability'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Exact randomization reference | p=</span><span class="si">{</span><span class="n">pvalue</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Expected K:'</span><span class="p">,</span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="s1">'Observed lift:'</span><span class="p">,</span> <span class="n">observed_k</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/24ab8c8a52d57e19b183a09e2a42aa005cbb9a06373ef2283b96d6bba078a4a1.png" src="../../_images/24ab8c8a52d57e19b183a09e2a42aa005cbb9a06373ef2283b96d6bba078a4a1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected K: 4.8 Observed lift: 1.875
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart LR
+    A[Define eligible transactions] --&gt; B[Freeze X candidates]
+    B --&gt; C[Specify allocation null]
+    C --&gt; D[Compute observed lift]
+    D --&gt; E[Exact or Monte Carlo tail]
+    E --&gt; F[Assess assumptions]
+</pre></div>
+</div>
+<p>This chapter follows the same structure as the supplied MCLP tutorial: conceptual workflow, formal definition, assumptions, a hand-worked example, executable Python experiments, sensitivity checks, common pitfalls, and a quiz.</p>
+</section>
+<hr class="docutils" />
+<section id="formal-definition-and-core-equations">
+<h2><span class="section-number">15.6. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
+<section id="notation">
+<h3><span class="section-number">15.6.1. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\)</span></p></td>
+<td><p>number of eligible anchor-period transactions</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(m=\sum_i Y_i\)</span></p></td>
+<td><p>target-positive count（阳性交易数量）</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(n=\sum_i X_i\)</span></p></td>
+<td><p>antecedent-positive count</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(K=\sum_i X_iY_i\)</span></p></td>
+<td><p>co-occurrence count</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(X_i,Y_i\in\{0,1\}\)</span></p></td>
+<td><p>antecedent, target indicators</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td><p>lift（提升度）</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="math notranslate nohighlight">
+\[\widehat L=\frac{K/n}{m/N}=\frac{KN}{nm},\qquad K\mid X,N,m\sim\mathrm{Hypergeom}(N,m,n)\]</div>
+<div class="math notranslate nohighlight">
+\[p_{\rm exact}=P(K^*\ge K_{\rm obs}\mid N,m,n),\qquad \hat p_{MC}=\frac{1+\sum_{b=1}^{B}\mathbf{1}(L_b^*\ge L_{obs})}{B+1}.\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="core-mechanisms-and-concepts">
+<h2><span class="section-number">15.7. </span>Core Mechanisms and Concepts<a class="headerlink" href="#core-mechanisms-and-concepts" title="Link to this heading">#</a></h2>
+<section id="what-is-a-valid-null">
+<h3><span class="section-number">15.7.1. </span>What is a valid null?<a class="headerlink" href="#what-is-a-valid-null" title="Link to this heading">#</a></h3>
+<p>The candidate-level statement <span class="math notranslate nohighlight">\(P(Y=1\mid X=1)=P(Y=1)\)</span> is weaker than <strong>uniform allocation of the whole target vector</strong> conditional on the number of positives. Permuting the <span class="math notranslate nohighlight">\(Y\)</span> rows tests that stronger allocation law, not every possible notion of independence.</p>
+</section>
+<section id="fixed-margin-conditioning">
+<h3><span class="section-number">15.7.2. </span>Fixed-margin conditioning<a class="headerlink" href="#fixed-margin-conditioning" title="Link to this heading">#</a></h3>
+<p>Holding <span class="math notranslate nohighlight">\(N,m,n\)</span> fixed leaves only <span class="math notranslate nohighlight">\(K\)</span> random. This yields a hypergeometric tail and makes confidence and lift monotone functions of <span class="math notranslate nohighlight">\(K\)</span>. The same candidate frequency leads to the same reference distribution under this particular null.</p>
+</section>
+<section id="discrete-exact-tests">
+<h3><span class="section-number">15.7.3. </span>Discrete exact tests<a class="headerlink" href="#discrete-exact-tests" title="Link to this heading">#</a></h3>
+<p>The attainable values of <span class="math notranslate nohighlight">\(K\)</span> are integers, so exact p-values can be conservative. Monte Carlo ranks use <strong>plus one</strong> to avoid zero p-values, but more permutations cannot repair an incorrect null.</p>
+</section>
+<section id="screening">
+<h3><span class="section-number">15.7.4. </span>Screening<a class="headerlink" href="#screening" title="Link to this heading">#</a></h3>
+<p>Support screening computed using <span class="math notranslate nohighlight">\(X\)</span> alone freezes candidates before looking at <span class="math notranslate nohighlight">\(Y\)</span>. It avoids outcome-driven selection, but does <strong>not</strong> by itself ensure conditional exchangeability or BH validity.</p>
+</section>
+</section>
+<section id="assumptions-strengths-limitations-and-trade-offs">
+<h2><span class="section-number">15.8. </span>Assumptions, Strengths, Limitations, and Trade-offs<a class="headerlink" href="#assumptions-strengths-limitations-and-trade-offs" title="Link to this heading">#</a></h2>
+<p>Assume binary measurements are accurate, the candidate set is fixed independently of target outcomes, and each allocation of the <span class="math notranslate nohighlight">\(m\)</span> positives to <span class="math notranslate nohighlight">\(N\)</span> rows is equally likely under the null. Strength: finite-sample exact conditional reference. Limit: spatially shared events, seasonality, uneven risk, and serial dependence often violate this allocation model.</p>
+<p><strong>Trade-off:</strong> conditioning on the observed total removes uncertainty about baseline prevalence but does not preserve the geography of event occurrence.</p>
+</section>
+<section id="worked-toy-example">
+<h2><span class="section-number">15.9. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
+<p>For <span class="math notranslate nohighlight">\(N=12\)</span> sampled neighborhood-months, <span class="math notranslate nohighlight">\(m=4\)</span> wildfire-positive contexts, and <span class="math notranslate nohighlight">\(n=5\)</span> neighborhoods satisfying a lagged dry predicate, suppose <span class="math notranslate nohighlight">\(K=3\)</span> co-occurrences.</p>
+<div class="math notranslate nohighlight">
+\[\widehat L=\frac{3/5}{4/12}=1.8.\]</div>
+<p>Under complete label exchangeability, calculate <span class="math notranslate nohighlight">\(P(K^*\ge3)\)</span> from <span class="math notranslate nohighlight">\(\mathrm{Hypergeom}(12,4,5)\)</span>. A lift above one is not equivalent to statistical significance.</p>
+</section>
+<section id="python-lab-set-up-the-dataset">
+<h2><span class="section-number">15.10. </span>Python Lab: Set Up the Dataset<a class="headerlink" href="#python-lab-set-up-the-dataset" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span><span class="p">,</span> <span class="n">binom</span>
+
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">41020001</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Reproducible random seed:"</span><span class="p">,</span> <span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reproducible random seed: 41020001
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-the-22-table">
+<h2><span class="section-number">15.11. </span>Build the 2×2 table<a class="headerlink" href="#build-the-22-table" title="Link to this heading">#</a></h2>
+<p>Use a transparent binary example to check every denominator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">K</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span>
+<span class="n">obs</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">K</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">K</span><span class="p">],[</span><span class="n">m</span><span class="o">-</span><span class="n">K</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">m</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="n">K</span><span class="p">]],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'X=1'</span><span class="p">,</span><span class="s1">'X=0'</span><span class="p">],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Y=1'</span><span class="p">,</span><span class="s1">'Y=0'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'support='</span><span class="p">,</span><span class="n">K</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="s1">'confidence='</span><span class="p">,</span><span class="n">K</span><span class="o">/</span><span class="n">n</span><span class="p">,</span><span class="s1">'lift='</span><span class="p">,</span><span class="n">K</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Y=1  Y=0
+X=1    3    2
+X=0    1    6
+support= 0.25 confidence= 0.6 lift= 1.8
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> Rule support is joint prevalence; antecedent support is n/N. The rows of the table must sum to n and N−n.</p>
+</section>
+<section id="evaluate-an-exact-tail">
+<h2><span class="section-number">15.12. </span>Evaluate an exact tail<a class="headerlink" href="#evaluate-an-exact-tail" title="Link to this heading">#</a></h2>
+<p>The hypergeometric null fixes the two margins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="o">-</span><span class="n">N</span><span class="p">),</span><span class="nb">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">probs</span><span class="o">=</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">p_exact</span><span class="o">=</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Exact one-sided p-value:'</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">p_exact</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span><span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span><span class="n">probs</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'observed K'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'K'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Probability'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Candidate-specific fixed-margin reference'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exact one-sided p-value: 0.151515
+</pre></div>
+</div>
+<img alt="../../_images/b175213703c9e48bc9214d70b3a77cd100eb920b8202e65ed33fbed10bc24ea3.png" src="../../_images/b175213703c9e48bc9214d70b3a77cd100eb920b8202e65ed33fbed10bc24ea3.png" />
+</div>
+</div>
+<p><strong>Interpretation.</strong> The exact tail sums all attainable overlaps at least as large as the observed overlap.</p>
+</section>
+<section id="run-the-monte-carlo-test">
+<h2><span class="section-number">15.13. </span>Run the Monte Carlo test<a class="headerlink" href="#run-the-monte-carlo-test" title="Link to this heading">#</a></h2>
+<p>Compare permutation approximation to the exact reference without using forbidden zero p-values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="o">=</span><span class="mi">9999</span>
+<span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)]</span>
+<span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">m</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)]</span>
+<span class="n">K_perm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="p">)])</span>
+<span class="n">p_mc</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">K_perm</span><span class="o">&gt;=</span><span class="n">K</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">({</span><span class="s1">'exact'</span><span class="p">:</span><span class="n">p_exact</span><span class="p">,</span><span class="s1">'Monte Carlo plus-one'</span><span class="p">:</span><span class="n">p_mc</span><span class="p">,</span><span class="s1">'minimum_possible_MC_p'</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'exact': np.float64(0.15151515151515152), 'Monte Carlo plus-one': np.float64(0.1496), 'minimum_possible_MC_p': 0.0001}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> Agreement of exact and Monte Carlo tails checks computation under the SAME null; it does not check whether the null is geographically justified.</p>
+</section>
+<section id="explore-the-sensitivity-to-support">
+<h2><span class="section-number">15.14. </span>Explore the sensitivity to support<a class="headerlink" href="#explore-the-sensitivity-to-support" title="Link to this heading">#</a></h2>
+<p>For a fixed total prevalence, changing candidate prevalence changes the attainable null spread.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">nn</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]:</span>
+ <span class="n">kk</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+ <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'antecedent_count'</span><span class="p">:</span><span class="n">nn</span><span class="p">,</span><span class="s1">'E[K]'</span><span class="p">:</span><span class="n">nn</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="s1">'Var[K]'</span><span class="p">:</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">nn</span><span class="p">),</span><span class="s1">'P(K&gt;=max)'</span><span class="p">:</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">kk</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">nn</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   antecedent_count    E[K]  Var[K]  P(K&gt;=max)
+0                 3  1.0000  0.5455     0.0182
+1                 5  1.6667  0.7071     0.0101
+2                 7  2.3333  0.7071     0.0707
+3                 9  3.0000  0.5455     0.2545
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> Candidate-specific uncertainty changes with n even when background event prevalence remains constant.</p>
+</section>
+<hr class="docutils" />
+<section id="common-pitfalls-and-misunderstandings">
+<h2><span class="section-number">15.15. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Lift &gt; 1 is not a p-value.</strong></p></li>
+<li><p><strong>Marginal independence does not imply row-exchangeability.</strong></p></li>
+<li><p><strong>Permuting labels is not the same as simulating a spatial point process.</strong></p></li>
+<li><p><strong>Using more permutations does not solve model misspecification.</strong></p></li>
+<li><p><strong>Outcome-free candidate screening does not prove multiplicity control.</strong></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="quiz-self-assessment-answers-hidden">
+<h2><span class="section-number">15.16. </span>Quiz — Self-Assessment (Answers Hidden)<a class="headerlink" href="#quiz-self-assessment-answers-hidden" title="Link to this heading">#</a></h2>
+<p>Try each question before expanding <strong>Answer</strong>. The folded format follows the supplied <code class="docutils literal notranslate"><span class="pre">mclp.ipynb</span></code> template.</p>
+<section id="q1-why-is-learning-a-sampling-or-randomization-model-necessary-before-using-a-p-value">
+<h3><span class="section-number">15.16.1. </span>Q1: Why is learning a sampling or randomization model necessary before using a p-value?<a class="headerlink" href="#q1-why-is-learning-a-sampling-or-randomization-model-necessary-before-using-a-p-value" title="Link to this heading">#</a></h3>
+<p>A. It guarantees a small p-value<br />
+B. It defines how unusual results are calculated under the null<br />
+C. It determines a causal effect<br />
+D. It eliminates bias</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. The model defines the reference distribution; a formula alone is not a validity guarantee.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q2-under-the-fixed-margin-model-what-is-held-constant">
+<h3><span class="section-number">15.16.2. </span>Q2: Under the fixed-margin model, what is held constant?<a class="headerlink" href="#q2-under-the-fixed-margin-model-what-is-held-constant" title="Link to this heading">#</a></h3>
+<p>A. The sample mean only<br />
+B. N, antecedent count n, and positive-outcome count m<br />
+C. Every individual outcome<br />
+D. The observed overlap K</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. Only the margins and eligible units are fixed; K varies across allocations.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q3-does-a-p-value-of-0-03-mean-that-the-null-is-3-likely">
+<h3><span class="section-number">15.16.3. </span>Q3: Does a p-value of 0.03 mean that the null is 3% likely?<a class="headerlink" href="#q3-does-a-p-value-of-0-03-mean-that-the-null-is-3-likely" title="Link to this heading">#</a></h3>
+<p>A. Yes<br />
+B. Only with 1,000 samples<br />
+C. No<br />
+D. Only for one-sided tests</p>
+<details>
+<summary>Answer</summary>
+<p><strong>C. It is a probability of a statistic at least as extreme under the specified null reference, not a posterior probability.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q4-why-might-a-conventional-row-bootstrap-fail-for-spatial-data">
+<h3><span class="section-number">15.16.4. </span>Q4: Why might a conventional row bootstrap fail for spatial data?<a class="headerlink" href="#q4-why-might-a-conventional-row-bootstrap-fail-for-spatial-data" title="Link to this heading">#</a></h3>
+<p>A. It uses too many draws<br />
+B. It treats dependent rows as independent<br />
+C. It requires binary data<br />
+D. It is always conservative</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. Resampling single units destroys dependence; block or model-based resampling may be required.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="reflection-question-no-prescribed-solution">
+<h3><span class="section-number">15.16.5. </span>Reflection Question (no prescribed solution)<a class="headerlink" href="#reflection-question-no-prescribed-solution" title="Link to this heading">#</a></h3>
+<p>Name one assumption violation in your own research area and propose a simulation to measure how much it matters.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="suggested-reading-and-starm-crosswalk">
+<h2><span class="section-number">15.17. </span>Suggested Reading and STARM Crosswalk<a class="headerlink" href="#suggested-reading-and-starm-crosswalk" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Agrawal &amp; Srikant (1994): frequent-itemset search (background).</p></li>
+<li><p>Hope (1968); Phipson &amp; Smyth (2010): randomization/Monte Carlo p-values (Chapter B).</p></li>
+<li><p>Benjamini &amp; Hochberg (1995); Benjamini &amp; Yekutieli (2001): multiple testing and dependence (Chapter C).</p></li>
+<li><p>Baddeley, Rubak &amp; Turner (2015): spatial point patterns (Chapter D).</p></li>
+<li><p>Winkler et al. (2014): exchangeability blocks and permutation designs (Chapters B, D, E).</p></li>
+<li><p>STARM manuscript: Sections 3.3–3.6 for reference assumptions; Section 4 for simulations; Sections 5–6 for empirical limitations.</p></li>
+</ul>
+<p><strong>Practice task:</strong> Write a short reviewer note distinguishing a descriptive association from an inferential discovery, explicitly naming the null model and its assumptions.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\Spatial-statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Statistical Foundations B–F — Expanded Jupyter Tutorials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_C_multiple_hypothesis_testing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Chapter C. Multiple Hypothesis Testing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">15.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-this-motivation-scope-and-real-world-problems">15.2. Why Study This? — Motivation, Scope, and Real-World Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-roadmap">15.3. Conceptual Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">15.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-scientific-question-to-a-test">15.4.1. From a scientific question to a test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fixed-margin-hypergeometric-derivation">15.4.2. The fixed-margin hypergeometric derivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-power-and-confidence-intervals">15.4.3. Error, power and confidence intervals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization-versus-parametric-inference">15.4.4. Randomization versus parametric inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">15.4.5. Critical thinking checkpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">15.5. Additional Derivation Visualization — General-Purpose Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">15.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">15.6.1. Notation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">15.7. Core Mechanisms and Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-valid-null">15.7.1. What is a valid null?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-margin-conditioning">15.7.2. Fixed-margin conditioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-exact-tests">15.7.3. Discrete exact tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screening">15.7.4. Screening</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">15.8. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">15.9. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-set-up-the-dataset">15.10. Python Lab: Set Up the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-22-table">15.11. Build the 2×2 table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-an-exact-tail">15.12. Evaluate an exact tail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-monte-carlo-test">15.13. Run the Monte Carlo test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-sensitivity-to-support">15.14. Explore the sensitivity to support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">15.15. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-self-assessment-answers-hidden">15.16. Quiz — Self-Assessment (Answers Hidden)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-why-is-learning-a-sampling-or-randomization-model-necessary-before-using-a-p-value">15.16.1. Q1: Why is learning a sampling or randomization model necessary before using a p-value?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-under-the-fixed-margin-model-what-is-held-constant">15.16.2. Q2: Under the fixed-margin model, what is held constant?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-does-a-p-value-of-0-03-mean-that-the-null-is-3-likely">15.16.3. Q3: Does a p-value of 0.03 mean that the null is 3% likely?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-why-might-a-conventional-row-bootstrap-fail-for-spatial-data">15.16.4. Q4: Why might a conventional row bootstrap fail for spatial data?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-question-no-prescribed-solution">15.16.5. Reflection Question (no prescribed solution)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-reading-and-starm-crosswalk">15.17. Suggested Reading and STARM Crosswalk</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yalin Yang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

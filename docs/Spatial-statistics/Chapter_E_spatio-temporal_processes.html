@@ -1,0 +1,1085 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>18. Chapter E. Spatio-temporal Processes &#8212; Yalin&#39;s Mathematic Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Spatial-statistics/Chapter_E_spatio-temporal_processes';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/Spatial-statistics/Chapter_E_spatio-temporal_processes.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="19. Chapter F. Statistical Simulation and Validation" href="Chapter_F_statistical_simulation_and_validation.html" />
+    <link rel="prev" title="17. Chapter D. Spatial Statistics" href="Chapter_D_spatial_statistics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Yalin's Mathematic Handbook - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Yalin's Mathematic Handbook - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter1-Limit-Continuous.html">1. Limits and Continuity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter2-Differential-and-Derivative.html">2. Differential and Derivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter3-Lhopital-rule.html">3. L’Hôpital’s Rule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">4. Regularization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Statistics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">5. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">6. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">7. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">8. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">9. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">10. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">11. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">12. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">13. Multivariate LISA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">14. Statistical Foundations B–F — Expanded Jupyter Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_B_statistical_hypothesis_testing.html">15. Chapter B. Statistical Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_C_multiple_hypothesis_testing.html">16. Chapter C. Multiple Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_D_spatial_statistics.html">17. Chapter D. Spatial Statistics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Chapter E. Spatio-temporal Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_F_statistical_simulation_and_validation.html">19. Chapter F. Statistical Simulation and Validation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/pMedian.html">20. The p-Median Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/mclp.html">21. The Maximal Covering Location Problem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/Spatial-statistics/Chapter_E_spatio-temporal_processes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/Spatial-statistics/Chapter_E_spatio-temporal_processes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/Spatial-statistics/Chapter_E_spatio-temporal_processes.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/Spatial-statistics/Chapter_E_spatio-temporal_processes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Spatial-statistics/Chapter_E_spatio-temporal_processes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter E. Spatio-temporal Processes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">18.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-this-motivation-scope-and-real-world-problems">18.2. Why Study This? — Motivation, Scope, and Real-World Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-roadmap">18.3. Conceptual Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">18.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-dependence-is-more-than-a-lag">18.4.1. Temporal dependence is more than a lag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planted-lag-vs-observed-lag">18.4.2. Planted lag vs observed lag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality-and-trend">18.4.3. Seasonality and trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-time-covariance">18.4.4. Space-time covariance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-design-choices">18.4.5. Practical design choices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">18.4.6. Critical thinking checkpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">18.5. Additional Derivation Visualization — General-Purpose Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">18.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">18.6.1. Notation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">18.7. Core Mechanisms and Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-alignment">18.7.1. Temporal alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persistence-and-lag-leakage">18.7.2. Persistence and lag leakage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-baseline">18.7.3. Seasonal baseline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anchors-reused-across-time">18.7.4. Anchors reused across time</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">18.8. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">18.9. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-set-up-the-dataset">18.10. Python Lab: Set Up the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-markov-environmental-fields">18.11. Generate Markov environmental fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plant-a-lag-2-mechanism">18.12. Plant a lag-2 mechanism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-lag-profile">18.13. Plot the lag profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-to-persistence">18.14. Sensitivity to persistence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">18.15. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-self-assessment-answers-hidden">18.16. Quiz — Self-Assessment (Answers Hidden)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-makes-an-ar-1-model-weakly-stationary-in-the-usual-setup">18.16.1. Q1: What makes an AR(1) model weakly stationary in the usual setup?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-can-an-association-at-lag-1-be-real-when-the-generating-mechanism-acts-only-at-lag-2">18.16.2. Q2: Can an association at lag 1 be real when the generating mechanism acts only at lag 2?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-why-is-seasonal-shuffling-not-automatically-valid">18.16.3. Q3: Why is seasonal shuffling not automatically valid?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-what-is-the-danger-of-using-an-annual-measurement-collected-after-an-event">18.16.4. Q4: What is the danger of using an annual measurement collected after an event?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-question-no-prescribed-solution">18.16.5. Reflection Question (no prescribed solution)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-reading-and-starm-crosswalk">18.17. Suggested Reading and STARM Crosswalk</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-e-spatio-temporal-processes">
+<h1><span class="section-number">18. </span>Chapter E. Spatio-temporal Processes<a class="headerlink" href="#chapter-e-spatio-temporal-processes" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">18.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Construct lagged environmental predicates on a common eligible anchor-period population.</p></li>
+<li><p>Simulate binary Markov environmental fields and interpret persistence（持续性）.</p></li>
+<li><p>Distinguish lag-specific marginal association from identification of a causal delay.</p></li>
+<li><p>Demonstrate seasonal target variation and why naive row permutations can fail.</p></li>
+<li><p>Compute an empirical lag-profile for a known planted lag-2 mechanism.</p></li>
+</ol>
+<p><strong>Connection to STARM:</strong> The examples mirror the binary outcome, fixed antecedent indicators, lagged transactions, and overlapping spatial supports in the STARM manuscript. They are teaching examples, not reproductions of manuscript results.</p>
+<blockquote>
+<div><p><strong>Teaching philosophy:</strong> start with the general statistical problem, build mathematical intuition, and use STARM as one illustrative case study. The new sections precede the original computational labs.</p>
+</div></blockquote>
+</section>
+<section id="why-study-this-motivation-scope-and-real-world-problems">
+<h2><span class="section-number">18.2. </span>Why Study This? — Motivation, Scope, and Real-World Problems<a class="headerlink" href="#why-study-this-motivation-scope-and-real-world-problems" title="Link to this heading">#</a></h2>
+<p>Many phenomena are dynamic: past conditions predict or accompany later events, seasons repeat, shocks propagate, and neighboring regions interact. <strong>Spatio-temporal statistics (时空统计学)</strong> extends spatial and time-series reasoning to observations indexed by both location and time. It is used for infectious-disease spread, air pollution, flood risk, urban mobility, and climate extremes.</p>
+<p><strong>Questions it answers:</strong> What persists through time? How do we distinguish a true delayed influence from autocorrelation? What is the difference between trend, seasonality and lagged association? How should we compare time offsets fairly?</p>
+</section>
+<hr class="docutils" />
+<section id="conceptual-roadmap">
+<h2><span class="section-number">18.3. </span>Conceptual Roadmap<a class="headerlink" href="#conceptual-roadmap" title="Link to this heading">#</a></h2>
+<p><strong>Scientific problem → statistical representation → assumptions → mathematics → computational experiment → diagnostics → interpretation.</strong></p>
+<p>The chapters are standalone: STARM is a later application, not the reason these mathematical ideas exist.</p>
+</section>
+<section id="foundations-and-mathematical-derivations">
+<h2><span class="section-number">18.4. </span>Foundations and Mathematical Derivations<a class="headerlink" href="#foundations-and-mathematical-derivations" title="Link to this heading">#</a></h2>
+<section id="temporal-dependence-is-more-than-a-lag">
+<h3><span class="section-number">18.4.1. </span>Temporal dependence is more than a lag<a class="headerlink" href="#temporal-dependence-is-more-than-a-lag" title="Link to this heading">#</a></h3>
+<p>For a weakly stationary process <span class="math notranslate nohighlight">\(X_t\)</span>, <span class="math notranslate nohighlight">\(\gamma(h)=\mathrm{Cov}(X_t,X_{t-h})\)</span> and <span class="math notranslate nohighlight">\(\rho(h)=\gamma(h)/\gamma(0)\)</span> define autocovariance and autocorrelation. Stationarity (平稳性) means stable moments under time shifts, not identical observations.</p>
+<p>An <strong>AR(1)</strong> model is <span class="math notranslate nohighlight">\(X_t=\phi X_{t-1}+\epsilon_t\)</span> with mean-zero innovations and <span class="math notranslate nohighlight">\(|\phi|&lt;1\)</span>. With independent innovations <span class="math notranslate nohighlight">\(\epsilon_t\sim(0,\sigma_\epsilon^2)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\gamma(0)=\frac{\sigma_\epsilon^2}{1-\phi^2},\qquad\rho(h)=\phi^{|h|}.\]</div>
+<p>Derivation: write <span class="math notranslate nohighlight">\(\mathrm{Var}(X_t)=\phi^2\mathrm{Var}(X_{t-1})+\sigma_\epsilon^2\)</span> under stationarity; solve the fixed-point equation. Covariance recursion gives <span class="math notranslate nohighlight">\(\gamma(h)=\phi\gamma(h-1)\)</span> for <span class="math notranslate nohighlight">\(h&gt;0\)</span>.</p>
+</section>
+<section id="planted-lag-vs-observed-lag">
+<h3><span class="section-number">18.4.2. </span>Planted lag vs observed lag<a class="headerlink" href="#planted-lag-vs-observed-lag" title="Link to this heading">#</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\(P(Y_t=1\mid X_{t-2})\)</span> depends on <span class="math notranslate nohighlight">\(X_{t-2}\)</span>. If <span class="math notranslate nohighlight">\(X_t\)</span> is persistent, <span class="math notranslate nohighlight">\(X_{t-1}\)</span> and <span class="math notranslate nohighlight">\(X_{t-3}\)</span> correlate with <span class="math notranslate nohighlight">\(X_{t-2}\)</span>. Consequently associations at lags 1 and 3 can be <em>real marginal associations</em> without separate causal mechanisms. A lagged rule is not a causal claim.</p>
+</section>
+<section id="seasonality-and-trend">
+<h3><span class="section-number">18.4.3. </span>Seasonality and trend<a class="headerlink" href="#seasonality-and-trend" title="Link to this heading">#</a></h3>
+<p>A simple seasonal model is <span class="math notranslate nohighlight">\(X_t=\mu+\beta t+A\sin(2\pi t/P)+\epsilon_t\)</span>. Without de-trending or seasonal adjustment, a target and precursor may be related because both share a calendar cycle. Restricted permutation within season is valid only when appropriate within-stratum exchangeability holds.</p>
+</section>
+<section id="space-time-covariance">
+<h3><span class="section-number">18.4.4. </span>Space-time covariance<a class="headerlink" href="#space-time-covariance" title="Link to this heading">#</a></h3>
+<p>A stationary spatio-temporal covariance has the form <span class="math notranslate nohighlight">\(C(h,u)=\mathrm{Cov}[Z(s,t),Z(s+h,t+u)]\)</span>. A separable model <span class="math notranslate nohighlight">\(C(h,u)=C_S(h)C_T(u)\)</span> is convenient, but many propagating processes are nonseparable. Sampling and support geometry affect empirical covariance estimates.</p>
+</section>
+<section id="practical-design-choices">
+<h3><span class="section-number">18.4.5. </span>Practical design choices<a class="headerlink" href="#practical-design-choices" title="Link to this heading">#</a></h3>
+<p>Define temporal granularity and eligible observation period, prevent look-ahead leakage, distinguish contemporaneous structural context from prior exposures, and check whether lags share the same observation population.</p>
+</section>
+<section id="critical-thinking-checkpoint">
+<h3><span class="section-number">18.4.6. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
+<p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+</section>
+</section>
+<section id="additional-derivation-visualization-general-purpose-example">
+<h2><span class="section-number">18.5. </span>Additional Derivation Visualization — General-Purpose Example<a class="headerlink" href="#additional-derivation-visualization-general-purpose-example" title="Link to this heading">#</a></h2>
+<p>The following self-contained experiment illustrates a general statistical principle, not STARM-specific results. Check how the plot corresponds to the formulas above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">rng</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">19</span><span class="p">);</span><span class="n">T</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">axs</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">phi</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.55</span><span class="p">,</span><span class="mf">.9</span><span class="p">]:</span>
+ <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="p">);</span><span class="n">noise</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">T</span><span class="p">):</span><span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">=</span><span class="n">phi</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">noise</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+ <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">100</span><span class="p">:];</span> <span class="n">ac</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">h</span><span class="p">:],</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="n">h</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)]</span>
+ <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span><span class="n">ac</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'phi=</span><span class="si">{</span><span class="n">phi</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+ <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">),[</span><span class="n">phi</span><span class="o">**</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)],</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'phi=</span><span class="si">{</span><span class="n">phi</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Estimated temporal ACF'</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Lag'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Correlation'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Theoretical AR(1) ACF'</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Lag'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Correlation'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span><span class="n">a</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b4b91b4ff14e63bbe4536597c9cce194cb9f742c5a2795021e8914cd7ab5d3a4.png" src="../../_images/b4b91b4ff14e63bbe4536597c9cce194cb9f742c5a2795021e8914cd7ab5d3a4.png" />
+</div>
+</div>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart LR
+    A[Generate environmental time series] --&gt; B[Align X at t−lag]
+    B --&gt; C[Keep common target periods]
+    C --&gt; D[Simulate Y at focal t]
+    D --&gt; E[Compare lift by lag]
+    E --&gt; F[Interpret lag uncertainty]
+</pre></div>
+</div>
+<p>This chapter follows the same structure as the supplied MCLP tutorial: conceptual workflow, formal definition, assumptions, a hand-worked example, executable Python experiments, sensitivity checks, common pitfalls, and a quiz.</p>
+</section>
+<hr class="docutils" />
+<section id="formal-definition-and-core-equations">
+<h2><span class="section-number">18.6. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
+<section id="notation">
+<h3><span class="section-number">18.6.1. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(X_{s,t-\ell}\)</span></p></td>
+<td><p>environmental predicate at location <span class="math notranslate nohighlight">\(s\)</span> and earlier period</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(Y_{s,t}\)</span></p></td>
+<td><p>target outcome at focal period</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\ell\)</span></p></td>
+<td><p>specified temporal lag（时间滞后）</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\rho\)</span></p></td>
+<td><p>persistence parameter in binary process</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\beta\)</span></p></td>
+<td><p>planted event-effect coefficient</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="math notranslate nohighlight">
+\[L_\ell=\frac{P(Y_t=1\mid X_{t-\ell}=1)}{P(Y_t=1)}.\]</div>
+<p>One illustrative two-state process uses stationary probability <span class="math notranslate nohighlight">\(p\)</span> and transitions <span class="math notranslate nohighlight">\(P(X_t=1\mid X_{t-1}=x)=\rho x+(1-\rho)p\)</span>, where <span class="math notranslate nohighlight">\(0\le\rho&lt;1\)</span>. Its lag-<span class="math notranslate nohighlight">\(h\)</span> correlation is <span class="math notranslate nohighlight">\(\rho^h\)</span> in stationarity.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="core-mechanisms-and-concepts">
+<h2><span class="section-number">18.7. </span>Core Mechanisms and Concepts<a class="headerlink" href="#core-mechanisms-and-concepts" title="Link to this heading">#</a></h2>
+<section id="temporal-alignment">
+<h3><span class="section-number">18.7.1. </span>Temporal alignment<a class="headerlink" href="#temporal-alignment" title="Link to this heading">#</a></h3>
+<p>The target is observed at <span class="math notranslate nohighlight">\(t\)</span> and context at <span class="math notranslate nohighlight">\(t-\ell\)</span>. Keep the same focal-period population across lags; otherwise the background target prevalence and observation composition change.</p>
+</section>
+<section id="persistence-and-lag-leakage">
+<h3><span class="section-number">18.7.2. </span>Persistence and lag leakage<a class="headerlink" href="#persistence-and-lag-leakage" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(X_t\)</span> persists, an effect planted at <span class="math notranslate nohighlight">\(t-2\)</span> can induce real marginal association at <span class="math notranslate nohighlight">\(t-1\)</span> or <span class="math notranslate nohighlight">\(t-3\)</span>. A detected lag is not automatically the physical or causal delay.</p>
+</section>
+<section id="seasonal-baseline">
+<h3><span class="section-number">18.7.3. </span>Seasonal baseline<a class="headerlink" href="#seasonal-baseline" title="Link to this heading">#</a></h3>
+<p>An event probability that changes by month can be correlated with seasonal environmental conditions even without a direct mechanism. Stratifying randomizations by calendar month is a possible reference restriction, but it is only inferentially valid under the correct within-stratum exchangeability conditions.</p>
+</section>
+<section id="anchors-reused-across-time">
+<h3><span class="section-number">18.7.4. </span>Anchors reused across time<a class="headerlink" href="#anchors-reused-across-time" title="Link to this heading">#</a></h3>
+<p>The same spatial support at many focal periods creates clustered observations. A point-process or trajectory-aware reference may preserve aspects of this structure; arbitrary row shuffling generally does not.</p>
+</section>
+</section>
+<section id="assumptions-strengths-limitations-and-trade-offs">
+<h2><span class="section-number">18.8. </span>Assumptions, Strengths, Limitations, and Trade-offs<a class="headerlink" href="#assumptions-strengths-limitations-and-trade-offs" title="Link to this heading">#</a></h2>
+<p>Assume environmental states have a stated transition law and that target outcomes are generated with a prespecified lag in the toy experiment. Strength: known planted temporal structure. Limitation: a stationary first-order Markov process is not a full wildfire climate model.</p>
+<p><strong>Trade-off:</strong> stronger persistence improves continuity of environment but makes adjacent lag associations harder to distinguish.</p>
+</section>
+<section id="worked-toy-example">
+<h2><span class="section-number">18.9. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
+<p>If an event probability is increased when <span class="math notranslate nohighlight">\(X_{t-2}=1\)</span>, a persistent binary climate field produces correlation between <span class="math notranslate nohighlight">\(X_{t-2}\)</span> and <span class="math notranslate nohighlight">\(X_{t-1}\)</span>. Therefore both <span class="math notranslate nohighlight">\(L_2\)</span> and <span class="math notranslate nohighlight">\(L_1\)</span> may exceed one, although only lag 2 appears in the generating event equation.</p>
+</section>
+<section id="python-lab-set-up-the-dataset">
+<h2><span class="section-number">18.10. </span>Python Lab: Set Up the Dataset<a class="headerlink" href="#python-lab-set-up-the-dataset" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span><span class="p">,</span> <span class="n">binom</span>
+
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">41020001</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Reproducible random seed:"</span><span class="p">,</span> <span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reproducible random seed: 41020001
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-markov-environmental-fields">
+<h2><span class="section-number">18.11. </span>Generate Markov environmental fields<a class="headerlink" href="#generate-markov-environmental-fields" title="Link to this heading">#</a></h2>
+<p>Use many sites and focal periods to visualize temporal persistence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">markov_field</span><span class="p">(</span><span class="n">n_sites</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mf">.35</span><span class="p">,</span><span class="n">rho</span><span class="o">=</span><span class="mf">.75</span><span class="p">,</span><span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+ <span class="n">rng</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">rng</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">rng</span>
+ <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_sites</span><span class="p">,</span><span class="n">T</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">);</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">n_sites</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+  <span class="n">prob</span><span class="o">=</span><span class="n">rho</span><span class="o">*</span><span class="n">x</span><span class="p">[:,</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rho</span><span class="p">)</span><span class="o">*</span><span class="n">p</span>
+  <span class="n">x</span><span class="p">[:,</span><span class="n">t</span><span class="p">]</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">prob</span><span class="p">)</span>
+ <span class="k">return</span> <span class="n">x</span>
+<span class="n">X</span><span class="o">=</span><span class="n">markov_field</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="n">rho</span><span class="o">=</span><span class="mf">.75</span><span class="p">,</span><span class="n">rng</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span><span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">25</span><span class="p">],</span><span class="n">aspect</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Period'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Site'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Persistent binary environmental fields'</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/838ca2d018fbe3b3cf746463c7d086617f9019d70cbe40ad87865b67d6817571.png" src="../../_images/838ca2d018fbe3b3cf746463c7d086617f9019d70cbe40ad87865b67d6817571.png" />
+</div>
+</div>
+<p><strong>Interpretation.</strong> At high persistence the binary states form longer temporal runs; adjacent lag predictors are correlated.</p>
+</section>
+<section id="plant-a-lag-2-mechanism">
+<h2><span class="section-number">18.12. </span>Plant a lag-2 mechanism<a class="headerlink" href="#plant-a-lag-2-mechanism" title="Link to this heading">#</a></h2>
+<p>Generate Y from lag-2 X without calling the result causal inference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">focal</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">42</span><span class="p">);</span><span class="n">base_p</span><span class="o">=</span><span class="mf">.07</span><span class="p">;</span><span class="n">beta</span><span class="o">=</span><span class="mf">1.1</span>
+<span class="n">prob</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">base_p</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span><span class="n">focal</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">Y</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">prob</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Target prevalence:'</span><span class="p">,</span><span class="n">Y</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="s1">'focal periods:'</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">focal</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Target prevalence: 0.10882882882882883 focal periods: 37
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> The data-generation equation defines a planted delay, but inference from observed rules only characterizes lagged association.</p>
+</section>
+<section id="plot-the-lag-profile">
+<h2><span class="section-number">18.13. </span>Plot the lag profile<a class="headerlink" href="#plot-the-lag-profile" title="Link to this heading">#</a></h2>
+<p>Use identical target observations for every lag.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lag_lifts</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">focal</span><span class="p">,</span><span class="n">lags</span><span class="p">):</span>
+ <span class="n">out</span><span class="o">=</span><span class="p">[]</span>
+ <span class="k">for</span> <span class="n">lag</span> <span class="ow">in</span> <span class="n">lags</span><span class="p">:</span>
+  <span class="n">z</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span><span class="n">focal</span><span class="o">-</span><span class="n">lag</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">n</span><span class="o">=</span><span class="n">z</span><span class="o">.</span><span class="n">sum</span><span class="p">();</span><span class="n">m</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">();</span><span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="n">K</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'lag'</span><span class="p">:</span><span class="n">lag</span><span class="p">,</span><span class="s1">'n'</span><span class="p">:</span><span class="n">n</span><span class="p">,</span><span class="s1">'K'</span><span class="p">:</span><span class="n">K</span><span class="p">,</span><span class="s1">'lift'</span><span class="p">:</span><span class="n">K</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="p">)})</span>
+ <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="n">profile</span><span class="o">=</span><span class="n">lag_lifts</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">focal</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">lag</span><span class="p">,</span><span class="n">profile</span><span class="o">.</span><span class="n">lift</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'planted lag'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Environmental lag'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Empirical lift'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Lag profile with persistent X'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   lag     n    K   lift
+0    0  1800  277  1.414
+1    1  1800  304  1.552
+2    2  1796  340  1.740
+3    3  1794  308  1.578
+4    4  1797  289  1.478
+5    5  1802  268  1.367
+</pre></div>
+</div>
+<img alt="../../_images/7a96ce0ad4d01765e71cdfcdba3d98852df95fdecdbd8b79de27da9288150d7b.png" src="../../_images/7a96ce0ad4d01765e71cdfcdba3d98852df95fdecdbd8b79de27da9288150d7b.png" />
+</div>
+</div>
+<p><strong>Interpretation.</strong> A pronounced peak at lag 2 is useful descriptive evidence, but adjacent lags may have genuine noncausal marginal associations.</p>
+</section>
+<section id="sensitivity-to-persistence">
+<h2><span class="section-number">18.14. </span>Sensitivity to persistence<a class="headerlink" href="#sensitivity-to-persistence" title="Link to this heading">#</a></h2>
+<p>Repeat independent simulations and average lag-specific lift profiles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">rho</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">]:</span>
+ <span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">120</span><span class="p">):</span>
+  <span class="n">xx</span><span class="o">=</span><span class="n">markov_field</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span><span class="n">rng</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+  <span class="n">pp</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">base_p</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">xx</span><span class="p">[:,</span><span class="n">focal</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+  <span class="n">yy</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">pp</span><span class="p">)</span>
+  <span class="n">tmp</span><span class="o">=</span><span class="n">lag_lifts</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">focal</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span><span class="n">tmp</span><span class="p">[</span><span class="s1">'rho'</span><span class="p">]</span><span class="o">=</span><span class="n">rho</span><span class="p">;</span><span class="n">tmp</span><span class="p">[</span><span class="s1">'rep'</span><span class="p">]</span><span class="o">=</span><span class="n">rep</span><span class="p">;</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+<span class="n">ans</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'rho'</span><span class="p">,</span><span class="s1">'lag'</span><span class="p">],</span><span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">lift</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span> <span class="ow">in</span> <span class="n">ans</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'rho'</span><span class="p">):</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">lag</span><span class="p">,</span><span class="n">g</span><span class="o">.</span><span class="n">lift</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'rho=</span><span class="si">{</span><span class="n">rho</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'lag'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Mean lift'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Lag leakage under persistence'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6ba2088a989d02f865d0b07926c8474992c59404ed3ad445ee0c35cd638ae5b6.png" src="../../_images/6ba2088a989d02f865d0b07926c8474992c59404ed3ad445ee0c35cd638ae5b6.png" />
+</div>
+</div>
+<p><strong>Interpretation.</strong> Lag persistence broadens the lift profile around the planted mechanism; a lagged rule is not a uniquely identified causal delay.</p>
+</section>
+<hr class="docutils" />
+<section id="common-pitfalls-and-misunderstandings">
+<h2><span class="section-number">18.15. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Different eligible anchors across lags make lift comparisons ambiguous.</p></li>
+<li><p>Temporal ordering by itself does not establish causality.</p></li>
+<li><p>A lagged association can be induced by serial dependence and shared seasonality.</p></li>
+<li><p>Repeated location-months are not independent observations by default.</p></li>
+<li><p>Annual vegetation observed after a focal event should be called context, not necessarily a precursor.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="quiz-self-assessment-answers-hidden">
+<h2><span class="section-number">18.16. </span>Quiz — Self-Assessment (Answers Hidden)<a class="headerlink" href="#quiz-self-assessment-answers-hidden" title="Link to this heading">#</a></h2>
+<p>Try each question before expanding <strong>Answer</strong>. The folded format follows the supplied <code class="docutils literal notranslate"><span class="pre">mclp.ipynb</span></code> template.</p>
+<section id="q1-what-makes-an-ar-1-model-weakly-stationary-in-the-usual-setup">
+<h3><span class="section-number">18.16.1. </span>Q1: What makes an AR(1) model weakly stationary in the usual setup?<a class="headerlink" href="#q1-what-makes-an-ar-1-model-weakly-stationary-in-the-usual-setup" title="Link to this heading">#</a></h3>
+<p>A. phi&gt;1<br />
+B. abs(phi)&lt;1 with stable innovation variance<br />
+C. No random noise<br />
+D. A finite series length</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. In the usual AR(1) model, |phi|&lt;1 gives finite stationary variance.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q2-can-an-association-at-lag-1-be-real-when-the-generating-mechanism-acts-only-at-lag-2">
+<h3><span class="section-number">18.16.2. </span>Q2: Can an association at lag 1 be real when the generating mechanism acts only at lag 2?<a class="headerlink" href="#q2-can-an-association-at-lag-1-be-real-when-the-generating-mechanism-acts-only-at-lag-2" title="Link to this heading">#</a></h3>
+<p>A. Never<br />
+B. Yes, through temporal persistence<br />
+C. Only if simulation is wrong<br />
+D. Only with spatial overlap</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. Correlated antecedent history can create genuine marginal associations at nearby lags.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q3-why-is-seasonal-shuffling-not-automatically-valid">
+<h3><span class="section-number">18.16.3. </span>Q3: Why is seasonal shuffling not automatically valid?<a class="headerlink" href="#q3-why-is-seasonal-shuffling-not-automatically-valid" title="Link to this heading">#</a></h3>
+<p>A. It always loses too much data<br />
+B. It requires within-stratum exchangeability<br />
+C. It is only for daily series<br />
+D. It is equivalent to CSR</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. Conditioning on month does not by itself justify arbitrary label allocation within that month.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q4-what-is-the-danger-of-using-an-annual-measurement-collected-after-an-event">
+<h3><span class="section-number">18.16.4. </span>Q4: What is the danger of using an annual measurement collected after an event?<a class="headerlink" href="#q4-what-is-the-danger-of-using-an-annual-measurement-collected-after-an-event" title="Link to this heading">#</a></h3>
+<p>A. Increased variance only<br />
+B. Look-ahead leakage and misleading temporal interpretation<br />
+C. It ensures stationarity<br />
+D. None</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. Future information cannot be treated as an antecedent exposure.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="reflection-question-no-prescribed-solution">
+<h3><span class="section-number">18.16.5. </span>Reflection Question (no prescribed solution)<a class="headerlink" href="#reflection-question-no-prescribed-solution" title="Link to this heading">#</a></h3>
+<p>Name one assumption violation in your own research area and propose a simulation to measure how much it matters.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="suggested-reading-and-starm-crosswalk">
+<h2><span class="section-number">18.17. </span>Suggested Reading and STARM Crosswalk<a class="headerlink" href="#suggested-reading-and-starm-crosswalk" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Agrawal &amp; Srikant (1994): frequent-itemset search (background).</p></li>
+<li><p>Hope (1968); Phipson &amp; Smyth (2010): randomization/Monte Carlo p-values (Chapter B).</p></li>
+<li><p>Benjamini &amp; Hochberg (1995); Benjamini &amp; Yekutieli (2001): multiple testing and dependence (Chapter C).</p></li>
+<li><p>Baddeley, Rubak &amp; Turner (2015): spatial point patterns (Chapter D).</p></li>
+<li><p>Winkler et al. (2014): exchangeability blocks and permutation designs (Chapters B, D, E).</p></li>
+<li><p>STARM manuscript: Sections 3.3–3.6 for reference assumptions; Section 4 for simulations; Sections 5–6 for empirical limitations.</p></li>
+</ul>
+<p><strong>Practice task:</strong> Write a short reviewer note distinguishing a descriptive association from an inferential discovery, explicitly naming the null model and its assumptions.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\Spatial-statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_D_spatial_statistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Chapter D. Spatial Statistics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_F_statistical_simulation_and_validation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Chapter F. Statistical Simulation and Validation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">18.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-this-motivation-scope-and-real-world-problems">18.2. Why Study This? — Motivation, Scope, and Real-World Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-roadmap">18.3. Conceptual Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">18.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-dependence-is-more-than-a-lag">18.4.1. Temporal dependence is more than a lag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planted-lag-vs-observed-lag">18.4.2. Planted lag vs observed lag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality-and-trend">18.4.3. Seasonality and trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-time-covariance">18.4.4. Space-time covariance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-design-choices">18.4.5. Practical design choices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">18.4.6. Critical thinking checkpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">18.5. Additional Derivation Visualization — General-Purpose Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">18.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">18.6.1. Notation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">18.7. Core Mechanisms and Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-alignment">18.7.1. Temporal alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persistence-and-lag-leakage">18.7.2. Persistence and lag leakage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-baseline">18.7.3. Seasonal baseline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anchors-reused-across-time">18.7.4. Anchors reused across time</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">18.8. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">18.9. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-set-up-the-dataset">18.10. Python Lab: Set Up the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-markov-environmental-fields">18.11. Generate Markov environmental fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plant-a-lag-2-mechanism">18.12. Plant a lag-2 mechanism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-lag-profile">18.13. Plot the lag profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-to-persistence">18.14. Sensitivity to persistence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">18.15. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-self-assessment-answers-hidden">18.16. Quiz — Self-Assessment (Answers Hidden)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-makes-an-ar-1-model-weakly-stationary-in-the-usual-setup">18.16.1. Q1: What makes an AR(1) model weakly stationary in the usual setup?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-can-an-association-at-lag-1-be-real-when-the-generating-mechanism-acts-only-at-lag-2">18.16.2. Q2: Can an association at lag 1 be real when the generating mechanism acts only at lag 2?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-why-is-seasonal-shuffling-not-automatically-valid">18.16.3. Q3: Why is seasonal shuffling not automatically valid?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-what-is-the-danger-of-using-an-annual-measurement-collected-after-an-event">18.16.4. Q4: What is the danger of using an annual measurement collected after an event?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-question-no-prescribed-solution">18.16.5. Reflection Question (no prescribed solution)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-reading-and-starm-crosswalk">18.17. Suggested Reading and STARM Crosswalk</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yalin Yang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

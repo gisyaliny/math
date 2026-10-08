@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>16. Chapter C. Multiple Hypothesis Testing &#8212; Yalin&#39;s Mathematic Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://gisyaliny.github.io/math/docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17. Chapter D. Spatial Statistics" href="Chapter_D_spatial_statistics.html" />
+    <link rel="prev" title="15. Chapter B. Statistical Hypothesis Testing" href="Chapter_B_statistical_hypothesis_testing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Yalin's Mathematic Handbook - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Yalin's Mathematic Handbook - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter1-Limit-Continuous.html">1. Limits and Continuity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter2-Differential-and-Derivative.html">2. Differential and Derivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Calculus/Chapter3-Lhopital-rule.html">3. L’Hôpital’s Rule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Optimization/Regularization.html">4. Regularization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Statistics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L1-Spatial-Analysis-Intro.html">5. Introduction of Spatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L2-Maps.html">6. Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L3-Exploratory-Data-Analysis.html">7. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L4-Spatial-Autocorrelation.html">8. Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L5-Global-Spatial-Autocorrelation.html">9. Moran’s I and Geary’s C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L6-Visualizing-Spatial-Autocorrelation.html">10. Visualizing Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">11. Local indicator of Spatial Autocorrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">12. Other Local Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">13. Multivariate LISA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">14. Statistical Foundations B–F — Expanded Jupyter Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_B_statistical_hypothesis_testing.html">15. Chapter B. Statistical Hypothesis Testing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Chapter C. Multiple Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_D_spatial_statistics.html">17. Chapter D. Spatial Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_E_spatio-temporal_processes.html">18. Chapter E. Spatio-temporal Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_F_statistical_simulation_and_validation.html">19. Chapter F. Statistical Simulation and Validation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/pMedian.html">20. The p-Median Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-Optimization/mclp.html">21. The Maximal Covering Location Problem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/gisyaliny/math/master?urlpath=tree/docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gisyaliny/math/blob/master/docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/edit/main/docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gisyaliny/math/issues/new?title=Issue%20on%20page%20%2Fdocs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter C. Multiple Hypothesis Testing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">16.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-this-motivation-scope-and-real-world-problems">16.2. Why Study This? — Motivation, Scope, and Real-World Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-roadmap">16.3. Conceptual Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">16.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-quantities-and-why-they-differ">16.4.1. Error quantities and why they differ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonferroni-bh-and-by-from-first-principles">16.4.2. Bonferroni, BH, and BY from first principles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-selection-and-hypothesis-families">16.4.3. Correlation, selection, and hypothesis families</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">16.4.4. Critical thinking checkpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">16.5. Additional Derivation Visualization — General-Purpose Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">16.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">16.6.1. Notation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">16.7. Core Mechanisms and Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#families-matter">16.7.1. Families matter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fwer-versus-fdr">16.7.2. FWER versus FDR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependence-caveat">16.7.3. Dependence caveat</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">16.8. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">16.9. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-set-up-the-dataset">16.10. Python Lab: Set Up the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-compute-bh-decisions">16.11. Manually compute BH decisions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-bh-and-by">16.12. Compare BH and BY</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-complete-null-family-rejection">16.13. Simulate complete-null family rejection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-mixed-null-family">16.14. Simulate a mixed-null family</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">16.15. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-self-assessment-answers-hidden">16.16. Quiz — Self-Assessment (Answers Hidden)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-in-a-complete-null-experiment-fdr-equals-what">16.16.1. Q1: In a complete-null experiment, FDR equals what?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-can-by-rescue-p-values-from-a-misspecified-permutation-model">16.16.2. Q2: Can BY rescue p-values from a misspecified permutation model?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-what-is-the-central-difference-between-fwer-and-fdr">16.16.3. Q3: What is the central difference between FWER and FDR?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-why-must-a-study-define-its-test-family-before-adjusting">16.16.4. Q4: Why must a study define its test family before adjusting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-question-no-prescribed-solution">16.16.5. Reflection Question (no prescribed solution)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-reading-and-starm-crosswalk">16.17. Suggested Reading and STARM Crosswalk</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-c-multiple-hypothesis-testing">
+<h1><span class="section-number">16. </span>Chapter C. Multiple Hypothesis Testing<a class="headerlink" href="#chapter-c-multiple-hypothesis-testing" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">16.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Distinguish per-test Type I error, FWER（家族错误率）, FDR（错误发现率）, and FDP.</p></li>
+<li><p>Compute BH-adjusted q-values across the whole candidate-by-lag family.</p></li>
+<li><p>Explain why correlated or invalid p-values can compromise FDR control.</p></li>
+<li><p>Compare Bonferroni, BH, and BY adjustments on reproducible data.</p></li>
+<li><p>Distinguish complete-null FDR from mixed-null mean FDP.</p></li>
+</ol>
+<p><strong>Connection to STARM:</strong> The examples mirror the binary outcome, fixed antecedent indicators, lagged transactions, and overlapping spatial supports in the STARM manuscript. They are teaching examples, not reproductions of manuscript results.</p>
+<blockquote>
+<div><p><strong>Teaching philosophy:</strong> start with the general statistical problem, build mathematical intuition, and use STARM as one illustrative case study. The new sections precede the original computational labs.</p>
+</div></blockquote>
+</section>
+<section id="why-study-this-motivation-scope-and-real-world-problems">
+<h2><span class="section-number">16.2. </span>Why Study This? — Motivation, Scope, and Real-World Problems<a class="headerlink" href="#why-study-this-motivation-scope-and-real-world-problems" title="Link to this heading">#</a></h2>
+<p>When we test many hypotheses, individual error rates accumulate: this is the <strong>multiple comparisons problem (多重比较问题)</strong>. This appears in genomics, neuroimaging, high-throughput screening, sensor networks, and algorithmic pattern mining. If 1,000 independent true nulls are tested at 0.05, the expected number of false rejections is 50.</p>
+<p><strong>Questions it answers:</strong> What does “5% error” mean across a large research search? How many false findings can we tolerate? When do dependence and data-driven selection invalidate a correction?</p>
+</section>
+<hr class="docutils" />
+<section id="conceptual-roadmap">
+<h2><span class="section-number">16.3. </span>Conceptual Roadmap<a class="headerlink" href="#conceptual-roadmap" title="Link to this heading">#</a></h2>
+<p><strong>Scientific problem → statistical representation → assumptions → mathematics → computational experiment → diagnostics → interpretation.</strong></p>
+<p>The chapters are standalone: STARM is a later application, not the reason these mathematical ideas exist.</p>
+</section>
+<section id="foundations-and-mathematical-derivations">
+<h2><span class="section-number">16.4. </span>Foundations and Mathematical Derivations<a class="headerlink" href="#foundations-and-mathematical-derivations" title="Link to this heading">#</a></h2>
+<section id="error-quantities-and-why-they-differ">
+<h3><span class="section-number">16.4.1. </span>Error quantities and why they differ<a class="headerlink" href="#error-quantities-and-why-they-differ" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> denote false discoveries, <span class="math notranslate nohighlight">\(S\)</span> true discoveries, <span class="math notranslate nohighlight">\(R=V+S\)</span>, and <span class="math notranslate nohighlight">\(M\)</span> the number of tests. Define</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{FWER}=P(V\ge1),\qquad\mathrm{FDP}=\frac{V}{\max(R,1)},\qquad\mathrm{FDR}=E[\mathrm{FDP}].\]</div>
+<p><strong>FWER</strong> (族错误率) protects against <em>any</em> false rejection; <strong>FDR</strong> (错误发现率) controls the <em>expected proportion</em> of false rejections. Under the complete null, <span class="math notranslate nohighlight">\(R=V\)</span>, so <span class="math notranslate nohighlight">\(\mathrm{FDR}=P(V&gt;0)=\mathrm{FWER}\)</span>. With true signals present, they differ.</p>
+</section>
+<section id="bonferroni-bh-and-by-from-first-principles">
+<h3><span class="section-number">16.4.2. </span>Bonferroni, BH, and BY from first principles<a class="headerlink" href="#bonferroni-bh-and-by-from-first-principles" title="Link to this heading">#</a></h3>
+<p>Bonferroni rejects test <span class="math notranslate nohighlight">\(i\)</span> if <span class="math notranslate nohighlight">\(p_i\le\alpha/M\)</span>: by the union bound <span class="math notranslate nohighlight">\(P(V&gt;0)\le\sum_{i\in H_0}P(p_i\le\alpha/M)\le\alpha\)</span>, provided true-null p-values are valid. No independence is required.</p>
+<p><strong>Benjamini–Hochberg (BH):</strong> order <span class="math notranslate nohighlight">\(p_{(1)}\le\cdots\le p_{(M)}\)</span>; let <span class="math notranslate nohighlight">\(k^*=\max\{k:p_{(k)}\le k\alpha/M\}\)</span>. Reject <span class="math notranslate nohighlight">\(p_i\le p_{(k^*)}\)</span>; no rejections if no qualifying <span class="math notranslate nohighlight">\(k\)</span>. Standard BH control holds under independence or certain positive dependence (PRDS), assuming valid true-null p-values.</p>
+<p><strong>Benjamini–Yekutieli (BY):</strong> replace <span class="math notranslate nohighlight">\(\alpha\)</span> with <span class="math notranslate nohighlight">\(\alpha/H_M\)</span>, <span class="math notranslate nohighlight">\(H_M=\sum_{j=1}^{M}1/j\)</span>. It controls FDR under arbitrary dependence <em>of valid p-values</em>, at an often substantial power cost. Neither BH nor BY fixes invalid marginal p-values.</p>
+</section>
+<section id="correlation-selection-and-hypothesis-families">
+<h3><span class="section-number">16.4.3. </span>Correlation, selection, and hypothesis families<a class="headerlink" href="#correlation-selection-and-hypothesis-families" title="Link to this heading">#</a></h3>
+<p>Nested tests (e.g. <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A\cap B\)</span>), repeated lags, shared data, and threshold scans create correlated p-values. Positive correlation by itself does not establish PRDS. If a rule is selected <em>using the outcomes</em> and then tested as if it were prespecified, selection bias may invalidate inference. A valid design may use outcome-independent filters, sample splitting, or explicit selective-inference methods.</p>
+</section>
+<section id="critical-thinking-checkpoint">
+<h3><span class="section-number">16.4.4. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
+<p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+</section>
+</section>
+<section id="additional-derivation-visualization-general-purpose-example">
+<h2><span class="section-number">16.5. </span>Additional Derivation Visualization — General-Purpose Example<a class="headerlink" href="#additional-derivation-visualization-general-purpose-example" title="Link to this heading">#</a></h2>
+<p>The following self-contained experiment illustrates a general statistical principle, not STARM-specific results. Check how the plot corresponds to the formulas above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">rng</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2026</span><span class="p">)</span>
+<span class="n">M</span><span class="o">=</span><span class="mi">120</span><span class="p">;</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.05</span>
+<span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">M</span><span class="p">));</span> <span class="n">idx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">idx</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Sorted null p-values'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">alpha</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="n">M</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'BH step-up boundary'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">alpha</span><span class="o">*</span><span class="n">idx</span><span class="o">/</span><span class="p">(</span><span class="n">M</span><span class="o">*</span><span class="n">H</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'BY boundary'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="n">M</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Bonferroni'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Rank among M tests'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'p-value'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Why multiplicity correction changes decisions'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Expected false rejections under uncorrected alpha:'</span><span class="p">,</span><span class="n">M</span><span class="o">*</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0d5501bb7a05c93bfe250a4820aed9e767cac13f52084ba42052c9532b54c6b0.png" src="../../_images/0d5501bb7a05c93bfe250a4820aed9e767cac13f52084ba42052c9532b54c6b0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected false rejections under uncorrected alpha: 6.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart LR
+    A[Enumerate candidates × lags] --&gt; B[Compute valid p-values]
+    B --&gt; C[Sort all p-values]
+    C --&gt; D[BH step-up threshold]
+    D --&gt; E[Identify R and V]
+    E --&gt; F[Estimate mean FDP over replicates]
+</pre></div>
+</div>
+<p>This chapter follows the same structure as the supplied MCLP tutorial: conceptual workflow, formal definition, assumptions, a hand-worked example, executable Python experiments, sensitivity checks, common pitfalls, and a quiz.</p>
+</section>
+<hr class="docutils" />
+<section id="formal-definition-and-core-equations">
+<h2><span class="section-number">16.6. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
+<section id="notation">
+<h3><span class="section-number">16.6.1. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(M\)</span></p></td>
+<td><p>total number of tested candidate-by-lag hypotheses</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(R\)</span></p></td>
+<td><p>number of rejected hypotheses</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(V\)</span></p></td>
+<td><p>number of false rejections（错误发现数量）</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mathrm{FDP}\)</span></p></td>
+<td><p>realized false discovery proportion</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathrm{FDR}\)</span></p></td>
+<td><p>expectation of FDP</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+<td><p>nominal target error level</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="math notranslate nohighlight">
+\[\mathrm{FDP}=\frac{V}{\max(R,1)},\qquad\mathrm{FDR}=E[\mathrm{FDP}].\]</div>
+<div class="math notranslate nohighlight">
+\[p_{(k)}\le\frac{k\alpha}{M}\quad\text{(BH step-up criterion)},\qquad q_{(i)}=\min_{j\ge i}\frac{M p_{(j)}}j\wedge1.\]</div>
+<p>Under the <strong>complete null</strong>, <span class="math notranslate nohighlight">\(V=R\)</span>, so <span class="math notranslate nohighlight">\(\mathrm{FDR}=P(R&gt;0)\)</span>; this equality generally fails under a mixed null.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="core-mechanisms-and-concepts">
+<h2><span class="section-number">16.7. </span>Core Mechanisms and Concepts<a class="headerlink" href="#core-mechanisms-and-concepts" title="Link to this heading">#</a></h2>
+<section id="families-matter">
+<h3><span class="section-number">16.7.1. </span>Families matter<a class="headerlink" href="#families-matter" title="Link to this heading">#</a></h3>
+<p>STARM tests candidate × lag combinations, not just each antecedent separately. Fix the allowed antecedents and lag range in advance, and adjust across the complete tested family.</p>
+</section>
+<section id="fwer-versus-fdr">
+<h3><span class="section-number">16.7.2. </span>FWER versus FDR<a class="headerlink" href="#fwer-versus-fdr" title="Link to this heading">#</a></h3>
+<p>FWER controls the probability of any false rejection; FDR controls the expected fraction of rejected rules that are false, including repetitions with no rejections.</p>
+</section>
+<section id="dependence-caveat">
+<h3><span class="section-number">16.7.3. </span>Dependence caveat<a class="headerlink" href="#dependence-caveat" title="Link to this heading">#</a></h3>
+<p>BH provides guarantees for valid null p-values under specified dependence assumptions (such as independence and PRDS). Shared environmental conditions and nested rules do <strong>not</strong> automatically establish PRDS. BY is conservative under arbitrary dependence <strong>if the input null p-values are valid</strong>. Neither adjustment rescues invalid spatial permutations.</p>
+</section>
+</section>
+<section id="assumptions-strengths-limitations-and-trade-offs">
+<h2><span class="section-number">16.8. </span>Assumptions, Strengths, Limitations, and Trade-offs<a class="headerlink" href="#assumptions-strengths-limitations-and-trade-offs" title="Link to this heading">#</a></h2>
+<p>Assume known hypothesis family, proper null p-values, and interpret the chosen correction under its theoretical dependence assumptions. Strength: explicit adjustment for extensive search. Limitation: a small empirical mixed-null mean FDP does not establish general FDR control.</p>
+<p><strong>Trade-off:</strong> aggressive screening and stronger correction can reduce false detections but may lower power for rare compound rules.</p>
+</section>
+<section id="worked-toy-example">
+<h2><span class="section-number">16.9. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
+<p>Five candidate-by-lag tests produce p-values <span class="math notranslate nohighlight">\((0.001,0.012,0.020,0.070,0.40)\)</span>. At <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, compare each ordered p-value with <span class="math notranslate nohighlight">\((1,2,3,4,5)\times0.05/5\)</span>. The largest passing rank determines all BH rejections up to that rank. Do <strong>not</strong> test each lag in its own family unless that is the prespecified scientific family.</p>
+</section>
+<section id="python-lab-set-up-the-dataset">
+<h2><span class="section-number">16.10. </span>Python Lab: Set Up the Dataset<a class="headerlink" href="#python-lab-set-up-the-dataset" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span><span class="p">,</span> <span class="n">binom</span>
+
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">41020001</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Reproducible random seed:"</span><span class="p">,</span> <span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reproducible random seed: 41020001
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manually-compute-bh-decisions">
+<h2><span class="section-number">16.11. </span>Manually compute BH decisions<a class="headerlink" href="#manually-compute-bh-decisions" title="Link to this heading">#</a></h2>
+<p>Implement BH and BY without an additional statistics package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bh_qvals</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+ <span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="nb">float</span><span class="p">);</span><span class="n">m</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="n">order</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="n">ranks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+ <span class="n">q_sorted</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">((</span><span class="n">m</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="n">order</span><span class="p">]</span><span class="o">/</span><span class="n">ranks</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+ <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">m</span><span class="p">);</span><span class="n">q</span><span class="p">[</span><span class="n">order</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">q_sorted</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="k">return</span> <span class="n">q</span>
+<span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">.001</span><span class="p">,</span><span class="mf">.012</span><span class="p">,</span><span class="mf">.020</span><span class="p">,</span><span class="mf">.070</span><span class="p">,</span><span class="mf">.40</span><span class="p">]);</span><span class="n">q</span><span class="o">=</span><span class="n">bh_qvals</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'p'</span><span class="p">:</span><span class="n">p</span><span class="p">,</span><span class="s1">'BH q'</span><span class="p">:</span><span class="n">q</span><span class="p">,</span><span class="s1">'BH reject'</span><span class="p">:</span><span class="n">q</span><span class="o">&lt;=</span><span class="mf">.05</span><span class="p">,</span><span class="s1">'Bonferroni reject'</span><span class="p">:</span><span class="n">p</span><span class="o">&lt;=</span><span class="mf">.05</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       p      BH q  BH reject  Bonferroni reject
+0  0.001  0.005000       True               True
+1  0.012  0.030000       True              False
+2  0.020  0.033333       True              False
+3  0.070  0.087500      False              False
+4  0.400  0.400000      False              False
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> Sort over the complete family. BH thresholding is not the same as testing each raw p-value at 0.05.</p>
+</section>
+<section id="compare-bh-and-by">
+<h2><span class="section-number">16.12. </span>Compare BH and BY<a class="headerlink" href="#compare-bh-and-by" title="Link to this heading">#</a></h2>
+<p>BY adds the harmonic factor H_M and is more conservative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">q_by</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">q</span><span class="o">*</span><span class="n">H</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'p'</span><span class="p">:</span><span class="n">p</span><span class="p">,</span><span class="s1">'BH_q'</span><span class="p">:</span><span class="n">q</span><span class="p">,</span><span class="s1">'BY_q'</span><span class="p">:</span><span class="n">q_by</span><span class="p">})</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       p    BH_q    BY_q
+0  0.001  0.0050  0.0114
+1  0.012  0.0300  0.0685
+2  0.020  0.0333  0.0761
+3  0.070  0.0875  0.1998
+4  0.400  0.4000  0.9133
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> The BY correction addresses arbitrary dependence of VALID p-values; it cannot fix the anti-conservatism of a misspecified spatial reference.</p>
+</section>
+<section id="simulate-complete-null-family-rejection">
+<h2><span class="section-number">16.13. </span>Simulate complete-null family rejection<a class="headerlink" href="#simulate-complete-null-family-rejection" title="Link to this heading">#</a></h2>
+<p>Independent uniform p-values let us see how the correction works when assumptions hold.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="o">=</span><span class="mi">2500</span><span class="p">;</span><span class="n">M</span><span class="o">=</span><span class="mi">45</span>
+<span class="n">ps</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">M</span><span class="p">))</span>
+<span class="n">any_bh</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">bh_qvals</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">&lt;=</span><span class="mf">.05</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">])</span>
+<span class="n">any_raw</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">v</span><span class="o">&lt;=</span><span class="mf">.05</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">({</span><span class="s1">'raw_any_rejection'</span><span class="p">:</span><span class="n">any_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="s1">'BH_complete_null_FDR'</span><span class="p">:</span><span class="n">any_bh</span><span class="o">.</span><span class="n">mean</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'raw_any_rejection': np.float64(0.9004), 'BH_complete_null_FDR': np.float64(0.0456)}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> Under complete null, FDR is the probability of at least one rejection. This simple experiment has independent p-values, unlike spatial overlap.</p>
+</section>
+<section id="simulate-a-mixed-null-family">
+<h2><span class="section-number">16.14. </span>Simulate a mixed-null family<a class="headerlink" href="#simulate-a-mixed-null-family" title="Link to this heading">#</a></h2>
+<p>Calculate FDP on each replicate, including replicates with zero discoveries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="o">=</span><span class="mi">1500</span><span class="p">;</span><span class="n">M0</span><span class="o">=</span><span class="mi">35</span><span class="p">;</span><span class="n">M1</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="n">fdps</span><span class="o">=</span><span class="p">[];</span><span class="n">powers</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+ <span class="n">p0</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">M0</span><span class="p">);</span><span class="n">p1</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="mf">.3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">M1</span><span class="p">)</span>
+ <span class="n">rej</span><span class="o">=</span><span class="n">bh_qvals</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">p0</span><span class="p">,</span><span class="n">p1</span><span class="p">])</span><span class="o">&lt;=</span><span class="mf">.05</span>
+ <span class="n">fdps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rej</span><span class="p">[:</span><span class="n">M0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">rej</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+ <span class="n">powers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rej</span><span class="p">[</span><span class="n">M0</span><span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">({</span><span class="s1">'mean_FDP_FDR_estimate'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fdps</span><span class="p">),</span><span class="s1">'true_positive_fraction'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">powers</span><span class="p">)})</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span><span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fdps</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Replicate FDP'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Frequency'</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Mixed-null FDP distribution'</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'mean_FDP_FDR_estimate': np.float64(0.034792857142857146), 'true_positive_fraction': np.float64(0.17793333333333336)}
+</pre></div>
+</div>
+<img alt="../../_images/01f7d47efc3cca87d4aab83cf43db8b3cc8c556c6d3bf3f9b7764d97f597e5eb.png" src="../../_images/01f7d47efc3cca87d4aab83cf43db8b3cc8c556c6d3bf3f9b7764d97f597e5eb.png" />
+</div>
+</div>
+<p><strong>Interpretation.</strong> A low mean FDP can coexist with poor power; the number of true rules and effect strength affect performance.</p>
+</section>
+<hr class="docutils" />
+<section id="common-pitfalls-and-misunderstandings">
+<h2><span class="section-number">16.15. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Reporting <span class="math notranslate nohighlight">\(V/R\)</span> after pooling all simulations is not the same as averaging replicate FDPs.</p></li>
+<li><p>A complete-null rejection rate and mixed-null FDR answer different questions.</p></li>
+<li><p>Nested rules and nearby lags can yield correlated p-values; correlation alone proves neither BH validity nor failure.</p></li>
+<li><p>BH uses one prespecified family; post-hoc family changes invalidate naive interpretation.</p></li>
+<li><p>BY does not correct an invalid randomization test.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="quiz-self-assessment-answers-hidden">
+<h2><span class="section-number">16.16. </span>Quiz — Self-Assessment (Answers Hidden)<a class="headerlink" href="#quiz-self-assessment-answers-hidden" title="Link to this heading">#</a></h2>
+<p>Try each question before expanding <strong>Answer</strong>. The folded format follows the supplied <code class="docutils literal notranslate"><span class="pre">mclp.ipynb</span></code> template.</p>
+<section id="q1-in-a-complete-null-experiment-fdr-equals-what">
+<h3><span class="section-number">16.16.1. </span>Q1: In a complete-null experiment, FDR equals what?<a class="headerlink" href="#q1-in-a-complete-null-experiment-fdr-equals-what" title="Link to this heading">#</a></h3>
+<p>A. Mean number of discoveries<br />
+B. Probability of any rejection<br />
+C. Statistical power<br />
+D. Sample size</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. Every discovery is false; FDP is 1 if any rejection occurs and 0 otherwise.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q2-can-by-rescue-p-values-from-a-misspecified-permutation-model">
+<h3><span class="section-number">16.16.2. </span>Q2: Can BY rescue p-values from a misspecified permutation model?<a class="headerlink" href="#q2-can-by-rescue-p-values-from-a-misspecified-permutation-model" title="Link to this heading">#</a></h3>
+<p>A. Always<br />
+B. Only for M&gt;100<br />
+C. No<br />
+D. Only for positively correlated tests</p>
+<details>
+<summary>Answer</summary>
+<p><strong>C. BY assumes individually valid true-null p-values.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q3-what-is-the-central-difference-between-fwer-and-fdr">
+<h3><span class="section-number">16.16.3. </span>Q3: What is the central difference between FWER and FDR?<a class="headerlink" href="#q3-what-is-the-central-difference-between-fwer-and-fdr" title="Link to this heading">#</a></h3>
+<p>A. FDR controls probability of any error<br />
+B. FWER controls any false rejection; FDR controls expected false fraction<br />
+C. Both are identical always<br />
+D. FDR needs normality</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B. They correspond to different scientific error budgets.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="q4-why-must-a-study-define-its-test-family-before-adjusting">
+<h3><span class="section-number">16.16.4. </span>Q4: Why must a study define its test family before adjusting?<a class="headerlink" href="#q4-why-must-a-study-define-its-test-family-before-adjusting" title="Link to this heading">#</a></h3>
+<p>A. To reduce plotting time<br />
+B. To select only significant results<br />
+C. The number and selection of tested claims influence multiplicity and validity<br />
+D. To force independence</p>
+<details>
+<summary>Answer</summary>
+<p><strong>C. Changing the family after seeing outcomes can induce selection bias.</strong></p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="reflection-question-no-prescribed-solution">
+<h3><span class="section-number">16.16.5. </span>Reflection Question (no prescribed solution)<a class="headerlink" href="#reflection-question-no-prescribed-solution" title="Link to this heading">#</a></h3>
+<p>Name one assumption violation in your own research area and propose a simulation to measure how much it matters.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="suggested-reading-and-starm-crosswalk">
+<h2><span class="section-number">16.17. </span>Suggested Reading and STARM Crosswalk<a class="headerlink" href="#suggested-reading-and-starm-crosswalk" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Agrawal &amp; Srikant (1994): frequent-itemset search (background).</p></li>
+<li><p>Hope (1968); Phipson &amp; Smyth (2010): randomization/Monte Carlo p-values (Chapter B).</p></li>
+<li><p>Benjamini &amp; Hochberg (1995); Benjamini &amp; Yekutieli (2001): multiple testing and dependence (Chapter C).</p></li>
+<li><p>Baddeley, Rubak &amp; Turner (2015): spatial point patterns (Chapter D).</p></li>
+<li><p>Winkler et al. (2014): exchangeability blocks and permutation designs (Chapters B, D, E).</p></li>
+<li><p>STARM manuscript: Sections 3.3–3.6 for reference assumptions; Section 4 for simulations; Sections 5–6 for empirical limitations.</p></li>
+</ul>
+<p><strong>Practice task:</strong> Write a short reviewer note distinguishing a descriptive association from an inferential discovery, explicitly naming the null model and its assumptions.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\Spatial-statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_B_statistical_hypothesis_testing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Chapter B. Statistical Hypothesis Testing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_D_spatial_statistics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Chapter D. Spatial Statistics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">16.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-this-motivation-scope-and-real-world-problems">16.2. Why Study This? — Motivation, Scope, and Real-World Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-roadmap">16.3. Conceptual Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">16.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-quantities-and-why-they-differ">16.4.1. Error quantities and why they differ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonferroni-bh-and-by-from-first-principles">16.4.2. Bonferroni, BH, and BY from first principles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-selection-and-hypothesis-families">16.4.3. Correlation, selection, and hypothesis families</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">16.4.4. Critical thinking checkpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">16.5. Additional Derivation Visualization — General-Purpose Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">16.6. Formal Definition and Core Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">16.6.1. Notation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">16.7. Core Mechanisms and Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#families-matter">16.7.1. Families matter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fwer-versus-fdr">16.7.2. FWER versus FDR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependence-caveat">16.7.3. Dependence caveat</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">16.8. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">16.9. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lab-set-up-the-dataset">16.10. Python Lab: Set Up the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-compute-bh-decisions">16.11. Manually compute BH decisions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-bh-and-by">16.12. Compare BH and BY</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-complete-null-family-rejection">16.13. Simulate complete-null family rejection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-mixed-null-family">16.14. Simulate a mixed-null family</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">16.15. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-self-assessment-answers-hidden">16.16. Quiz — Self-Assessment (Answers Hidden)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-in-a-complete-null-experiment-fdr-equals-what">16.16.1. Q1: In a complete-null experiment, FDR equals what?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-can-by-rescue-p-values-from-a-misspecified-permutation-model">16.16.2. Q2: Can BY rescue p-values from a misspecified permutation model?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-what-is-the-central-difference-between-fwer-and-fdr">16.16.3. Q3: What is the central difference between FWER and FDR?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-why-must-a-study-define-its-test-family-before-adjusting">16.16.4. Q4: Why must a study define its test family before adjusting?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-question-no-prescribed-solution">16.16.5. Reflection Question (no prescribed solution)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-reading-and-starm-crosswalk">16.17. Suggested Reading and STARM Crosswalk</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yalin Yang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

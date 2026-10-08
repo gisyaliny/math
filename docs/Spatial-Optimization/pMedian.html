@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14. The p-Median Problem &#8212; Yalin&#39;s Mathematic Handbook</title>
+    <title>20. The p-Median Problem &#8212; Yalin&#39;s Mathematic Handbook</title>
   
   
   
@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -60,42 +63,39 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Spatial-Optimization/pMedian';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="canonical" href="https://gisyaliny.github.io/math/docs/Spatial-Optimization/pMedian.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="15. The Maximal Covering Location Problem" href="mclp.html" />
-    <link rel="prev" title="13. Multivariate LISA" href="../st_learning_anselin/L9-Multivariate-LISA.html" />
+    <link rel="next" title="21. The Maximal Covering Location Problem" href="mclp.html" />
+    <link rel="prev" title="19. Chapter F. Statistical Simulation and Validation" href="../Spatial-statistics/Chapter_F_statistical_simulation_and_validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -103,7 +103,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -111,15 +110,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -128,7 +171,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -158,21 +202,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Yalin's Mathematic Handbook - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Yalin's Mathematic Handbook - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Yalin's Mathematic Handbook - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus</span></p>
@@ -196,11 +236,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L7-LISA.html">11. Local indicator of Spatial Autocorrelation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L8-Other-Local-Statistics.html">12. Other Local Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../st_learning_anselin/L9-Multivariate-LISA.html">13. Multivariate LISA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-statistics/README.html">14. Statistical Foundations B–F — Expanded Jupyter Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-statistics/Chapter_B_statistical_hypothesis_testing.html">15. Chapter B. Statistical Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-statistics/Chapter_C_multiple_hypothesis_testing.html">16. Chapter C. Multiple Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-statistics/Chapter_D_spatial_statistics.html">17. Chapter D. Spatial Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-statistics/Chapter_E_spatio-temporal_processes.html">18. Chapter E. Spatio-temporal Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Spatial-statistics/Chapter_F_statistical_simulation_and_validation.html">19. Chapter F. Statistical Simulation and Validation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Spatial Optimization</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. The p-Median Problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mclp.html">15. The Maximal Covering Location Problem</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. The p-Median Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mclp.html">21. The Maximal Covering Location Problem</a></li>
 </ul>
 
     </div>
@@ -209,9 +255,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -407,7 +458,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -421,25 +472,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -461,97 +504,97 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">14.1. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">14.2. Why This Topic Matters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">14.3. Big Picture Intuition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-workflow">14.4. A Simple Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">14.5. Formal Definition and Core Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">14.6. Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-function">14.7. Objective Function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">14.8. Constraints</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-algorithm-works-step-by-step">14.9. How the Algorithm Works Step by Step</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">14.10. Core Mechanisms and Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-weight">14.11. Demand Weight</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-metric">14.11.1. Distance Metric</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-to-nearest-selected-facility">14.11.2. Assignment to Nearest Selected Facility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency-oriented-objective">14.11.3. Efficiency-Oriented Objective</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">20.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">20.2. Why This Topic Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">20.3. Big Picture Intuition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-workflow">20.4. A Simple Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">20.5. Formal Definition and Core Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">20.6. Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-function">20.7. Objective Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">20.8. Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-algorithm-works-step-by-step">20.9. How the Algorithm Works Step by Step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">20.10. Core Mechanisms and Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-weight">20.11. Demand Weight</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-metric">20.11.1. Distance Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-to-nearest-selected-facility">20.11.2. Assignment to Nearest Selected Facility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency-oriented-objective">20.11.3. Efficiency-Oriented Objective</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">14.12. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">14.13. Assumptions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">14.13.1. Strengths</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">14.13.2. Limitations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-1-it-may-underserve-remote-areas">14.13.2.1. Limitation 1: It may underserve remote areas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-2-it-assumes-facilities-have-unlimited-capacity">14.13.2.2. Limitation 2: It assumes facilities have unlimited capacity</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-3-it-depends-strongly-on-the-distance-metric">14.13.2.3. Limitation 3: It depends strongly on the distance metric</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-4-it-assumes-demand-is-fixed">14.13.2.4. Limitation 4: It assumes demand is fixed</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-5-it-optimizes-one-objective">14.13.2.5. Limitation 5: It optimizes one objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">20.12. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">20.13. Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">20.13.1. Strengths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">20.13.2. Limitations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-1-it-may-underserve-remote-areas">20.13.2.1. Limitation 1: It may underserve remote areas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-2-it-assumes-facilities-have-unlimited-capacity">20.13.2.2. Limitation 2: It assumes facilities have unlimited capacity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-3-it-depends-strongly-on-the-distance-metric">20.13.2.3. Limitation 3: It depends strongly on the distance metric</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-4-it-assumes-demand-is-fixed">20.13.2.4. Limitation 4: It assumes demand is fixed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-5-it-optimizes-one-objective">20.13.2.5. Limitation 5: It optimizes one objective</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">14.14. Worked Toy Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-1">14.15. If we choose Site 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-2">14.15.1. If we choose Site 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-3">14.15.2. If we choose Site 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">20.14. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-1">20.15. If we choose Site 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-2">20.15.1. If we choose Site 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-3">20.15.2. If we choose Site 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-lab-solving-the-p-median-problem-in-python">14.16. Computational Lab: Solving the p-Median Problem in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problem">14.17. Lab Problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-toy-dataset">14.17.1. Create a Toy Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-lab-solving-the-p-median-problem-in-python">20.16. Computational Lab: Solving the p-Median Problem in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problem">20.17. Lab Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-toy-dataset">20.17.1. Create a Toy Dataset</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-problem">14.18. Visualize the Problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-distance-matrix">14.19. Compute the Distance Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-p-median-objective">14.20. Define the p-Median Objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-solver-for-small-p-median-problems">14.21. Brute-Force Solver for Small p-Median Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-assignment-result">14.22. Inspect the Assignment Result</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-p-median-solution">14.23. Visualize the p-Median Solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-to-p">14.24. Sensitivity to <span class="math notranslate nohighlight">\(p\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-sensitivity-result">14.25. Visualize the Sensitivity Result</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-one-demand-point-becomes-more-important">14.26. What Happens If One Demand Point Becomes More Important?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">14.27. How to Interpret the Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selected-facilities">14.28. Selected facilities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-pattern">14.28.1. Assignment pattern</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-weighted-distance">14.28.2. Total weighted distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-distance">14.28.3. Maximum distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity">14.28.4. Sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-problem">20.18. Visualize the Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-distance-matrix">20.19. Compute the Distance Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-p-median-objective">20.20. Define the p-Median Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-solver-for-small-p-median-problems">20.21. Brute-Force Solver for Small p-Median Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-assignment-result">20.22. Inspect the Assignment Result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-p-median-solution">20.23. Visualize the p-Median Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-to-p">20.24. Sensitivity to <span class="math notranslate nohighlight">\(p\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-sensitivity-result">20.25. Visualize the Sensitivity Result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-one-demand-point-becomes-more-important">20.26. What Happens If One Demand Point Becomes More Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">20.27. How to Interpret the Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selected-facilities">20.28. Selected facilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-pattern">20.28.1. Assignment pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-weighted-distance">20.28.2. Total weighted distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-distance">20.28.3. Maximum distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity">20.28.4. Sensitivity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-pathways-for-improvement">14.29. Limitations and Pathways for Improvement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">14.30. Common Pitfalls and Misunderstandings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-treating-euclidean-distance-as-real-accessibility">14.31. Pitfall 1: Treating Euclidean distance as real accessibility</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-demand-weights">14.31.1. Pitfall 2: Forgetting demand weights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-thinking-p-median-guarantees-fairness">14.31.2. Pitfall 3: Thinking p-Median guarantees fairness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-over-trusting-one-value-of-p">14.31.3. Pitfall 4: Over-trusting one value of <span class="math notranslate nohighlight">\(p\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-candidate-site-feasibility">14.31.4. Pitfall 5: Ignoring candidate site feasibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-6-reporting-only-selected-locations">14.31.5. Pitfall 6: Reporting only selected locations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-pathways-for-improvement">20.29. Limitations and Pathways for Improvement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">20.30. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-treating-euclidean-distance-as-real-accessibility">20.31. Pitfall 1: Treating Euclidean distance as real accessibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-demand-weights">20.31.1. Pitfall 2: Forgetting demand weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-thinking-p-median-guarantees-fairness">20.31.2. Pitfall 3: Thinking p-Median guarantees fairness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-over-trusting-one-value-of-p">20.31.3. Pitfall 4: Over-trusting one value of <span class="math notranslate nohighlight">\(p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-candidate-site-feasibility">20.31.4. Pitfall 5: Ignoring candidate site feasibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-6-reporting-only-selected-locations">20.31.5. Pitfall 6: Reporting only selected locations</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-methods">14.32. Comparison with Related Methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">14.33. Practical Advice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.34. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">14.35. Quiz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">14.36. Conceptual Questions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-is-the-main-goal-of-the-p-median-problem">14.36.1. Q1: What is the main goal of the p-Median Problem?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-what-does-x-j-1-mean-in-the-p-median-formulation">14.36.2. Q2: What does <span class="math notranslate nohighlight">\(x_j = 1\)</span> mean in the p-Median formulation?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-why-are-demand-weights-important">14.36.3. Q3: Why are demand weights important?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-which-limitation-is-most-directly-associated-with-p-median">14.36.4. Q4: Which limitation is most directly associated with p-Median?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-why-might-network-travel-time-be-better-than-euclidean-distance">14.36.5. Q5: Why might network travel time be better than Euclidean distance?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-methods">20.32. Comparison with Related Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">20.33. Practical Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">20.34. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">20.35. Quiz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">20.36. Conceptual Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-is-the-main-goal-of-the-p-median-problem">20.36.1. Q1: What is the main goal of the p-Median Problem?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-what-does-x-j-1-mean-in-the-p-median-formulation">20.36.2. Q2: What does <span class="math notranslate nohighlight">\(x_j = 1\)</span> mean in the p-Median formulation?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-why-are-demand-weights-important">20.36.3. Q3: Why are demand weights important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-which-limitation-is-most-directly-associated-with-p-median">20.36.4. Q4: Which limitation is most directly associated with p-Median?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-why-might-network-travel-time-be-better-than-euclidean-distance">20.36.5. Q5: Why might network travel time be better than Euclidean distance?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">14.37. Applied Questions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective">14.37.1. Q6: Suppose one demand point has weight 100 and distance 3 to its assigned facility. What is its contribution to the p-Median objective?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to">14.37.2. Q7: Suppose <span class="math notranslate nohighlight">\(p = 2\)</span>, and the selected facilities are Site A and Site B. A demand point is distance 5 from Site A and distance 2 from Site B. Which site should it be assigned to?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">20.37. Applied Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective">20.37.1. Q6: Suppose one demand point has weight 100 and distance 3 to its assigned facility. What is its contribution to the p-Median objective?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to">20.37.2. Q7: Suppose <span class="math notranslate nohighlight">\(p = 2\)</span>, and the selected facilities are Site A and Site B. A demand point is distance 5 from Site A and distance 2 from Site B. Which site should it be assigned to?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-oriented-question">14.38. Limitation-Oriented Question</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong">14.38.1. Q8: A p-Median model selects facilities near dense urban neighborhoods, but rural communities remain far away. Is the model wrong?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-oriented-question">20.38. Limitation-Oriented Question</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong">20.38.1. Q8: A p-Median model selects facilities near dense urban neighborhoods, but rural communities remain far away. Is the model wrong?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">14.39. Explain in Your Own Words</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words">14.39.1. Q9: Explain the difference between p-Median and p-Center in your own words.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">20.39. Explain in Your Own Words</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words">20.39.1. Q9: Explain the difference between p-Median and p-Center in your own words.</a></li>
 </ul>
 </li>
 </ul>
@@ -566,9 +609,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-p-median-problem">
-<h1><span class="section-number">14. </span>The p-Median Problem<a class="headerlink" href="#the-p-median-problem" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>The p-Median Problem<a class="headerlink" href="#the-p-median-problem" title="Link to this heading">#</a></h1>
 <section id="learning-objectives">
-<h2><span class="section-number">14.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>After reading this chapter, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Explain what the p-Median Problem（p-中位数问题）is and why it matters in spatial optimization（空间优化）.</p></li>
@@ -581,7 +624,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-this-topic-matters">
-<h2><span class="section-number">14.2. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>Why This Topic Matters<a class="headerlink" href="#why-this-topic-matters" title="Link to this heading">#</a></h2>
 <p>Suppose a city wants to open three public clinics. There are many neighborhoods, but the city has a limited budget. It cannot build a clinic everywhere. The question is:</p>
 <blockquote>
 <div><p>Where should the clinics be located so that residents, on average, travel as little as possible?</p>
@@ -603,7 +646,7 @@ document.write(`
 <p>The word “median” here does not simply mean the statistical median of a list. In spatial optimization, a median location is a location that minimizes total travel cost. The p-Median Problem generalizes this idea from one facility to <span class="math notranslate nohighlight">\(p\)</span> facilities.</p>
 </section>
 <section id="big-picture-intuition">
-<h2><span class="section-number">14.3. </span>Big Picture Intuition<a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>Big Picture Intuition<a class="headerlink" href="#big-picture-intuition" title="Link to this heading">#</a></h2>
 <p>The p-Median Problem is about <strong>average efficiency</strong>.</p>
 <p>Imagine that every neighborhood sends its residents to the nearest selected clinic. If a neighborhood has more people, its travel distance matters more. The model therefore tries to minimize the total population-weighted travel distance.</p>
 <p>In plain language:</p>
@@ -618,7 +661,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="a-simple-workflow">
-<h2><span class="section-number">14.4. </span>A Simple Workflow<a class="headerlink" href="#a-simple-workflow" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>A Simple Workflow<a class="headerlink" href="#a-simple-workflow" title="Link to this heading">#</a></h2>
 <div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart LR
     A[Demand points] --&gt; C[Distance matrix]
     B[Candidate sites] --&gt; C
@@ -631,10 +674,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="formal-definition-and-core-equations">
-<h2><span class="section-number">14.5. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>Formal Definition and Core Equations<a class="headerlink" href="#formal-definition-and-core-equations" title="Link to this heading">#</a></h2>
 </section>
 <section id="notation">
-<h2><span class="section-number">14.6. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Symbol</p></th>
@@ -687,7 +730,7 @@ y_{ij} =
 </section>
 <hr class="docutils" />
 <section id="objective-function">
-<h2><span class="section-number">14.7. </span>Objective Function<a class="headerlink" href="#objective-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.7. </span>Objective Function<a class="headerlink" href="#objective-function" title="Link to this heading">#</a></h2>
 <p>The p-Median Problem minimizes total weighted travel distance:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -699,7 +742,7 @@ y_{ij} =
 </section>
 <hr class="docutils" />
 <section id="constraints">
-<h2><span class="section-number">14.8. </span>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.8. </span>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">#</a></h2>
 <p>Each demand point must be assigned to exactly one facility:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -731,7 +774,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="how-the-algorithm-works-step-by-step">
-<h2><span class="section-number">14.9. </span>How the Algorithm Works Step by Step<a class="headerlink" href="#how-the-algorithm-works-step-by-step" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.9. </span>How the Algorithm Works Step by Step<a class="headerlink" href="#how-the-algorithm-works-step-by-step" title="Link to this heading">#</a></h2>
 <p>For a small problem, the p-Median Problem can be solved by trying all possible combinations of <span class="math notranslate nohighlight">\(p\)</span> candidate sites. For a larger problem, we usually use an optimization solver.</p>
 <p>The conceptual steps are:</p>
 <ol class="arabic simple">
@@ -758,10 +801,10 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="core-mechanisms-and-concepts">
-<h2><span class="section-number">14.10. </span>Core Mechanisms and Concepts<a class="headerlink" href="#core-mechanisms-and-concepts" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.10. </span>Core Mechanisms and Concepts<a class="headerlink" href="#core-mechanisms-and-concepts" title="Link to this heading">#</a></h2>
 </section>
 <section id="demand-weight">
-<h2><span class="section-number">14.11. </span>Demand Weight<a class="headerlink" href="#demand-weight" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.11. </span>Demand Weight<a class="headerlink" href="#demand-weight" title="Link to this heading">#</a></h2>
 <p>Demand weight（需求权重） controls how much each demand point matters. In many applications, <span class="math notranslate nohighlight">\(w_i\)</span> is population. But it can also represent:</p>
 <ul class="simple">
 <li><p>number of customers;</p></li>
@@ -776,7 +819,7 @@ y_{ij} \in \{0,1\}
 <p>If a demand point has a large weight, the model has a stronger incentive to place a facility near it.</p>
 <hr class="docutils" />
 <section id="distance-metric">
-<h3><span class="section-number">14.11.1. </span>Distance Metric<a class="headerlink" href="#distance-metric" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.11.1. </span>Distance Metric<a class="headerlink" href="#distance-metric" title="Link to this heading">#</a></h3>
 <p>The distance <span class="math notranslate nohighlight">\(d_{ij}\)</span> may represent different things:</p>
 <ul class="simple">
 <li><p>Euclidean distance（欧氏距离）;</p></li>
@@ -791,7 +834,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="assignment-to-nearest-selected-facility">
-<h3><span class="section-number">14.11.2. </span>Assignment to Nearest Selected Facility<a class="headerlink" href="#assignment-to-nearest-selected-facility" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.11.2. </span>Assignment to Nearest Selected Facility<a class="headerlink" href="#assignment-to-nearest-selected-facility" title="Link to this heading">#</a></h3>
 <p>Once the model selects facilities, each demand point is usually assigned to the selected facility with the smallest distance.</p>
 <p>If selected facilities are <span class="math notranslate nohighlight">\(S\)</span>, then demand point <span class="math notranslate nohighlight">\(i\)</span> is assigned to:</p>
 <div class="math notranslate nohighlight">
@@ -802,7 +845,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="efficiency-oriented-objective">
-<h3><span class="section-number">14.11.3. </span>Efficiency-Oriented Objective<a class="headerlink" href="#efficiency-oriented-objective" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.11.3. </span>Efficiency-Oriented Objective<a class="headerlink" href="#efficiency-oriented-objective" title="Link to this heading">#</a></h3>
 <p>The p-Median model focuses on total weighted distance. This makes it efficient, but it does not directly control the maximum distance experienced by the worst-served demand point.</p>
 <p>This is why p-Median is often compared with p-Center Problem（p-中心问题）.</p>
 <ul class="simple">
@@ -814,10 +857,10 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="assumptions-strengths-limitations-and-trade-offs">
-<h2><span class="section-number">14.12. </span>Assumptions, Strengths, Limitations, and Trade-offs<a class="headerlink" href="#assumptions-strengths-limitations-and-trade-offs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.12. </span>Assumptions, Strengths, Limitations, and Trade-offs<a class="headerlink" href="#assumptions-strengths-limitations-and-trade-offs" title="Link to this heading">#</a></h2>
 </section>
 <section id="assumptions">
-<h2><span class="section-number">14.13. </span>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.13. </span>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h2>
 <p>The standard p-Median model assumes:</p>
 <ol class="arabic simple">
 <li><p>Demand points and candidate sites are known.</p></li>
@@ -831,7 +874,7 @@ y_{ij} \in \{0,1\}
 <p>These assumptions make the model clean and teachable, but they also create limitations.</p>
 <hr class="docutils" />
 <section id="strengths">
-<h3><span class="section-number">14.13.1. </span>Strengths<a class="headerlink" href="#strengths" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.13.1. </span>Strengths<a class="headerlink" href="#strengths" title="Link to this heading">#</a></h3>
 <p>The p-Median Problem is powerful because it is simple, interpretable, and widely applicable. It gives a clear answer to a clear question:</p>
 <blockquote>
 <div><p>Which <span class="math notranslate nohighlight">\(p\)</span> facilities minimize total weighted travel cost?</p>
@@ -840,10 +883,10 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="limitations">
-<h3><span class="section-number">14.13.2. </span>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.13.2. </span>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h3>
 <p>The p-Median model has several important limitations（局限性）.</p>
 <section id="limitation-1-it-may-underserve-remote-areas">
-<h4><span class="section-number">14.13.2.1. </span>Limitation 1: It may underserve remote areas<a class="headerlink" href="#limitation-1-it-may-underserve-remote-areas" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.13.2.1. </span>Limitation 1: It may underserve remote areas<a class="headerlink" href="#limitation-1-it-may-underserve-remote-areas" title="Link to this heading">#</a></h4>
 <p>Because p-Median minimizes total weighted distance, it may place facilities near dense demand clusters and ignore sparse remote areas.</p>
 <p><strong>Why this happens:</strong></p>
 <p>Remote demand points may have low weights. Serving them may increase efficiency less than serving dense urban demand.</p>
@@ -852,7 +895,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="limitation-2-it-assumes-facilities-have-unlimited-capacity">
-<h4><span class="section-number">14.13.2.2. </span>Limitation 2: It assumes facilities have unlimited capacity<a class="headerlink" href="#limitation-2-it-assumes-facilities-have-unlimited-capacity" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.13.2.2. </span>Limitation 2: It assumes facilities have unlimited capacity<a class="headerlink" href="#limitation-2-it-assumes-facilities-have-unlimited-capacity" title="Link to this heading">#</a></h4>
 <p>A selected facility can serve any number of demand points in the basic model.</p>
 <p><strong>Why this matters:</strong></p>
 <p>In reality, hospitals, shelters, clinics, and schools have capacity limits.</p>
@@ -861,7 +904,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="limitation-3-it-depends-strongly-on-the-distance-metric">
-<h4><span class="section-number">14.13.2.3. </span>Limitation 3: It depends strongly on the distance metric<a class="headerlink" href="#limitation-3-it-depends-strongly-on-the-distance-metric" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.13.2.3. </span>Limitation 3: It depends strongly on the distance metric<a class="headerlink" href="#limitation-3-it-depends-strongly-on-the-distance-metric" title="Link to this heading">#</a></h4>
 <p>If Euclidean distance is used, the result may not reflect real accessibility.</p>
 <p><strong>Why this matters:</strong></p>
 <p>Road networks, traffic, rivers, terrain, and barriers can change travel time substantially.</p>
@@ -870,7 +913,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="limitation-4-it-assumes-demand-is-fixed">
-<h4><span class="section-number">14.13.2.4. </span>Limitation 4: It assumes demand is fixed<a class="headerlink" href="#limitation-4-it-assumes-demand-is-fixed" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.13.2.4. </span>Limitation 4: It assumes demand is fixed<a class="headerlink" href="#limitation-4-it-assumes-demand-is-fixed" title="Link to this heading">#</a></h4>
 <p>The model usually assumes that demand does not change over time.</p>
 <p><strong>Why this matters:</strong></p>
 <p>Population, traffic, service need, and hazard exposure may vary by season, time of day, or disaster scenario.</p>
@@ -879,7 +922,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="limitation-5-it-optimizes-one-objective">
-<h4><span class="section-number">14.13.2.5. </span>Limitation 5: It optimizes one objective<a class="headerlink" href="#limitation-5-it-optimizes-one-objective" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.13.2.5. </span>Limitation 5: It optimizes one objective<a class="headerlink" href="#limitation-5-it-optimizes-one-objective" title="Link to this heading">#</a></h4>
 <p>The basic p-Median model optimizes efficiency only.</p>
 <p><strong>Why this matters:</strong></p>
 <p>Real planning may care about efficiency, equity, cost, land availability, political boundaries, resilience, and environmental justice.</p>
@@ -890,7 +933,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="worked-toy-example">
-<h2><span class="section-number">14.14. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.14. </span>Worked Toy Example<a class="headerlink" href="#worked-toy-example" title="Link to this heading">#</a></h2>
 <p>Suppose we have four demand points and three candidate sites. We want to choose <span class="math notranslate nohighlight">\(p = 1\)</span> facility.</p>
 <p>The demand weights are:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -951,7 +994,7 @@ y_{ij} \in \{0,1\}
 <p>Because <span class="math notranslate nohighlight">\(p = 1\)</span>, we test each possible site.</p>
 </section>
 <section id="if-we-choose-site-1">
-<h2><span class="section-number">14.15. </span>If we choose Site 1<a class="headerlink" href="#if-we-choose-site-1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.15. </span>If we choose Site 1<a class="headerlink" href="#if-we-choose-site-1" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 10(2) + 20(4) + 5(8) + 15(7)
@@ -961,7 +1004,7 @@ y_{ij} \in \{0,1\}
 = 20 + 80 + 40 + 105 = 245
 \]</div>
 <section id="if-we-choose-site-2">
-<h3><span class="section-number">14.15.1. </span>If we choose Site 2<a class="headerlink" href="#if-we-choose-site-2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.1. </span>If we choose Site 2<a class="headerlink" href="#if-we-choose-site-2" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 10(6) + 20(3) + 5(5) + 15(4)
@@ -972,7 +1015,7 @@ y_{ij} \in \{0,1\}
 \]</div>
 </section>
 <section id="if-we-choose-site-3">
-<h3><span class="section-number">14.15.2. </span>If we choose Site 3<a class="headerlink" href="#if-we-choose-site-3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.2. </span>If we choose Site 3<a class="headerlink" href="#if-we-choose-site-3" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 10(9) + 20(7) + 5(2) + 15(3)
@@ -991,10 +1034,10 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="computational-lab-solving-the-p-median-problem-in-python">
-<h2><span class="section-number">14.16. </span>Computational Lab: Solving the p-Median Problem in Python<a class="headerlink" href="#computational-lab-solving-the-p-median-problem-in-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.16. </span>Computational Lab: Solving the p-Median Problem in Python<a class="headerlink" href="#computational-lab-solving-the-p-median-problem-in-python" title="Link to this heading">#</a></h2>
 </section>
 <section id="lab-problem">
-<h2><span class="section-number">14.17. </span>Lab Problem<a class="headerlink" href="#lab-problem" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.17. </span>Lab Problem<a class="headerlink" href="#lab-problem" title="Link to this heading">#</a></h2>
 <p>A small city has several neighborhoods and several possible clinic sites. The city can open <span class="math notranslate nohighlight">\(p = 2\)</span> clinics. We want to answer:</p>
 <blockquote>
 <div><p>Which two candidate sites minimize total population-weighted travel distance?</p>
@@ -1011,29 +1054,29 @@ y_{ij} \in \{0,1\}
 </ol>
 <hr class="docutils" />
 <section id="create-a-toy-dataset">
-<h3><span class="section-number">14.17.1. </span>Create a Toy Dataset<a class="headerlink" href="#create-a-toy-dataset" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.17.1. </span>Create a Toy Dataset<a class="headerlink" href="#create-a-toy-dataset" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Demand points: x, y coordinates and population weights</span>
 <span class="n">demand</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
-    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="s2">"E"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">],</span>
+    <span class="s2">"x"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="s2">"y"</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s2">"weight"</span><span class="p">:</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="p">})</span>
 
 <span class="c1"># Candidate facility sites</span>
 <span class="n">candidates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;site&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;S1&quot;</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">,</span> <span class="s2">&quot;S3&quot;</span><span class="p">,</span> <span class="s2">&quot;S4&quot;</span><span class="p">,</span> <span class="s2">&quot;S5&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
-    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="s2">"site"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"S1"</span><span class="p">,</span> <span class="s2">"S2"</span><span class="p">,</span> <span class="s2">"S3"</span><span class="p">,</span> <span class="s2">"S4"</span><span class="p">,</span> <span class="s2">"S5"</span><span class="p">],</span>
+    <span class="s2">"x"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="s2">"y"</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="p">})</span>
 
 <span class="n">demand</span><span class="p">,</span> <span class="n">candidates</span>
@@ -1065,23 +1108,23 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="visualize-the-problem">
-<h2><span class="section-number">14.18. </span>Visualize the Problem<a class="headerlink" href="#visualize-the-problem" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.18. </span>Visualize the Problem<a class="headerlink" href="#visualize-the-problem" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">demand</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">demand</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="n">demand</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Demand points&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">candidates</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">candidates</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Candidate sites&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">demand</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">demand</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="n">demand</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Demand points"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">candidates</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">candidates</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"^"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Candidate sites"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">demand</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"name"</span><span class="p">])</span>
 
 <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;site&quot;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"site"</span><span class="p">])</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Demand Points and Candidate Facility Sites&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x coordinate&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y coordinate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Demand Points and Candidate Facility Sites"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x coordinate"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y coordinate"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1097,17 +1140,17 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="compute-the-distance-matrix">
-<h2><span class="section-number">14.19. </span>Compute the Distance Matrix<a class="headerlink" href="#compute-the-distance-matrix" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.19. </span>Compute the Distance Matrix<a class="headerlink" href="#compute-the-distance-matrix" title="Link to this heading">#</a></h2>
 <p>For this teaching example, we use Euclidean distance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euclidean_distance_matrix</span><span class="p">(</span><span class="n">demand_df</span><span class="p">,</span> <span class="n">candidate_df</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">euclidean_distance_matrix</span><span class="p">(</span><span class="n">demand_df</span><span class="p">,</span> <span class="n">candidate_df</span><span class="p">):</span>
     <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">demand_df</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidate_df</span><span class="p">)))</span>
     
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">drow</span> <span class="ow">in</span> <span class="n">demand_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">crow</span> <span class="ow">in</span> <span class="n">candidate_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-            <span class="n">dx</span> <span class="o">=</span> <span class="n">drow</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">crow</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
-            <span class="n">dy</span> <span class="o">=</span> <span class="n">drow</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">crow</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="n">drow</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="n">crow</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="n">drow</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="n">crow</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span>
             <span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">distances</span>
@@ -1116,8 +1159,8 @@ y_{ij} \in \{0,1\}
 
 <span class="n">distance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">D</span><span class="p">,</span>
-    <span class="n">index</span><span class="o">=</span><span class="n">demand</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
-    <span class="n">columns</span><span class="o">=</span><span class="n">candidates</span><span class="p">[</span><span class="s2">&quot;site&quot;</span><span class="p">]</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">demand</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">candidates</span><span class="p">[</span><span class="s2">"site"</span><span class="p">]</span>
 <span class="p">)</span>
 
 <span class="n">distance_df</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1232,7 +1275,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="define-the-p-median-objective">
-<h2><span class="section-number">14.20. </span>Define the p-Median Objective<a class="headerlink" href="#define-the-p-median-objective" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.20. </span>Define the p-Median Objective<a class="headerlink" href="#define-the-p-median-objective" title="Link to this heading">#</a></h2>
 <p>For a selected set of facilities, each demand point is assigned to its nearest selected facility. The total cost is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1241,14 +1284,14 @@ y_{ij} \in \{0,1\}
 <p>where <span class="math notranslate nohighlight">\(S\)</span> is the set of selected facilities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_solution</span><span class="p">(</span><span class="n">selected_sites</span><span class="p">,</span> <span class="n">distance_matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate_solution</span><span class="p">(</span><span class="n">selected_sites</span><span class="p">,</span> <span class="n">distance_matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Compute total weighted distance for a selected set of candidate sites.</span>
 <span class="sd">    </span>
 <span class="sd">    selected_sites: tuple of candidate site indices</span>
 <span class="sd">    distance_matrix: array with shape (number of demand points, number of candidate sites)</span>
 <span class="sd">    weights: array of demand weights</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">selected_distances</span> <span class="o">=</span> <span class="n">distance_matrix</span><span class="p">[:,</span> <span class="n">selected_sites</span><span class="p">]</span>
     <span class="n">nearest_distance</span> <span class="o">=</span> <span class="n">selected_distances</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">assigned_site_position</span> <span class="o">=</span> <span class="n">selected_distances</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1272,11 +1315,11 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="brute-force-solver-for-small-p-median-problems">
-<h2><span class="section-number">14.21. </span>Brute-Force Solver for Small p-Median Problems<a class="headerlink" href="#brute-force-solver-for-small-p-median-problems" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.21. </span>Brute-Force Solver for Small p-Median Problems<a class="headerlink" href="#brute-force-solver-for-small-p-median-problems" title="Link to this heading">#</a></h2>
 <p>For small problems, we can test every possible set of <span class="math notranslate nohighlight">\(p\)</span> facilities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solve_p_median_bruteforce</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">solve_p_median_bruteforce</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
     <span class="n">n_candidates</span> <span class="o">=</span> <span class="n">distance_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">best_solution</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">best_cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
@@ -1295,24 +1338,24 @@ y_{ij} \in \{0,1\}
             <span class="n">best_nearest_distance</span> <span class="o">=</span> <span class="n">nearest_distance</span>
     
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;selected_sites&quot;</span><span class="p">:</span> <span class="n">best_solution</span><span class="p">,</span>
-        <span class="s2">&quot;total_cost&quot;</span><span class="p">:</span> <span class="n">best_cost</span><span class="p">,</span>
-        <span class="s2">&quot;assigned_sites&quot;</span><span class="p">:</span> <span class="n">best_assignment</span><span class="p">,</span>
-        <span class="s2">&quot;nearest_distance&quot;</span><span class="p">:</span> <span class="n">best_nearest_distance</span>
+        <span class="s2">"selected_sites"</span><span class="p">:</span> <span class="n">best_solution</span><span class="p">,</span>
+        <span class="s2">"total_cost"</span><span class="p">:</span> <span class="n">best_cost</span><span class="p">,</span>
+        <span class="s2">"assigned_sites"</span><span class="p">:</span> <span class="n">best_assignment</span><span class="p">,</span>
+        <span class="s2">"nearest_distance"</span><span class="p">:</span> <span class="n">best_nearest_distance</span>
     <span class="p">}</span>
 
-<span class="n">weights</span> <span class="o">=</span> <span class="n">demand</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">demand</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">result_p2</span> <span class="o">=</span> <span class="n">solve_p_median_bruteforce</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">selected_site_names</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">result_p2</span><span class="p">[</span><span class="s2">&quot;selected_sites&quot;</span><span class="p">])][</span><span class="s2">&quot;site&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">selected_site_names</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">result_p2</span><span class="p">[</span><span class="s2">"selected_sites"</span><span class="p">])][</span><span class="s2">"site"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="n">selected_site_names</span><span class="p">,</span> <span class="n">result_p2</span><span class="p">[</span><span class="s2">&quot;total_cost&quot;</span><span class="p">]</span>
+<span class="n">selected_site_names</span><span class="p">,</span> <span class="n">result_p2</span><span class="p">[</span><span class="s2">"total_cost"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;S1&#39;, &#39;S4&#39;], 994.2396077753277)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(['S1', 'S4'], 994.2396077753277)
 </pre></div>
 </div>
 </div>
@@ -1323,13 +1366,13 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="inspect-the-assignment-result">
-<h2><span class="section-number">14.22. </span>Inspect the Assignment Result<a class="headerlink" href="#inspect-the-assignment-result" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.22. </span>Inspect the Assignment Result<a class="headerlink" href="#inspect-the-assignment-result" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assignment_df</span> <span class="o">=</span> <span class="n">demand</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">assignment_df</span><span class="p">[</span><span class="s2">&quot;assigned_site&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">result_p2</span><span class="p">[</span><span class="s2">&quot;assigned_sites&quot;</span><span class="p">]][</span><span class="s2">&quot;site&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">assignment_df</span><span class="p">[</span><span class="s2">&quot;nearest_distance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_p2</span><span class="p">[</span><span class="s2">&quot;nearest_distance&quot;</span><span class="p">]</span>
-<span class="n">assignment_df</span><span class="p">[</span><span class="s2">&quot;weighted_distance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">assignment_df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">assignment_df</span><span class="p">[</span><span class="s2">&quot;nearest_distance&quot;</span><span class="p">]</span>
+<span class="n">assignment_df</span><span class="p">[</span><span class="s2">"assigned_site"</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">result_p2</span><span class="p">[</span><span class="s2">"assigned_sites"</span><span class="p">]][</span><span class="s2">"site"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">assignment_df</span><span class="p">[</span><span class="s2">"nearest_distance"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_p2</span><span class="p">[</span><span class="s2">"nearest_distance"</span><span class="p">]</span>
+<span class="n">assignment_df</span><span class="p">[</span><span class="s2">"weighted_distance"</span><span class="p">]</span> <span class="o">=</span> <span class="n">assignment_df</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span> <span class="o">*</span> <span class="n">assignment_df</span><span class="p">[</span><span class="s2">"nearest_distance"</span><span class="p">]</span>
 
 <span class="n">assignment_df</span>
 </pre></div>
@@ -1455,39 +1498,39 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="visualize-the-p-median-solution">
-<h2><span class="section-number">14.23. </span>Visualize the p-Median Solution<a class="headerlink" href="#visualize-the-p-median-solution" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.23. </span>Visualize the p-Median Solution<a class="headerlink" href="#visualize-the-p-median-solution" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_p_median_solution</span><span class="p">(</span><span class="n">demand_df</span><span class="p">,</span> <span class="n">candidate_df</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">selected_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;selected_sites&quot;</span><span class="p">])</span>
-    <span class="n">assigned_sites</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;assigned_sites&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_p_median_solution</span><span class="p">(</span><span class="n">demand_df</span><span class="p">,</span> <span class="n">candidate_df</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="n">selected_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"selected_sites"</span><span class="p">])</span>
+    <span class="n">assigned_sites</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"assigned_sites"</span><span class="p">]</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     
     <span class="c1"># Plot demand points</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">demand_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">demand_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
-        <span class="n">s</span><span class="o">=</span><span class="n">demand_df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">],</span>
+        <span class="n">demand_df</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">demand_df</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">demand_df</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">],</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Demand points&quot;</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">"Demand points"</span>
     <span class="p">)</span>
     
     <span class="c1"># Plot all candidate sites</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">candidate_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">candidate_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
-        <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span>
+        <span class="n">candidate_df</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">candidate_df</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s2">"^"</span><span class="p">,</span>
         <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Candidate sites&quot;</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">"Candidate sites"</span>
     <span class="p">)</span>
     
     <span class="c1"># Plot selected sites</span>
     <span class="n">selected</span> <span class="o">=</span> <span class="n">candidate_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">selected_indices</span><span class="p">]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">selected</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">selected</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
-        <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+        <span class="n">selected</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">selected</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s2">"*"</span><span class="p">,</span>
         <span class="n">s</span><span class="o">=</span><span class="mi">260</span><span class="p">,</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Selected facilities&quot;</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">"Selected facilities"</span>
     <span class="p">)</span>
     
     <span class="c1"># Draw assignment lines</span>
@@ -1495,22 +1538,22 @@ y_{ij} \in \{0,1\}
         <span class="n">assigned_idx</span> <span class="o">=</span> <span class="n">assigned_sites</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">crow</span> <span class="o">=</span> <span class="n">candidate_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">assigned_idx</span><span class="p">]</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">drow</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">crow</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]],</span>
-            <span class="p">[</span><span class="n">drow</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">crow</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]],</span>
+            <span class="p">[</span><span class="n">drow</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">crow</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]],</span>
+            <span class="p">[</span><span class="n">drow</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">crow</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]],</span>
             <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span>
         <span class="p">)</span>
     
     <span class="c1"># Labels</span>
     <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">demand_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"name"</span><span class="p">])</span>
     
     <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">candidate_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;site&quot;</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">"site"</span><span class="p">])</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x coordinate&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y coordinate&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x coordinate"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y coordinate"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1519,7 +1562,7 @@ y_{ij} \in \{0,1\}
     <span class="n">demand</span><span class="p">,</span>
     <span class="n">candidates</span><span class="p">,</span>
     <span class="n">result_p2</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;p-Median Solution with p = 2, Total Cost = </span><span class="si">{</span><span class="n">result_p2</span><span class="p">[</span><span class="s1">&#39;total_cost&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"p-Median Solution with p = 2, Total Cost = </span><span class="si">{</span><span class="n">result_p2</span><span class="p">[</span><span class="s1">'total_cost'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1538,7 +1581,7 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="sensitivity-to-p">
-<h2><span class="section-number">14.24. </span>Sensitivity to <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#sensitivity-to-p" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.24. </span>Sensitivity to <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#sensitivity-to-p" title="Link to this heading">#</a></h2>
 <p>Now let us solve the problem for different values of <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1546,14 +1589,14 @@ y_{ij} \in \{0,1\}
 
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">solve_p_median_bruteforce</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
-    <span class="n">selected_names</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;selected_sites&quot;</span><span class="p">])][</span><span class="s2">&quot;site&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">selected_names</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"selected_sites"</span><span class="p">])][</span><span class="s2">"site"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     
     <span class="n">summary</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-        <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">,</span>
-        <span class="s2">&quot;selected_sites&quot;</span><span class="p">:</span> <span class="n">selected_names</span><span class="p">,</span>
-        <span class="s2">&quot;total_cost&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;total_cost&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;max_distance&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;nearest_distance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
-        <span class="s2">&quot;mean_distance&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;nearest_distance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="s2">"p"</span><span class="p">:</span> <span class="n">p</span><span class="p">,</span>
+        <span class="s2">"selected_sites"</span><span class="p">:</span> <span class="n">selected_names</span><span class="p">,</span>
+        <span class="s2">"total_cost"</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">"total_cost"</span><span class="p">],</span>
+        <span class="s2">"max_distance"</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">"nearest_distance"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s2">"mean_distance"</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">"nearest_distance"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="p">})</span>
 
 <span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
@@ -1629,14 +1672,14 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="visualize-the-sensitivity-result">
-<h2><span class="section-number">14.25. </span>Visualize the Sensitivity Result<a class="headerlink" href="#visualize-the-sensitivity-result" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.25. </span>Visualize the Sensitivity Result<a class="headerlink" href="#visualize-the-sensitivity-result" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summary_df</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">],</span> <span class="n">summary_df</span><span class="p">[</span><span class="s2">&quot;total_cost&quot;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Total Weighted Distance Decreases as p Increases&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of facilities p&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Total weighted distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summary_df</span><span class="p">[</span><span class="s2">"p"</span><span class="p">],</span> <span class="n">summary_df</span><span class="p">[</span><span class="s2">"total_cost"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Total Weighted Distance Decreases as p Increases"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of facilities p"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Total weighted distance"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1654,25 +1697,25 @@ y_{ij} \in \{0,1\}
 </section>
 <hr class="docutils" />
 <section id="what-happens-if-one-demand-point-becomes-more-important">
-<h2><span class="section-number">14.26. </span>What Happens If One Demand Point Becomes More Important?<a class="headerlink" href="#what-happens-if-one-demand-point-becomes-more-important" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.26. </span>What Happens If One Demand Point Becomes More Important?<a class="headerlink" href="#what-happens-if-one-demand-point-becomes-more-important" title="Link to this heading">#</a></h2>
 <p>Suppose demand point H becomes much more important. Maybe it represents a vulnerable population, a growing neighborhood, or a high-risk area.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand_changed</span> <span class="o">=</span> <span class="n">demand</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">demand_changed</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">demand_changed</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">demand_changed</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">demand_changed</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"H"</span><span class="p">,</span> <span class="s2">"weight"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">250</span>
 
-<span class="n">weights_changed</span> <span class="o">=</span> <span class="n">demand_changed</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">weights_changed</span> <span class="o">=</span> <span class="n">demand_changed</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">result_changed</span> <span class="o">=</span> <span class="n">solve_p_median_bruteforce</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">weights_changed</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">selected_changed_names</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">result_changed</span><span class="p">[</span><span class="s2">&quot;selected_sites&quot;</span><span class="p">])][</span><span class="s2">&quot;site&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">selected_changed_names</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">result_changed</span><span class="p">[</span><span class="s2">"selected_sites"</span><span class="p">])][</span><span class="s2">"site"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="n">selected_changed_names</span><span class="p">,</span> <span class="n">result_changed</span><span class="p">[</span><span class="s2">&quot;total_cost&quot;</span><span class="p">]</span>
+<span class="n">selected_changed_names</span><span class="p">,</span> <span class="n">result_changed</span><span class="p">[</span><span class="s2">"total_cost"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;S1&#39;, &#39;S5&#39;], 1432.9867328142127)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(['S1', 'S5'], 1432.9867328142127)
 </pre></div>
 </div>
 </div>
@@ -1680,14 +1723,14 @@ y_{ij} \in \{0,1\}
 <p>Now compare the original and changed solutions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original selected sites:&quot;</span><span class="p">,</span> <span class="n">selected_site_names</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Changed-weight selected sites:&quot;</span><span class="p">,</span> <span class="n">selected_changed_names</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Original selected sites:"</span><span class="p">,</span> <span class="n">selected_site_names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Changed-weight selected sites:"</span><span class="p">,</span> <span class="n">selected_changed_names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original selected sites: [&#39;S1&#39;, &#39;S4&#39;]
-Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original selected sites: ['S1', 'S4']
+Changed-weight selected sites: ['S1', 'S5']
 </pre></div>
 </div>
 </div>
@@ -1700,28 +1743,28 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="how-to-interpret-the-results">
-<h2><span class="section-number">14.27. </span>How to Interpret the Results<a class="headerlink" href="#how-to-interpret-the-results" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.27. </span>How to Interpret the Results<a class="headerlink" href="#how-to-interpret-the-results" title="Link to this heading">#</a></h2>
 <p>A p-Median result should be interpreted through several outputs.</p>
 </section>
 <section id="selected-facilities">
-<h2><span class="section-number">14.28. </span>Selected facilities<a class="headerlink" href="#selected-facilities" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.28. </span>Selected facilities<a class="headerlink" href="#selected-facilities" title="Link to this heading">#</a></h2>
 <p>The selected facilities tell us which candidate sites minimize total weighted distance.</p>
 <p>But they should not be interpreted as automatically “the best policy.” They are best only under the model assumptions.</p>
 <section id="assignment-pattern">
-<h3><span class="section-number">14.28.1. </span>Assignment pattern<a class="headerlink" href="#assignment-pattern" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.28.1. </span>Assignment pattern<a class="headerlink" href="#assignment-pattern" title="Link to this heading">#</a></h3>
 <p>The assignment pattern tells us which demand points are served by which facility.</p>
 <p>This can reveal service regions. In GIS, these regions may resemble catchment areas（服务区）.</p>
 </section>
 <section id="total-weighted-distance">
-<h3><span class="section-number">14.28.2. </span>Total weighted distance<a class="headerlink" href="#total-weighted-distance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.28.2. </span>Total weighted distance<a class="headerlink" href="#total-weighted-distance" title="Link to this heading">#</a></h3>
 <p>The total weighted distance is the objective value（目标函数值）. It is useful for comparing different values of <span class="math notranslate nohighlight">\(p\)</span>, different candidate site sets, or different distance metrics.</p>
 </section>
 <section id="maximum-distance">
-<h3><span class="section-number">14.28.3. </span>Maximum distance<a class="headerlink" href="#maximum-distance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.28.3. </span>Maximum distance<a class="headerlink" href="#maximum-distance" title="Link to this heading">#</a></h3>
 <p>Although p-Median does not optimize maximum distance, it is still useful to report it. A solution with low average cost may still leave one community very far from service.</p>
 </section>
 <section id="sensitivity">
-<h3><span class="section-number">14.28.4. </span>Sensitivity<a class="headerlink" href="#sensitivity" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.28.4. </span>Sensitivity<a class="headerlink" href="#sensitivity" title="Link to this heading">#</a></h3>
 <p>Sensitivity analysis（敏感性分析） is essential. You should test:</p>
 <ul class="simple">
 <li><p>different values of <span class="math notranslate nohighlight">\(p\)</span>;</p></li>
@@ -1735,7 +1778,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="limitations-and-pathways-for-improvement">
-<h2><span class="section-number">14.29. </span>Limitations and Pathways for Improvement<a class="headerlink" href="#limitations-and-pathways-for-improvement" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.29. </span>Limitations and Pathways for Improvement<a class="headerlink" href="#limitations-and-pathways-for-improvement" title="Link to this heading">#</a></h2>
 <p>The p-Median Problem is a foundational model, but it is not the end of spatial optimization. Its limitations naturally motivate later chapters.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1788,35 +1831,35 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="common-pitfalls-and-misunderstandings">
-<h2><span class="section-number">14.30. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.30. </span>Common Pitfalls and Misunderstandings<a class="headerlink" href="#common-pitfalls-and-misunderstandings" title="Link to this heading">#</a></h2>
 </section>
 <section id="pitfall-1-treating-euclidean-distance-as-real-accessibility">
-<h2><span class="section-number">14.31. </span>Pitfall 1: Treating Euclidean distance as real accessibility<a class="headerlink" href="#pitfall-1-treating-euclidean-distance-as-real-accessibility" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.31. </span>Pitfall 1: Treating Euclidean distance as real accessibility<a class="headerlink" href="#pitfall-1-treating-euclidean-distance-as-real-accessibility" title="Link to this heading">#</a></h2>
 <p>Straight-line distance is easy to compute but may be misleading. A river, highway, mountain, or disconnected road network can make a nearby facility hard to reach.</p>
 <section id="pitfall-2-forgetting-demand-weights">
-<h3><span class="section-number">14.31.1. </span>Pitfall 2: Forgetting demand weights<a class="headerlink" href="#pitfall-2-forgetting-demand-weights" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.31.1. </span>Pitfall 2: Forgetting demand weights<a class="headerlink" href="#pitfall-2-forgetting-demand-weights" title="Link to this heading">#</a></h3>
 <p>If demand weights are ignored, a neighborhood with 10 people and a neighborhood with 10,000 people may be treated equally. That may not match the planning goal.</p>
 </section>
 <section id="pitfall-3-thinking-p-median-guarantees-fairness">
-<h3><span class="section-number">14.31.2. </span>Pitfall 3: Thinking p-Median guarantees fairness<a class="headerlink" href="#pitfall-3-thinking-p-median-guarantees-fairness" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.31.2. </span>Pitfall 3: Thinking p-Median guarantees fairness<a class="headerlink" href="#pitfall-3-thinking-p-median-guarantees-fairness" title="Link to this heading">#</a></h3>
 <p>p-Median minimizes total weighted distance. It does not guarantee that every demand point has acceptable access.</p>
 </section>
 <section id="pitfall-4-over-trusting-one-value-of-p">
-<h3><span class="section-number">14.31.3. </span>Pitfall 4: Over-trusting one value of <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#pitfall-4-over-trusting-one-value-of-p" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.31.3. </span>Pitfall 4: Over-trusting one value of <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#pitfall-4-over-trusting-one-value-of-p" title="Link to this heading">#</a></h3>
 <p>The solution depends on <span class="math notranslate nohighlight">\(p\)</span>. You should compare several values and examine diminishing returns.</p>
 </section>
 <section id="pitfall-5-ignoring-candidate-site-feasibility">
-<h3><span class="section-number">14.31.4. </span>Pitfall 5: Ignoring candidate site feasibility<a class="headerlink" href="#pitfall-5-ignoring-candidate-site-feasibility" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.31.4. </span>Pitfall 5: Ignoring candidate site feasibility<a class="headerlink" href="#pitfall-5-ignoring-candidate-site-feasibility" title="Link to this heading">#</a></h3>
 <p>A mathematically optimal site may not be available in the real world. Land ownership, zoning, construction cost, political boundaries, and environmental constraints matter.</p>
 </section>
 <section id="pitfall-6-reporting-only-selected-locations">
-<h3><span class="section-number">14.31.5. </span>Pitfall 6: Reporting only selected locations<a class="headerlink" href="#pitfall-6-reporting-only-selected-locations" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.31.5. </span>Pitfall 6: Reporting only selected locations<a class="headerlink" href="#pitfall-6-reporting-only-selected-locations" title="Link to this heading">#</a></h3>
 <p>A good report should include selected locations, assignments, total cost, maximum distance, sensitivity analysis, limitations, and policy interpretation.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="comparison-with-related-methods">
-<h2><span class="section-number">14.32. </span>Comparison with Related Methods<a class="headerlink" href="#comparison-with-related-methods" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.32. </span>Comparison with Related Methods<a class="headerlink" href="#comparison-with-related-methods" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Method</p></th>
@@ -1864,7 +1907,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="practical-advice">
-<h2><span class="section-number">14.33. </span>Practical Advice<a class="headerlink" href="#practical-advice" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.33. </span>Practical Advice<a class="headerlink" href="#practical-advice" title="Link to this heading">#</a></h2>
 <p>When using p-Median in real GIS or planning research, report the following clearly:</p>
 <ol class="arabic simple">
 <li><p><strong>Study area:</strong> What region is being analyzed?</p></li>
@@ -1891,7 +1934,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="summary">
-<h2><span class="section-number">14.34. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.34. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>The p-Median Problem is one of the most important models in spatial optimization. It chooses <span class="math notranslate nohighlight">\(p\)</span> facility locations to minimize total weighted travel distance from demand points to their assigned facilities.</p>
 <p>Its core idea is simple:</p>
 <div class="math notranslate nohighlight">
@@ -1906,12 +1949,12 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="quiz">
-<h2><span class="section-number">14.35. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.35. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h2>
 </section>
 <section id="conceptual-questions">
-<h2><span class="section-number">14.36. </span>Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.36. </span>Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Link to this heading">#</a></h2>
 <section id="q1-what-is-the-main-goal-of-the-p-median-problem">
-<h3><span class="section-number">14.36.1. </span>Q1: What is the main goal of the p-Median Problem?<a class="headerlink" href="#q1-what-is-the-main-goal-of-the-p-median-problem" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.36.1. </span>Q1: What is the main goal of the p-Median Problem?<a class="headerlink" href="#q1-what-is-the-main-goal-of-the-p-median-problem" title="Link to this heading">#</a></h3>
 <p>A. Minimize the maximum distance from any demand point to a facility</p>
 <p>B. Maximize the number of demand points within a fixed coverage distance</p>
 <p>C. Minimize total weighted distance from demand points to selected facilities</p>
@@ -1924,7 +1967,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="q2-what-does-x-j-1-mean-in-the-p-median-formulation">
-<h3><span class="section-number">14.36.2. </span>Q2: What does <span class="math notranslate nohighlight">\(x_j = 1\)</span> mean in the p-Median formulation?<a class="headerlink" href="#q2-what-does-x-j-1-mean-in-the-p-median-formulation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.36.2. </span>Q2: What does <span class="math notranslate nohighlight">\(x_j = 1\)</span> mean in the p-Median formulation?<a class="headerlink" href="#q2-what-does-x-j-1-mean-in-the-p-median-formulation" title="Link to this heading">#</a></h3>
 <p>A. Demand point <span class="math notranslate nohighlight">\(j\)</span> has high population</p>
 <p>B. Candidate site <span class="math notranslate nohighlight">\(j\)</span> is selected as a facility</p>
 <p>C. Demand point <span class="math notranslate nohighlight">\(j\)</span> is assigned to itself</p>
@@ -1937,7 +1980,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="q3-why-are-demand-weights-important">
-<h3><span class="section-number">14.36.3. </span>Q3: Why are demand weights important?<a class="headerlink" href="#q3-why-are-demand-weights-important" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.36.3. </span>Q3: Why are demand weights important?<a class="headerlink" href="#q3-why-are-demand-weights-important" title="Link to this heading">#</a></h3>
 <p>A. They determine the number of candidate sites</p>
 <p>B. They control the map projection</p>
 <p>C. They make high-demand locations contribute more to the objective function</p>
@@ -1950,7 +1993,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="q4-which-limitation-is-most-directly-associated-with-p-median">
-<h3><span class="section-number">14.36.4. </span>Q4: Which limitation is most directly associated with p-Median?<a class="headerlink" href="#q4-which-limitation-is-most-directly-associated-with-p-median" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.36.4. </span>Q4: Which limitation is most directly associated with p-Median?<a class="headerlink" href="#q4-which-limitation-is-most-directly-associated-with-p-median" title="Link to this heading">#</a></h3>
 <p>A. It cannot use distance matrices</p>
 <p>B. It may underserve remote low-weight demand points</p>
 <p>C. It always selects remote facilities</p>
@@ -1963,7 +2006,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="q5-why-might-network-travel-time-be-better-than-euclidean-distance">
-<h3><span class="section-number">14.36.5. </span>Q5: Why might network travel time be better than Euclidean distance?<a class="headerlink" href="#q5-why-might-network-travel-time-be-better-than-euclidean-distance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.36.5. </span>Q5: Why might network travel time be better than Euclidean distance?<a class="headerlink" href="#q5-why-might-network-travel-time-be-better-than-euclidean-distance" title="Link to this heading">#</a></h3>
 <p>A. It is always smaller</p>
 <p>B. It ignores roads</p>
 <p>C. It better reflects actual movement through transportation networks</p>
@@ -1977,9 +2020,9 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="applied-questions">
-<h2><span class="section-number">14.37. </span>Applied Questions<a class="headerlink" href="#applied-questions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.37. </span>Applied Questions<a class="headerlink" href="#applied-questions" title="Link to this heading">#</a></h2>
 <section id="q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective">
-<h3><span class="section-number">14.37.1. </span>Q6: Suppose one demand point has weight 100 and distance 3 to its assigned facility. What is its contribution to the p-Median objective?<a class="headerlink" href="#q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.37.1. </span>Q6: Suppose one demand point has weight 100 and distance 3 to its assigned facility. What is its contribution to the p-Median objective?<a class="headerlink" href="#q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective" title="Link to this heading">#</a></h3>
 <details>
 <summary>Answer</summary>
 <p>The contribution is:</p>
@@ -1992,7 +2035,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to">
-<h3><span class="section-number">14.37.2. </span>Q7: Suppose <span class="math notranslate nohighlight">\(p = 2\)</span>, and the selected facilities are Site A and Site B. A demand point is distance 5 from Site A and distance 2 from Site B. Which site should it be assigned to?<a class="headerlink" href="#q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.37.2. </span>Q7: Suppose <span class="math notranslate nohighlight">\(p = 2\)</span>, and the selected facilities are Site A and Site B. A demand point is distance 5 from Site A and distance 2 from Site B. Which site should it be assigned to?<a class="headerlink" href="#q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to" title="Link to this heading">#</a></h3>
 <details>
 <summary>Answer</summary>
 <p>It should be assigned to Site B because Site B is closer.</p>
@@ -2005,9 +2048,9 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="limitation-oriented-question">
-<h2><span class="section-number">14.38. </span>Limitation-Oriented Question<a class="headerlink" href="#limitation-oriented-question" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.38. </span>Limitation-Oriented Question<a class="headerlink" href="#limitation-oriented-question" title="Link to this heading">#</a></h2>
 <section id="q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong">
-<h3><span class="section-number">14.38.1. </span>Q8: A p-Median model selects facilities near dense urban neighborhoods, but rural communities remain far away. Is the model wrong?<a class="headerlink" href="#q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.38.1. </span>Q8: A p-Median model selects facilities near dense urban neighborhoods, but rural communities remain far away. Is the model wrong?<a class="headerlink" href="#q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong" title="Link to this heading">#</a></h3>
 <details>
 <summary>Answer</summary>
 <p>Not necessarily. The model may be correctly minimizing total weighted distance, but the objective function emphasizes average efficiency rather than equity. If rural accessibility is important, the planner may need p-Center, equity constraints, maximum-distance constraints, or a multi-objective model.</p>
@@ -2016,9 +2059,9 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
 </section>
 <hr class="docutils" />
 <section id="explain-in-your-own-words">
-<h2><span class="section-number">14.39. </span>Explain in Your Own Words<a class="headerlink" href="#explain-in-your-own-words" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.39. </span>Explain in Your Own Words<a class="headerlink" href="#explain-in-your-own-words" title="Link to this heading">#</a></h2>
 <section id="q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words">
-<h3><span class="section-number">14.39.1. </span>Q9: Explain the difference between p-Median and p-Center in your own words.<a class="headerlink" href="#q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.39.1. </span>Q9: Explain the difference between p-Median and p-Center in your own words.<a class="headerlink" href="#q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words" title="Link to this heading">#</a></h3>
 <details>
 <summary>Answer</summary>
 <p>A good answer should say that p-Median minimizes total or average weighted distance, while p-Center minimizes the worst-case distance. p-Median focuses on efficiency, while p-Center focuses more on protecting the farthest or worst-served demand point.</p>
@@ -2057,12 +2100,12 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../st_learning_anselin/L9-Multivariate-LISA.html"
+       href="../Spatial-statistics/Chapter_F_statistical_simulation_and_validation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Multivariate LISA</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Chapter F. Statistical Simulation and Validation</p>
       </div>
     </a>
     <a class="right-next"
@@ -2070,7 +2113,7 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>The Maximal Covering Location Problem</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>The Maximal Covering Location Problem</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2081,105 +2124,107 @@ Changed-weight selected sites: [&#39;S1&#39;, &#39;S5&#39;]
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">14.1. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">14.2. Why This Topic Matters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">14.3. Big Picture Intuition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-workflow">14.4. A Simple Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">14.5. Formal Definition and Core Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">14.6. Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-function">14.7. Objective Function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">14.8. Constraints</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-algorithm-works-step-by-step">14.9. How the Algorithm Works Step by Step</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">14.10. Core Mechanisms and Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-weight">14.11. Demand Weight</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-metric">14.11.1. Distance Metric</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-to-nearest-selected-facility">14.11.2. Assignment to Nearest Selected Facility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency-oriented-objective">14.11.3. Efficiency-Oriented Objective</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">20.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-topic-matters">20.2. Why This Topic Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-picture-intuition">20.3. Big Picture Intuition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-workflow">20.4. A Simple Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition-and-core-equations">20.5. Formal Definition and Core Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">20.6. Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-function">20.7. Objective Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">20.8. Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-algorithm-works-step-by-step">20.9. How the Algorithm Works Step by Step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-mechanisms-and-concepts">20.10. Core Mechanisms and Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-weight">20.11. Demand Weight</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-metric">20.11.1. Distance Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-to-nearest-selected-facility">20.11.2. Assignment to Nearest Selected Facility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency-oriented-objective">20.11.3. Efficiency-Oriented Objective</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">14.12. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">14.13. Assumptions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">14.13.1. Strengths</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">14.13.2. Limitations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-1-it-may-underserve-remote-areas">14.13.2.1. Limitation 1: It may underserve remote areas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-2-it-assumes-facilities-have-unlimited-capacity">14.13.2.2. Limitation 2: It assumes facilities have unlimited capacity</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-3-it-depends-strongly-on-the-distance-metric">14.13.2.3. Limitation 3: It depends strongly on the distance metric</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-4-it-assumes-demand-is-fixed">14.13.2.4. Limitation 4: It assumes demand is fixed</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-5-it-optimizes-one-objective">14.13.2.5. Limitation 5: It optimizes one objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-strengths-limitations-and-trade-offs">20.12. Assumptions, Strengths, Limitations, and Trade-offs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">20.13. Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">20.13.1. Strengths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">20.13.2. Limitations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-1-it-may-underserve-remote-areas">20.13.2.1. Limitation 1: It may underserve remote areas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-2-it-assumes-facilities-have-unlimited-capacity">20.13.2.2. Limitation 2: It assumes facilities have unlimited capacity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-3-it-depends-strongly-on-the-distance-metric">20.13.2.3. Limitation 3: It depends strongly on the distance metric</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-4-it-assumes-demand-is-fixed">20.13.2.4. Limitation 4: It assumes demand is fixed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-5-it-optimizes-one-objective">20.13.2.5. Limitation 5: It optimizes one objective</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">14.14. Worked Toy Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-1">14.15. If we choose Site 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-2">14.15.1. If we choose Site 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-3">14.15.2. If we choose Site 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-toy-example">20.14. Worked Toy Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-1">20.15. If we choose Site 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-2">20.15.1. If we choose Site 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-we-choose-site-3">20.15.2. If we choose Site 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-lab-solving-the-p-median-problem-in-python">14.16. Computational Lab: Solving the p-Median Problem in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problem">14.17. Lab Problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-toy-dataset">14.17.1. Create a Toy Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-lab-solving-the-p-median-problem-in-python">20.16. Computational Lab: Solving the p-Median Problem in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problem">20.17. Lab Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-toy-dataset">20.17.1. Create a Toy Dataset</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-problem">14.18. Visualize the Problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-distance-matrix">14.19. Compute the Distance Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-p-median-objective">14.20. Define the p-Median Objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-solver-for-small-p-median-problems">14.21. Brute-Force Solver for Small p-Median Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-assignment-result">14.22. Inspect the Assignment Result</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-p-median-solution">14.23. Visualize the p-Median Solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-to-p">14.24. Sensitivity to <span class="math notranslate nohighlight">\(p\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-sensitivity-result">14.25. Visualize the Sensitivity Result</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-one-demand-point-becomes-more-important">14.26. What Happens If One Demand Point Becomes More Important?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">14.27. How to Interpret the Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selected-facilities">14.28. Selected facilities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-pattern">14.28.1. Assignment pattern</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-weighted-distance">14.28.2. Total weighted distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-distance">14.28.3. Maximum distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity">14.28.4. Sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-problem">20.18. Visualize the Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-distance-matrix">20.19. Compute the Distance Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-p-median-objective">20.20. Define the p-Median Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-solver-for-small-p-median-problems">20.21. Brute-Force Solver for Small p-Median Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-assignment-result">20.22. Inspect the Assignment Result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-p-median-solution">20.23. Visualize the p-Median Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-to-p">20.24. Sensitivity to <span class="math notranslate nohighlight">\(p\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-sensitivity-result">20.25. Visualize the Sensitivity Result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-one-demand-point-becomes-more-important">20.26. What Happens If One Demand Point Becomes More Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-the-results">20.27. How to Interpret the Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selected-facilities">20.28. Selected facilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-pattern">20.28.1. Assignment pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-weighted-distance">20.28.2. Total weighted distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-distance">20.28.3. Maximum distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity">20.28.4. Sensitivity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-pathways-for-improvement">14.29. Limitations and Pathways for Improvement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">14.30. Common Pitfalls and Misunderstandings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-treating-euclidean-distance-as-real-accessibility">14.31. Pitfall 1: Treating Euclidean distance as real accessibility</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-demand-weights">14.31.1. Pitfall 2: Forgetting demand weights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-thinking-p-median-guarantees-fairness">14.31.2. Pitfall 3: Thinking p-Median guarantees fairness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-over-trusting-one-value-of-p">14.31.3. Pitfall 4: Over-trusting one value of <span class="math notranslate nohighlight">\(p\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-candidate-site-feasibility">14.31.4. Pitfall 5: Ignoring candidate site feasibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-6-reporting-only-selected-locations">14.31.5. Pitfall 6: Reporting only selected locations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-pathways-for-improvement">20.29. Limitations and Pathways for Improvement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-misunderstandings">20.30. Common Pitfalls and Misunderstandings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-1-treating-euclidean-distance-as-real-accessibility">20.31. Pitfall 1: Treating Euclidean distance as real accessibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-2-forgetting-demand-weights">20.31.1. Pitfall 2: Forgetting demand weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-3-thinking-p-median-guarantees-fairness">20.31.2. Pitfall 3: Thinking p-Median guarantees fairness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-4-over-trusting-one-value-of-p">20.31.3. Pitfall 4: Over-trusting one value of <span class="math notranslate nohighlight">\(p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-5-ignoring-candidate-site-feasibility">20.31.4. Pitfall 5: Ignoring candidate site feasibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfall-6-reporting-only-selected-locations">20.31.5. Pitfall 6: Reporting only selected locations</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-methods">14.32. Comparison with Related Methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">14.33. Practical Advice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.34. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">14.35. Quiz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">14.36. Conceptual Questions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-is-the-main-goal-of-the-p-median-problem">14.36.1. Q1: What is the main goal of the p-Median Problem?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-what-does-x-j-1-mean-in-the-p-median-formulation">14.36.2. Q2: What does <span class="math notranslate nohighlight">\(x_j = 1\)</span> mean in the p-Median formulation?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-why-are-demand-weights-important">14.36.3. Q3: Why are demand weights important?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-which-limitation-is-most-directly-associated-with-p-median">14.36.4. Q4: Which limitation is most directly associated with p-Median?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-why-might-network-travel-time-be-better-than-euclidean-distance">14.36.5. Q5: Why might network travel time be better than Euclidean distance?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-related-methods">20.32. Comparison with Related Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-advice">20.33. Practical Advice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">20.34. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">20.35. Quiz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">20.36. Conceptual Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-is-the-main-goal-of-the-p-median-problem">20.36.1. Q1: What is the main goal of the p-Median Problem?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-what-does-x-j-1-mean-in-the-p-median-formulation">20.36.2. Q2: What does <span class="math notranslate nohighlight">\(x_j = 1\)</span> mean in the p-Median formulation?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-why-are-demand-weights-important">20.36.3. Q3: Why are demand weights important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-which-limitation-is-most-directly-associated-with-p-median">20.36.4. Q4: Which limitation is most directly associated with p-Median?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-why-might-network-travel-time-be-better-than-euclidean-distance">20.36.5. Q5: Why might network travel time be better than Euclidean distance?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">14.37. Applied Questions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective">14.37.1. Q6: Suppose one demand point has weight 100 and distance 3 to its assigned facility. What is its contribution to the p-Median objective?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to">14.37.2. Q7: Suppose <span class="math notranslate nohighlight">\(p = 2\)</span>, and the selected facilities are Site A and Site B. A demand point is distance 5 from Site A and distance 2 from Site B. Which site should it be assigned to?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applied-questions">20.37. Applied Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-suppose-one-demand-point-has-weight-100-and-distance-3-to-its-assigned-facility-what-is-its-contribution-to-the-p-median-objective">20.37.1. Q6: Suppose one demand point has weight 100 and distance 3 to its assigned facility. What is its contribution to the p-Median objective?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-suppose-p-2-and-the-selected-facilities-are-site-a-and-site-b-a-demand-point-is-distance-5-from-site-a-and-distance-2-from-site-b-which-site-should-it-be-assigned-to">20.37.2. Q7: Suppose <span class="math notranslate nohighlight">\(p = 2\)</span>, and the selected facilities are Site A and Site B. A demand point is distance 5 from Site A and distance 2 from Site B. Which site should it be assigned to?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-oriented-question">14.38. Limitation-Oriented Question</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong">14.38.1. Q8: A p-Median model selects facilities near dense urban neighborhoods, but rural communities remain far away. Is the model wrong?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-oriented-question">20.38. Limitation-Oriented Question</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-a-p-median-model-selects-facilities-near-dense-urban-neighborhoods-but-rural-communities-remain-far-away-is-the-model-wrong">20.38.1. Q8: A p-Median model selects facilities near dense urban neighborhoods, but rural communities remain far away. Is the model wrong?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">14.39. Explain in Your Own Words</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words">14.39.1. Q9: Explain the difference between p-Median and p-Center in your own words.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explain-in-your-own-words">20.39. Explain in Your Own Words</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-explain-the-difference-between-p-median-and-p-center-in-your-own-words">20.39.1. Q9: Explain the difference between p-Median and p-Center in your own words.</a></li>
 </ul>
 </li>
 </ul>
@@ -2206,7 +2251,7 @@ By Yalin Yang
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -2230,8 +2275,8 @@ By Yalin Yang
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
