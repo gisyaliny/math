@@ -1,5 +1,6 @@
 assets/~$graph.pptx
 _build/
+.venv/
 private/
 **/.ipynb_checkpoints/
 **/*.db

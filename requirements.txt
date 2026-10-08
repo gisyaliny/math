@@ -2,5 +2,9 @@ jupyter-book
 jupytext
 matplotlib
 numpy
+scipy
+pandas
+ipykernel
+nbconvert
 ghp-import
 sphinxcontrib-mermaid
