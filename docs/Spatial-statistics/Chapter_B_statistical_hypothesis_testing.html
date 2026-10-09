@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -511,9 +511,14 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">15.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-scientific-question-to-a-test">15.4.1. From a scientific question to a test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fixed-margin-hypergeometric-derivation">15.4.2. The fixed-margin hypergeometric derivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-power-and-confidence-intervals">15.4.3. Error, power and confidence intervals</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization-versus-parametric-inference">15.4.4. Randomization versus parametric inference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">15.4.5. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-the-hypergeometric-mean-and-variance-look-like">15.4.3. What do the hypergeometric mean and variance look like?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-error-type-ii-error-beta-and-power">15.4.4. Type I error, Type II error, beta, and power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-intervals-and-effect-size">15.4.5. Confidence intervals and effect size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization-versus-parametric-inference">15.4.6. Randomization versus parametric inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">15.4.7. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-type-i-error-type-ii-error-and-power">15.4.8. Visualizing Type I error, Type II error, and power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-demo-sample-size-alpha-beta-and-power">15.4.9. Simulation demo: sample size, alpha, beta, and power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-use-case-evaluating-a-checkout-redesign">15.4.10. Real-world use case: evaluating a checkout redesign</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">15.5. Additional Derivation Visualization — General-Purpose Example</a></li>
@@ -591,31 +596,327 @@
 <section id="from-a-scientific-question-to-a-test">
 <h3><span class="section-number">15.4.1. </span>From a scientific question to a test<a class="headerlink" href="#from-a-scientific-question-to-a-test" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Form a <strong>statistical estimand (目标统计量)</strong>, e.g. a difference in event probabilities, <span class="math notranslate nohighlight">\(\Delta=P(Y=1\mid X=1)-P(Y=1\mid X=0)\)</span>.</p></li>
-<li><p>Specify <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> <em>before observing the test outcome</em>. For a positive association <span class="math notranslate nohighlight">\(H_0:\Delta=0\)</span> vs <span class="math notranslate nohighlight">\(H_1:\Delta&gt;0\)</span>.</p></li>
-<li><p>State a sampling/randomization model. A null hypothesis about a marginal probability is <strong>not</strong> automatically an exchangeability assumption.</p></li>
+<li><p>Define the estimand (目标统计量), such as the risk difference <span class="math notranslate nohighlight">\(\Delta=P(Y=1\mid X=1)-P(Y=1\mid X=0)\)</span>.</p></li>
+<li><p>Before examining results, state <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span>, the significance level <span class="math notranslate nohighlight">\(\alpha\)</span>, and whether the test is one- or two-sided.</p></li>
+<li><p>State the sampling or randomization model. A null about equal marginal rates does <strong>not</strong> automatically imply that labels are exchangeable across all rows.</p></li>
 <li><p>Choose a statistic <span class="math notranslate nohighlight">\(T(D)\)</span> and calculate its reference distribution under <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
-<li><p>Define <span class="math notranslate nohighlight">\(p=P_{H_0}(T(D^*)\ge T(D_{obs}))\)</span> for a one-sided test. A p-value is <strong>not</strong> <span class="math notranslate nohighlight">\(P(H_0\mid D)\)</span>.</p></li>
+<li><p>A p-value is <span class="math notranslate nohighlight">\(P_{H_0}(T(D^*)\text{ is at least as extreme as }T(D_{obs}))\)</span>. It is not <span class="math notranslate nohighlight">\(P(H_0\mid D)\)</span>, and it is not the probability that the result happened “by chance.”</p></li>
 </ol>
 </section>
 <section id="the-fixed-margin-hypergeometric-derivation">
 <h3><span class="section-number">15.4.2. </span>The fixed-margin hypergeometric derivation<a class="headerlink" href="#the-fixed-margin-hypergeometric-derivation" title="Link to this heading">#</a></h3>
-<p>Given <span class="math notranslate nohighlight">\(N\)</span> units, <span class="math notranslate nohighlight">\(n\)</span> antecedent-positive units, and <span class="math notranslate nohighlight">\(m\)</span> positive outcomes, let <span class="math notranslate nohighlight">\(K\)</span> count joint positives. Under a <strong>uniform fixed-margin allocation</strong> there are <span class="math notranslate nohighlight">\(\binom Nm\)</span> equally likely outcome allocations. For exactly <span class="math notranslate nohighlight">\(k\)</span> positive outcomes in the antecedent group, choose <span class="math notranslate nohighlight">\(k\)</span> from its <span class="math notranslate nohighlight">\(n\)</span> units and <span class="math notranslate nohighlight">\(m-k\)</span> from the remaining <span class="math notranslate nohighlight">\(N-n\)</span> units. Thus</p>
+<p>Suppose there are <span class="math notranslate nohighlight">\(N\)</span> units, <span class="math notranslate nohighlight">\(n\)</span> antecedent-positive units, and <span class="math notranslate nohighlight">\(m\)</span> positive outcomes. Let <span class="math notranslate nohighlight">\(K\)</span> be the number that are positive in both groups. Under a <strong>uniform fixed-margin allocation</strong>, there are <span class="math notranslate nohighlight">\(\binom Nm\)</span> equally likely ways to place the <span class="math notranslate nohighlight">\(m\)</span> positive outcomes. To obtain exactly <span class="math notranslate nohighlight">\(k\)</span> joint positives, choose <span class="math notranslate nohighlight">\(k\)</span> from the <span class="math notranslate nohighlight">\(n\)</span> antecedent units and <span class="math notranslate nohighlight">\(m-k\)</span> from the other <span class="math notranslate nohighlight">\(N-n\)</span> units:</p>
 <div class="math notranslate nohighlight">
-\[P(K=k\mid N,n,m,H_0)=\frac{\binom nk\binom{N-n}{m-k}}{\binom Nm},\quad \max(0,m-N+n)\le k\le\min(n,m).\]</div>
-<p>Then <span class="math notranslate nohighlight">\(E[K]=nm/N\)</span>, <span class="math notranslate nohighlight">\(\mathrm{Var}(K)=n(m/N)(1-m/N)(N-n)/(N-1)\)</span>, and <span class="math notranslate nohighlight">\(\mathrm{Lift}=KN/(nm)\)</span> for <span class="math notranslate nohighlight">\(nm&gt;0\)</span>. Hence <span class="math notranslate nohighlight">\(E[\mathrm{Lift}]=1\)</span>. This is an exact null result <strong>under the stated allocation model</strong>, not for every observational data set.</p>
+\[P(K=k\mid N,n,m,H_0)=\frac{\binom nk\binom{N-n}{m-k}}{\binom Nm},\qquad \max(0,m-N+n)\le k\le\min(n,m).\]</div>
+<div class="math notranslate nohighlight">
+\[E[K]=n\frac mN,\qquad \mathrm{Var}(K)=n\frac mN\left(1-\frac mN\right)\frac{N-n}{N-1}.\]</div>
+<p>The final factor <span class="math notranslate nohighlight">\((N-n)/(N-1)\)</span> is the finite-population correction: sampling without replacement is less variable than independent Bernoulli sampling. The lift is <span class="math notranslate nohighlight">\(L=KN/(nm)\)</span> when <span class="math notranslate nohighlight">\(nm&gt;0\)</span>, so <span class="math notranslate nohighlight">\(E[L]=1\)</span> under this particular null.</p>
 </section>
-<section id="error-power-and-confidence-intervals">
-<h3><span class="section-number">15.4.3. </span>Error, power and confidence intervals<a class="headerlink" href="#error-power-and-confidence-intervals" title="Link to this heading">#</a></h3>
-<p>Type I error (第一类错误) is rejecting a true null; Type II error (第二类错误) is missing an alternative. Power (检验功效) is <span class="math notranslate nohighlight">\(1-\beta\)</span>. A confidence interval is built from a coverage procedure; it is not a probability distribution over a fixed parameter. Small p-values can coexist with negligible effects in large samples.</p>
+<section id="what-do-the-hypergeometric-mean-and-variance-look-like">
+<h3><span class="section-number">15.4.3. </span>What do the hypergeometric mean and variance look like?<a class="headerlink" href="#what-do-the-hypergeometric-mean-and-variance-look-like" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(E[K]\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Var}(K)\)</span> are <strong>numbers determined by the parameters</strong>, not random variables with their own distributions. The random quantity is <span class="math notranslate nohighlight">\(K\)</span>, whose probability mass function (PMF) assigns probabilities to the attainable integer overlaps. For fixed <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(m\)</span>, increasing <span class="math notranslate nohighlight">\(n\)</span> makes <span class="math notranslate nohighlight">\(E[K]=nm/N\)</span> grow linearly. The variance is zero at <span class="math notranslate nohighlight">\(n=0\)</span> and <span class="math notranslate nohighlight">\(n=N\)</span> and is largest near <span class="math notranslate nohighlight">\(n=N/2\)</span>; its exact values also depend on the positive-outcome fraction <span class="math notranslate nohighlight">\(m/N\)</span>.</p>
+<p><strong>Example.</strong> Imagine 50 eligible neighborhoods, 8 of which had a heat-related emergency during a defined week. A pre-specified group contains 10 neighborhoods. If the 8 events were uniformly allocated among the 50 neighborhoods under the null, then <span class="math notranslate nohighlight">\(K\sim\mathrm{Hypergeom}(50,8,10)\)</span>, <span class="math notranslate nohighlight">\(E[K]=1.6\)</span>, and <span class="math notranslate nohighlight">\(\mathrm{Var}(K)\approx1.097\)</span> (standard deviation <span class="math notranslate nohighlight">\(\approx1.047\)</span>). The PMF is discrete and often skewed when the expected overlap is small. When the sampling fraction is small, it is close to a binomial distribution; for larger sampling fractions the finite-population correction matters.</p>
+</section>
+<section id="type-i-error-type-ii-error-beta-and-power">
+<h3><span class="section-number">15.4.4. </span>Type I error, Type II error, beta, and power<a class="headerlink" href="#type-i-error-type-ii-error-beta-and-power" title="Link to this heading">#</a></h3>
+<p>A hypothesis test makes a decision, but the state of the world is not observed with certainty. There are four possible outcomes:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Truth</p></th>
+<th class="head"><p>Decision: do not reject <span class="math notranslate nohighlight">\(H_0\)</span></p></th>
+<th class="head"><p>Decision: reject <span class="math notranslate nohighlight">\(H_0\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(H_0\)</span> is true</p></td>
+<td><p>Correct decision</p></td>
+<td><p><strong>Type I error</strong> (第一类错误), probability controlled at <span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>A specified alternative is true</p></td>
+<td><p><strong>Type II error</strong> (第二类错误), probability <span class="math notranslate nohighlight">\(\beta\)</span></p></td>
+<td><p>Correct detection, probability <strong>power</strong> <span class="math notranslate nohighlight">\(=1-\beta\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Type I error (<span class="math notranslate nohighlight">\(\alpha\)</span>):</strong> a false alarm. For example, conclude a redesign improves conversion when in truth it does not. A test designed at <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> has a 5% long-run false-rejection rate <em>when its null model is true</em>; it does not mean there is a 5% chance this particular conclusion is false.</p></li>
+<li><p><strong>Type II error (<span class="math notranslate nohighlight">\(\beta\)</span>):</strong> a miss for a particular effect size and design. For example, conclude there is not enough evidence of improvement when the redesign truly raises conversion by 2 percentage points. <span class="math notranslate nohighlight">\(\beta\)</span> is not a universal constant: it changes with sample size, variability, effect size, <span class="math notranslate nohighlight">\(\alpha\)</span>, and the alternative being considered.</p></li>
+<li><p><strong>Power (<span class="math notranslate nohighlight">\(1-\beta\)</span>):</strong> the probability the planned test rejects <span class="math notranslate nohighlight">\(H_0\)</span> if that specified alternative is true. A power of 0.80 means an 80% chance of detecting that effect under the stated assumptions, not an 80% probability that the hypothesis is true.</p></li>
+</ul>
+<p>At a fixed sample size, lowering <span class="math notranslate nohighlight">\(\alpha\)</span> usually raises <span class="math notranslate nohighlight">\(\beta\)</span>. More observations, less measurement noise, or a larger true effect generally increase power. Select a scientifically meaningful minimum effect and target power <strong>before</strong> collecting data; a post-hoc power calculation based on the observed p-value adds little information.</p>
+</section>
+<section id="confidence-intervals-and-effect-size">
+<h3><span class="section-number">15.4.5. </span>Confidence intervals and effect size<a class="headerlink" href="#confidence-intervals-and-effect-size" title="Link to this heading">#</a></h3>
+<p>A 95% confidence procedure produces intervals that cover the fixed true parameter in about 95% of repeated samples under its assumptions. After one interval has been calculated, frequentist interpretation does <strong>not</strong> assign a 95% probability to the fixed parameter being inside that particular interval. Report the effect size and interval as well as the p-value: with enough observations, a tiny and practically unimportant difference can have a small p-value.</p>
 </section>
 <section id="randomization-versus-parametric-inference">
-<h3><span class="section-number">15.4.4. </span>Randomization versus parametric inference<a class="headerlink" href="#randomization-versus-parametric-inference" title="Link to this heading">#</a></h3>
-<p>A z-test assumes a standardized statistic has an adequate reference distribution. A permutation test assumes specific allocations are exchangeable under <span class="math notranslate nohighlight">\(H_0\)</span>. A bootstrap resamples observations to approximate an estimator’s sampling distribution; ordinary row bootstrap also fails if spatial/temporal dependence is ignored.</p>
+<h3><span class="section-number">15.4.6. </span>Randomization versus parametric inference<a class="headerlink" href="#randomization-versus-parametric-inference" title="Link to this heading">#</a></h3>
+<p>A z-test assumes a standardized statistic has an adequate reference distribution. A permutation test assumes specific allocations are exchangeable under <span class="math notranslate nohighlight">\(H_0\)</span>. A bootstrap resamples observations to approximate an estimator’s sampling distribution; an ordinary row bootstrap can fail when spatial or temporal dependence is ignored. Random assignment can support a causal comparison; observational association alone cannot.</p>
 </section>
 <section id="critical-thinking-checkpoint">
-<h3><span class="section-number">15.4.5. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
-<p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+<h3><span class="section-number">15.4.7. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
+<p>Before running code, state which observations are assumed independent or exchangeable and why. After inspecting the plots, explain how changing the effect size or sample size changes <span class="math notranslate nohighlight">\(\beta\)</span> and power.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span>
+
+<span class="c1"># 50 neighborhoods, 8 positive outcomes, and a fixed group of 10 neighborhoods.</span>
+<span class="n">population_size</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">total_positives</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">group_size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">possible_overlaps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">group_size</span> <span class="o">-</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="n">total_positives</span><span class="p">)),</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">group_size</span><span class="p">,</span> <span class="n">total_positives</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">overlap_pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span>
+    <span class="n">possible_overlaps</span><span class="p">,</span> <span class="n">population_size</span><span class="p">,</span> <span class="n">total_positives</span><span class="p">,</span> <span class="n">group_size</span>
+<span class="p">)</span>
+<span class="n">expected_overlap</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">population_size</span><span class="p">,</span> <span class="n">total_positives</span><span class="p">,</span> <span class="n">group_size</span><span class="p">)</span>
+<span class="n">variance_overlap</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">population_size</span><span class="p">,</span> <span class="n">total_positives</span><span class="p">,</span> <span class="n">group_size</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">possible_overlaps</span><span class="p">,</span> <span class="n">overlap_pmf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#278a78"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">expected_overlap</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"E[K] = </span><span class="si">{</span><span class="n">expected_overlap</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"PMF of the overlap K"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Positive units in the group (K)"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Probability"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">candidate_group_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">population_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">positive_fraction</span> <span class="o">=</span> <span class="n">total_positives</span> <span class="o">/</span> <span class="n">population_size</span>
+<span class="n">expected_by_group_size</span> <span class="o">=</span> <span class="n">candidate_group_sizes</span> <span class="o">*</span> <span class="n">positive_fraction</span>
+<span class="n">variance_by_group_size</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">candidate_group_sizes</span>
+    <span class="o">*</span> <span class="n">positive_fraction</span>
+    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">positive_fraction</span><span class="p">)</span>
+    <span class="o">*</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="n">candidate_group_sizes</span><span class="p">)</span>
+    <span class="o">/</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">candidate_group_sizes</span><span class="p">,</span> <span class="n">expected_by_group_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#276c9b"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">group_size</span><span class="p">],</span> <span class="p">[</span><span class="n">expected_overlap</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Expected overlap grows linearly"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Group size n"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"E[K]"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">candidate_group_sizes</span><span class="p">,</span> <span class="n">variance_by_group_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#b66c19"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">group_size</span><span class="p">],</span> <span class="p">[</span><span class="n">variance_overlap</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Variance has a finite-population peak"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Group size n"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Var(K)"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Hypergeometric overlap: N=50, M=8 positive units"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.04</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"For n=</span><span class="si">{</span><span class="n">group_size</span><span class="si">}</span><span class="s2">: E[K]=</span><span class="si">{</span><span class="n">expected_overlap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Var(K)=</span><span class="si">{</span><span class="n">variance_overlap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, SD(K)=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance_overlap</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"PMF sums to:"</span><span class="p">,</span> <span class="n">overlap_pmf</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d43aae23726cb2bc038af6685ab714bc4e8061e5aa404aa308a2228884d8e33b.png" src="../../_images/d43aae23726cb2bc038af6685ab714bc4e8061e5aa404aa308a2228884d8e33b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n=10: E[K]=1.600, Var(K)=1.097, SD(K)=1.047
+PMF sums to: 1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-type-i-error-type-ii-error-and-power">
+<h3><span class="section-number">15.4.8. </span>Visualizing Type I error, Type II error, and power<a class="headerlink" href="#visualizing-type-i-error-type-ii-error-and-power" title="Link to this heading">#</a></h3>
+<p>For a two-sided test with significance level <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, the rejection region is in both tails of the null reference distribution. If <span class="math notranslate nohighlight">\(H_0\)</span> is true, the probability of falling in those tails is <span class="math notranslate nohighlight">\(\alpha\)</span> (Type I error). Under a particular alternative, the statistic’s distribution shifts: the probability it still falls between the critical values is <span class="math notranslate nohighlight">\(\beta\)</span> (Type II error), and the probability it falls in either rejection tail is power <span class="math notranslate nohighlight">\(1-\beta\)</span>.</p>
+<p>The next plot uses a normal approximation to make those areas visible. The following simulation uses a two-proportion z-test to estimate the long-run false-alarm rate under <span class="math notranslate nohighlight">\(H_0\)</span> and detection rate under a specified alternative. The simulated <span class="math notranslate nohighlight">\(\hat\beta\)</span> is <span class="math notranslate nohighlight">\(1-\widehat{\text{power}}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">control_rate</span> <span class="o">=</span> <span class="mf">0.10</span>
+<span class="n">treatment_rate</span> <span class="o">=</span> <span class="mf">0.12</span>
+<span class="n">sample_size_per_arm</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">pooled_rate_under_null</span> <span class="o">=</span> <span class="p">(</span><span class="n">control_rate</span> <span class="o">+</span> <span class="n">treatment_rate</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">null_standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="n">pooled_rate_under_null</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pooled_rate_under_null</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">sample_size_per_arm</span>
+<span class="p">)</span>
+<span class="n">alternative_standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="n">control_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">control_rate</span><span class="p">)</span> <span class="o">/</span> <span class="n">sample_size_per_arm</span>
+    <span class="o">+</span> <span class="n">treatment_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">treatment_rate</span><span class="p">)</span> <span class="o">/</span> <span class="n">sample_size_per_arm</span>
+<span class="p">)</span>
+<span class="n">critical_value</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">alternative_mean_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">treatment_rate</span> <span class="o">-</span> <span class="n">control_rate</span><span class="p">)</span> <span class="o">/</span> <span class="n">null_standard_error</span>
+<span class="n">alternative_sd_z</span> <span class="o">=</span> <span class="n">alternative_standard_error</span> <span class="o">/</span> <span class="n">null_standard_error</span>
+<span class="n">z_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">null_density</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">z_values</span><span class="p">)</span>
+<span class="n">alternative_density</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+    <span class="n">z_values</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">alternative_mean_z</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alternative_sd_z</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z_values</span><span class="p">,</span> <span class="n">null_density</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#276c9b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"H0: no conversion difference"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z_values</span><span class="p">,</span> <span class="n">alternative_density</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"H1: treatment +2 percentage points"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">z_values</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">null_density</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_values</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">critical_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#276c9b"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.22</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Type I region (alpha)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">z_values</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alternative_density</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_values</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">critical_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#d9a441"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.38</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Type II region (beta)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">z_values</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alternative_density</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_values</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">critical_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Power = 1 - beta"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">critical_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">critical_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Critical values +/-</span><span class="si">{</span><span class="n">critical_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Sampling distributions of the test statistic (n=</span><span class="si">{</span><span class="n">sample_size_per_arm</span><span class="si">}</span><span class="s2"> per arm)"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Pooled two-proportion z statistic"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Density"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">approximate_power</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">critical_value</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">alternative_mean_z</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alternative_sd_z</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">critical_value</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">alternative_mean_z</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alternative_sd_z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Approximate Type I rate under H0: </span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">critical_value</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Approximate beta under this H1: </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">approximate_power</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Approximate power under this H1: </span><span class="si">{</span><span class="n">approximate_power</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3c27de329eb37659f313a43e371cab08c8663640374d0fcda4f752597bc910a2.png" src="../../_images/3c27de329eb37659f313a43e371cab08c8663640374d0fcda4f752597bc910a2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate Type I rate under H0: 0.050
+Approximate beta under this H1: 0.702
+Approximate power under this H1: 0.298
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulation-demo-sample-size-alpha-beta-and-power">
+<h3><span class="section-number">15.4.9. </span>Simulation demo: sample size, alpha, beta, and power<a class="headerlink" href="#simulation-demo-sample-size-alpha-beta-and-power" title="Link to this heading">#</a></h3>
+<p>Now simulate a planned A/B test with a 10% control conversion rate and a scientifically relevant alternative of 12%. Under the null, both groups convert at 10%; under the alternative, treatment converts at 12%. For each sample size, repeated datasets estimate the false-positive rate <span class="math notranslate nohighlight">\(\alpha\)</span>, power, and <span class="math notranslate nohighlight">\(\beta=1-\text{power}\)</span>. The curves fluctuate slightly because this is a finite Monte Carlo experiment; the declared seed makes it reproducible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">simulation_seed</span> <span class="o">=</span> <span class="mi">20261008</span>
+<span class="n">simulation_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">simulation_seed</span><span class="p">)</span>
+<span class="n">sample_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
+<span class="n">simulation_count</span> <span class="o">=</span> <span class="mi">12000</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">null_rate</span> <span class="o">=</span> <span class="mf">0.10</span>
+<span class="n">alternative_rate</span> <span class="o">=</span> <span class="mf">0.12</span>
+<span class="n">critical_value</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reject_two_proportion_null</span><span class="p">(</span><span class="n">control_counts</span><span class="p">,</span> <span class="n">treatment_counts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">pooled_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">control_counts</span> <span class="o">+</span> <span class="n">treatment_counts</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pooled_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pooled_rate</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">z_statistic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+        <span class="n">treatment_counts</span> <span class="o">/</span> <span class="n">n</span> <span class="o">-</span> <span class="n">control_counts</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">standard_error</span><span class="p">,</span>
+        <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">pooled_rate</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">where</span><span class="o">=</span><span class="n">standard_error</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_statistic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">critical_value</span>
+
+<span class="n">null_control</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_sizes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">null_rate</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">),</span> <span class="n">simulation_count</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">null_treatment</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_sizes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">null_rate</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">),</span> <span class="n">simulation_count</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">alternative_control</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_sizes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">null_rate</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">),</span> <span class="n">simulation_count</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">alternative_treatment</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_sizes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">alternative_rate</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">),</span> <span class="n">simulation_count</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">estimated_alpha</span> <span class="o">=</span> <span class="n">reject_two_proportion_null</span><span class="p">(</span><span class="n">null_control</span><span class="p">,</span> <span class="n">null_treatment</span><span class="p">,</span> <span class="n">sample_sizes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">estimated_power</span> <span class="o">=</span> <span class="n">reject_two_proportion_null</span><span class="p">(</span><span class="n">alternative_control</span><span class="p">,</span> <span class="n">alternative_treatment</span><span class="p">,</span> <span class="n">sample_sizes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">estimated_beta</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">estimated_power</span>
+<span class="n">power_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"n per arm"</span><span class="p">:</span> <span class="n">sample_sizes</span><span class="p">,</span>
+    <span class="s2">"estimated Type I rate"</span><span class="p">:</span> <span class="n">estimated_alpha</span><span class="p">,</span>
+    <span class="s2">"estimated beta"</span><span class="p">:</span> <span class="n">estimated_beta</span><span class="p">,</span>
+    <span class="s2">"estimated power"</span><span class="p">:</span> <span class="n">estimated_power</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">,</span> <span class="n">estimated_alpha</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#276c9b"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Target alpha = </span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"False-positive rate under H0"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Sample size per arm"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Rejection proportion"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">,</span> <span class="n">estimated_power</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#278a78"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Power = 1 - beta"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">,</span> <span class="n">estimated_beta</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"s"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#b66c19"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Beta"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Common planning target: 0.80 power"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Detection under a +2-point alternative"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Sample size per arm"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Probability"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">power_results</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d4c62a3e15472cb782960b0aeb4be37620e2cbb65205a9bf49874f543d15d6b2.png" src="../../_images/d4c62a3e15472cb782960b0aeb4be37620e2cbb65205a9bf49874f543d15d6b2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> n per arm  estimated Type I rate  estimated beta  estimated power
+       100                  0.054           0.926            0.074
+       250                  0.049           0.890            0.110
+       500                  0.049           0.824            0.176
+      1000                  0.050           0.702            0.298
+      2000                  0.048           0.473            0.528
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="real-world-use-case-evaluating-a-checkout-redesign">
+<h3><span class="section-number">15.4.10. </span>Real-world use case: evaluating a checkout redesign<a class="headerlink" href="#real-world-use-case-evaluating-a-checkout-redesign" title="Link to this heading">#</a></h3>
+<p>A product team randomizes eligible visitors to the current checkout (control) or a redesigned checkout (treatment), then records whether each visitor completes a purchase. The outcome is binary, so a two-proportion test can assess the conversion-rate difference. The values below are <strong>constructed teaching data</strong>, not a claim about a particular company’s experiment.</p>
+<p>Suppose each arm has 30,000 unique visitors: 3,000 purchases in control and 3,240 in treatment. The observed absolute difference is 0.8 percentage points. The code calculates a two-sided pooled z-test and a 95% Wald confidence interval for the unpooled risk difference. Before acting, the team should also consider the interval’s range of plausible business impact, implementation cost, randomization integrity, repeated users, experiment peeking, and whether this was one of many tested outcomes. Statistical significance alone does not establish worthwhile value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">control_visitors</span> <span class="o">=</span> <span class="mi">30_000</span>
+<span class="n">control_purchases</span> <span class="o">=</span> <span class="mi">3_000</span>
+<span class="n">treatment_visitors</span> <span class="o">=</span> <span class="mi">30_000</span>
+<span class="n">treatment_purchases</span> <span class="o">=</span> <span class="mi">3_240</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">control_rate_hat</span> <span class="o">=</span> <span class="n">control_purchases</span> <span class="o">/</span> <span class="n">control_visitors</span>
+<span class="n">treatment_rate_hat</span> <span class="o">=</span> <span class="n">treatment_purchases</span> <span class="o">/</span> <span class="n">treatment_visitors</span>
+<span class="n">risk_difference</span> <span class="o">=</span> <span class="n">treatment_rate_hat</span> <span class="o">-</span> <span class="n">control_rate_hat</span>
+<span class="n">pooled_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">control_purchases</span> <span class="o">+</span> <span class="n">treatment_purchases</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">control_visitors</span> <span class="o">+</span> <span class="n">treatment_visitors</span><span class="p">)</span>
+<span class="n">null_standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="n">pooled_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pooled_rate</span><span class="p">)</span>
+    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">control_visitors</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">treatment_visitors</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">z_statistic</span> <span class="o">=</span> <span class="n">risk_difference</span> <span class="o">/</span> <span class="n">null_standard_error</span>
+<span class="n">p_value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z_statistic</span><span class="p">))</span>
+
+<span class="n">confidence_standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="n">control_rate_hat</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">control_rate_hat</span><span class="p">)</span> <span class="o">/</span> <span class="n">control_visitors</span>
+    <span class="o">+</span> <span class="n">treatment_rate_hat</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">treatment_rate_hat</span><span class="p">)</span> <span class="o">/</span> <span class="n">treatment_visitors</span>
+<span class="p">)</span>
+<span class="n">ci_lower</span> <span class="o">=</span> <span class="n">risk_difference</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span> <span class="o">*</span> <span class="n">confidence_standard_error</span>
+<span class="n">ci_upper</span> <span class="o">=</span> <span class="n">risk_difference</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span> <span class="o">*</span> <span class="n">confidence_standard_error</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Control conversion:   </span><span class="si">{</span><span class="n">control_rate_hat</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">control_purchases</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">control_visitors</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Treatment conversion: </span><span class="si">{</span><span class="n">treatment_rate_hat</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">treatment_purchases</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">treatment_visitors</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Absolute difference:  </span><span class="si">{</span><span class="n">risk_difference</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">risk_difference</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> percentage points)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"95% Wald CI:          [</span><span class="si">{</span><span class="n">ci_lower</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ci_upper</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Two-sided z statistic: </span><span class="si">{</span><span class="n">z_statistic</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Two-sided p-value:     </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Estimated extra purchases per 10,000 visitors: </span><span class="si">{</span><span class="n">risk_difference</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10_000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Decision at alpha=0.05:"</span><span class="p">,</span> <span class="s2">"reject H0"</span> <span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span> <span class="k">else</span> <span class="s2">"do not reject H0"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Control conversion:   10.00% (3,000/30,000)
+Treatment conversion: 10.80% (3,240/30,000)
+Absolute difference:  0.80% (0.80 percentage points)
+95% Wald CI:          [0.31%, 1.29%]
+Two-sided z statistic: 3.210
+Two-sided p-value:     0.00132872
+Estimated extra purchases per 10,000 visitors: 80
+Decision at alpha=0.05: reject H0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="additional-derivation-visualization-general-purpose-example">
@@ -998,9 +1299,14 @@ D. It is always conservative</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations-and-mathematical-derivations">15.4. Foundations and Mathematical Derivations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-scientific-question-to-a-test">15.4.1. From a scientific question to a test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fixed-margin-hypergeometric-derivation">15.4.2. The fixed-margin hypergeometric derivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-power-and-confidence-intervals">15.4.3. Error, power and confidence intervals</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization-versus-parametric-inference">15.4.4. Randomization versus parametric inference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">15.4.5. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-the-hypergeometric-mean-and-variance-look-like">15.4.3. What do the hypergeometric mean and variance look like?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-error-type-ii-error-beta-and-power">15.4.4. Type I error, Type II error, beta, and power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-intervals-and-effect-size">15.4.5. Confidence intervals and effect size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization-versus-parametric-inference">15.4.6. Randomization versus parametric inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">15.4.7. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-type-i-error-type-ii-error-and-power">15.4.8. Visualizing Type I error, Type II error, and power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-demo-sample-size-alpha-beta-and-power">15.4.9. Simulation demo: sample size, alpha, beta, and power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-use-case-evaluating-a-checkout-redesign">15.4.10. Real-world use case: evaluating a checkout redesign</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">15.5. Additional Derivation Visualization — General-Purpose Example</a></li>
