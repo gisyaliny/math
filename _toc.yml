@@ -41,6 +41,12 @@ parts:
       - file: docs/st_learning_anselin/L7-LISA
       - file: docs/st_learning_anselin/L8-Other-Local-Statistics
       - file: docs/st_learning_anselin/L9-Multivariate-LISA
+      - file: docs/Spatial-statistics/README
+      - file: docs/Spatial-statistics/Chapter_B_statistical_hypothesis_testing
+      - file: docs/Spatial-statistics/Chapter_C_multiple_hypothesis_testing
+      - file: docs/Spatial-statistics/Chapter_D_spatial_statistics
+      - file: docs/Spatial-statistics/Chapter_E_spatio-temporal_processes
+      - file: docs/Spatial-statistics/Chapter_F_statistical_simulation_and_validation
   - caption: Spatial Optimization
     numbered: true
     maxdepth: 2
