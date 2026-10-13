@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -515,6 +515,14 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-time-covariance">18.4.4. Space-time covariance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-design-choices">18.4.5. Practical design choices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">18.4.6. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-searching-across-lags-creates-a-multiple-testing-problem">18.4.7. Why searching across lags creates a multiple-testing problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-per-test-safeguards-to-discovery-list-control">18.4.8. From per-test safeguards to discovery-list control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-them-for-a-lagged-early-warning-study">18.4.9. How to use them for a lagged early-warning study</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-error-type-ii-error-beta-power-and-intervals-for-lag-effects">18.4.10. Type I error, Type II error, beta, power, and intervals for lag effects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-overlap-a-useful-baseline-not-a-universal-time-series-null">18.4.11. Hypergeometric overlap: a useful baseline, not a universal time-series null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#realistic-application-heat-health-early-warning">18.4.12. Realistic application: heat-health early warning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-demonstration-with-temporal-persistence">18.4.13. Power demonstration with temporal persistence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-application-compare-heat-alert-and-matched-non-alert-periods">18.4.14. Worked application: compare heat-alert and matched non-alert periods</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">18.5. Additional Derivation Visualization — General-Purpose Example</a></li>
@@ -614,6 +622,272 @@
 <section id="critical-thinking-checkpoint">
 <h3><span class="section-number">18.4.6. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
 <p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+</section>
+<section id="why-searching-across-lags-creates-a-multiple-testing-problem">
+<h3><span class="section-number">18.4.7. </span>Why searching across lags creates a multiple-testing problem<a class="headerlink" href="#why-searching-across-lags-creates-a-multiple-testing-problem" title="Link to this heading">#</a></h3>
+<p>A time-series analyst rarely looks at only one hypothesis. A typical scan tests many lags, stations or regions, outcomes, seasonal windows, and thresholds. If each is tested at nominal <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, the probability of at least one false alarm can grow rapidly. Serial correlation makes adjacent-lag test statistics dependent; common storms, repeated sites, and seasonality add further dependence. Thus “try every lag and report the smallest p-value” is a selection procedure, not a single prespecified test.</p>
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be false rejected lag/site hypotheses, <span class="math notranslate nohighlight">\(R\)</span> all rejections, and <span class="math notranslate nohighlight">\(S=R-V\)</span>. The <strong>FDP</strong> <span class="math notranslate nohighlight">\(V/\max(R,1)\)</span> is the false share in one realized alert list; <strong>FDR</strong> is its expectation over repeated studies; <strong>FWER</strong> <span class="math notranslate nohighlight">\(P(V\ge1)\)</span> is the chance of any false claim. Under the complete null FDR=FWER; with real signals FDR can be smaller. Choose FWER when any false warning has high cost; choose FDR when the goal is a ranked set of leads with a controlled expected false share.</p>
+</section>
+<section id="from-per-test-safeguards-to-discovery-list-control">
+<h3><span class="section-number">18.4.8. </span>From per-test safeguards to discovery-list control<a class="headerlink" href="#from-per-test-safeguards-to-discovery-list-control" title="Link to this heading">#</a></h3>
+<p><strong>Bonferroni</strong> divides a total false-alarm budget <span class="math notranslate nohighlight">\(\alpha\)</span> by the family size <span class="math notranslate nohighlight">\(M\)</span>. The union bound gives FWER <span class="math notranslate nohighlight">\(\le\alpha\)</span> for valid p-values, without requiring independence. It is easy to use for a few prespecified lags but may miss modest effects in a broad scan.</p>
+<p><strong>Benjamini–Hochberg (BH, 1995)</strong> arose because controlling the chance of even one false discovery can be too strict for exploratory families with genuine signals. Sort p-values and reject through the largest <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(p_{(k)}\le kq/M\)</span>. This controls FDR for independent valid tests and under specified positive dependence (PRDS); serial dependence must be justified, not assumed away.</p>
+<p><strong>Benjamini–Yekutieli (BY, 2001)</strong> changes the BH threshold to <span class="math notranslate nohighlight">\(kq/(M H_M)\)</span>, <span class="math notranslate nohighlight">\(H_M=\sum_{j=1}^M1/j\)</span>. It controls FDR under arbitrary dependence among valid p-values, usually with lower power. None of these procedures repairs p-values from unrestricted shuffling when season, site, or trend makes rows nonexchangeable.</p>
+</section>
+<section id="how-to-use-them-for-a-lagged-early-warning-study">
+<h3><span class="section-number">18.4.9. </span>How to use them for a lagged early-warning study<a class="headerlink" href="#how-to-use-them-for-a-lagged-early-warning-study" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Define the entire family before inspecting outcomes: every site/region, outcome, lag, seasonal window, and threshold to be searched.</p></li>
+<li><p>Build a null that respects the design—e.g. restricted permutations within defensible season/site blocks, block bootstrap, or a fitted space-time process. Preserve common focal periods when comparing lags.</p></li>
+<li><p>Diagnose complete-null calibration and check that the p-values are super-uniform. Only then choose an adjustment: Bonferroni for any-false-warning control, BH for an exploratory list when dependence conditions hold, BY for arbitrary dependence of valid p-values, or a justified max-statistic/block method for a whole scan.</p></li>
+<li><p>Report <span class="math notranslate nohighlight">\(M\)</span>, the family, null construction, adjusted results, effect sizes, confidence intervals, and operational false-alarm costs. A lag association is not automatically a causal delay.</p></li>
+</ol>
+<p><strong>Development of the ideas:</strong> Benjamini &amp; Hochberg (1995) introduced FDR as a practical alternative to FWER when the expected false share is the relevant goal; Benjamini &amp; Yekutieli (2001) extended the guarantee to dependent tests. See <a class="reference external" href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x">BH (1995)</a>, <a class="reference external" href="https://doi.org/10.1214/aos/1013699998">BY (2001)</a>, and the <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm">NIST Bonferroni explanation</a>.</p>
+</section>
+<section id="type-i-error-type-ii-error-beta-power-and-intervals-for-lag-effects">
+<h3><span class="section-number">18.4.10. </span>Type I error, Type II error, beta, power, and intervals for lag effects<a class="headerlink" href="#type-i-error-type-ii-error-beta-power-and-intervals-for-lag-effects" title="Link to this heading">#</a></h3>
+<p>For a prespecified lag hypothesis, a <strong>Type I error</strong> is a false alarm: rejecting no lag association when that null is true. A <strong>Type II error</strong> is missing a specified real lag effect; its probability is <span class="math notranslate nohighlight">\(\beta\)</span>, and power is <span class="math notranslate nohighlight">\(1-\beta\)</span>. <span class="math notranslate nohighlight">\(\beta\)</span> depends on the effect size, number of independent time blocks/sites, event prevalence, test threshold, and dependence structure. A 95% confidence interval is generated by a procedure that covers the fixed effect in about 95% of repeated valid studies; it is not a 95% probability distribution over the already-fixed effect.</p>
+<p>Looking at many lags, sites, seasons, or thresholds creates a multiple-testing family. The per-test Type I rate <span class="math notranslate nohighlight">\(\alpha\)</span> is not the probability of any false alarm over that whole search. Prespecify the lag family and use a correction or a max-statistic/block-randomization procedure that matches the dependence. Adjacent lags can be associated because exposures persist even when only one lag is in the event-generating equation.</p>
+</section>
+<section id="hypergeometric-overlap-a-useful-baseline-not-a-universal-time-series-null">
+<h3><span class="section-number">18.4.11. </span>Hypergeometric overlap: a useful baseline, not a universal time-series null<a class="headerlink" href="#hypergeometric-overlap-a-useful-baseline-not-a-universal-time-series-null" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(N\)</span> eligible site-weeks are exchangeable, <span class="math notranslate nohighlight">\(n\)</span> are heat-alert weeks, and <span class="math notranslate nohighlight">\(m\)</span> have an outcome, the overlap <span class="math notranslate nohighlight">\(K\)</span> under uniform fixed margins has</p>
+<div class="math notranslate nohighlight">
+\[P(K=k)=\frac{\binom nk\binom{N-n}{m-k}}{\binom Nm},\quad E[K]=n\frac mN,\quad \mathrm{Var}(K)=n\frac mN\left(1-\frac mN\right)\frac{N-n}{N-1}.\]</div>
+<p>The PMF describes the random integer <span class="math notranslate nohighlight">\(K\)</span>; <span class="math notranslate nohighlight">\(E[K]\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Var}(K)\)</span> are scalar summaries, not distributions. For an illustrative 5,200 site-weeks, 104 event site-weeks, and 520 alert site-weeks, the null mean overlap is 10.4. But if events cluster across weeks, alert status is seasonal, or the same sites recur, uniform allocation over all rows is not a credible null. Restrict shuffles within appropriate time/site blocks only when exchangeability within those blocks is defensible.</p>
+</section>
+<section id="realistic-application-heat-health-early-warning">
+<h3><span class="section-number">18.4.12. </span>Realistic application: heat-health early warning<a class="headerlink" href="#realistic-application-heat-health-early-warning" title="Link to this heading">#</a></h3>
+<p>A public-health agency asks whether a heat alert issued at week <span class="math notranslate nohighlight">\(t-1\)</span> helps identify weeks with elevated heat-related emergency visits at week <span class="math notranslate nohighlight">\(t\)</span>. A useful report includes event-rate difference and interval, detection probability for a prespecified actionable increase, and false-alarm burden across all tested regions/lags. The code below uses <strong>constructed teaching data</strong>, not observations from an actual agency. Its simple independent-week power curve is a baseline; serial correlation reduces the effective information and must be addressed in design and inference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span>
+
+<span class="n">population_size</span> <span class="o">=</span> <span class="mi">5200</span>
+<span class="n">event_site_weeks</span> <span class="o">=</span> <span class="mi">104</span>
+<span class="n">heat_alert_site_weeks</span> <span class="o">=</span> <span class="mi">520</span>
+<span class="n">possible_overlaps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">heat_alert_site_weeks</span> <span class="o">+</span> <span class="n">event_site_weeks</span> <span class="o">-</span> <span class="n">population_size</span><span class="p">),</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">heat_alert_site_weeks</span><span class="p">,</span> <span class="n">event_site_weeks</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">overlap_probabilities</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span>
+    <span class="n">possible_overlaps</span><span class="p">,</span>
+    <span class="n">population_size</span><span class="p">,</span>
+    <span class="n">event_site_weeks</span><span class="p">,</span>
+    <span class="n">heat_alert_site_weeks</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">expected_overlap</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+    <span class="n">population_size</span><span class="p">,</span> <span class="n">event_site_weeks</span><span class="p">,</span> <span class="n">heat_alert_site_weeks</span>
+<span class="p">)</span>
+<span class="n">variance_overlap</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span>
+    <span class="n">population_size</span><span class="p">,</span> <span class="n">event_site_weeks</span><span class="p">,</span> <span class="n">heat_alert_site_weeks</span>
+<span class="p">)</span>
+
+<span class="n">candidate_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">population_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">event_fraction</span> <span class="o">=</span> <span class="n">event_site_weeks</span> <span class="o">/</span> <span class="n">population_size</span>
+<span class="n">expected_by_size</span> <span class="o">=</span> <span class="n">candidate_sizes</span> <span class="o">*</span> <span class="n">event_fraction</span>
+<span class="n">variance_by_size</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">candidate_sizes</span> <span class="o">*</span> <span class="n">event_fraction</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">event_fraction</span><span class="p">)</span>
+    <span class="o">*</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="n">candidate_sizes</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">possible_overlaps</span><span class="p">,</span> <span class="n">overlap_probabilities</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#278a78"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">expected_overlap</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"E[K] = </span><span class="si">{</span><span class="n">expected_overlap</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"PMF of alert-event overlap K"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Event site-weeks during heat alerts"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Probability"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">candidate_sizes</span><span class="p">,</span> <span class="n">expected_by_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#276c9b"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">heat_alert_site_weeks</span><span class="p">],</span> <span class="p">[</span><span class="n">expected_overlap</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Expected overlap"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Alert site-weeks n"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"E[K]"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">candidate_sizes</span><span class="p">,</span> <span class="n">variance_by_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#b66c19"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">heat_alert_site_weeks</span><span class="p">],</span> <span class="p">[</span><span class="n">variance_overlap</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Variance under fixed margins"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Alert site-weeks n"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Var(K)"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Illustrative exchangeable site-week baseline"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.04</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"E[K]=</span><span class="si">{</span><span class="n">expected_overlap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; Var(K)=</span><span class="si">{</span><span class="n">variance_overlap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; SD(K)=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance_overlap</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PMF sums to </span><span class="si">{</span><span class="n">overlap_probabilities</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Reminder: temporal clustering or seasonality can invalidate uniform allocation."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2cb7a177da3ca29a737d5afd014d288239edc02cf3377555db217a4990ce9d77.png" src="../../_images/2cb7a177da3ca29a737d5afd014d288239edc02cf3377555db217a4990ce9d77.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>E[K]=10.400; Var(K)=9.175; SD(K)=3.029
+PMF sums to 1.000000
+Reminder: temporal clustering or seasonality can invalidate uniform allocation.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="power-demonstration-with-temporal-persistence">
+<h3><span class="section-number">18.4.13. </span>Power demonstration with temporal persistence<a class="headerlink" href="#power-demonstration-with-temporal-persistence" title="Link to this heading">#</a></h3>
+<p>For an AR(1)-like correlation <span class="math notranslate nohighlight">\(\rho\)</span> among consecutive observations, a rough effective sample-size approximation for a mean is <span class="math notranslate nohighlight">\(n_{eff}\approx n(1-\rho)/(1+\rho)\)</span>. This is only a teaching approximation, not a replacement for a correctly specified time-series or block-randomization analysis. The simulation compares power for a 3-point increase in weekly event probability when 10% is the baseline, with nominal sample sizes interpreted as independent weeks versus reduced effective counts at <span class="math notranslate nohighlight">\(\rho=0.60\)</span>. It also checks that the two-sided null rejection rate stays near <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> in the simplified binomial benchmark.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">power_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">20261008</span><span class="p">)</span>
+<span class="n">nominal_sample_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
+<span class="n">replications</span> <span class="o">=</span> <span class="mi">12000</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">baseline_event_rate</span> <span class="o">=</span> <span class="mf">0.10</span>
+<span class="n">elevated_event_rate</span> <span class="o">=</span> <span class="mf">0.13</span>
+<span class="n">temporal_correlation</span> <span class="o">=</span> <span class="mf">0.60</span>
+<span class="n">effective_sample_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+    <span class="mi">2</span><span class="p">,</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span>
+        <span class="n">nominal_sample_sizes</span>
+        <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">temporal_correlation</span><span class="p">)</span>
+        <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">temporal_correlation</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_two_rate_rejection</span><span class="p">(</span><span class="n">n_per_arm</span><span class="p">,</span> <span class="n">treatment_rate</span><span class="p">):</span>
+    <span class="n">control_events</span> <span class="o">=</span> <span class="n">power_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+        <span class="n">n_per_arm</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">baseline_event_rate</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_per_arm</span><span class="p">),</span> <span class="n">replications</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">treatment_events</span> <span class="o">=</span> <span class="n">power_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+        <span class="n">n_per_arm</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">treatment_rate</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_per_arm</span><span class="p">),</span> <span class="n">replications</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">pooled_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">control_events</span> <span class="o">+</span> <span class="n">treatment_events</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_per_arm</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="n">pooled_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pooled_rate</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">n_per_arm</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">z_statistic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+        <span class="n">treatment_events</span> <span class="o">/</span> <span class="n">n_per_arm</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="o">-</span> <span class="n">control_events</span> <span class="o">/</span> <span class="n">n_per_arm</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">standard_error</span><span class="p">,</span>
+        <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">pooled_rate</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">where</span><span class="o">=</span><span class="n">standard_error</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_statistic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">null_rejections_independent</span> <span class="o">=</span> <span class="n">simulate_two_rate_rejection</span><span class="p">(</span>
+    <span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">baseline_event_rate</span>
+<span class="p">)</span>
+<span class="n">null_rejections_effective</span> <span class="o">=</span> <span class="n">simulate_two_rate_rejection</span><span class="p">(</span>
+    <span class="n">effective_sample_sizes</span><span class="p">,</span> <span class="n">baseline_event_rate</span>
+<span class="p">)</span>
+<span class="n">power_independent</span> <span class="o">=</span> <span class="n">simulate_two_rate_rejection</span><span class="p">(</span>
+    <span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">elevated_event_rate</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">power_effective</span> <span class="o">=</span> <span class="n">simulate_two_rate_rejection</span><span class="p">(</span>
+    <span class="n">effective_sample_sizes</span><span class="p">,</span> <span class="n">elevated_event_rate</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">alpha_independent</span> <span class="o">=</span> <span class="n">null_rejections_independent</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">alpha_effective</span> <span class="o">=</span> <span class="n">null_rejections_effective</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">beta_effective</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">power_effective</span>
+
+<span class="n">power_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"nominal weeks per arm"</span><span class="p">:</span> <span class="n">nominal_sample_sizes</span><span class="p">,</span>
+    <span class="s2">"n_eff per arm (rho=.60)"</span><span class="p">:</span> <span class="n">effective_sample_sizes</span><span class="p">,</span>
+    <span class="s2">"alpha, independent"</span><span class="p">:</span> <span class="n">alpha_independent</span><span class="p">,</span>
+    <span class="s2">"alpha, n_eff approximation"</span><span class="p">:</span> <span class="n">alpha_effective</span><span class="p">,</span>
+    <span class="s2">"power, independent"</span><span class="p">:</span> <span class="n">power_independent</span><span class="p">,</span>
+    <span class="s2">"power, n_eff approximation"</span><span class="p">:</span> <span class="n">power_effective</span><span class="p">,</span>
+    <span class="s2">"beta, n_eff approximation"</span><span class="p">:</span> <span class="n">beta_effective</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">alpha_independent</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Independent weeks"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">alpha_effective</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"s"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Effective-size approximation"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Target alpha = 0.05"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Type I error under the null"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Nominal weeks per arm"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Rejection proportion"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">power_independent</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Power if independent"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">power_effective</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"s"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Power after n_eff reduction"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nominal_sample_sizes</span><span class="p">,</span> <span class="n">beta_effective</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"^"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Beta after n_eff reduction"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"0.80 planning target"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"3-point rise in event probability"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Nominal weeks per arm"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Probability"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">power_table</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5d6beca7bc6a232022bde2f747e5ad7285cb76a2be58952348a92f381106a390.png" src="../../_images/5d6beca7bc6a232022bde2f747e5ad7285cb76a2be58952348a92f381106a390.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> nominal weeks per arm  n_eff per arm (rho=.60)  alpha, independent  alpha, n_eff approximation  power, independent  power, n_eff approximation  beta, n_eff approximation
+                   100                       25               0.053                       0.047               0.106                       0.068                      0.932
+                   250                       62               0.048                       0.053               0.184                       0.083                      0.917
+                   500                      125               0.051                       0.050               0.315                       0.113                      0.887
+                  1000                      250               0.049                       0.048               0.559                       0.182                      0.818
+                  2000                      500               0.051                       0.050               0.846                       0.322                      0.678
+                  5000                     1250               0.048                       0.048               0.996                       0.656                      0.344
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="worked-application-compare-heat-alert-and-matched-non-alert-periods">
+<h3><span class="section-number">18.4.14. </span>Worked application: compare heat-alert and matched non-alert periods<a class="headerlink" href="#worked-application-compare-heat-alert-and-matched-non-alert-periods" title="Link to this heading">#</a></h3>
+<p>The rates below are <strong>constructed teaching data</strong>: heat-related emergency visits per 10,000 residents for 12 matched region-season blocks. A paired interval summarizes the mean within-pair difference and makes the comparison unit explicit. In a real study, match or model calendar season and baseline risk, account for serial dependence across blocks, and prespecify the lag and tested regions. Because alert status is not randomized here, the result is an association, not by itself a causal effect.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">ttest_1samp</span>
+
+<span class="n">alert_rate_per_10k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">8.7</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">,</span> <span class="mf">10.6</span><span class="p">,</span> <span class="mf">11.7</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">])</span>
+<span class="n">matched_no_alert_rate_per_10k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">7.2</span><span class="p">,</span> <span class="mf">8.7</span><span class="p">,</span> <span class="mf">9.4</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">7.3</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">9.4</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">])</span>
+<span class="n">paired_differences</span> <span class="o">=</span> <span class="n">alert_rate_per_10k</span> <span class="o">-</span> <span class="n">matched_no_alert_rate_per_10k</span>
+<span class="n">number_of_pairs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">paired_differences</span><span class="p">)</span>
+<span class="n">mean_difference</span> <span class="o">=</span> <span class="n">paired_differences</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">standard_error</span> <span class="o">=</span> <span class="n">paired_differences</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number_of_pairs</span><span class="p">)</span>
+<span class="n">critical_t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">number_of_pairs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">confidence_interval</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">mean_difference</span> <span class="o">-</span> <span class="n">critical_t</span> <span class="o">*</span> <span class="n">standard_error</span><span class="p">,</span>
+    <span class="n">mean_difference</span> <span class="o">+</span> <span class="n">critical_t</span> <span class="o">*</span> <span class="n">standard_error</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">paired_differences</span><span class="p">,</span> <span class="n">popmean</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">block_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number_of_pairs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">block_positions</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">matched_no_alert_rate_per_10k</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alert_rate_per_10k</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]],</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">"#9aa5ad"</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Matched non-alert"</span><span class="p">,</span> <span class="s2">"Heat alert"</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Emergency visits per 10,000 residents"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Paired region-season teaching data"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Matched blocks: </span><span class="si">{</span><span class="n">number_of_pairs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mean paired difference (alert - non-alert): </span><span class="si">{</span><span class="n">mean_difference</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> visits per 10,000"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"95% paired t interval: [</span><span class="si">{</span><span class="n">confidence_interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">confidence_interval</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Two-sided paired t-test: t=</span><span class="si">{</span><span class="n">t_statistic</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Interpretation: descriptive association; causal interpretation needs a defensible design and dependence-aware analysis."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1d9984e8bcdd519f970e4fa4fe49f5dbcc6a269ff2355efb6aac5ab245a0358b.png" src="../../_images/1d9984e8bcdd519f970e4fa4fe49f5dbcc6a269ff2355efb6aac5ab245a0358b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matched blocks: 12
+Mean paired difference (alert - non-alert): 1.56 visits per 10,000
+95% paired t interval: [1.42, 1.69]
+Two-sided paired t-test: t=25.599, p=0.0000
+Interpretation: descriptive association; causal interpretation needs a defensible design and dependence-aware analysis.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="additional-derivation-visualization-general-purpose-example">
@@ -997,6 +1271,14 @@ D. None</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-time-covariance">18.4.4. Space-time covariance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-design-choices">18.4.5. Practical design choices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">18.4.6. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-searching-across-lags-creates-a-multiple-testing-problem">18.4.7. Why searching across lags creates a multiple-testing problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-per-test-safeguards-to-discovery-list-control">18.4.8. From per-test safeguards to discovery-list control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-them-for-a-lagged-early-warning-study">18.4.9. How to use them for a lagged early-warning study</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-error-type-ii-error-beta-power-and-intervals-for-lag-effects">18.4.10. Type I error, Type II error, beta, power, and intervals for lag effects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-overlap-a-useful-baseline-not-a-universal-time-series-null">18.4.11. Hypergeometric overlap: a useful baseline, not a universal time-series null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#realistic-application-heat-health-early-warning">18.4.12. Realistic application: heat-health early warning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-demonstration-with-temporal-persistence">18.4.13. Power demonstration with temporal persistence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-application-compare-heat-alert-and-matched-non-alert-periods">18.4.14. Worked application: compare heat-alert and matched non-alert periods</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">18.5. Additional Derivation Visualization — General-Purpose Example</a></li>

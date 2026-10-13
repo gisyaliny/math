@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -515,6 +515,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-s-i-and-why-aggregation-matters">17.4.4. Moran’s I and why aggregation matters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-needs-a-spatial-reference">17.4.5. Inference needs a spatial reference</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">17.4.6. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-spatial-hotspot-maps-need-multiplicity-control">17.4.7. Why spatial hotspot maps need multiplicity control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-methods-arose-and-what-their-guarantees-mean-here">17.4.8. How the methods arose and what their guarantees mean here</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-practical-spatial-workflow">17.4.9. A practical spatial workflow</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">17.5. Additional Derivation Visualization — General-Purpose Example</a></li>
@@ -622,6 +625,30 @@
 <section id="critical-thinking-checkpoint">
 <h3><span class="section-number">17.4.6. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
 <p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+</section>
+<section id="why-spatial-hotspot-maps-need-multiplicity-control">
+<h3><span class="section-number">17.4.7. </span>Why spatial hotspot maps need multiplicity control<a class="headerlink" href="#why-spatial-hotspot-maps-need-multiplicity-control" title="Link to this heading">#</a></h3>
+<p>A spatial analyst may test every county, every disk center, several radii, outcomes, and time windows. Even if each valid local test uses <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, displaying every unadjusted “significant” location creates a multiple-comparisons problem. Overlapping polygons or disks also reuse events, so their p-values are dependent <strong>even under complete spatial randomness</strong>. This dependence is a consequence of the observation geometry, not proof of a causal spatial process.</p>
+<p>For a map-wide family of <span class="math notranslate nohighlight">\(M\)</span> tests, <span class="math notranslate nohighlight">\(V\)</span> counts false hotspot declarations, <span class="math notranslate nohighlight">\(R\)</span> all declarations, and <span class="math notranslate nohighlight">\(S=R-V\)</span> true ones. The <strong>FDP</strong> is the realized share <span class="math notranslate nohighlight">\(V/\max(R,1)\)</span>; its repeated-study expectation is <strong>FDR</strong>; <strong>FWER</strong> is the probability <span class="math notranslate nohighlight">\(P(V\ge1)\)</span> of any false hotspot. Under the complete null, FDR=FWER; when some hotspots are real, FDR can be much smaller. Ask what a false declaration costs before choosing which risk to control.</p>
+</section>
+<section id="how-the-methods-arose-and-what-their-guarantees-mean-here">
+<h3><span class="section-number">17.4.8. </span>How the methods arose and what their guarantees mean here<a class="headerlink" href="#how-the-methods-arose-and-what-their-guarantees-mean-here" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Bonferroni:</strong> many nominal tests make at least one false alarm likely. The union bound allocates <span class="math notranslate nohighlight">\(\alpha/M\)</span> per valid test, ensuring FWER <span class="math notranslate nohighlight">\(\le\alpha\)</span> under arbitrary dependence. Use it for a small prespecified set or when any false hotspot could trigger a costly intervention. It can be conservative for thousands of map cells.</p></li>
+<li><p><strong>BH:</strong> Benjamini and Hochberg (1995) shifted the target from “no false result anywhere” to the expected false share of the reported list, seeking more power when true spatial signals exist. Sort p-values and reject through the largest rank <span class="math notranslate nohighlight">\(k\)</span> satisfying <span class="math notranslate nohighlight">\(p_{(k)}\le kq/M\)</span>. The guarantee needs independent valid p-values or the appropriate positive-dependence condition; overlapping supports do not automatically satisfy that condition.</p></li>
+<li><p><strong>BY:</strong> Benjamini and Yekutieli (2001) made the BH thresholds more stringent by dividing <span class="math notranslate nohighlight">\(q\)</span> by <span class="math notranslate nohighlight">\(H_M=\sum_{j=1}^M1/j\)</span>. BY controls FDR under arbitrary dependence among valid p-values, at a power cost. It does not rescue p-values produced by an invalid spatial null.</p></li>
+</ul>
+</section>
+<section id="a-practical-spatial-workflow">
+<h3><span class="section-number">17.4.9. </span>A practical spatial workflow<a class="headerlink" href="#a-practical-spatial-workflow" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Define the family: all locations, radii, outcomes, and scales inspected—not only the final map layer.</p></li>
+<li><p>Choose a spatial null that preserves the features required by the question: CSR for homogeneous point locations, an inhomogeneous point-process model for varying intensity, or a dependence-preserving permutation/block design when justified.</p></li>
+<li><p>Check marginal p-value calibration under that null before adjustment. For overlapping disks, compare row shuffling with full point-pattern simulation; the two answer different questions.</p></li>
+<li><p>Choose FWER for confirmatory, high-consequence hotspot declarations; choose FDR for a clearly labeled exploratory map. Use BH only when its dependence conditions are credible, BY for arbitrary dependence of valid p-values, or a spatial max-statistic procedure when a design-valid joint null is available.</p></li>
+<li><p>Map adjusted q-values or corrected decisions alongside effect sizes and uncertainty. Do not interpret a corrected p-value as a measure of practical importance or causation.</p></li>
+</ol>
+<p><strong>Historical anchors:</strong> Benjamini &amp; Hochberg (1995), <a class="reference external" href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x">FDR as a practical alternative to FWER</a>; Benjamini &amp; Yekutieli (2001), <a class="reference external" href="https://doi.org/10.1214/aos/1013699998">FDR under dependency</a>; NIST, <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm">Bonferroni inequality and simultaneous comparisons</a>.</p>
 </section>
 </section>
 <section id="additional-derivation-visualization-general-purpose-example">
@@ -997,6 +1024,9 @@ D. It removes seasonality</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-s-i-and-why-aggregation-matters">17.4.4. Moran’s I and why aggregation matters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-needs-a-spatial-reference">17.4.5. Inference needs a spatial reference</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">17.4.6. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-spatial-hotspot-maps-need-multiplicity-control">17.4.7. Why spatial hotspot maps need multiplicity control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-methods-arose-and-what-their-guarantees-mean-here">17.4.8. How the methods arose and what their guarantees mean here</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-practical-spatial-workflow">17.4.9. A practical spatial workflow</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">17.5. Additional Derivation Visualization — General-Purpose Example</a></li>

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -513,6 +513,13 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonferroni-bh-and-by-from-first-principles">16.4.2. Bonferroni, BH, and BY from first principles</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-selection-and-hypothesis-families">16.4.3. Correlation, selection, and hypothesis families</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">16.4.4. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-multiple-testing-error-rates-were-invented">16.4.5. Why multiple-testing error rates were invented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-design-path-bonferroni-then-bh-then-by">16.4.6. The design path: Bonferroni, then BH, then BY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-the-procedures-in-practice">16.4.7. How to use the procedures in practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-power-and-confidence-intervals-in-a-search-over-many-hypotheses">16.4.8. Error, power, and confidence intervals in a search over many hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hypergeometric-null-for-one-candidate">16.4.9. A hypergeometric null for one candidate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#realistic-screening-example-neighborhood-health-alerts">16.4.10. Realistic screening example: neighborhood health alerts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-what-multiplicity-correction-does-to-error-and-power">16.4.11. Simulation: what multiplicity correction does to error and power</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">16.5. Additional Derivation Visualization — General-Purpose Example</a></li>
@@ -604,6 +611,266 @@
 <section id="critical-thinking-checkpoint">
 <h3><span class="section-number">16.4.4. </span>Critical thinking checkpoint<a class="headerlink" href="#critical-thinking-checkpoint" title="Link to this heading">#</a></h3>
 <p>Before running code, write down which observations are assumed independent or exchangeable and explain why. Revisit this statement after inspecting the visualizations.</p>
+</section>
+<section id="why-multiple-testing-error-rates-were-invented">
+<h3><span class="section-number">16.4.5. </span>Why multiple-testing error rates were invented<a class="headerlink" href="#why-multiple-testing-error-rates-were-invented" title="Link to this heading">#</a></h3>
+<p>Imagine testing one prespecified hypothesis at level <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>: under a valid null, the long-run false-rejection probability is at most 5%. Now test <span class="math notranslate nohighlight">\(M\)</span> null hypotheses and announce every nominally significant result. If all nulls are true and tests are independent, the chance of at least one false announcement is</p>
+<div class="math notranslate nohighlight">
+\[P(V\ge1)=1-(1-\alpha)^M.\]</div>
+<p>At <span class="math notranslate nohighlight">\(M=100\)</span>, this is about 0.994, not 0.05. Spatial scans, many biomarkers, subgroup comparisons, candidate rules, and repeated time lags all create this <em>multiplicity problem</em>: the analyst wants a useful set of findings, but the chance and fraction of false findings can grow as the search expands.</p>
+<p>For one realized analysis, let <span class="math notranslate nohighlight">\(V\)</span> be the number of false rejections, <span class="math notranslate nohighlight">\(S\)</span> the number of true rejections, and <span class="math notranslate nohighlight">\(R=V+S\)</span> the total number rejected. The <strong>false discovery proportion</strong> is the realized false share,</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{FDP}=\frac{V}{\max(R,1)}.\]</div>
+<p>It is defined as zero when nothing is rejected. We cannot usually observe <span class="math notranslate nohighlight">\(V\)</span> in a real study because the truth of each hypothesis is unknown. The <strong>false discovery rate</strong> is therefore the repeated-study expectation</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{FDR}=E[\mathrm{FDP}],\]</div>
+<p>while the <strong>family-wise error rate</strong> is the probability of at least one false rejection,</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{FWER}=P(V\ge1).\]</div>
+<p>FWER answers “how often will this analysis make even one false claim?” FDP answers “what share of this particular rejection list is false?” FDR answers “across repetitions, what is the expected false share?” Under the complete null, <span class="math notranslate nohighlight">\(V=R\)</span>, so FDP is 1 whenever there is any rejection and 0 otherwise; consequently <span class="math notranslate nohighlight">\(\mathrm{FDR}=\mathrm{FWER}\)</span>. With real signals present, FDR can be much smaller than FWER. They target different scientific decisions, not competing definitions of the same quantity.</p>
+</section>
+<section id="the-design-path-bonferroni-then-bh-then-by">
+<h3><span class="section-number">16.4.6. </span>The design path: Bonferroni, then BH, then BY<a class="headerlink" href="#the-design-path-bonferroni-then-bh-then-by" title="Link to this heading">#</a></h3>
+<p><strong>Bonferroni: protect against any false alarm.</strong> If the cost of even one false claim is unacceptable, allocate a total error budget <span class="math notranslate nohighlight">\(\alpha\)</span> across the family: reject test <span class="math notranslate nohighlight">\(i\)</span> only when <span class="math notranslate nohighlight">\(p_i\le\alpha/M\)</span>. For valid null p-values,</p>
+<div class="math notranslate nohighlight">
+\[P(V\ge1)\le\sum_{i\in H_0}P(p_i\le\alpha/M)\le M_0\frac{\alpha}{M}\le\alpha.\]</div>
+<p>This is the union bound; it needs no independence. The price is that every test faces the same small threshold, even when the analysis contains many true signals and the goal is to rank promising leads. Bonferroni is attractive for a small, prespecified family or high-stakes confirmatory claims. It is conservative because the bound does not exploit the actual dependence or structure.</p>
+<p><strong>BH: control the expected false share of a discovery list.</strong> Benjamini and Hochberg (1995) asked whether exploratory multiple testing could control the expected proportion of false rejections rather than the probability of <em>any</em> error. This changes the target to FDR and can retain more power when some hypotheses are truly non-null. Sort the p-values <span class="math notranslate nohighlight">\(p_{(1)}\le\cdots\le p_{(M)}\)</span>, find</p>
+<div class="math notranslate nohighlight">
+\[k^*=\max\left\{k:p_{(k)}\le\frac{kq}{M}\right\},\]</div>
+<p>and reject the hypotheses with ranks <span class="math notranslate nohighlight">\(1,\ldots,k^*\)</span>. If no rank passes, reject none. BH controls FDR at most <span class="math notranslate nohighlight">\((M_0/M)q\le q\)</span> for independent valid p-values, and also under the standard PRDS positive-dependence condition. Correlation alone does not prove PRDS.</p>
+<p><strong>BY: retain an FDR guarantee under arbitrary dependence.</strong> Spatial overlap and shared outcomes can make the p-values dependent in ways that do not satisfy BH’s guarantee. Benjamini and Yekutieli (2001) replaced <span class="math notranslate nohighlight">\(q\)</span> by <span class="math notranslate nohighlight">\(q/H_M\)</span>, where <span class="math notranslate nohighlight">\(H_M=\sum_{j=1}^M1/j\)</span>, giving thresholds <span class="math notranslate nohighlight">\(kq/(M H_M)\)</span>. BY controls FDR under arbitrary dependence when the true-null p-values are valid. The harmonic factor can make it much more conservative. BY addresses dependence among tests; it does <strong>not</strong> repair a misspecified null model, invalid permutation p-values, outcome-driven selection, or unrecorded analyses.</p>
+</section>
+<section id="how-to-use-the-procedures-in-practice">
+<h3><span class="section-number">16.4.7. </span>How to use the procedures in practice<a class="headerlink" href="#how-to-use-the-procedures-in-practice" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Define the family before seeing outcomes.</strong> State which locations, outcomes, groups, radii, time lags, and thresholds count as one search. Do not quietly split a large search into favorable small families.</p></li>
+<li><p><strong>Validate each marginal p-value first.</strong> The null model and sampling/randomization design must match the data. Multiplicity adjustment cannot make invalid p-values valid.</p></li>
+<li><p><strong>Choose the error target from the decision.</strong> Use FWER control when any false positive is costly (e.g. confirmatory claims or triggering costly intervention). Use FDR control when producing a ranked exploratory list and a limited false share is acceptable.</p></li>
+<li><p><strong>Choose dependence handling.</strong> Bonferroni and BY work under arbitrary dependence of valid p-values; standard BH needs independence or PRDS. For strong structured dependence, consider a design-valid block/randomization max-statistic or a specialist procedure.</p></li>
+<li><p><strong>Report the family size, method, adjusted p-values/rejection set, effect estimates, and intervals.</strong> Significance alone does not show importance or causal effect.</p></li>
+</ol>
+<p>For the five p-values <span class="math notranslate nohighlight">\((0.001,0.012,0.020,0.070,0.40)\)</span> at <span class="math notranslate nohighlight">\(q=0.05\)</span>, Bonferroni rejects only <span class="math notranslate nohighlight">\(0.001\)</span>; BH finds <span class="math notranslate nohighlight">\(k^*=3\)</span> and rejects the first three; BY is more stringent and rejects only <span class="math notranslate nohighlight">\(0.001\)</span>. This is a worked arithmetic illustration, not evidence that one method is universally best.</p>
+<p><strong>Historical sources.</strong> Benjamini &amp; Hochberg (1995), <a class="reference external" href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x"><em>Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing</em></a>, explicitly motivate FDR as an alternative to FWER with potential power gains. Benjamini &amp; Yekutieli (2001), <a class="reference external" href="https://doi.org/10.1214/aos/1013699998"><em>The Control of the False Discovery Rate in Multiple Testing under Dependency</em></a>, treat dependent tests. For the Bonferroni inequality and simultaneous-coverage interpretation, see the <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm">NIST/SEMATECH e-Handbook</a>.</p>
+</section>
+<section id="error-power-and-confidence-intervals-in-a-search-over-many-hypotheses">
+<h3><span class="section-number">16.4.8. </span>Error, power, and confidence intervals in a search over many hypotheses<a class="headerlink" href="#error-power-and-confidence-intervals-in-a-search-over-many-hypotheses" title="Link to this heading">#</a></h3>
+<p>For one valid test, <strong>Type I error</strong> is rejecting a true null, with long-run probability controlled at <span class="math notranslate nohighlight">\(\alpha\)</span>; <strong>Type II error</strong> (<span class="math notranslate nohighlight">\(\beta\)</span>) is missing a specified true effect; and <strong>power</strong> is <span class="math notranslate nohighlight">\(1-\beta\)</span>. A confidence interval describes a repeated-sampling coverage procedure, not a probability distribution over a fixed effect. Power depends on effect size, sample size, noise, and the decision rule, so <span class="math notranslate nohighlight">\(\beta\)</span> is not one universal number.</p>
+<p>With <span class="math notranslate nohighlight">\(M\)</span> hypotheses, a per-test <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> does not mean the whole search has a 5% false-alarm probability. FWER is <span class="math notranslate nohighlight">\(P(V\ge1)\)</span>, while FDR is the expected false-discovery proportion <span class="math notranslate nohighlight">\(E[V/\max(R,1)]\)</span>. Bonferroni controls FWER under valid p-values; BH controls FDR under independence or appropriate positive dependence; BY is more conservative but allows arbitrary dependence among valid p-values. Correction can reduce power, especially for weak or rare signals.</p>
+</section>
+<section id="a-hypergeometric-null-for-one-candidate">
+<h3><span class="section-number">16.4.9. </span>A hypergeometric null for one candidate<a class="headerlink" href="#a-hypergeometric-null-for-one-candidate" title="Link to this heading">#</a></h3>
+<p>If a pre-specified candidate rule marks <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(N\)</span> site-weeks and exactly <span class="math notranslate nohighlight">\(m\)</span> site-weeks have an event, the overlap <span class="math notranslate nohighlight">\(K\)</span> has a hypergeometric reference under uniform fixed-margin allocation:</p>
+<div class="math notranslate nohighlight">
+\[P(K=k)=\frac{\binom nk\binom{N-n}{m-k}}{\binom Nm},\quad E[K]=n\frac mN,\quad \mathrm{Var}(K)=n\frac mN\left(1-\frac mN\right)\frac{N-n}{N-1}.\]</div>
+<p><span class="math notranslate nohighlight">\(K\)</span> is random; <span class="math notranslate nohighlight">\(E[K]\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Var}(K)\)</span> are scalar summaries fixed by <span class="math notranslate nohighlight">\(N,n,m\)</span>, not distributions of their own. The PMF is discrete and can be skewed for rare outcomes. For example, among 500 site-weeks with 60 event weeks, a candidate alert covering 100 site-weeks has expected overlap 12; sampling without replacement reduces its variance by the finite-population correction. Across many candidates and lags, these overlaps share outcomes and are dependent: the per-candidate hypergeometric null alone does not justify BH’s dependence assumptions or repair invalid p-values.</p>
+</section>
+<section id="realistic-screening-example-neighborhood-health-alerts">
+<h3><span class="section-number">16.4.10. </span>Realistic screening example: neighborhood health alerts<a class="headerlink" href="#realistic-screening-example-neighborhood-health-alerts" title="Link to this heading">#</a></h3>
+<p>Imagine a public-health team predefines 200 neighborhoods and tests whether each has an unusually high heat-related emergency rate during the same month. These are <strong>constructed data for teaching</strong>, not findings about an actual city. The team should report effect estimates and confidence intervals, control a prespecified family of tests, and use a null model that accounts for shared weather and neighboring neighborhoods. The simulation below contrasts unadjusted, Bonferroni, BH, and BY decisions under an idealized independent-test model; it shows expected behavior, not a guarantee for correlated spatial tests.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span>
+
+<span class="n">population_size</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">observed_event_site_weeks</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">alert_site_weeks</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">possible_overlaps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">alert_site_weeks</span> <span class="o">-</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="n">observed_event_site_weeks</span><span class="p">)),</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">alert_site_weeks</span><span class="p">,</span> <span class="n">observed_event_site_weeks</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">overlap_probabilities</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span>
+    <span class="n">possible_overlaps</span><span class="p">,</span>
+    <span class="n">population_size</span><span class="p">,</span>
+    <span class="n">observed_event_site_weeks</span><span class="p">,</span>
+    <span class="n">alert_site_weeks</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">expected_overlap</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+    <span class="n">population_size</span><span class="p">,</span> <span class="n">observed_event_site_weeks</span><span class="p">,</span> <span class="n">alert_site_weeks</span>
+<span class="p">)</span>
+<span class="n">variance_overlap</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span>
+    <span class="n">population_size</span><span class="p">,</span> <span class="n">observed_event_site_weeks</span><span class="p">,</span> <span class="n">alert_site_weeks</span>
+<span class="p">)</span>
+
+<span class="n">candidate_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">population_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">event_fraction</span> <span class="o">=</span> <span class="n">observed_event_site_weeks</span> <span class="o">/</span> <span class="n">population_size</span>
+<span class="n">expected_by_size</span> <span class="o">=</span> <span class="n">candidate_sizes</span> <span class="o">*</span> <span class="n">event_fraction</span>
+<span class="n">variance_by_size</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">candidate_sizes</span> <span class="o">*</span> <span class="n">event_fraction</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">event_fraction</span><span class="p">)</span>
+    <span class="o">*</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="n">candidate_sizes</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">population_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">possible_overlaps</span><span class="p">,</span> <span class="n">overlap_probabilities</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#278a78"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">expected_overlap</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"E[K] = </span><span class="si">{</span><span class="n">expected_overlap</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"PMF: overlap for one rule"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Event site-weeks in alert group (K)"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Probability"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">candidate_sizes</span><span class="p">,</span> <span class="n">expected_by_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#276c9b"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">alert_site_weeks</span><span class="p">],</span> <span class="p">[</span><span class="n">expected_overlap</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Expected overlap"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Alert group size n"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"E[K]"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">candidate_sizes</span><span class="p">,</span> <span class="n">variance_by_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#b66c19"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">alert_site_weeks</span><span class="p">],</span> <span class="p">[</span><span class="n">variance_overlap</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Variance under fixed margins"</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Alert group size n"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Var(K)"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"One fixed-margin test among many candidates"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.04</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"N=</span><span class="si">{</span><span class="n">population_size</span><span class="si">}</span><span class="s2">, m=</span><span class="si">{</span><span class="n">observed_event_site_weeks</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">alert_site_weeks</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"E[K]=</span><span class="si">{</span><span class="n">expected_overlap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; Var(K)=</span><span class="si">{</span><span class="n">variance_overlap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; SD(K)=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance_overlap</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PMF sums to </span><span class="si">{</span><span class="n">overlap_probabilities</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7ffe949676d19565b3a4262cb5ff47fa836185089f1682888b65f39fcee623fa.png" src="../../_images/7ffe949676d19565b3a4262cb5ff47fa836185089f1682888b65f39fcee623fa.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=500, m=60, n=100
+E[K]=12.000; Var(K)=8.465; SD(K)=2.909
+PMF sums to 1.000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulation-what-multiplicity-correction-does-to-error-and-power">
+<h3><span class="section-number">16.4.11. </span>Simulation: what multiplicity correction does to error and power<a class="headerlink" href="#simulation-what-multiplicity-correction-does-to-error-and-power" title="Link to this heading">#</a></h3>
+<p>The following experiment generates independent two-group tests. First, all 200 null hypotheses are true; we estimate the probability of at least one false rejection (FWER). Then 10 of 200 hypotheses have a real 6-percentage-point increase; we compare the average false-discovery proportion and the fraction of those 10 signals detected. This is an idealized independent-test benchmark, not a model of correlated neighborhoods. Monte Carlo estimates vary with the seed and number of repetitions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">simulation_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">20261008</span><span class="p">)</span>
+<span class="n">number_of_tests</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">sample_size_per_arm</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">replications</span> <span class="o">=</span> <span class="mi">2500</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">null_rate</span> <span class="o">=</span> <span class="mf">0.10</span>
+<span class="n">signal_rate</span> <span class="o">=</span> <span class="mf">0.16</span>
+<span class="n">number_of_signals</span> <span class="o">=</span> <span class="mi">10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">two_proportion_pvalues</span><span class="p">(</span><span class="n">control_counts</span><span class="p">,</span> <span class="n">treatment_counts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">pooled_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">control_counts</span> <span class="o">+</span> <span class="n">treatment_counts</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pooled_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pooled_rate</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">z_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+        <span class="n">treatment_counts</span> <span class="o">/</span> <span class="n">n</span> <span class="o">-</span> <span class="n">control_counts</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">standard_error</span><span class="p">,</span>
+        <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">pooled_rate</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">where</span><span class="o">=</span><span class="n">standard_error</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_values</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">step_up_rejections</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dependence_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sorted_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">thresholds</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="o">/</span> <span class="p">(</span><span class="n">p_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dependence_factor</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">passes</span> <span class="o">=</span> <span class="n">sorted_p</span> <span class="o">&lt;=</span> <span class="n">thresholds</span>
+    <span class="n">largest_passing_rank</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">passes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="n">cutoff_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">largest_passing_rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">cutoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span><span class="n">sorted_p</span><span class="p">,</span> <span class="n">cutoff_index</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">p_values</span> <span class="o">&lt;=</span> <span class="n">cutoff</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">largest_passing_rank</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_procedures</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">true_signal_count</span><span class="p">):</span>
+    <span class="n">procedures</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"Unadjusted 0.05"</span><span class="p">:</span> <span class="n">p_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span><span class="p">,</span>
+        <span class="s2">"Bonferroni"</span><span class="p">:</span> <span class="n">p_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">number_of_tests</span><span class="p">,</span>
+        <span class="s2">"BH"</span><span class="p">:</span> <span class="n">step_up_rejections</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span>
+        <span class="s2">"BY"</span><span class="p">:</span> <span class="n">step_up_rejections</span><span class="p">(</span>
+            <span class="n">p_values</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number_of_tests</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">rejected</span> <span class="ow">in</span> <span class="n">procedures</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">false_rejections</span> <span class="o">=</span> <span class="n">rejected</span><span class="p">[:,</span> <span class="n">true_signal_count</span><span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">total_rejections</span> <span class="o">=</span> <span class="n">rejected</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">false_discovery_proportion</span> <span class="o">=</span> <span class="n">false_rejections</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">total_rejections</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">signal_power</span> <span class="o">=</span> <span class="n">rejected</span><span class="p">[:,</span> <span class="p">:</span><span class="n">true_signal_count</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">"method"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s2">"mean FDP"</span><span class="p">:</span> <span class="n">false_discovery_proportion</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+            <span class="s2">"FWER"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">false_rejections</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s2">"signal power"</span><span class="p">:</span> <span class="n">signal_power</span><span class="p">,</span>
+        <span class="p">})</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+
+<span class="c1"># Complete null: every rejection is false, so FWER is the chance of any rejection.</span>
+<span class="n">null_control</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_size_per_arm</span><span class="p">,</span> <span class="n">null_rate</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">replications</span><span class="p">,</span> <span class="n">number_of_tests</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">null_treatment</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_size_per_arm</span><span class="p">,</span> <span class="n">null_rate</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">replications</span><span class="p">,</span> <span class="n">number_of_tests</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">complete_null_p_values</span> <span class="o">=</span> <span class="n">two_proportion_pvalues</span><span class="p">(</span>
+    <span class="n">null_control</span><span class="p">,</span> <span class="n">null_treatment</span><span class="p">,</span> <span class="n">sample_size_per_arm</span>
+<span class="p">)</span>
+<span class="n">complete_null_fwer</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Unadjusted 0.05"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">complete_null_p_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="s2">"Bonferroni"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">complete_null_p_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">number_of_tests</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="s2">"BH"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">step_up_rejections</span><span class="p">(</span><span class="n">complete_null_p_values</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="s2">"BY"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">step_up_rejections</span><span class="p">(</span>
+        <span class="n">complete_null_p_values</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number_of_tests</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+<span class="p">}</span>
+
+<span class="c1"># Mixed configuration: the first 10 hypotheses have a 6-point increase.</span>
+<span class="n">control_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">number_of_tests</span><span class="p">,</span> <span class="n">null_rate</span><span class="p">)</span>
+<span class="n">treatment_probabilities</span> <span class="o">=</span> <span class="n">control_probabilities</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">treatment_probabilities</span><span class="p">[:</span><span class="n">number_of_signals</span><span class="p">]</span> <span class="o">=</span> <span class="n">signal_rate</span>
+<span class="n">mixed_control</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_size_per_arm</span><span class="p">,</span> <span class="n">control_probabilities</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">replications</span><span class="p">,</span> <span class="n">number_of_tests</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">mixed_treatment</span> <span class="o">=</span> <span class="n">simulation_rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+    <span class="n">sample_size_per_arm</span><span class="p">,</span> <span class="n">treatment_probabilities</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">replications</span><span class="p">,</span> <span class="n">number_of_tests</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">mixed_p_values</span> <span class="o">=</span> <span class="n">two_proportion_pvalues</span><span class="p">(</span>
+    <span class="n">mixed_control</span><span class="p">,</span> <span class="n">mixed_treatment</span><span class="p">,</span> <span class="n">sample_size_per_arm</span>
+<span class="p">)</span>
+<span class="n">mixed_results</span> <span class="o">=</span> <span class="n">compare_procedures</span><span class="p">(</span><span class="n">mixed_p_values</span><span class="p">,</span> <span class="n">number_of_signals</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">method_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">complete_null_fwer</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">method_names</span><span class="p">,</span> <span class="p">[</span><span class="n">complete_null_fwer</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">method_names</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="s2">"#276c9b"</span><span class="p">,</span> <span class="s2">"#278a78"</span><span class="p">,</span> <span class="s2">"#b66c19"</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Nominal 0.05"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Complete null: chance of any false rejection"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Estimated FWER"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">mixed_results</span><span class="p">[</span><span class="s2">"method"</span><span class="p">],</span> <span class="n">mixed_results</span><span class="p">[</span><span class="s2">"signal power"</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#c34e36"</span><span class="p">,</span> <span class="s2">"#276c9b"</span><span class="p">,</span> <span class="s2">"#278a78"</span><span class="p">,</span> <span class="s2">"#b66c19"</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Mixed configuration: true-signal detection"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Estimated power"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Complete-null FWER:"</span><span class="p">,</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">complete_null_fwer</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Mixed-null results (means across repetitions):"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mixed_results</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2f89a0fce81ecec515f9a628ec9c594100c3f2ccdef2c1dd13a249b865fad846.png" src="../../_images/2f89a0fce81ecec515f9a628ec9c594100c3f2ccdef2c1dd13a249b865fad846.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Complete-null FWER: {'Unadjusted 0.05': np.float64(1.0), 'Bonferroni': np.float64(0.045), 'BH': np.float64(0.047), 'BY': np.float64(0.01)}
+Mixed-null results (means across repetitions):
+         method  mean FDP  FWER  signal power
+Unadjusted 0.05     0.611 1.000         0.590
+     Bonferroni     0.025 0.037         0.066
+             BH     0.040 0.086         0.092
+             BY     0.005 0.008         0.030
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation.</strong> Under the complete null, each unadjusted test is calibrated at 0.05 but the chance of at least one false alarm across 200 tests is about 1. The corrections reduce that family-level risk. In the mixed case, estimated <span class="math notranslate nohighlight">\(\beta=1-\text{power}\)</span> is about 0.934 for Bonferroni, 0.908 for BH, and 0.970 for BY; this design has many weak signals relative to the 200-test family, so stringent correction misses most of them. The answer is not to skip correction: improve measurement/sample size, prespecify a smaller scientific family, or validate discoveries in independent data. These independence-based results do not establish control for spatially correlated neighborhoods.</p>
 </section>
 </section>
 <section id="additional-derivation-visualization-general-purpose-example">
@@ -986,6 +1253,13 @@ D. To force independence</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonferroni-bh-and-by-from-first-principles">16.4.2. Bonferroni, BH, and BY from first principles</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-selection-and-hypothesis-families">16.4.3. Correlation, selection, and hypothesis families</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-thinking-checkpoint">16.4.4. Critical thinking checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-multiple-testing-error-rates-were-invented">16.4.5. Why multiple-testing error rates were invented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-design-path-bonferroni-then-bh-then-by">16.4.6. The design path: Bonferroni, then BH, then BY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-the-procedures-in-practice">16.4.7. How to use the procedures in practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-power-and-confidence-intervals-in-a-search-over-many-hypotheses">16.4.8. Error, power, and confidence intervals in a search over many hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hypergeometric-null-for-one-candidate">16.4.9. A hypergeometric null for one candidate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#realistic-screening-example-neighborhood-health-alerts">16.4.10. Realistic screening example: neighborhood health alerts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-what-multiplicity-correction-does-to-error-and-power">16.4.11. Simulation: what multiplicity correction does to error and power</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-derivation-visualization-general-purpose-example">16.5. Additional Derivation Visualization — General-Purpose Example</a></li>
